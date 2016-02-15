@@ -8,9 +8,9 @@ define("DEFAULTDISTANCE", 100); //Default zoekstraal in meters
 //DB Spullen
 include_once("cl/rb.php");
 
-/*$database = "jorisxl2_advies";
-$username = "jorisxl2_advies";
-$password = "culitaria";*/
+/*$database = "";
+$username = "";
+$password = "";*/
 
 $database = "advies";
 $username = "root";
