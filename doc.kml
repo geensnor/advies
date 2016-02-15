@@ -1,0 +1,3150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Geensnor adviseert</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>Geensnor map</name>
+			<Placemark>
+				<name>Martino IJs</name>
+				<description><![CDATA[Winnaar van de Gouden IJsspatel 2013 en 2014! Blijktbaar dus het beste ijs wat je kan krijgen (in Nederland). Het smaakte inderdaad prima. Bovendien niet heel erg duur. Voor 1 bolletje betaal je 1 euro.<br><br>gx_image_links: http://www.winkelshopping.nl/blog/wp-content/uploads/2014/04/martino-rhenen-01.jpg]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.winkelshopping.nl/blog/wp-content/uploads/2014/04/martino-rhenen-01.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.565301,51.957834,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Robert Standl Gastwirtschaft Zum Wilden Mann e.U.</name>
+				<description><![CDATA[Heel erg "Oostenrijks restaurant". Klederdracht en de hele handel. Goed en goedkoop eten en bier!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.042488000000048,47.800461,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Lunch Cafe Marley &amp; Me</name>
+				<description><![CDATA[Slissende hipster serveert lekkere pasta. Het heet een "Lunch Cafe", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>14.506334000000038,46.047562,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Badeschiff</name>
+				<description><![CDATA[Boot in de Donau waarin een zwembad, restaurant en dansschool zitten. Alles in de bekende "afgeragd chique" stijl. Aangezien Wenen niet zo hip is, is dit wel een aardige uitzondering. Kaart is erg gevarieerd en het eten (in elk geval de Risotto) is erg lekker.<br><br>gx_image_links: http://www.wien.info/media/images/holy-moly-badeschiff-1.jpg/image_Startbild]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.wien.info/media/images/holy-moly-badeschiff-1.jpg/image_Startbild</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>16.381591999999955,48.211798,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cafeterapie</name>
+				<description><![CDATA[Tsjechen hebben volgens mij niet echt een ontbijtcultuur en in Praag is nergens een broodje te krijgen. Dit cafe is daar een uitzondering op. Je kan hier prima ontbijten en de espresso is heerlijk. Ligt een beetje buiten het door toeristen platgelopen centrum. Kost (zoals alles in Praag) helemaal niets. <br><br>gx_image_links: http://www.restu.cz/photo/original/upload/restaurant/5381_cafeterapie.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.restu.cz/photo/original/upload/restaurant/5381_cafeterapie.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>14.415627999999971,50.068312,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Vyšehrad</name>
+				<description><![CDATA[De "Praagse burcht" ligt noordelijker en is enorm toeristisch en vol. Deze burcht is kleiner, mooier en veel minder druk. Over de muren kun je prima wandelen en je hebt vrijwel constant een mooi uitzicht over Praag. Als je honger of dorst krijg, zijn er bovendien een paar worst/bier tentjes binnen de burcht.<br><br>gx_image_links: http://www.czechatlas.com/images/foto_kat/stredni/s7475_podolske_n.jpg]]></description>
+				<styleUrl>#icon-1371</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.czechatlas.com/images/foto_kat/stredni/s7475_podolske_n.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>14.420024000000012,50.064415,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Ristorante Pizzeria Giuseppe</name>
+				<description><![CDATA[Veel te vette pizza's in vaag, donker restaurant. Niet doen. Even iets anders zoeken.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>12.798226,47.32378,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Containall</name>
+				<description><![CDATA[Verstopte biergarten waar Segwaygidsen na hun werk komen blowen. Mooi aan het water en alles wat je van een prima biergarten verwacht. Is tevens gallerie/kunstdingetje.<br><br>gx_image_links: http://www.prague-up.com/wp-content/gallery/podelreky_containell/img_0338.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.prague-up.com/wp-content/gallery/podelreky_containell/img_0338.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>14.410483999999997,50.088471,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Ichnusa Botega Bistro</name>
+				<description><![CDATA[Sardijns restaurant. Klein restaurantje wat niet helemaal vol zit met toeristen. Naast de specialiteiten op het krijtbord, dreunt de strenge serveerster ook nog wat gerechten in steenkolenengels op als je wilt. Beste restaurant in Praag (voor zover ik weet...) <br><br>gx_image_links: http://media-cdn.tripadvisor.com/media/photo-s/02/fe/dd/29/ichnusa-botega-bistro.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://media-cdn.tripadvisor.com/media/photo-s/02/fe/dd/29/ichnusa-botega-bistro.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>14.405858999999966,50.08053,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hambara</name>
+				<description><![CDATA[Schuur in kaarslicht. In een achteraf straatje in Sofia vind men deze kaars verlichte schuur.  Zoek naar een steegje, zonder verlichting en aan het einde een houten schuurtje. Dit is de ingang naar een grotere houten schuur waar een kroegje in zit. Het steegje zit trouwens links van het groene gebouw. Donker maar sfeervol en wel tamelijk uniek. Vraag naar victor, die geeft je gratis bier.<br><br>gx_image_links: https://isois.ois.muni.cz/public/fotosoutez/index.php?action=resampledImage&id=467&size=original]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>https://isois.ois.muni.cz/public/fotosoutez/index.php?action=resampledImage&amp;id=467&amp;size=original</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>23.325818600000048,42.69003259999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Camping les mirabelles</name>
+				<description><![CDATA[Rust tot en met. Mooie kleine camping met mooie plekjes aan de rand van het dorp. Weinig vermaak maar wel veel rust. En dat is ook iets waard. De eigenaar stookt mirabelles drank<br><br>gx_image_links: http://www.ot-mirecourt.fr/images_comm/camping_mirabelles.jpg]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.ot-mirecourt.fr/images_comm/camping_mirabelles.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.981073199999969,48.2343819,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>L'Avenue restaurant/hotel</name>
+				<description><![CDATA[Al krijg je er een miljoen voor, hier nooit gaan eten. Ongeloof ranzig eten maar dat is niet het ergste. Het eten was gewoon (zichtbaar) bedorven. Dus tenzij je als ons er ziek van wilt worden of alles terug wilt sturen naar de keuken, hier gewoon nooit gaan eten.<br><br>gx_image_links: http://www.weekendesk.fr/image_cache/A477000/477600/477600_986_485_FSImage_1_Le_restaurant_L_Avenue.jpg]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.weekendesk.fr/image_cache/A477000/477600/477600_986_485_FSImage_1_Le_restaurant_L_Avenue.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.940275799999995,48.20375869999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Camping Au Manoir de l'Abbaye</name>
+				<description><![CDATA[Prima camping. Mooie plekjes, niet te groot bij een oud landhuis. Apart sanitair. De douchegordijnen zijn nog van voor de revolutie. Een pain is trouwens een baquet...of andersom, en de croissant zijn niet zo best. Maar goed, ze worden wel elke ochtend voor je klaar gelegd. Je mag je tent neer zetten waar je wilt.<br><br>gx_image_links: http://godfroy.pagesperso-orange.fr/pict/mrt.jpg]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://godfroy.pagesperso-orange.fr/pict/mrt.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-0.5954329999999572,49.24906,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>La Marée</name>
+				<description><![CDATA[Als je in de regio bent...eet hier. Heerlijke (vis) gegeten met uitzicht op de haven. De kok weet wat hij doet en de gerechten zijn met zorg en aandacht gemaakt. Eindelijke weer eens een goed frans restaurant<br><br>gx_image_links: http://restaurant.michelin.fr/data/public/styles/diapo_article/public/field/image/La%20Maree_art.jpg?itok=ozs-feeJ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://restaurant.michelin.fr/data/public/styles/diapo_article/public/field/image/La%20Maree_art.jpg?itok=ozs-feeJ</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.0466260000000602,49.387909,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hotel &amp; Restaurant The House</name>
+				<description><![CDATA[17 euro per persoon per nacht. Alles is goedkoop in Sofia en dit dus ook. Prima hotel, mooie ruimer kamer, fijne bedden. Wel merkbaar oud. De badkamer was bruin met bruin en bruin en qua schoonmaken waren die haren op de grond niet helemaal top. <br><br>gx_image_links: http://media-cdn.tripadvisor.com/media/photo-s/01/12/51/eb/our-room.jpg]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://media-cdn.tripadvisor.com/media/photo-s/01/12/51/eb/our-room.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>23.31791099999998,42.687567,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Zum Bautzner Tor</name>
+				<description><![CDATA[Traditioneel, klassiek maar wel met wat jong volk. Duitse biertjes drinken zonder fratsen. Leuk interieur en weinig fratsen<br><br>gx_image_links: http://www.dd-inside.com/bilder/67500-bautzner-tor_a.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.dd-inside.com/bilder/67500-bautzner-tor_a.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.751810999999977,51.062627,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Wohnzimmer</name>
+				<description><![CDATA[Kringloop meubeltjes en biertjes drinken. Leuk!<br><br>gx_image_links: https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/529620_392771394113046_1848818410_n.jpg http://www.wohnzimmer-dresden.de/fileadmin/templates/img/das_wohnzimmer.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/529620_392771394113046_1848818410_n.jpg http://www.wohnzimmer-dresden.de/fileadmin/templates/img/das_wohnzimmer.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.75260400000002,51.067971,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Katy's Garage</name>
+				<description><![CDATA[Oeh lala, wat een top brunch krijg je hier. Niet goedkoop maar wel de hele dag onbeperkt heel erg veel lekkere dingetjes eten. Met name het enorme aanbod van verse koude en warme hapjes valt op.<br><br>gx_image_links: http://mw2.google.com/mw-panoramio/photos/medium/2525588.jpg http://foodandphotosrtw.com/wp-content/uploads/2014/03/DresdenNeustadt_008.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://mw2.google.com/mw-panoramio/photos/medium/2525588.jpg http://foodandphotosrtw.com/wp-content/uploads/2014/03/DresdenNeustadt_008.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.75169900000003,51.066761,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Apartamenta</name>
+				<description><![CDATA[Apartamenta, The Apartment, A:part:mental of gewoon Апартамента. Niemand weet precies hoe het heet, maar het is alleraardigst. De kroeg/club bestaat uit verschillende kamers waardoor een soort huisfeestvibe ontstaat. Bier moet zelf gehaald worden in de keuken. Ondanks de losse uitstraling is het personeel opmerkelijk precies. Elk kussentje wordt zorgvuldig recht gelegd. Vervolgens is er regelmatig controle of het kussentje nog wel echt recht ligt. <br><br>gx_image_links: http://mariaetvincent.blogs-de-voyage.fr/wp-content/blogs.dir/2000/files/2009/05/apart1.jpg https://irs3.4sqi.net/img/general/600x600/45443394_rCdB-6oXpcL8CAVsezfvz9S3F2jjLDZP6Ts7GroTcfc.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://mariaetvincent.blogs-de-voyage.fr/wp-content/blogs.dir/2000/files/2009/05/apart1.jpg https://irs3.4sqi.net/img/general/600x600/45443394_rCdB-6oXpcL8CAVsezfvz9S3F2jjLDZP6Ts7GroTcfc.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>23.324374300000045,42.68970059999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Museum of socialism</name>
+				<description><![CDATA[Niet een buurt waarin je door heen wilt als het donker is. Midden in een vage suburb van sofia is hier opeens het socialistisch museum. Leuke collectie socialistische schilderijen met werkende arbeiders en een beeldentuin vol met afgedankte communistische kunst. Let vooral op de leninkoppen en de rode ster in de tuin die vroeger op het largo gebouw stond. Let op, het is nergens aangegeven en je moet het hek bij de portier door.<br><br>gx_image_links: http://media-cdn.tripadvisor.com/media/photo-s/04/28/4c/80/museum-of-socialist-art.jpg]]></description>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://media-cdn.tripadvisor.com/media/photo-s/04/28/4c/80/museum-of-socialist-art.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>23.357348300000012,42.6663151,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Boom! Burgers &amp; Steaks</name>
+				<description><![CDATA[Hamburgerrestaurant van het type die je in elke stad van Nederland kunt vinden. Prima hamburgers en spotgoedkoop (zoals alles in Sofia). De burgers zijn niet heel groot, dus als je honger hebt moet je er friet of een tweede hamburger bij bestellen. Ze willen nog wel eens een beetje teveel blauwe kaas op de burger gooien.<br><br>gx_image_links: http://3.bp.blogspot.com/-BQQUpNFtMJk/UNBUK7sMrRI/AAAAAAAAAC4/ICxeSHLImvQ/s1600/P1050147.JPG]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://3.bp.blogspot.com/-BQQUpNFtMJk/UNBUK7sMrRI/AAAAAAAAAC4/ICxeSHLImvQ/s1600/P1050147.JPG</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>23.319683199999986,42.6935143,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Art Hostel</name>
+				<description><![CDATA[Onder het hostel zit een kroeg waar je ook in mag als je niet in het hostel slaapt. Als het mooi weer is kun je in de achtertuin zitten. Bij slecht weer in de kelder. Het publiek bestaat voornamelijk uit jonge hostelbewoners. De kwaliteit van de livemuziek is niet altijd om over naar huis te schrijven.<br><br>gx_image_links: http://media-cdn.tripadvisor.com/media/photo-s/03/9f/42/ec/art-hostel.jpg http://media-cdn.tripadvisor.com/media/photo-s/04/2d/19/ed/art-hostel.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://media-cdn.tripadvisor.com/media/photo-s/03/9f/42/ec/art-hostel.jpg http://media-cdn.tripadvisor.com/media/photo-s/04/2d/19/ed/art-hostel.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>23.322171000000026,42.691089,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KARTOFFEL</name>
+				<description><![CDATA[Kartoffel Utrecht...doe maar niet. Het idee klinkt leuk maar eigenlijk is het eten niet zo goed, de bediening nog minder en de sfeer is eigenlijk ook niet tof. Wij werden vergeten door de bediening en vervolgens zoet gehouden met schnapz die de serveerster olijk mee dronk. De Itunes DJ machine gaf nog een beetje troost. (connect met remote en plaatjes aanvragen)<br><br>gx_image_links: http://kartoffelutrecht.nl/wp-content/uploads/2013/03/foto2.jpg]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://kartoffelutrecht.nl/wp-content/uploads/2013/03/foto2.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.119673000000034,52.093437,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>oud zandvoortsch vischrest De Meerpaal</name>
+				<description><![CDATA[Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer/eigenaar wees ons naar een reeds gereserveerd tafeltje, want hij bepaalde wie waar zat, want hij was de baas. Erg smakelijk klassiek visrestaurant met ouderwets interieur. Wij hadden tarbot en ouderwetse  aal. Beide erg lekker. Laat de gastheer je adviseren in de wijnkeuze, dat kan hij ook goed. <br><br>gx_image_links: http://media-cdn.tripadvisor.com/media/photo-s/03/03/7c/52/de-meerpaal.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://media-cdn.tripadvisor.com/media/photo-s/03/03/7c/52/de-meerpaal.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.53167499999995,52.374405,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>1611</name>
+				<description><![CDATA[We spreken uit ervaring als we zeggen dat het lastig is om een goed, niet te duur, gezellig restaurant te vinden in Veere. Dit italiaanse restaurant bleek na een rondje door Veere prima te voldoen. Bediening is vlot en het eten was lekker. Restaurant is wel vrij klein en zit ook best snel vol.<br><br>gx_image_links: http://www.pzc.nl/polopoly_fs/1.4065645.1382610723!/image/image.JPG_gen/derivatives/landscape_800_600/image-4065645.JPG]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.pzc.nl/polopoly_fs/1.4065645.1382610723!/image/image.JPG_gen/derivatives/landscape_800_600/image-4065645.JPG</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>3.667875699999968,51.549316,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hôtel-Refuge du Prarion</name>
+				<description><![CDATA[Tja, waar moeten we beginnen. Het eten is goor, koud en niet goedkoop. Het personeel is niet vriendelijk en doet moeilijk als je zegt dat het happy hour is begonnen. Er is al zeker 30 jaar niets meer aan het interieur gedaan en de toiletten stinken naar pis. Helaas het enige restaurant in de buurt van de lift. Als je wat verder het gebied in board/skied zijn er waarschijnlijk betere plekken.<br><br>gx_image_links: http://www.prarion.com/images/prarion/prarion04.jpg]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.prarion.com/images/prarion/prarion04.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.751823000000059,45.8844,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant La Flambée</name>
+				<description><![CDATA[Lekker eten in Chamonix. Dat kan hier. Het interieur bestaat uit hout voorzien van allerlei ski-attributen van weleer. De kaart bestaat uit allerlei verschillende spijzen maar wij hadden de hamburger met lokale kaas en geinige uienchutney. Een aanrader maar kijk uit voor de kapotte stoel. <br><br>gx_image_links: http://www.chamonix.com/images/fiche/sitrares403282_347739_caleche0009.jpg http://tellmewhere.us/media/300s/D1BDCA22-20C4-4BFD-9CE7-861F00F02A52.jpeg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.chamonix.com/images/fiche/sitrares403282_347739_caleche0009.jpg http://tellmewhere.us/media/300s/D1BDCA22-20C4-4BFD-9CE7-861F00F02A52.jpeg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.872672999999963,45.922951,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bateau Ivre</name>
+				<description><![CDATA[Top ontbijt, leuke kroeg.<br><br>gx_image_links: http://europeupclose.com/wp-content/uploads/2009/10/bateau-ivre-3.jpg]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://europeupclose.com/wp-content/uploads/2009/10/bateau-ivre-3.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.422573000000057,52.500473,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>De Veiling</name>
+				<description><![CDATA[Een tip waardig. Mooie locatie maar vooral erg lekker eten. Geen kroeghap maar een volwaardig restaurant met een creatieve inslag. Goed bereid en opmerkelijke gerechten, met zorg bereid. Ook niet zo gek duur. <br><br>gx_image_links: http://s3-media2.fl.yelpassets.com/bphoto/lBxB9xDC4ObSwfUq6eyiWw/ls.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://s3-media2.fl.yelpassets.com/bphoto/lBxB9xDC4ObSwfUq6eyiWw/ls.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.106784999999945,52.082702,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>L'Auberge Damhotel B.V.</name>
+				<description><![CDATA[Brasserie en restaurant. Wij gingen naar de brasserie waar je voor een schappelijk prijsje een smakelijke burger en mooie sate kreeg. Leuke locatie, let vooral ff op de bijzondere overkapte sluis uit 15honderdnogwat<br><br>gx_image_links: http://www.event1001.com/objectimages/15792/main.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.event1001.com/objectimages/15792/main.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.048874999999953,52.512229,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Biercafé De Goudse Eend</name>
+				<description><![CDATA[Jazeker een biercafe in Gouda. Met bier...en soorten bier. Je kent het wel. Wel tikkie achteraf en iets te veel systeemplafond.<br><br>gx_image_links: https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/c0.0.851.315/p851x315/10862596_687782491339285_2605242131236281574_o.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xft1/t31.0-8/c0.0.851.315/p851x315/10862596_687782491339285_2605242131236281574_o.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.71238900000003,52.013152,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>TRANSIT</name>
+				<description><![CDATA[WE OFFER A UNIQUE, CASUAL ASIAN DINING EXPERIENCE IN THE HEART OF BERLIN. Schrijven ze op de website. Dat klopt. Niet duur, wel heel lekker. Stokkies eten!<br><br>gx_image_links: http://2.bp.blogspot.com/-miQIcS2yyYI/Ueo3NipxMyI/AAAAAAAAABQ/BhBqlyqmNGY/s640/securedownload-3.jpeg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://2.bp.blogspot.com/-miQIcS2yyYI/Ueo3NipxMyI/AAAAAAAAABQ/BhBqlyqmNGY/s640/securedownload-3.jpeg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.402258999999958,52.52865,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The Bird in Xberg</name>
+				<description><![CDATA[Hamburgers! Volgens vele de beste in Berlijn. Allerlei soorten en maten maar onder aan de streep allemaal erg smaakvol. Wel hoog vreetschuur gehalte, maar wel authentiek. Ow en tamelijk pretentieus en ze hebben een mening over eten met mes en vork<br><br>gx_image_links: http://www.stilinberlin.de/wp/wp-content/uploads/2013/02/thebird2.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.stilinberlin.de/wp/wp-content/uploads/2013/02/thebird2.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.421714000000067,52.494033,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Zwanenburcht</name>
+				<description><![CDATA[Niet naar het museumpje in de toren gaan. Oude puinzooi en niet interessant. Uitzicht is ook niet mooi omdat de ramen te klein en goor zijn. Ga eigenlijk maar helemaal niet naar Kleve. Misschien als je goedkoop drank moet hebben (zie ander advies)<br><br>gx_image_links: http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kleve_schwanenburg_turm_01.jpg/768px-Kleve_schwanenburg_turm_01.jpg]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kleve_schwanenburg_turm_01.jpg/768px-Kleve_schwanenburg_turm_01.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.1387999999999465,51.78659,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cafe d'Alderliefste</name>
+				<description><![CDATA[Dit cafe wordt geadviseerd door de prima bediening. Voor de rest is dit een redelijk gemiddelde kroeg, maar de barman was bijzonder alert. Of de temperatuur in de ruimte nu iets te hoog is of de bodem van je glas komt in zicht, de barman voelt je goed aan en handelt direct. Efficiënte, pretentieloze service waar wij van Geensnor van houden. <br><br>gx_image_links: http://www.welkominbergen.com/wp-content/uploads/2013/09/Afbeelding-7-300x238.png]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.welkominbergen.com/wp-content/uploads/2013/09/Afbeelding-7-300x238.png</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.700906000000032,52.66935600000001,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Goesting Restaurant</name>
+				<description><![CDATA[Goesting Goesting....wat zal ik er over zeggen. Stond bekend als 1 van de beste restaurants van Utrecht maar, en het zal velen teleurstellen, ik ga het afraden. Geensnor kreeg gerookte zwaan (ja zwaan), maar gerookte zwaan is helemaal niet lekker. En riso Venere (zwarte liefdesrijst) was helemaal niet lekker samen met zeeduivel. Allemaal hele mooie gerechten maar uiteindelijk geen lekkere smaken bij elkaar. Dus, doe maar niet, zeker voor dat geld.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.137453999999934,52.098492,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant The Colour Kitchen Utrecht</name>
+				<description><![CDATA[Een tip! En dat diep diep in zuilen. The color ktichen is een sociaal project, iets met reintegratie enzo. In een prachtig oud schoolgebouw (let vooral op de prachtige bomen op het schoolplein) serveren ze lekkere gerechten. Gewoon een leuk restaurant met lekker eten. En goed voor je karma! Ook goed om zomers in de zon bier te drinken op het mooie terras<br><br>gx_image_links: http://www.vijverborgh.nl/images/content/SociaalOndernemen_09.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.vijverborgh.nl/images/content/SociaalOndernemen_09.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.084068000000002,52.115937,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Vroeg</name>
+				<description><![CDATA[Het restaurant is prima verder, maar daar gaat de tip niet over. Mocht je smiddags in de buurt zijn, haal dan aan de zijkant aan de balie een frietje stoofvlees. Dat is lekker!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.172625000000039,52.063795,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Thuis bij Fien</name>
+				<description><![CDATA[Een afrader, en dat komt mede door de enorme chaotische bediening. Vrij veel personeel rent vrij veel door elkaar heen, tegen elkaar op en zomaar wat rond. Op volledige willekeurige momenten mag serveerste A op moment X je wel een kaart geven, en het andere moment moet een andere collega worden geroepen om je de kaart te geven. Hele vage logistiek waar wij in ieder geval niks van snapten.<br><br>Het eten was ook niet al te best. Wij hadden gnochi, maar die was niet lekker, en de tuinbonen waren niet gaar. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.722956000000067,51.808103,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Bauernstube</name>
+				<description><![CDATA[Veel duitser dan dit restaurant wordt het niet. Het interieur is al enkele decennia precies hetzelfde. Voor de bediening en het menu geldt dit waarschijnlijk ook. Toch is het eten best prima en kost het helemaal niets. Allemaal super degelijk.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.8266459999999825,50.200169,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Konrad Café &amp; Bar</name>
+				<description><![CDATA[Dit is waarschijnlijk de hipste bar van (de stad) Luxemburg. Luxemburg is niet zo hip, dus verwacht niet teveel. Het vleespasteitje is erg lekker en je kan er nog ander eten krijgen. Het terras is erg klein en heeft geen zon.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.132310999999959,49.612161,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Fischer Larochette</name>
+				<description><![CDATA[Kies maar een van de andere restaurants op het rijtje. Deze is niet goed. Alles wat ze op moeten warmen verbrandt of is te koud. De koffie is goor en de bediening wil zo snel mogelijk naar huis.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.219704999999976,49.78322,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Kaale Kaffi</name>
+				<description><![CDATA[Jazzbar met vintage kledingwinkel. Op het terras (midden op straat) hebben ze een hele woonkamer nagebouwd. Bediening heeft het razend druk met 6 gasten maar probeert het goed.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.133144000000016,49.611503,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bollendorfer Stube</name>
+				<description><![CDATA[Zo duits zo duits. Schnitzel met käse und schinken en damit gebakken aardappels met nog meer spekjes!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.35821999999996,49.85186,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Fabry´s Apartmenthof</name>
+				<description><![CDATA[Redelijke appartementen, wel lekker billig en daarom een tip voor de regio.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.357475000000022,49.851803,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Gys</name>
+				<description><![CDATA[Biologisch restaurant gericht op de beurs van de student. Dat betekent niks boven de 10 euro. De hamburger is prima (9 euro) en de frieten lekker. Het biertje van het restaurant zelf (gys bier) komt eigenlijk van de leckere, maar is wel lekker. Ze hebben hefe weisse van pinkus, dat is ook lekker.<br><br>gx_image_links: http://www.duic.nl/wp-content/uploads/2015/06/gijs4.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.duic.nl/wp-content/uploads/2015/06/gijs4.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.105953099999965,52.0974219,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>O-Café</name>
+				<description><![CDATA[Lekkere koffie met uitzicht op de bouwput van utrecht. Tip is het brood want dat kun je kopen en is erg lekker.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.109655999999973,52.09570000000001,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hasekura Utrecht B.V.</name>
+				<description><![CDATA[Onbeperkt sushi eten. Onbeperkt is altijd een waarschuwing en in dit geval klopt dat ook. Geen fijne sushi hier.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.108010000000036,52.082836,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cafe Averechts</name>
+				<description><![CDATA[Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals/buurtbewoners.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.117979999999989,52.097885,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Luc Utrecht</name>
+				<description><![CDATA[Bij Luc kun je kei lekker lunchen. Niet zo goedkoop, wel heel erg lekker. Geensnor had een sandwich met pulled pork en zwitsersekaas. Voor LUC loop ik voortaan om. <br><br>gx_image_links: https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e15/11287839_641668225933612_1223386764_n.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e15/11287839_641668225933612_1223386764_n.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.116209000000026,52.090759,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Beers &amp; Barrels</name>
+				<description><![CDATA[Goh....oude gracht en toch ok. Dat is op zichzelf al een tip waardig. Je eet hier burgers en beers.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.116500999999971,52.091823,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pessoa's cafe</name>
+				<description><![CDATA[Stukje minder toeristisch dan de rest. Fijn terrasje, beetje hip met lekkere wijn. Vriendelijke goed engels sprekende jongeman serveert je lokale wijn. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-7.648572599999965,37.1269522,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Casa Mima</name>
+				<description><![CDATA[Mooi vakantiehuisje in de Algarve geschikt voor 4 tot 6 personen. Prive zwembad en mooie sinaasappel boomgaard. Mooi groot terras en fijne keuken. Ook bijzonder geschikt voor kinderen.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-7.696979599999999,37.1620074,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Castro Marim</name>
+				<description><![CDATA[Mooi groot fort, dat wel natuurlijk, maar er is verder niks aan te zien. Kale warme berg stenen op een berg. Het zal wel zijn publiek hebben maar ik ben het niet. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-7.442333899999994,37.2179422,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Brunch Cafe</name>
+				<description><![CDATA[De beste plek in Lissabon om te ontbijten. Boven gemiddeld goede koffie maar ook een heerlijk ontbijt. Beetje hippig<br><br>gx_image_links: http://brunchear.com/wp-content/uploads/2014/12/brunch-cafe.jpg]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://brunchear.com/wp-content/uploads/2014/12/brunch-cafe.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-9.134465999999975,38.708797,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Alfama - Lisbon Lounge Suites</name>
+				<description><![CDATA[Niet te duur hotel in een van de leukste wijken van Lissabon. Het klassieke vintage trammetje stopt direct voor de deur en alle leuke trapjes enzo geeft het geheel een heel leuk hotel op een hele leuk plek. Het bed was goed genoeg. Het ontbijt erg karig, maar dan moet je even naar brunch cafe (zie andere tip) en dat is op loopafstand.<br><br>gx_image_links: http://r-ec.bstatic.com/images/hotel/max300/119/11957894.jpg]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://r-ec.bstatic.com/images/hotel/max300/119/11957894.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-9.128567999999973,38.713611,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>O Pitéu da Graça</name>
+				<description><![CDATA[Ach het eten was wel ok, en het zal wel tiepisch portugees zijn allemaal. Maar de Portugezen kunnen nou eenmaal niet zo lekker koken. En omdat dit restaurant overal wordt aangeraden (ook door het hotel) zet ik er een doodshoofd neer, omdat het ondanks alle aanbevelingen wat mij betreft echt niet de moeite waard is. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-9.130190999999968,38.717412,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>STOOM beer&amp;food</name>
+				<description><![CDATA[De Oersoep brouwerij heeft ook een eigen kroeg/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze kroeg heeft zich (niet onverdienstelijk) op de hamburgerrage gestort.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.847896999999989,51.852782000000005,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Brasserie de Bellevaux</name>
+				<description><![CDATA[Geinig brouwerijtje. De Black is het lekkerst als je tenminste een beetje van stoutachtig bier houdt. De rest is ook prima weg te krijgen. Wat minder goed weg te krijgen is, is je auto als je die op het weiland hebt gezet en het heeft geregend. Dan wordt het allemaal nogal een modderzooi rondom de brouwerij. Laarzen of wandelschoenen mee dus. <br><br>gx_image_links: http://www.naovenant.nl/_Media/brasserie-de-bellevaux_med.png]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.naovenant.nl/_Media/brasserie-de-bellevaux_med.png</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.007515000000012,50.391878,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Ferme Refat</name>
+				<description><![CDATA[Hotel van bekenden van geensnor.nl. Erg mooi opgeknapte boerderij. Ideaal voor als je van paarden houdt omdat ze ook stallen (+paarden die je kan lenen) hebben. Bij Geensnor zijn we meer van het wielrennen en dat kan hier uiteraard ook prima (Stokeu is om de hoek). Boek het hotel met diner erbij wat dat is erg goed.<br><br>gx_image_links: http://www.kayak.com/rimg/himg/34/5c/c4/booking-728954-27359771-image.jpg?width=539&height=290]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.kayak.com/rimg/himg/34/5c/c4/booking-728954-27359771-image.jpg?width=539&amp;height=290</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.02196600000002,50.365749,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Baklust</name>
+				<description><![CDATA[Of je bak lust! Vega/vegan broodjes. Alles vers en bio. Wel heel lekker :)<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.302289999999971,52.079831,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Casa di David a/d Werf</name>
+				<description><![CDATA[Hele goede (maar dure) italiaan<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.116919000000053,52.093942,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Rob's Place Culitaria</name>
+				<description><![CDATA[Beste snackbar van het land. punt<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.728519000000006,51.810834,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant de Kust</name>
+				<description><![CDATA[Vis, prima vis!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.138373999999999,52.095976,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Schuim B.V.</name>
+				<description><![CDATA[Als je in Amsterdam bent (centrum) en eigenlijk geen poeha wilt. Prima burgers, niet te duur. Wel drukkig vaak<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.889634000000001,52.372062,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Indonesisch restaurant Mooi Zeist</name>
+				<description><![CDATA[Erg lekker, wel sfeerloos<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.215153999999984,52.09904,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>WILHELMINA-DOK RESTAURANT</name>
+				<description><![CDATA[Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders/familie. Mooi terras. Neem de pont!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.912860000000024,52.381145,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cafe Lombok Eten &amp; Drinken</name>
+				<description><![CDATA[De Keftaburger is prima te nassen. Slechts enkelen gaan in de uren erna over hun nek.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.096979000000033,52.093238,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bazar Amsterdam</name>
+				<description><![CDATA[Zoals alle bazars in Nederland. Goed eten (couscous ole ole) voor niet veel geld<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.895393000000013,52.355872,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Theatercafé De Bastaard</name>
+				<description><![CDATA[Gezellig cafe met hipsters. Probeer de Omer!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.120040000000017,52.09401,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Café Derat</name>
+				<description><![CDATA[Cafe derat is bruin, gezellig en heeft vooral heel veel lekkere biertjes. Vraag vooral barman Erik (eigenaar) om advies. Dat vind hij leuk (en kan hij ook goed)<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.120534000000021,52.08598,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Oost B.V.</name>
+				<description><![CDATA[Misschien was het pech maar het was niet goed. Niet smakelijk eten, dramatische bediening. Gewoon heel erg nee<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.1292909999999665,52.099669,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Michel-Inn</name>
+				<description><![CDATA[Tip voor erg goed eten! Goede (goede!) pizza's. Houtoven en al. Wel reserveren want het heeft volgens mij in de viva gestaan.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.92294000000004,52.355239,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Asia Wijchen BV</name>
+				<description><![CDATA[Beste chinees in de wijde omtrek. Je neemt de 150 met mihoen.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.723834000000011,51.807334000000004,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>De Hemel Restaurant &amp; Brouwerscafe</name>
+				<description><![CDATA[Stadsbrouwerij van Nijmegen. Geensnor adviseert de Helse Engel of Serafijn. Je kan er ook eten maar dat hebben we nog nooit gedaan<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.864321000000018,51.848794,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Trailerhelling Amsterdam Noord</name>
+				<description><![CDATA[Prima trailerhelling in Amsterdam Noord. Gratis, dichtbij de openbare weg, gratis parkeren in de buurt en niet te steil.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1421</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.897123575210571,52.40235341603906,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Amsterdam Roest B.V.</name>
+				<description><![CDATA[Stadstrand, hipsters, vuurkorf, berlijns (wat dat ook is), krakerig, feestjes, beats, muziek, biertjes<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.92637400000001,52.37201,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Bazar</name>
+				<description><![CDATA[Zoals alle bazars in Nederland. Goed eten (couscous ole ole) voor niet veel geld<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.478960000000029,51.915977,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cafe Jos Meesterschenkerij</name>
+				<description><![CDATA[Meesterschenkerij die meerdere malen is uitgeroepen tot beste cafe van Nederland. 964 bieren op de tap, 278193 op de fles.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.878261000000067,51.836105,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>trinkgut Boland KG</name>
+				<description><![CDATA[Giganische dranksupermarkt met duitse prijzen voor drank!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1101</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.146639999999934,51.796774,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pasta E Fagioli</name>
+				<description><![CDATA[Beste italiaan van Nijmegen. Niet goedkoop<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.862552999999934,51.842907000000004,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pastarestaurant Merano</name>
+				<description><![CDATA[Prima italiaan. Neem de grote pasta arabiata en eet net iets teveel<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.860245999999961,51.847826,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>TAPE bar</name>
+				<description><![CDATA[Lachen om arnhemse hipsters met hun moeilijke bier, haardracht en attitude. U drinkt Russisch bier met enorm handige dopjes. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.914336999999933,51.985459,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>In de blauwe hand</name>
+				<description><![CDATA[Prima kroeg met veel lekker bier. Niet overdreven groot en terras heeft nooit zon. Je kan er ook best lekker eten. Eten stijgt zeker boven de kroeghap uit.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.863679999999931,51.848167,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pizzeria Cafetaria La Bella</name>
+				<description><![CDATA[Prima afhaalpizza's (bezorgen kan ook). Geensnor adviseert de Diavola.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.837680999999975,51.837522,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Teātra bārs</name>
+				<description><![CDATA[Prima pasta voor weinig. De serveerster mag er ook zijn.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>24.124806000000035,56.954257,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Metropole</name>
+				<description><![CDATA[Niet heengaan! Slechtste bediening van heel Belgie en ranzige zooi<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.6994620000000396,50.878424,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hotel Saint-Jacques</name>
+				<description><![CDATA[Niet doen. Kutbedden, geen internet en kapot sanitair. Ook niet voor 1 nacht.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.896293000000014,44.932485,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pannekoeken Restaurant Den Tol</name>
+				<description><![CDATA[Pannenkoeken 2.0. Erg lekker. Je moet niet bang zijn voor gezinnen met kinderen.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.716120000000046,51.74517,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Amar</name>
+				<description><![CDATA[Eten uit India. Eigenlijk vaste prik als we in Berlijn zijn. Goed eten voor een nette prijs. Absoluut niks mis mee. Wel gebrek aan hipheid<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.444031999999993,52.49986,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Wendel</name>
+				<description><![CDATA[Leuke kroeg in Berlijn. Snel internet (100mbit) en lekkere biertjes. Vol hipsters en kringloop meubilair. Neem niet de radler, wel de koffie. Goed ontbijt ook. Werp een blik op de kraan aan het plafond..die wil ik ook.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.443443000000004,52.500555,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Interhostel AB</name>
+				<description><![CDATA[Kamer zonder raam...ik herhaal...kamer zonder raam. Niet doen dus want dat suckt volkomen<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>18.056324000000018,59.337666000000006,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Trädgården</name>
+				<description><![CDATA[Moeilijk te vinden maar toch leuk. Club onder snelweg. Hipsters, eten, dj's en kunst. Doe maar ja <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1053</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>18.078153133392334,59.30493573171342,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Polleke</name>
+				<description><![CDATA[Beste friet en gehakstaven van 030<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.1219639999999345,52.092368,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Uebel &amp; Gefährlich</name>
+				<description><![CDATA[Club. Om te dansen. In een grote oude ww2 bunker (bovengronds). Industrieel. Ook mooi uitzicht!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1053</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>9.96968000000004,53.55655,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Munch's Hus</name>
+				<description><![CDATA[Noors eten. Dat betekent natuurlijk biefstuk van de eland. Wel op chique!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.366980000000012,52.496564,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The Bird Restaurant</name>
+				<description><![CDATA[Zonder meer de beste burgers van de stad. Wel groot en druk, maar dat is niet gek met zulke burgers :)<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.405769999999961,52.546581,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The Barn</name>
+				<description><![CDATA[Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops/tablet zijn verboten!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.39811199999997,52.527408,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>LE:EN</name>
+				<description><![CDATA[Pretentieus. Eten (o.a. sprinkhanen) is opzich lekker maar bediening is ondermaats. Niet goedkoop.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.121390000000019,52.075174,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>El Cedro</name>
+				<description><![CDATA[Goed, het kost waarschijnlijk veel te veel moeite, want de weg hier naar toe is moeilijk en slecht te vinden. Smalle bospaadjes, vage bordjes maar uiteindelijk bovenop de berg een meer dan prima restaurant. Probeer de tuinkerssoep! De tunnel alleen gebruiken bij weinig regen! En check vooral de rest van El Cedro (natuurgebied). Geensnor tipt: De helling is te stijl om omhoog te klimmen. http://camping-lavista.jimdo.com/ <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-17.216033599999946,28.1381048,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Shelbourne Park Greyhound Stadium</name>
+				<description><![CDATA[Hondenrennen is best tof. Check even de prestaties van de hond (in het boekje) voordat je je hele pensioen inzet.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1385</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-6.231103999999959,53.340803,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Residence Piz da Cir</name>
+				<description><![CDATA[Prima appartement in een heel mooi skigebied. 5 minuten lopen van piste aan de Sella Ronda. Niet schreeuwend duur.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>11.856700000000046,46.5544,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Baldwin Hotel</name>
+				<description><![CDATA[Geinig budget hotel. Schoon, niet te duur. Fijne locatie tegen chinatown aan. Ik denk een 1 of 2 sterhotel<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-122.405619,37.790029,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cathay House</name>
+				<description><![CDATA[Prima chinees. Midden in chinatown, dus dat treft.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-122.406275,37.792524,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Luxor</name>
+				<description><![CDATA[Thema egypte hotel. Prima hotel, wel erg erg erg erg groot. 3 starbucksen in het hotel zelf. Toptip (sowieso in Vegas). Check coupon sites. Dat scheelt minimaal 40%. Mooi zwembad ook.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-115.17582099999997,36.09548,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Stratosphere Casino, Hotel &amp; Tower</name>
+				<description><![CDATA[Het uitzicht is prima, maar qua hotel is het wel een beetje karig vergeleken met de rest op de strip. Ook wel een roteind weg van alles eigenlijk. Bedden waren wel heel goed.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-115.15521,36.147408000000006,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>deKleineBaron Eten &amp; Drinken</name>
+				<description><![CDATA[Ze hebben mijn eten volkomen verkloot door een of andere rare kaastopping op de schnitzel<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.08910400000002,52.109168,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pizzeria La Fontana B.V.</name>
+				<description><![CDATA[Altijd precies hetzelfde. De bediening wordt 100% uitgekozen vanwege het uiterlijk en de pizza scarpara blijft de beste pizza op de kaart.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.116437000000019,52.093458,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Toko Mitra</name>
+				<description><![CDATA[Tegenwoordig in de blauwe planeet (roltrap omlaag bij de kijkshop). Het ziet er allemaal niet uit maar is meer dan prima. Indonesisch zoals dat bedoeld is. Er zijn wat tafeltjes maar beter is om een maaltijd mee te nemen en thuis ff op te piepen in de magnetron.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.11569899999995,52.093167,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Grieks-Italiaans Restaurant "Mr. Jack's"</name>
+				<description><![CDATA[Hier nooit gaan eten. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.121176999999989,52.095023,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cosi</name>
+				<description><![CDATA[Absoluut goed eten. Reserveren waarschijnlijk handig maar u kunt het altijd proberen. Vermijd een bezoek bij de buren om de hoek (arnhems proeflokaal). Dat is niet wat je zoek.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.915204000000017,51.982262,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Broodnodig in wijk C</name>
+				<description><![CDATA[Om te lunchen. Lekkere koffie. Broodjes vanaf 11:00 ofzoiets. Notenbrood met geitenkaas is het beste.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.113281458616257,52.094630791201986,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eetcafe Bram</name>
+				<description><![CDATA[Voorheen het licht. Tegenwoordig Bram. Whatever. Burgers zijn goed, alhoewel Licht beter was. Beetje rare broodjes. Bijbetalen voor friet is ook wel beetje jammer.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.12852220000002,52.09525439999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Gouden Pot</name>
+				<description><![CDATA[Afhaalchinees. Er is werkelijk helemaal niks mis met deze afhaalchinees.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.092082000000005,52.109568,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Sector 3</name>
+				<description><![CDATA[Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.12322800000004,52.08337,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Dara</name>
+				<description><![CDATA[Oosters eten in Amersfoort. Lekker! Denk aan bijv. couscous zaken. Grote zaak trouwens.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.3842899999999645,52.159983,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hotel New York</name>
+				<description><![CDATA[Ik weet alleen iets over de boterham met kroket. Die is lekker. Ook mooie locatie trouwens!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.4843949999999495,51.903983,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Lagrange Prestige Aspen</name>
+				<description><![CDATA[Prima appartementen dichtbij de piste. Niet te duur en met zwembad<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.682143999999994,45.507284,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Le Hameau Du Borsat</name>
+				<description><![CDATA[Vijf persoons appartementen die voor vieren nog veel te klein zijn. Oud, kapot en niet super goedkoop. Wel goede ligging. Geensnor zegt: Tignes Ja, dit appartement Nee.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.900679999999966,45.4535,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The Brazen Head</name>
+				<description><![CDATA[Oudste kroeg in Dublin (zegt men). Erg Iers allemaal. Je kan er ook eten. Geensnor was tevreden over een of andere stew met guiness<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-6.2761560000000145,53.34495,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>De Schat</name>
+				<description><![CDATA[Beste restaurant in Nijmegen waar ik heb gegeten. Goede bediening. Niet goedkoop.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.8618300000000545,51.84961,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The Sunset Restaurant &amp; Bar</name>
+				<description><![CDATA[Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht/zonsondergang<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.620490000000018,53.4485,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bar Raval</name>
+				<description><![CDATA[Prima tapas gegeten. Tapas opzich moet je alleen wel liggen.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.436448000000041,52.49816,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Leningrad</name>
+				<description><![CDATA[Koude-oorlog-heimwee-kroeg. Na 23:00 is iedereen dronken. Heel veel vies bier op de kaart dus bestel conservatief. Geensnor tip: laat die twee laatste whiskey om 3:30 staan en loop de volgende dag relatief fris door Riga.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>24.113094000000046,56.946749,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Most Cafe Bar</name>
+				<description><![CDATA[Cafe onder de Tower Bridge met uitzicht op de onderkant van de Tower Bridge en de Thames. Nice.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-0.07587300000000141,51.504179,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Thai Jasmine</name>
+				<description><![CDATA[Thai's. Prima prijs, prima eten. +1 voor de bediening<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.569619999999986,53.215609,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Zum Franziskaner</name>
+				<description><![CDATA[Zo Duits zo Duits Zo Duits! Anyhoe...goed eten en goed drinken in deze duitse vreetschuur<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>11.577240999999958,48.139343,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Slagerij Sjek Floor</name>
+				<description><![CDATA[Biologische slager met heerlijke lamspiesjes. Nadeel is dat hij bijna nooit open is.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1101</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.857978000000003,51.848329,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Mountain Camp Pitztal</name>
+				<description><![CDATA[Rustige kleine camping. Zowel in de winter als in de zomer open. Camping heeft een eigen restaurant waar je lekkere forellen kunt eten. Die vangen ze trouwens in hun eigen vijver. Door de ligging is de zon vrij vroeg verdwenen en kan het verrassend koud worden.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>10.746151999999938,47.142782,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Irish Pub The Shamrock</name>
+				<description><![CDATA[Erg geschikt als je Guinness wilt drinken en/of je rookt. De rookruimte is namelijk gigantisch. Voor de rest je typische "Ierse" pub.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.859597000000009,51.844544,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eetcafe Camelot</name>
+				<description><![CDATA[Default kroeg in Nijmegen. Ook prima hamburgers.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.864487,51.847382,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pozsonyi Kisvendéglő</name>
+				<description><![CDATA[Restaurant met (waarschijnlijk) redelijk traditioneel Hongaars eten. Niet vies, maar ook niet mega lekker. De bediening waarschuwt je vriendelijk als je varkensmaag aan het bestellen bent.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>19.049989879131317,47.51614459414315,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>SZIMPLA KERT</name>
+				<description><![CDATA[Hongaarse "beer garden" met (nou vooruit dan maar) berlijnse kraak looks. S avonds best gezellig. Je kan er eten, maar de door geensnor bestelde hamburger was onder de maat.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>19.063384000000042,47.49702049741783,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Csináltam neked
+</name>
+				<description><![CDATA[Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk/gebied met tig plaatsen die geschikt zijn om bier te drinken.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>19.057881899999984,47.49816879999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Kafe België</name>
+				<description><![CDATA[In het weekend te druk, door de week prima. Veel soorten bier. Tip! Probeer het eten! Dat is boven verwachting goed<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.121546999999964,52.089017,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Goed.</name>
+				<description><![CDATA[Groot restaurant waar het de bedoeling is dat je meerdere gerechten bestelt. Ze mijden het woord "tapas" en dat is goed. Het eten is lekker. Wel vaak druk. De trein rijdt bijna over het terras<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.915794000000005,51.985934,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Café 't Moortgat</name>
+				<description><![CDATA[Bruin prima cafe. Voor gewoon bier drinken (duitse biertjes)<br><br>gx_image_links: http://cloudfront.propic.com/large/12439_85541ff268ac49454f1ef7c582e9e7d4_l.jpg]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://cloudfront.propic.com/large/12439_85541ff268ac49454f1ef7c582e9e7d4_l.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.908617000000049,51.982569,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Lokaal Zuid</name>
+				<description><![CDATA[Eetcafe. Lekkere biologische hamburgers in Vreeland. De frietsate schijnt ook niet mis te zijn. Kok komt uit de keuken om te vertellen dat hij gekookt heeft. Dat is opzich niet nodig bij hamburgers en frietsate.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.034191999999962,52.229966,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eterij De Drie Gekroonde Laarsjes</name>
+				<description><![CDATA[De locatie kenmerkt zich door een strenge doch rechtvaardige bediening enerzijds en een erg onervaren schattige anderzijds.  Het eten is echt heel goed en smakelijk. Lamsrack is een aanrader. Parkeren kan goed  bij de buren.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.0217139999999745,52.209171,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Trailerhelling bij Loosdrecht</name>
+				<description><![CDATA[Goede trailerhelling met parkeerplaats. Aan de prijs (zomer 2013: 18 euro). Prima plaats om de plassen op te gaan. Voor de vecht moet je nog door een (soms druk) sluisje.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1421</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.034817457199097,52.1995125369326,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KLEIN BERLIJN</name>
+				<description><![CDATA[Drankjes drinken aan het kanaal. Zaak vol hipsters maar an sich een mooi terras. het bier is volgens eigen zeggen Duits geprijsd. De werkelijkheid ligt helaas iets hoger maar nog steeds goedkoop. Ernaast een grasveld. Bij de slijterbuurman kun je een picknick setje kopen.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.121515999999929,52.076738,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Trailerhelling Loonsewaard</name>
+				<description><![CDATA[Trailerhelling bij jachthaven Hoogeerd. Beton en niet te steil. Het hek van de haven zit meestal op slot, maar je kan de havenmeester bellen (nummer op het bord). Helling is niet gratis, parkeren wel. De jachthaven ernaast (De Batavier) heeft een hele slechte, steile helling.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1421</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.698535442352295,51.791045729658904,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Rotown B.V.</name>
+				<description><![CDATA[Erg goede hamburgers voor 9.50. Voor een daalder erbij heb je frieten. De zelfgemaakte ketchup is goddelijk. Ook fijn terras en bier<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.47179600000004,51.916908,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Burgermeester</name>
+				<description><![CDATA[Goede hamburgers...punt<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.911983999999961,52.366874,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hannekes Boom...sinds 1662</name>
+				<description><![CDATA[Aardige plek voor iets drinken en lekkere lunch. Niet duur. Handig als je met de boot bent.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.911573999999973,52.376301,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eetcafé Lange Piet</name>
+				<description><![CDATA[Lange Piet, we weten het niet. Er hangen borden waarop eten staat wat je niet kan krijgen en de snoekbaars filet was niet echt hoe je hem wilt hebben. Het was echter ook weer geen absolute NEEN volgens geensnor.nl.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.711034000000041,52.845349,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>9/11 Memorial</name>
+				<description><![CDATA[9/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-74.013624,40.711485,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Rattle N Hum</name>
+				<description><![CDATA[(Bruin-)cafe voor bierdrinkers. Ze hebben er enorm veel verschillende soorten bier. Beetje de Cafe Jos van New York. Schenken principieel geen Budweiser (en daar kan ik me iets bij voorstellen). Je kan er ook prima eten. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.98427800000002,40.747236,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Numero 28</name>
+				<description><![CDATA[Erg lekkere pizzeria. Veel verse ingrediënten enzo. Bediening loopt als een zonnetje. Cash only maar er staat een geldautomaat in de zaak.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.98593499999998,40.730411,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Connecticut Muffin</name>
+				<description><![CDATA[Goede plaats voor een ontbijt of lunch. Lekkere broodjes maar geen grote keuze. Dichtbij metrostation en park. Service zonder glimlach.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.98018400000001,40.660769,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Windsor Cafe</name>
+				<description><![CDATA[Eetcafe met vooral veel vette zooi. Gigantische porties. Kun je overslaan. Misschien is het 's avonds gezellig, maar dat weten we niet.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.98075699999998,40.660146000000005,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Tai Thai</name>
+				<description><![CDATA[Goed Thai's eten voor weinig. Bediening loopt een beetje stroefjes maar dat is geen ramp. Je moet eerst kloppen voordat je de toilet binnen mag, maar hij heeft ook gewoon een slot.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.95873899999998,40.717092,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Station</name>
+				<description><![CDATA[Hip eten in een hippe wijk. Misschien wel de lekkerste hamburgers die ik ooit heb gegeten. Tikje duurder dan normaal. Ligt naast metrostation. Berg personeel en wellicht daardoor goeie service. Brooklyn Pilsner is overigens wel lekker Amerikaans bier.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.95764700000001,40.717662,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Clem's</name>
+				<description><![CDATA[Kun je overslaan zonder iets te missen. Beetje rare, donkere kroeg. Vergeleken bij deze toilet is de toilet van de Wendel strak gewit. Wel gewoon bier en dat soort dingen.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.95856700000002,40.713258,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The High Line</name>
+				<description><![CDATA[Stuk wandelen over oude spoorlijn boven de stad. Leuk en gratis. Verwacht niet dat je leven erna helemaal anders is.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1371</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-74.00476400000002,40.747951,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Dos Caminos</name>
+				<description><![CDATA[Deftige mexicaan. Goed bedacht. Lekker eten. Nogal een yuppen tent. Obers zijn gladde verkopers. Als je "ja" zegt tegen de nacho's en guacamole in het begin, krijg je ongeveer een doopvont vol. Dat is opzich niet zo'n ramp want want het hoofdgerecht is on-amerikaans weinig. Bovendien is de guacamole echt heel lekker.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-74.00538100000001,40.740428,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bar Toto</name>
+				<description><![CDATA[Lekker ontbijt/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.98474099999999,40.666888,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Via Via Pizzeria</name>
+				<description><![CDATA[Soort snackbar. Beetje afgeragde bende. Niet doen. Pizza's zijn gigantisch vet en niet lekker.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.31449399999998,41.483374,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bastacosi</name>
+				<description><![CDATA[Kleine gezellige pizzaria achter het wilhelminapark. Ze hebben een echt houtoven. Alleen dat al is op zich de moeite waard. De pizza's zijn top, de inrichting fijn en de bediening vriendelijk, mits je bediend wordt. Enigzins gezocht concept waarbij je zelf je drank en glazen e.d moet pakken. Probeer de toetjes, ondanks het plastic wel zelf gemaakt en lekker. Kleine tip. Neem een pizza als dessert, de porties vallen wat tegen.  <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.14429999999993,52.085788,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Café Primus Jan</name>
+				<description><![CDATA[Bruin buurt cafe. Biercafe, met veel bier soorten. De IPA is prima. Geen pretenties, fijn terras met zon. De wc ruikt naar vroeger,<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.144540000000006,52.086455,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hôtel Saint Jean</name>
+				<description><![CDATA[Heel goed fijn hotel, niet goedkoop, wel dicht bij het strand en fijne bedden.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>1.6118289999999433,50.770577,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Comme chez soi</name>
+				<description><![CDATA[Dit gaat het niet worden. Ziet er goed uit van buiten maar uiteindelijk gewoon heel slecht gegeten voor veel te veel geld. Orientaalse mosselen betekent niet een bak diepvriesmosselen met een lading orientaalse kruiden er overheen. Daarbij is de sfeer er trouwens ook niet helemaal top.<br><br>gx_image_links: http://www.wimereux-tourisme.com/images/resto_visite.php?id=61]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.wimereux-tourisme.com/images/resto_visite.php?id=61</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>1.6101280000000318,50.765963,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Viskeete</name>
+				<description><![CDATA[Top vis. Soort mega snackbar/bistro met verse heerlijke vis. Vis vis vis<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.052857000000017,51.4959405,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hostal Ivor</name>
+				<description><![CDATA[Midden in het centrum. Tijdens winkeltijden moeilijk bij de voordeur komen door de drukte Wel goede kamers en geen last van geluid binnen<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-3.7079180000000633,40.417685,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Yandiola</name>
+				<description><![CDATA[Goed eten. Gewoon heel smakelijk eten. Glaasje huiswijn erbij en helemaal niks meer aan doen. Let wel even op de achterlijke spaanse eettijden.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-2.9253380000000107,43.265571,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Rolling Orange Bikes</name>
+				<description><![CDATA[Nederlandse fietsen huren in Brooklyn. Batavus en Gazelle's enzo. Prima fietsen. Een fietsverhuurder vinden in Brooklyn valt trouwens niet mee (als je niet van die Citi Bikes wilt), veel fietsenzaken verhuren niet.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1419</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.99388699999997,40.685739,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Chelsea Market</name>
+				<description><![CDATA[Overdekte markt waar je allemaal dingetjes en futsels kunt kopen. Wel mooi gemaakt allemaal. Meer iets voor vrouwen. Ik heb er een pen gekocht maar die ben ik kwijt geraakt.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1101</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-74.00612699999999,40.742591000000004,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Mela Modern Indian Cuisine</name>
+				<description><![CDATA[Beste indier in Boston volgens iemand. Degene zou ook best eens gelijk kunnen hebben. Betaalbaar in verder prijzige buurt.  Zelfgemaakte naan. Medium pittig is pittig genoeg.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.07253200000004,42.34333000000001,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Delux Cafe</name>
+				<description><![CDATA[Obscure Elvis kroeg met 60's muziek. Kroeg ligt gewoon op de bagane grond, maar heeft toch geen ramen. Sfeer, locals en bruin. Een kroeg zoals wij van Geensnor ze graag zien.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.072946,42.34635,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Lir</name>
+				<description><![CDATA[Ierse pub met kroeghap. Vriendelijk personeel en lekker bier maar matig eten. Eten smaakt flauw en de frieten zijn te rauw.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.08423600000003,42.348341,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cosi</name>
+				<description><![CDATA[Lunch/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.05792200000002,42.356798,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Addis Red Sea Restaurant</name>
+				<description><![CDATA[Ethiopiër. En dat betekent eten met je handen op rare krukjes. Wel lekker eten overigens. Personeel is een beetje terughoudend.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.07111199999997,42.344084,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Taste of the Town</name>
+				<description><![CDATA[Lunch/ontbijt zaak. Gelukkig niet echt "Taste of the Town". Niet lekker. Afgeragde tent.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.057323,42.353427,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Al Dente</name>
+				<description><![CDATA[Italiaan zonder pizza's. Personeel lijkt één familie en heeft een authentiek klinkend maffia accent. Heel erg (echt heel erg) lekker eten. Op vrijdag en zaterdag druk (rijen voor de ingang enzo).<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.055496,42.364274,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Durty Nelly's</name>
+				<description><![CDATA[No nonsens Ierse pub. Niet groot. Precies genoeg afgeragd.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.05655200000001,42.361761,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>HI - Boston</name>
+				<description><![CDATA[Aangezien hotels in Boston tering duur zijn, kom je al snel bij een hostel uit. Dit hostel is vrij nieuw en schoon. Alles is goed geregeld. Twee grote nadelen zijn dat het tweepersoonsbed klein is en dat het nogal gehorig is. Ligt wel mooi centraal.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.063447,42.351208,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Penang</name>
+				<description><![CDATA[Ik heb niet zo heel veel Maleisisch gegeten, maar dit was prima. Zacht voor de portemonnee bovendien. Personeel legt vriendelijke de kaart uit, maar is niet handig qua timing. Het hoofdgerecht voor twee mensen tegelijk opdienen blijkt lastig.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-71.062973,42.351294,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Appartement op 1661 11th Ave</name>
+				<description><![CDATA[In het appartementen complex op 1661 11th Ave, Brooklyn, kun je prima appartementen huren. Goedkoper dan een hotel en ruim. Als je op het adres googled vind je wel wat contactinformatie. Beheerder is erg vriendelijk en geeft tips over interessante dingen in de buurt.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>-73.976719,40.656408,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eetcafé Mej. Janssen</name>
+				<description><![CDATA[Simpel maar prima restaurant. Ergens tussen eetcafe en restaurant in. Ik had waterkerssoep, die was lekker. 20 euro voor 3 gangen, en een aangename sfeer. Simpel goed eten zonder een uitgesproken sfeer.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.904210000000035,51.982117,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Caspar</name>
+				<description><![CDATA[Eetcafe naast Goed. Origineel interieur en prima sfeer. Het eten is lekker maar niet echt bijzonder. Stevig aan de prijs voor wat je krijgt.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.916437999999971,51.985924,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant De Blauwe Hoek</name>
+				<description><![CDATA[De lamskoteletjes waren heerlijk en mals. Het probleem van dit restaurant zit hem in de bediening. Die is zo slecht dat we zelfs niet meer wilde wachten op het gratis biertje. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.918777999999975,51.982663,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>La Boulangerie</name>
+				<description><![CDATA[Niet goedkoop maar man man wat lekker. Absoluut top restaurant. Goede wijn, lekker eten. Franse keuken. Laat je niet misleiden door een gesloten zaak. Ze gaan gewoon pas vrij laat open. Bestel gewoon wat je wilt...het is het waard! De serveerster  trouwens ook.<br><br>gx_image_links: https://lh4.googleusercontent.com/-8GAr6ghCbN4/UZjyAOMVcqI/AAAAAAAB5Pg/_2cwDve9iXM/w1298-h865-no/_MG_8858.JPG https://lh4.googleusercontent.com/-GFhJBgpzfn0/UZjyD3kULtI/AAAAAAABvGg/6JYOMlNUBnw/w1344-h865-no/_MG_8870.JPG]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>https://lh4.googleusercontent.com/-8GAr6ghCbN4/UZjyAOMVcqI/AAAAAAAB5Pg/_2cwDve9iXM/w1298-h865-no/_MG_8858.JPG https://lh4.googleusercontent.com/-GFhJBgpzfn0/UZjyD3kULtI/AAAAAAABvGg/6JYOMlNUBnw/w1344-h865-no/_MG_8870.JPG</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>2.385311999999999,48.866568,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>cafe de visscher</name>
+				<description><![CDATA[Hoewel het testpanel van Geensnor in deze niet unaniem was, kunnen wel stellen dat je hier waarschijnlijk de beste hamburgers van heel Marken kan krijgen. De bediening is vriendelijk maar weinig assertief.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.100836999999956,52.457591,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Wally</name>
+				<description><![CDATA[Beste hamburgers van Nijmegen. Vriendelijk personeel en behoorlijke bierkaart. Weinig keuze qua hamburgers (maar 4), maar dat mag de pret niet drukken.<br><br>gx_image_links: http://www.studiokeesmarcelis.nl/_img/interieur/horeca/wally-nijmegen/wally-keesmarcelis2.png]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.studiokeesmarcelis.nl/_img/interieur/horeca/wally-nijmegen/wally-keesmarcelis2.png</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.868882536888123,51.84577540825983,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Firma Pickles Burgers &amp; Wines</name>
+				<description><![CDATA[De burgers zijn wat smaakloos. De volkorensmaak van het broodje overheerst. Geen wereldburgers. Rare dunne frietjes in vreemd emmertje. Wijn was lekker. Het geheel is wat "bedacht" op een overdreven manier. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.116210000000024,52.092154,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Le Grand Lac</name>
+				<description><![CDATA[Misschien wel de beste burgers van Trois Vallee. Niet goedkoop, maar verder prima. Neem wel het uitgebreide hamburger gerecht anders krijg je alleen het vlees een geen broodje.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.53756999999996,45.32292,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Au Village</name>
+				<description><![CDATA[Laat je niet afschrikken door de ligging (midden in een gaar winkelcentrum) of de grote (heel klein). Hier kun je echt wel lekker eten. De toilet is een soort houten hutje midden in de zaak en biedt geen enkele vorm van privacy.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>6.507855999999947,45.358893,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>The Fuzz</name>
+				<description><![CDATA[Hipste koffietent van Nijmegen. Lekkere broodjes en gratis WiFi.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.8672866225242615,51.84398579537366,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bistro Velvet</name>
+				<description><![CDATA[Driegangen diner voor 20 euro. Het eten is erg lekker alleen niet zo veel. Nu hoeft het van ons niet zo heel erg veel te zijn, maar dit is eigenlijk gewoon te weinig. Verder loopt er een gigantische partij personeel rond. Dat werkt wel goed.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.915174782276154,51.98233780833968,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Keuken en deli</name>
+				<description><![CDATA[Best burger in town....zeggen ze. Nu is de burger prima tot goed maar het zo noemen zegt het wel meteen. Pretenties tot aan het plafond maar de basics niet op orde. Gewoon normale bediening, geen fratsen, kwaliteit. De inrichting heeft hetzelfde. Lekker pretenties met natuurlijke materialen en bioecoduurzaam vibe. Geensnor zegt erg goede burgers maar doe eens normaal.<br><br>gx_image_links: http://www.keuken-deli.nl/wp-content/gallery/algemeen/photo-16-11-11-18-18-10.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.keuken-deli.nl/wp-content/gallery/algemeen/photo-16-11-11-18-18-10.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.1230390000000625,52.078999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eetcafe Grut</name>
+				<description><![CDATA[Erg lekker eten en daarom vaak druk.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.885878,51.835817,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Café-Restaurant De Proeverij</name>
+				<description><![CDATA[Top. Dat is wat Geensnor hiervan zegt. Geen neon of andere fratsen maar gewoon goed eten, strakke bediening en lekkere wijn. Interieur is al weer een tijdje aanwezig. Schrootjes aan de muur is immers al weer een tijdje niet zo hip. Wij hadden mosselen en een goede fles wijn en waren voor 50 euro de man klaar. <br><br>gx_image_links: http://www.event1001.com/objectimages/16459/a1.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.event1001.com/objectimages/16459/a1.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>3.9232180000000194,51.648449,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Brasserie Maritime</name>
+				<description><![CDATA[Veel praat...toch middelmaat. Het was niet heel vies maar de kaart deed veel meer smaak vermoeden. Pretenties tot aan het plafond maar het was gewoon onder aan de streep niet zo heel goed of lekker. Maar wat wil je dan ook....er was neon<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1137</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>3.9193809999999303,51.647154,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>De molen (vis)</name>
+				<description><![CDATA[Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die zijn top. (of de vispizza)<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.034672677516937,51.82393395427677,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Lebowski</name>
+				<description><![CDATA[Jumanji binnen. Achterin een giraf. Ondanks deze gekkigheid hele fatsoenlijke burgers. Tikkeltje aan de prijzige kant. Wij hadden de lebowski burger voor 14 euro. <br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.120816099999956,52.0907846,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bed and Breakfast Huys aan de Haven</name>
+				<description><![CDATA[Ow ow wat pittoresk. Strak aan de haven, 18e eeuws...hout oud en dus wel wat gehorig. Fijn bed, mooie douche, geen keuken. Wel gratis ontbijt. Aanrader maar wel gehorig (en ik vermoed warm zomers)<br><br>gx_image_links: http://static.wixstatic.com/media/df86b1_19d54daec189d9a3944d3f6e8a4a940e.jpg_srz_660_470_75_22_0.50_1.20_0.00_jpg_srz]]></description>
+				<styleUrl>#icon-1035</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://static.wixstatic.com/media/df86b1_19d54daec189d9a3944d3f6e8a4a940e.jpg_srz_660_470_75_22_0.50_1.20_0.00_jpg_srz</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>3.920849999999973,51.647182,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Bar petit Restaurant 't Oliegeultje</name>
+				<description><![CDATA[Leuk uitzicht, goede broodjes, fijn terras.<br><br>gx_image_links: http://1.bp.blogspot.com/-DKT4aZwG-Fk/TjkcmNwu9xI/AAAAAAAAAH4/fv3zkLiyciY/s1600/DSCN5131.JPG]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://1.bp.blogspot.com/-DKT4aZwG-Fk/TjkcmNwu9xI/AAAAAAAAAH4/fv3zkLiyciY/s1600/DSCN5131.JPG</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>3.754766000000018,51.674131,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Lodewijk Nijmegen BV</name>
+				<description><![CDATA[Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs/kwaliteit verhouding is prima!<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.873788999999989,51.842526,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Restaurant Gusto</name>
+				<description><![CDATA[Ow wow. Dit is een partij prima zeg. Wij hadden eerst het assorti met hapjes als voorgerecht (2pers) met echt top worst en vlees en brood en daarna een hele lekker pizza. Je zit er ook leuk en het is niet gek duur. <br><br>gx_image_links: http://imagene.youropi.com/restaurant-gusto-rotterdam-1(p:restaurant,14469)(c:0).jpg]]></description>
+				<styleUrl>#icon-1081</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://imagene.youropi.com/restaurant-gusto-rotterdam-1(p:restaurant,14469)(c:0).jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>4.480282999999986,51.916873,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>No Fire, No Glory!</name>
+				<description><![CDATA[Top koffie!<br><br>gx_image_links: http://4.bp.blogspot.com/-sUYY7eu8mys/TxhpOF4aSFI/AAAAAAAAA9U/IgjD3pzLo20/s1600/Ryke-31.jpg]]></description>
+				<styleUrl>#icon-991</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://4.bp.blogspot.com/-sUYY7eu8mys/TxhpOF4aSFI/AAAAAAAAA9U/IgjD3pzLo20/s1600/Ryke-31.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.420456000000058,52.536666,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Beakers</name>
+				<description><![CDATA[Voor een goed ontbijt!<br><br>gx_image_links: http://itsrainingflamingosandfoxes.files.wordpress.com/2013/12/dsc00867_fotor.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://itsrainingflamingosandfoxes.files.wordpress.com/2013/12/dsc00867_fotor.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.422913999999993,52.545141,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Omoni</name>
+				<description><![CDATA[Waarschijnlijk de beste sushi in Berlijn<br><br>gx_image_links: https://irs2.4sqi.net/img/general/600x600/330574_4MSUtEDbUhGbPO9N1Zt9yJI1FMeQpMFLg09hbjL5Bx8.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>https://irs2.4sqi.net/img/general/600x600/330574_4MSUtEDbUhGbPO9N1Zt9yJI1FMeQpMFLg09hbjL5Bx8.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>13.409245000000055,52.54906,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>K.i.e.z.e.v.</name>
+				<description><![CDATA[De enige normale plek in dessau. Biertjes drinken in een kroeg/bioscoop. Neem de augustiner.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>12.246687000000065,51.839611000000005,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Brauhaus Zum Alten Dessauer</name>
+				<description><![CDATA[Klassiek duitse kaart. Schnitzel met asperges is lekker<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>12.245622000000026,51.835423,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>In-Credible</name>
+				<description><![CDATA[In heel veel gevallen het restaurant waar je naar opzoek bent. Lekker eten voor een prima prijs (11 euro voor een lekkere hamburger). Het terras ligt aan een drukke weg, maar heeft wel lang zon. De bediening is erg goed en vriendelijk. En als je moe bent kun je er ook nog slapen! (het is ook een hotel)<br><br>gx_image_links: http://www.centrumnijmegen.nl/images/SchulteSchultz%20fotografie%20copyright%20hotel%20Credible-14.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.centrumnijmegen.nl/images/SchulteSchultz%20fotografie%20copyright%20hotel%20Credible-14.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.869205999999963,51.846316,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>1619 Eten &amp; Drinken</name>
+				<description><![CDATA[Restaurants in jachthavens kunnen flink tegenvallen, maar dit is een uitzondering. Hier kun je prima eten. In een VT wonen achtig interieur serveert een ietwat jonge en onervaren bediening lekker eten. ca. 20 euro voor een hoofdgerecht.<br><br>gx_image_links: http://www.hierinwestfriesland.nl/img/categorie/thumb/large/1619.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://www.hierinwestfriesland.nl/img/categorie/thumb/large/1619.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.184894999999983,52.745929,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Loulou' Friendly diner</name>
+				<description><![CDATA[Op Amerikaanse leest geschoeid restaurant. Heel erg lekkere hamburgers en het personeel is inderdaad "Friendly" zoals de naam al suggereert. Niet heel prijzig (maar best wel een beetje) in een zeer prijzige buurt.<br><br>gx_image_links: http://media-cdn.tripadvisor.com/media/photo-s/02/e2/ed/10/loulou-friendly-diner.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://media-cdn.tripadvisor.com/media/photo-s/02/e2/ed/10/loulou-friendly-diner.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>2.344728000000032,48.851144,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Les p'tites indécises</name>
+				<description><![CDATA[Smakelijk en zeer betaalbaar restaurant aan geinig pleintje. Voor 15 euro heb je een voor- en hoofdgerecht met een glas wijn. Geschikt voor diner en stevige lunch. Als je zin hebt om lekker frans te doen, kun je de boeuf tartaar nemen.<br><br>gx_image_links: http://resto-de-paris.obsession.nouvelobs.com/wp-content/uploads/2011/06/les-petites-ind%C3%A9cises-1.jpg]]></description>
+				<styleUrl>#icon-1085</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value>http://resto-de-paris.obsession.nouvelobs.com/wp-content/uploads/2011/06/les-petites-ind%C3%A9cises-1.jpg</value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>2.372188999999935,48.86641,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Café en restaurant De Kluizenaar</name>
+				<description><![CDATA[Cafe met terras. Veel verschillende soorten bier. Je kan hier tapas eten maar verwacht geen hoogstandjes.<br><br>gx_image_links: ]]></description>
+				<styleUrl>#icon-979</styleUrl>
+				<ExtendedData>
+					<Data name='gx_image_links'>
+						<value></value>
+					</Data>
+				</ExtendedData>
+				<Point>
+					<coordinates>5.855987000000027,51.839505,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-1035-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1035-biz-hotel.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1035-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1035-biz-hotel.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1035'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1035-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1035-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1053-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1053-biz-music.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1053-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1053-biz-music.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1053'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1053-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1053-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1081-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1081-biz-restaurant-fastfood.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1081-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1081-biz-restaurant-fastfood.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1081'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1081-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1081-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1085-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1085-biz-restaurant-generic.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1085-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1085-biz-restaurant-generic.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1085'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1085-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1085-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1101-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1101-biz-supermarket.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1101-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1101-biz-supermarket.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1101'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1101-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1101-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1137-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1137-crisis-death.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1137-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1137-crisis-death.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1137'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1137-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1137-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1371-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1371-rec-hiking.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1371-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1371-rec-hiking.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1371'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1371-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1371-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1385-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1385-rec-racetrack.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1385-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1385-rec-racetrack.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1385'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1385-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1385-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1419-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1419-trans-bicycle.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1419-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1419-trans-bicycle.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1419'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1419-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1419-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1421-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1421-trans-boat-launch.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-1421-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1421-trans-boat-launch.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-1421'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1421-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1421-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-503-FF8277-normal'>
+			<IconStyle>
+				<color>ff7782FF</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-503-FF8277-highlight'>
+			<IconStyle>
+				<color>ff7782FF</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-503-FF8277'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-FF8277-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-FF8277-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-979-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/979-biz-bar.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-979-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/979-biz-bar.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-979'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-979-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-979-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-991-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/991-biz-cafe.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-991-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/991-biz-cafe.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-991'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-991-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-991-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>
