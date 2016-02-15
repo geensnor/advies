@@ -4,7 +4,6 @@ header("Content-Type: text/html; charset=utf-8");
 define("MAXDISTANCE", 500001); //Maximale zoekstraal in meters
 define("DEFAULTDISTANCE", 100); //Default zoekstraal in meters
 
-
 //DB Spullen
 include_once("cl/rb.php");
 
