@@ -15,7 +15,6 @@ $database = "advies";
 $username = "root";
 $password = "root";
 
-
 R::setup('mysql:host=localhost;dbname='.$database, $username, $password);
 
 include_once("cl/cl_adviesList.php");
