@@ -40,14 +40,6 @@ else{
 
 		$geensnorObject = kmztoxml($locationXML->Document->NetworkLink->Link->href);
 
-		
-/*		echo"<pre>";
-		print_r($geensnorObject);
-		echo"</pre>";*/
-
-
-
-
 
 	}
 	if(!$geensnorObject)
