@@ -6,7 +6,7 @@ function initiate_geolocation() {
  
 
 function handle_errors(error)  {
-    $(".status").html("Locatie kan niet worden bepaald<br><br>Alle adviezen van geensnor.nl staan op Google maps:<br><br><a href='http://mapsengine.google.com/map/embed?mid=zm8_BTzve0-k.kDtxgaZuNueU'>http://mapsengine.google.com/map/embed?mid=zm8_BTzve0-k.kDtxgaZuNueU</a>");
+    $(".status").html("Locatie kan niet worden bepaald<br><br>Alle adviezen van geensnor.nl staan op Google maps:<br><br><a href='https://www.google.com/maps/d/viewer?shorturl=1&mid=1v6xr6gJ0SiwsTdkcrZKjNtgf2Z0'>https://www.google.com/maps/d/viewer?shorturl=1&mid=1v6xr6gJ0SiwsTdkcrZKjNtgf2Z0</a>");
   
 /*
     switch(error.code)  
