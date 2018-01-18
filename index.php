@@ -5,7 +5,7 @@ echo"
 <!DOCTYPE html>
 <head>
     <meta charset='UTF-8'>
-    <title>Geensnor adviseert! Ook in 2018(20)</title>
+    <title>Geensnor adviseert! Ook in 2018(20!!)</title>
     <link href='main.css' rel='stylesheet' type='text/css'>
     <link rel='apple-touch-icon' href='gsadviseertlogo128.jpg'/>
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
