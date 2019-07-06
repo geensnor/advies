@@ -6,15 +6,22 @@ echo"<pre>";
 print_r($_GET);
 echo"</pre>";  
 //*/
-
-
+//https://advies.geensnor.nl/list.php?lat=51.8646448&lon=5.8716869&output=json
+// http://maps.googleapis.com/maps/api/geocode/json?latlng="51.8646448,5.8716869&sensor=false
 
 $al = new adviesList;
-$adviezen = $al->get($_GET["lat"], $_GET["lon"]);
+if($_GET["lat"] && $_GET["lon"])
+  $adviezen = $al->get($_GET["lat"], $_GET["lon"]);
+else
+  $adviezen = $al->getAll();
+
+if($_GET["output"] == "json"){
+  echo json_encode($adviezen);
+}
+else{
 
 
 $plaatsData = json_decode(file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=".$_GET["lat"].",".$_GET["lon"]."&sensor=false"));
-
 
 
 echo "<h2>in de buurt van de ".$plaatsData->results[0]->address_components[1]->short_name." in ".$plaatsData->results[0]->address_components[4]->short_name."</h2>";
@@ -47,6 +54,7 @@ echo"
 }
 echo"
 </table>";
+}
 
 
 //$urlencodedSearchString = urlencode("Rob's Place Culitaria");

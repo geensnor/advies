@@ -25,7 +25,7 @@ echo"
     <meta name='apple-mobile-web-app-capable' content='yes' />
 </head>
 <body>
-    <div class='header'><a href='http://www.geensnor.nl/geensnor/index.php?page=bericht&iid=12125'>Wat is dit?</a> | <a href='https://goo.gl/maps/5u5FzBgm1a82'>Alle adviezen op Google maps</a> | <a href='https://plus.google.com/communities/105570140054811466646'>Geensnor op Google+</a></div>
+    <div class='header'><a href='https://www.geensnor.nl/wp/geensnor-adviseert/'>Wat is dit?</a> | <a href='https://goo.gl/maps/5u5FzBgm1a82'>Alle adviezen op Google maps</a> | <a href='https://mastodon.xyz/@geensnor'>Geensnor op Mastodon</a></div>
     <div class='main'> 
         <h1>Geensnor adviseert</h1>
         <div class='status'></div>

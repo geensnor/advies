@@ -17,8 +17,13 @@ class adviesList{
         FROM advies ORDER BY distance LIMIT 0 , 20";
         //echo $query;
         //HAVING distance < ".$maxDistance."
-        return R::getAll($query);
-        
+        return R::getAll($query);        
+    }
+
+//Gewoon de hele lijst, ongesorteerd
+    function getAll(){
+
+        return R::getAll("SELECT * FROM advies"); 
     }
 }
 
