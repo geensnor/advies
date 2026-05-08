@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostica</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        h1 { color: #333; }
+        .test { 
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ddd;
+        }
+        .test.pass { 
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+        .test.fail { 
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+        .test.warn { 
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+        .test h3 {
+            margin: 0 0 10px 0;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 2px;
+            display: block;
+            padding: 10px;
+            margin-top: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Plaatsen van Belang - Diagnostica</h1>
+        <p>Dit pagina controleert of alles correct is ingesteld.</p>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const results = document.getElementById('results');
+
+        function addTest(name, pass, message) {
+            const div = document.createElement('div');
+            div.className = `test ${pass ? 'pass' : 'fail'}`;
+            div.innerHTML = `
+                <h3>${pass ? '✓' : '✗'} ${name}</h3>
+                <div>${message}</div>
+            `;
+            results.appendChild(div);
+        }
+
+        async function runTests() {
+            // Test 1: Check API endpoint
+            try {
+                const response = await fetch('api/locations.php');
+                if (response.ok) {
+                    const data = await response.json();
+                    const count = data.features ? data.features.length : 0;
+                    if (count > 0) {
+                        addTest('API Endpoint', true, `✓ API werkt correct. ${count} locaties gevonden.`);
+                    } else {
+                        addTest('API Endpoint', false, `✗ API geeft 0 locaties terug.`);
+                    }
+                } else {
+                    addTest('API Endpoint', false, `✗ HTTP Error ${response.status}`);
+                }
+            } catch (error) {
+                addTest('API Endpoint', false, `✗ Kan API niet bereiken: ${error.message}`);
+            }
+
+            // Test 2: Check browser console for CORS
+            addTest('CORS Support', true, 'ℹ Als u CORS errors ziet in de console, kan dat het probleem zijn.');
+
+            // Test 3: Check localStorage
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                addTest('Browser Storage', true, 'LocalStorage werkt.');
+            } catch {
+                addTest('Browser Storage', false, 'LocalStorage werkt niet.');
+            }
+
+            // Test 4: Check Leaflet library
+            if (typeof L !== 'undefined') {
+                addTest('Leaflet Library', true, `Leaflet versie: ${L.version}`);
+            } else {
+                addTest('Leaflet Library', false, 'Leaflet library niet geladen.');
+            }
+
+            // Test 5: Path check
+            const path = window.location.pathname;
+            const isRoot = path.includes('/advies/');
+            addTest('Bestandspad', isRoot, `Huidge locatie: ${window.location.href}`);
+        }
+
+        // Run tests when page loads
+        window.addEventListener('load', runTests);
+
+        // Also show raw API response
+        setTimeout(() => {
+            const div = document.createElement('div');
+            div.className = 'test warn';
+            div.innerHTML = '<h3>📊 Raw API Response</h3>';
+            
+            fetch('api/locations.php')
+                .then(r => r.json())
+                .then(data => {
+                    const code = document.createElement('code');
+                    code.textContent = JSON.stringify(data, null, 2).substring(0, 500) + '...';
+                    div.appendChild(code);
+                })
+                .catch(e => {
+                    div.innerHTML += `<code>Error: ${e.message}</code>`;
+                });
+            
+            results.appendChild(div);
+        }, 1000);
+    </script>
+</body>
+</html>

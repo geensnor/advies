@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaatsen van Belang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .header {
+            background: white;
+            color: #333;
+            padding: 25px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn-add {
+            background: #4a90e2;
+            color: white;
+            border: 1px solid #4a90e2;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-add:hover {
+            background: #357abd;
+            border-color: #357abd;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .map-section {
+            min-height: 600px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+        }
+
+        .table-section {
+            overflow-y: auto;
+            max-height: 600px;
+        }
+
+        .table-wrapper {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f9f9f9;
+            position: sticky;
+            top: 0;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+            border-bottom: 1px solid #d0d0d0;
+            font-size: 0.9em;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95em;
+            cursor: pointer;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        tr.highlighted {
+            background: #e8f5e9;
+        }
+
+        .btn-delete {
+            background: white;
+            color: #d9534f;
+            border: 1px solid #d9534f;
+            padding: 4px 8px;
+            font-size: 0.8em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover {
+            background: #f5f5f5;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .category-poi {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .category-custom {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .map-section {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .table-section {
+                max-height: 400px;
+            }
+
+            #map {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Plaatsen van Belang</h1>
+                <p>Interactieve kaart met alle geregistreerde locaties</p>
+            </div>
+            <a href="add-location.html" class="btn-add">+ Locatie toevoegen</a>
+        </div>
+
+        <div class="content">
+            <div class="map-section">
+                <div id="map"></div>
+            </div>
+
+            <div class="table-section">
+                <div class="table-wrapper">
+                    <h2 class="section-title">Alle locaties</h2>
+                    <table id="locationsTable">
+                        <thead>
+                            <tr>
+                                <th>Naam</th>
+                                <th>Categorie</th>
+                                <th>Actie</th>
+                            </tr>
+                        </thead>
+                        <tbody id="locationsBody">
+                            <tr>
+                                <td colspan="3" class="empty-message">Locaties laden...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        let map;
+        let markers = {};
+        let currentHighlightedRow = null;
+
+        function initMap() {
+            map = L.map('map').setView([52.52, 13.405], 4);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19,
+            }).addTo(map);
+
+            loadLocations();
+        }
+
+        function loadLocations() {
+            fetch('api/locations.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Locations loaded:', data);
+                    displayLocations(data.features || []);
+                    displayTable(data.features || []);
+                })
+                .catch(error => {
+                    console.error('Error loading locations:', error);
+                    const tbody = document.getElementById('locationsBody');
+                    tbody.innerHTML = `<tr><td colspan="3" class="empty-message">Fout bij laden van locaties:<br>${error.message}</td></tr>`;
+                });
+        }
+
+        function displayLocations(features) {
+            // Clear existing markers
+            Object.values(markers).forEach(marker => map.removeLayer(marker));
+            markers = {};
+
+            features.forEach(feature => {
+                if (feature.geometry.type === 'Point') {
+                    const coords = feature.geometry.coordinates;
+                    const props = feature.properties;
+                    const id = props.id;
+
+                    const marker = L.marker([coords[1], coords[0]], {
+                        icon: L.icon({
+                            iconUrl: props.category === 'custom' 
+                                ? 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%237b1fa2" width="28" height="28"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/%3E%3C/svg%3E'
+                                : 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234a90e2" width="28" height="28"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/%3E%3C/svg%3E',
+                            iconSize: [28, 28],
+                            iconAnchor: [14, 28],
+                        })
+                    }).bindPopup(`<strong>${props.name}</strong><br/>${props.description || 'Geen beschrijving'}`).addTo(map);
+
+                    marker.on('click', () => highlightRow(id));
+                    markers[id] = marker;
+                }
+            });
+        }
+
+        function displayTable(features) {
+            const tbody = document.getElementById('locationsBody');
+
+            if (features.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" class="empty-message">Geen locaties beschikbaar</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = features.map(feature => {
+                const props = feature.properties;
+                const id = props.id;
+                const category = props.category || 'poi';
+                const categoryLabel = category === 'custom' ? 'Aangepast' : 'POI';
+
+                return `
+                    <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
+                        <td><strong>${props.name}</strong></td>
+                        <td><span class="category-badge category-${category}">${categoryLabel}</span></td>
+                        <td onclick="event.stopPropagation()">
+                            <button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function selectLocation(id) {
+            highlightRow(id);
+            
+            // Find the feature and center map
+            fetch('api/locations.php')
+                .then(response => response.json())
+                .then(data => {
+                    const feature = data.features.find(f => f.properties.id === id);
+                    if (feature) {
+                        const coords = feature.geometry.coordinates;
+                        map.setView([coords[1], coords[0]], 15);
+                        if (markers[id]) {
+                            markers[id].openPopup();
+                        }
+                    }
+                });
+        }
+
+        function highlightRow(id) {
+            // Remove previous highlight
+            if (currentHighlightedRow) {
+                currentHighlightedRow.classList.remove('highlighted');
+            }
+
+            // Add new highlight
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            if (row) {
+                row.classList.add('highlighted');
+                currentHighlightedRow = row;
+                row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function deleteLocation(id) {
+            if (!confirm('Weet je zeker dat je deze locatie wilt verwijderen?')) return;
+
+            fetch('api/locations.php', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id })
+            })
+            .then(response => response.json())
+            .then(() => {
+                loadLocations();
+            })
+            .catch(error => console.error('Error deleting location:', error));
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            initMap();
+        });
+    </script>
+</body>
+</html>
