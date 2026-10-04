@@ -97,6 +97,7 @@
 
         .input-group input[type="text"],
         .input-group input[type="number"],
+        .input-group input[type="password"],
         .input-group textarea {
             padding: 10px;
             border: 1px solid #d0d0d0;
@@ -108,6 +109,7 @@
 
         .input-group input[type="text"]:focus,
         .input-group input[type="number"]:focus,
+        .input-group input[type="password"]:focus,
         .input-group textarea:focus {
             outline: none;
             border-color: #4a90e2;
@@ -251,6 +253,10 @@
             display: block;
         }
 
+        [hidden] {
+            display: none !important;
+        }
+
         @media (max-width: 768px) {
             .controls {
                 grid-template-columns: 1fr;
@@ -265,11 +271,20 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Locatie toevoegen</h1>
-            <p>Voeg een nieuwe plaats van belang toe aan de kaart</p>
+            <h1 id="pageTitle">Locatie toevoegen of wijzigen</h1>
+            <p>Voeg een locatie toe of pas een bestaande locatie aan</p>
         </div>
 
-        <div class="content">
+        <div class="content" id="authorizationGate">
+            <div class="input-group">
+                <label for="editPassword">Beheerderswachtwoord</label>
+                <input type="password" id="editPassword" autocomplete="current-password">
+                <button class="search-button" type="button" onclick="authorizeEditor()">Ontgrendelen</button>
+                <p id="authorizationMessage" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+
+        <div class="content" id="editorContent" hidden>
             <!-- Messages -->
             <div class="success-message" id="successMessage">
                 ✓ Locatie succesvol opgeslagen!
@@ -325,12 +340,16 @@
                         >
                     </div>
                     <div class="input-group notes-section">
-                        <label for="locationName">Plaatsnaam</label>
+                        <label for="locationName">Naam van de locatie</label>
                         <input 
                             type="text" 
                             id="locationName" 
                             placeholder="Voer een naam in voor deze locatie"
                         >
+                    </div>
+                    <div class="input-group notes-section">
+                        <label for="placeName">Plaatsnaam</label>
+                        <input type="text" id="placeName" placeholder="Wordt automatisch ingevuld; pas aan indien nodig" required>
                     </div>
                     <div class="input-group notes-section">
                         <label for="notes">Notities/Beschrijving</label>
@@ -354,6 +373,45 @@
         let currentMarker;
         let currentLat = 52.52;
         let currentLng = 13.405;
+        let adminPassword = null;
+        let placeLookupSequence = 0;
+        const locationId = new URLSearchParams(window.location.search).get('id');
+
+        async function authorizeEditor(passwordOverride = null) {
+            const passwordInput = document.getElementById('editPassword');
+            const password = passwordOverride || passwordInput.value || sessionStorage.getItem('locationEditPassword');
+            const message = document.getElementById('authorizationMessage');
+            if (!password) {
+                message.textContent = 'Vul het beheerderswachtwoord in.';
+                return;
+            }
+
+            try {
+                const response = await fetch('api/locations.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': password },
+                    body: JSON.stringify({ action: 'authorize' })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Ontgrendelen mislukt.');
+
+                adminPassword = password;
+                sessionStorage.setItem('locationEditPassword', password);
+                passwordInput.value = '';
+                document.getElementById('authorizationGate').hidden = true;
+                document.getElementById('editorContent').hidden = false;
+                initMap();
+                if (locationId) {
+                    try {
+                        await loadLocationForEditing();
+                    } catch (error) {
+                        showMessage('error', error.message);
+                    }
+                }
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
 
         function initMap() {
             map = L.map('map').setView([currentLat, currentLng], 13);
@@ -368,7 +426,7 @@
             });
         }
 
-        function setMarker(lat, lng) {
+        function setMarker(lat, lng, placeName = '') {
             currentLat = lat;
             currentLng = lng;
 
@@ -376,16 +434,63 @@
                 map.removeLayer(currentMarker);
             }
 
+            const pinHtml = '<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path fill="#c85e43" stroke="white" stroke-width="1.5" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle fill="#f5f2e9" cx="18" cy="17" r="9"/><path fill="#25343b" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/></svg>';
             currentMarker = L.marker([lat, lng], {
-                icon: L.icon({
-                    iconUrl: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%237b1fa2" width="32" height="32"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"/%3E%3C/svg%3E',
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 32],
+                icon: L.divIcon({
+                    className: 'location-pin',
+                    html: pinHtml,
+                    iconSize: [36, 44],
+                    iconAnchor: [18, 43],
                 })
             }).addTo(map);
 
             document.getElementById('latitude').value = lat.toFixed(6);
             document.getElementById('longitude').value = lng.toFixed(6);
+            if (placeName) {
+                document.getElementById('placeName').value = placeName;
+            } else {
+                document.getElementById('placeName').value = '';
+                lookupPlaceName(lat, lng);
+            }
+        }
+
+        function extractPlaceName(address = {}) {
+            return address.city || address.town || address.village || address.municipality ||
+                address.hamlet || address.city_district || address.suburb || address.borough ||
+                address.county || address.state_district || address.country || '';
+        }
+
+        async function lookupPlaceName(lat, lng) {
+            const field = document.getElementById('placeName');
+            const lookupSequence = ++placeLookupSequence;
+            try {
+                const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=10&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lng)}`;
+                const response = await fetch(url);
+                if (!response.ok) return;
+                const data = await response.json();
+                if (lookupSequence === placeLookupSequence && data.address) {
+                    field.value = extractPlaceName(data.address);
+                }
+            } catch (error) {
+                console.warn('Place name lookup failed:', error);
+            }
+        }
+
+        async function loadLocationForEditing() {
+            const response = await fetch('api/locations.php');
+            if (!response.ok) throw new Error('Locatie kon niet worden geladen.');
+            const data = await response.json();
+            const feature = data.features.find(item => String(item.properties.id) === String(locationId));
+            if (!feature) throw new Error('Locatie niet gevonden.');
+
+            const properties = feature.properties;
+            const [lng, lat] = feature.geometry.coordinates;
+            document.getElementById('pageTitle').textContent = 'Locatie wijzigen';
+            document.getElementById('locationName').value = properties.name || '';
+            document.getElementById('placeName').value = properties.placeName || '';
+            document.getElementById('notes').value = properties.fullDescription || properties.description || '';
+            setMarker(lat, lng, properties.placeName || '');
+            map.setView([lat, lng], 15);
         }
 
         function searchPlaces() {
@@ -396,7 +501,7 @@
             resultsDiv.innerHTML = '<div style="padding: 10px; color: #666;">Bezig met zoeken...</div>';
             resultsDiv.classList.add('show');
 
-            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=10`)
+            fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&q=${encodeURIComponent(query)}&limit=10`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.length === 0) {
@@ -404,12 +509,24 @@
                         return;
                     }
 
-                    resultsDiv.innerHTML = data.map((place) => `
-                        <div class="result-item" onclick="selectPlace(${place.lat}, ${place.lon}, '${place.name.replace(/'/g, "\\'")}')">
-                            <div class="result-name">${place.name}</div>
-                            <div class="result-type">${place.type || place.class}</div>
-                        </div>
-                    `).join('');
+                    resultsDiv.replaceChildren();
+                    data.forEach(place => {
+                        const button = document.createElement('button');
+                        button.type = 'button';
+                        button.className = 'result-item';
+                        const name = document.createElement('span');
+                        name.className = 'result-name';
+                        name.textContent = place.name || place.display_name;
+                        const type = document.createElement('span');
+                        type.className = 'result-type';
+                        type.textContent = place.type || place.category || '';
+                        button.append(name, type);
+                        button.addEventListener('click', () => selectPlace(
+                            Number(place.lat), Number(place.lon), place.name || place.display_name,
+                            extractPlaceName(place.address)
+                        ));
+                        resultsDiv.appendChild(button);
+                    });
                 })
                 .catch(error => {
                     console.error('Search error:', error);
@@ -417,10 +534,10 @@
                 });
         }
 
-        function selectPlace(lat, lng, name) {
+        function selectPlace(lat, lng, name, placeName) {
             document.getElementById('searchInput').value = '';
             document.getElementById('searchResults').classList.remove('show');
-            setMarker(lat, lng);
+            setMarker(lat, lng, placeName);
             document.getElementById('locationName').value = name;
             map.setView([lat, lng], 15);
         }
@@ -442,6 +559,7 @@
             const lat = document.getElementById('latitude').value;
             const lng = document.getElementById('longitude').value;
             const name = document.getElementById('locationName').value.trim();
+            const placeName = document.getElementById('placeName').value.trim();
             const notes = document.getElementById('notes').value.trim();
 
             if (!lat || !lng) {
@@ -454,9 +572,15 @@
                 return;
             }
 
+            if (!placeName) {
+                showMessage('error', 'Vul een plaatsnaam in. Klik op de kaart of zoek de locatie om deze automatisch op te halen.');
+                return;
+            }
+
             const locationData = {
-                id: Math.floor(Date.now() / 1000),
+                ...(locationId ? { id: locationId } : { id: Date.now() }),
                 name: name,
+                placeName: placeName,
                 latitude: parseFloat(lat),
                 longitude: parseFloat(lng),
                 notes: notes,
@@ -467,24 +591,25 @@
             };
 
             fetch('api/locations.php', {
-                method: 'POST',
+                method: locationId ? 'PUT' : 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Edit-Password': adminPassword
                 },
                 body: JSON.stringify(locationData)
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+                return response.json().then(data => {
+                    if (!response.ok) throw new Error(data.error || 'Opslaan mislukt.');
+                    return data;
+                });
             })
             .then(data => {
-                showMessage('success', '✓ Locatie succesvol opgeslagen!');
+                showMessage('success', locationId ? '✓ Locatie succesvol bijgewerkt!' : '✓ Locatie succesvol opgeslagen!');
             })
             .catch(error => {
                 console.error('Error saving location:', error);
-                showMessage('error', 'Fout bij opslaan van locatie. Probeer opnieuw.');
+                showMessage('error', error.message);
             });
         }
 
@@ -493,9 +618,13 @@
             if (e.key === 'Enter') searchPlaces();
         });
 
-        // Initialize on page load
-        window.addEventListener('load', function() {
-            initMap();
+        document.getElementById('editPassword').addEventListener('keydown', event => {
+            if (event.key === 'Enter') authorizeEditor();
+        });
+
+        window.addEventListener('load', () => {
+            const storedPassword = sessionStorage.getItem('locationEditPassword');
+            if (storedPassword) authorizeEditor(storedPassword);
         });
     </script>
 </body>

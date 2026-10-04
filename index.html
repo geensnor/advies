@@ -63,6 +63,26 @@
             border-color: #357abd;
         }
 
+        .btn-download {
+            padding: 10px 14px;
+            border: 1px solid #b8c5cc;
+            border-radius: 4px;
+            background: white;
+            color: #25343b;
+            text-decoration: none;
+        }
+
+        .btn-edit {
+            margin-right: 5px;
+            background: white;
+            color: #385d64;
+            border: 1px solid #385d64;
+            padding: 4px 8px;
+            font-size: 0.8em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
         .content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,6 +92,167 @@
         .map-section {
             min-height: 600px;
             border-right: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .map-fit {
+            position: absolute;
+            z-index: 1001;
+            top: 78px;
+            left: 10px;
+            padding: 9px 12px;
+            border: 1px solid #b8c5cc;
+            border-radius: 4px;
+            background: white;
+            color: #25343b;
+            cursor: pointer;
+        }
+
+        .search-tools {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .search-tools label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-row input {
+            flex: 1;
+            min-width: 0;
+            padding: 10px;
+            border: 1px solid #cbd2d6;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        .search-row button,
+        .search-result {
+            padding: 9px 12px;
+            border: 1px solid #385d64;
+            border-radius: 4px;
+            background: #385d64;
+            color: white;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .search-results {
+            display: none;
+            position: absolute;
+            z-index: 600;
+            top: 100%;
+            right: 0;
+            left: 0;
+            max-height: 240px;
+            overflow-y: auto;
+            border: 1px solid #cbd2d6;
+            background: white;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-result {
+            display: block;
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #e6eaec;
+            border-radius: 0;
+            background: white;
+            color: #25343b;
+            text-align: left;
+        }
+
+        .search-result:hover {
+            background: #f1f5f6;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .admin-toggle,
+        .admin-login button,
+        .admin-lock {
+            padding: 10px 14px;
+            border: 1px solid #385d64;
+            border-radius: 4px;
+            background: white;
+            color: #385d64;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .admin-login {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .admin-login input {
+            width: 180px;
+            min-width: 0;
+            padding: 10px;
+            border: 1px solid #b8c5cc;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        .admin-message {
+            flex-basis: 100%;
+            color: #a33d2c;
+            font-size: 0.85em;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        .search-status {
+            padding: 10px 12px;
+            color: #555;
+        }
+
+        .location-pin {
+            border: 0;
+            background: transparent;
+        }
+
+        .location-pin svg {
+            display: block;
+        }
+
+        .location-pin .pin-body {
+            fill: #385d64;
+            stroke: white;
+            stroke-width: 1.5;
+        }
+
+        .location-pin .pin-face {
+            fill: #f5f2e9;
+        }
+
+        .location-pin .pin-moustache {
+            fill: #25343b;
+        }
+
+        .location-pin--custom .pin-body {
+            fill: #c85e43;
         }
 
         #map {
@@ -199,23 +380,43 @@
                 <h1>Plaatsen van Belang....pieuw pieuw</h1>
                 <p>Interactieve kaart met alle geregistreerde locaties</p>
             </div>
-            <a href="add-location.html" class="btn-add">+ Locatie toevoegen</a>
+            <div class="header-actions">
+                <button id="adminToggle" class="admin-toggle" type="button" onclick="showAdminLogin()">Beheer</button>
+                <div id="adminLogin" class="admin-login" hidden>
+                    <input id="adminPasswordInput" type="password" autocomplete="current-password" aria-label="Beheerderswachtwoord" placeholder="Beheerderswachtwoord">
+                    <button type="button" onclick="unlockAdminMode()">Ontgrendelen</button>
+                    <button type="button" onclick="cancelAdminLogin()">Annuleren</button>
+                    <span id="adminMessage" class="admin-message" role="status" aria-live="polite"></span>
+                </div>
+                <a id="addLocationLink" href="add-location.html" class="btn-add" hidden>+ Locatie toevoegen</a>
+                <button id="adminLock" class="admin-lock" type="button" onclick="lockAdminMode()" hidden>Beheer vergrendelen</button>
+                <a class="btn-download" href="data/locations.geojson" download="locations.geojson">Download GeoJSON</a>
+            </div>
         </div>
 
         <div class="content">
             <div class="map-section">
                 <div id="map"></div>
+                <button class="map-fit" type="button" onclick="showAllLocations()">Alle locaties</button>
             </div>
 
             <div class="table-section">
                 <div class="table-wrapper">
                     <h2 class="section-title">Alle locaties</h2>
+                    <div class="search-tools">
+                        <label for="locationSearch">Zoek in opgeslagen locaties</label>
+                        <div class="search-row">
+                            <input id="locationSearch" type="search" placeholder="Naam of tekst uit een opgeslagen locatie">
+                            <button type="button" onclick="searchLocations()">Zoek</button>
+                        </div>
+                        <div id="searchResults" class="search-results" role="listbox"></div>
+                    </div>
                     <table id="locationsTable">
                         <thead>
                             <tr>
                                 <th>Naam</th>
                                 <th>Categorie</th>
-                                <th>Actie</th>
+                                <th id="actionHeading" hidden>Beheer</th>
                             </tr>
                         </thead>
                         <tbody id="locationsBody">
@@ -234,6 +435,18 @@
         let map;
         let markers = {};
         let currentHighlightedRow = null;
+        let allFeatures = [];
+        let adminPassword = null;
+
+        function createPinIcon(isCustom = false) {
+            const pinHtml = '<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path class="pin-body" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle class="pin-face" cx="18" cy="17" r="9"/><path class="pin-moustache" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/></svg>';
+            return L.divIcon({
+                className: `location-pin${isCustom ? ' location-pin--custom' : ''}`,
+                html: pinHtml,
+                iconSize: [36, 44],
+                iconAnchor: [18, 43],
+            });
+        }
 
         function initMap() {
             map = L.map('map').setView([52.52, 13.405], 4);
@@ -255,9 +468,8 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Locations loaded:', data);
-                    displayLocations(data.features || []);
-                    displayTable(data.features || []);
+                    allFeatures = data.features || [];
+                    showAllLocations();
                 })
                 .catch(error => {
                     console.error('Error loading locations:', error);
@@ -278,13 +490,7 @@
                     const id = props.id;
 
                     const marker = L.marker([coords[1], coords[0]], {
-                        icon: L.icon({
-                            iconUrl: props.category === 'custom' 
-                                ? 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%237b1fa2" width="28" height="28"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/%3E%3C/svg%3E'
-                                : 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234a90e2" width="28" height="28"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/%3E%3C/svg%3E',
-                            iconSize: [28, 28],
-                            iconAnchor: [14, 28],
-                        })
+                        icon: createPinIcon(props.category === 'custom')
                     }).bindPopup(`<strong>${props.name}</strong><br/>${props.description || 'Geen beschrijving'}`).addTo(map);
 
                     marker.on('click', () => highlightRow(id));
@@ -295,9 +501,10 @@
 
         function displayTable(features) {
             const tbody = document.getElementById('locationsBody');
+            const columnCount = adminPassword ? 3 : 2;
 
             if (features.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="3" class="empty-message">Geen locaties beschikbaar</td></tr>';
+                tbody.innerHTML = `<tr><td colspan="${columnCount}" class="empty-message">Geen opgeslagen locaties gevonden</td></tr>`;
                 return;
             }
 
@@ -311,9 +518,7 @@
                     <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
                         <td><strong>${props.name}</strong></td>
                         <td><span class="category-badge category-${category}">${categoryLabel}</span></td>
-                        <td onclick="event.stopPropagation()">
-                            <button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button>
-                        </td>
+                        ${adminPassword ? `<td onclick="event.stopPropagation()"><button class="btn-edit" onclick="editLocation(${id})">Wijzigen</button><button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button></td>` : ''}
                     </tr>
                 `;
             }).join('');
@@ -321,20 +526,130 @@
 
         function selectLocation(id) {
             highlightRow(id);
-            
-            // Find the feature and center map
-            fetch('api/locations.php')
-                .then(response => response.json())
-                .then(data => {
-                    const feature = data.features.find(f => f.properties.id === id);
-                    if (feature) {
-                        const coords = feature.geometry.coordinates;
-                        map.setView([coords[1], coords[0]], 15);
-                        if (markers[id]) {
-                            markers[id].openPopup();
-                        }
-                    }
+            const feature = allFeatures.find(item => String(item.properties.id) === String(id));
+            if (!feature) return;
+
+            const coords = feature.geometry.coordinates;
+            map.setView([coords[1], coords[0]], 15);
+            if (markers[id]) markers[id].openPopup();
+        }
+
+        function normalizeSearchText(value) {
+            return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        }
+
+        function matchingLocations(query) {
+            const terms = normalizeSearchText(query).split(/\s+/).filter(Boolean);
+            return allFeatures.filter(feature => {
+                const searchableText = normalizeSearchText(searchablePropertyValues(feature.properties || {}).join(' '));
+                return terms.every(term => searchableText.includes(term));
+            });
+        }
+
+        function visibleFeatures() {
+            const query = document.getElementById('locationSearch').value.trim();
+            return query ? matchingLocations(query) : allFeatures;
+        }
+
+        function searchablePropertyValues(value) {
+            if (typeof value === 'string') return [value];
+            if (Array.isArray(value)) return value.flatMap(searchablePropertyValues);
+            if (value && typeof value === 'object') return Object.values(value).flatMap(searchablePropertyValues);
+            return [];
+        }
+
+        function fitFeatures(features) {
+            const points = features
+                .filter(feature => feature.geometry && feature.geometry.type === 'Point')
+                .map(feature => [feature.geometry.coordinates[1], feature.geometry.coordinates[0]]);
+            if (points.length === 1) {
+                map.setView(points[0], 12);
+            } else if (points.length > 1) {
+                map.fitBounds(L.latLngBounds(points), { padding: [36, 36], maxZoom: 12 });
+            }
+        }
+
+        function showAllLocations() {
+            document.getElementById('locationSearch').value = '';
+            document.getElementById('searchResults').classList.remove('show');
+            displayLocations(allFeatures);
+            displayTable(allFeatures);
+            fitFeatures(allFeatures);
+        }
+
+        function searchLocations() {
+            const query = document.getElementById('locationSearch').value.trim();
+            const results = document.getElementById('searchResults');
+            results.replaceChildren();
+            results.classList.remove('show');
+            if (!query) {
+                displayLocations(allFeatures);
+                displayTable(allFeatures);
+            } else {
+                const matches = matchingLocations(query);
+                displayLocations(matches);
+                displayTable(matches);
+                if (matches.length) {
+                    fitFeatures(matches);
+                } else {
+                    results.textContent = 'Geen opgeslagen locaties gevonden.';
+                    results.classList.add('show');
+                }
+            }
+        }
+
+        function showAdminLogin() {
+            document.getElementById('adminToggle').hidden = true;
+            document.getElementById('adminLogin').hidden = false;
+            document.getElementById('adminPasswordInput').focus();
+        }
+
+        function cancelAdminLogin() {
+            document.getElementById('adminLogin').hidden = true;
+            document.getElementById('adminToggle').hidden = false;
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('adminMessage').textContent = '';
+        }
+
+        async function unlockAdminMode() {
+            const passwordInput = document.getElementById('adminPasswordInput');
+            const password = passwordInput.value;
+            const message = document.getElementById('adminMessage');
+            if (!password) {
+                message.textContent = 'Vul het beheerderswachtwoord in.';
+                return;
+            }
+
+            try {
+                const response = await fetch('api/locations.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': password },
+                    body: JSON.stringify({ action: 'authorize' })
                 });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Beheer ontgrendelen mislukt.');
+
+                adminPassword = password;
+                sessionStorage.setItem('locationEditPassword', password);
+                passwordInput.value = '';
+                document.getElementById('adminLogin').hidden = true;
+                document.getElementById('addLocationLink').hidden = false;
+                document.getElementById('adminLock').hidden = false;
+                document.getElementById('actionHeading').hidden = false;
+                displayTable(visibleFeatures());
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
+
+        function lockAdminMode() {
+            adminPassword = null;
+            sessionStorage.removeItem('locationEditPassword');
+            document.getElementById('addLocationLink').hidden = true;
+            document.getElementById('adminLock').hidden = true;
+            document.getElementById('adminToggle').hidden = false;
+            document.getElementById('actionHeading').hidden = true;
+            displayTable(visibleFeatures());
         }
 
         function highlightRow(id) {
@@ -354,22 +669,63 @@
 
         function deleteLocation(id) {
             if (!confirm('Weet je zeker dat je deze locatie wilt verwijderen?')) return;
+            if (!adminPassword) return;
 
             fetch('api/locations.php', {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'X-Edit-Password': adminPassword },
                 body: JSON.stringify({ id: id })
             })
-            .then(response => response.json())
+            .then(response => response.json().then(data => {
+                if (!response.ok) throw new Error(data.error || 'Verwijderen mislukt.');
+                return data;
+            }))
             .then(() => {
                 loadLocations();
             })
-            .catch(error => console.error('Error deleting location:', error));
+            .catch(error => alert(error.message));
         }
+
+        function editLocation(id) {
+            if (!adminPassword) return;
+            window.location.href = `add-location.html?id=${encodeURIComponent(id)}`;
+        }
+
+        async function restoreAdminMode() {
+            const password = sessionStorage.getItem('locationEditPassword');
+            if (!password) return;
+
+            try {
+                const response = await fetch('api/locations.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': password },
+                    body: JSON.stringify({ action: 'authorize' })
+                });
+                if (!response.ok) throw new Error('Admin authorization expired');
+
+                adminPassword = password;
+                document.getElementById('addLocationLink').hidden = false;
+                document.getElementById('adminLock').hidden = false;
+                document.getElementById('actionHeading').hidden = false;
+                document.getElementById('adminToggle').hidden = true;
+                displayTable(visibleFeatures());
+            } catch (error) {
+                sessionStorage.removeItem('locationEditPassword');
+            }
+        }
+
+        document.getElementById('locationSearch').addEventListener('keydown', event => {
+            if (event.key === 'Enter') searchLocations();
+        });
+
+        document.getElementById('adminPasswordInput').addEventListener('keydown', event => {
+            if (event.key === 'Enter') unlockAdminMode();
+        });
 
         // Initialize on page load
         window.addEventListener('load', function() {
             initMap();
+            restoreAdminMode();
         });
     </script>
 </body>
