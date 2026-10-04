@@ -7,18 +7,19 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    14.506334000000038,
+                    14.506334,
                     46.047562
                 ]
             },
             "properties": {
                 "id": 3,
-                "name": "Lunch Cafe Marley & Me",
+                "name": "Lunch Cafe Marley & Me 1",
                 "description": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
                 "fullDescription": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
                 "images": [],
-                "category": "poi",
-                "placeName": "Ljubljana"
+                "category": "overig",
+                "placeName": "Ljubljana",
+                "date": "04-10-2026 21:46:42"
             }
         },
         {
@@ -38,7 +39,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/c1nJ_ox7ZHEsYyyZy-5XYdnosPnSugVe99662N5g9zOyjtvLw1PLPAT5c5UztUkqmv6AZCODPqHTneaYtsRGXbMXPKcuO8R609lX1kDQAlGjhihqL5atB8CXhixdIcU"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Wenen"
             }
         },
@@ -59,7 +60,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/YYPaDBhldYttCnVXuGjtTi4DXTzJNwtn-xgAYnpa0227hsJD5VYzB-RnZU419MYJKgKp-yAGYB_YqsTYurcv0vmd85yeNjdFpneZlEv-TWO87nkgLz5idcp2GgQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Praag"
             }
         },
@@ -80,7 +81,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/YcY3fdJnDfF7y-X0dGKEbhr0QrfS4BPwF3eISfnWl9CcPMEXtrAvvQF-nGdaPKpyl6SjALl2b3ZTWnSiwdwxHXIdrJIwvKsh8vZzOlMM4WXcJmnhAxuElV4"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Praag"
             }
         },
@@ -99,7 +100,7 @@
                 "description": "Veel te vette pizza's in vaag, donker restaurant. Niet doen. Even iets anders zoeken.",
                 "fullDescription": "Veel te vette pizza's in vaag, donker restaurant. Niet doen. Even iets anders zoeken.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Zell am See"
             }
         },
@@ -120,7 +121,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/xo3sSInAztXZP_lnVQYMx3keqxVPqxOMUXXs2NWFpKvEFJOf8Y32rkbDtRzBuSkewsyQk7EsoY2C7-HrRETyfigIkUlHxX1BCN20c3HyTesEoYTcqnOrPQxHIMPLvGrn"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Praag"
             }
         },
@@ -141,7 +142,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/-tW9YiFN76JmLOaGaUbMqI91JZhBUXxDnoHC2TDATwdozD0cQbOlXUaJiQGS4GTA-4vejaZnjXyWtiuNlBxCmQLLZtFR5jTTOkE1f_2XhsL4euJVDC8kTEalJlN74Abp0rVaVW81LQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Praag"
             }
         },
@@ -162,7 +163,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/5k6HBQQC0RhGOOao7_pesnyhrF9sEFM3YSO81UaCKaWvGI-ndXuic0fo7XGk4pniEA7767RiDNim0QbOC4xdtJk9L2ADQOEF8vqkOUxmZV0mVBjfPLbSlxoztIFhQ6ZWLPFcCnwxxyfYvBw5ObDjIhI47w"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Sofia"
             }
         },
@@ -183,7 +184,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/8KjyCdB5uPsESea5-dVpLRcvhJnG2obsEze6Pmkqm0QXN4pEUJv4IAASIwo5M1GMIXqPZeT8MLGbgNDefgx1JYpLRKXNbgeRCUIcFIoxclk"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "They-sous-Montfort"
             }
         },
@@ -204,7 +205,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/Y0W39EdtHv7a5ZzZ4Zggj1pM4bJnG_Y_dXkaoyfCwCaSVdn8cUcIiF-0w14i0d5dTYz7BrjUPcYHFSdGKrrRNlRaTaY3dbmRmqBOebKG_dgzQsW0U0tKoEVlaLwSwfVG3u3l8TWVoFDYKDDgpZNNiwZbBob-lGUI8tw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Vittel"
             }
         },
@@ -225,7 +226,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/LpCBjWUxW28ffwL9Cerp_vkPq-5PYCydi1HCHtBx4CLL3cjcY_5wHltB76BCWagxLCjihQpezWfJbgw17C1yt_qwgw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Moulins en Bessin"
             }
         },
@@ -246,7 +247,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/iuAJ2jceFGxhsS2ZO6uI5P54VQC0W5T0QAuBru7WhsTdWXs560ApdEpp6-m27dy7i3xDYurbG7JAqqQojvLHyVjnj74Z_kW5-72oukOuXDPASOnBkYPmgqQceHkoDoUXZmuk_latiHhdOmln442yWG2z0TtWurEbmCvmRyieb1_Lw7XsPA"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Grandcamp-Maisy"
             }
         },
@@ -267,7 +268,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/oCTVLZfZsUnwIIoTW6cmyXb9Sby_4kqscqAErdZFRWasaEP67sS1Qs13eqZzqJiSFFmMsM-oBhwTqi_8pXrO5-wutL5lj87YW-8XkCa6wBNi7cBjDDgT9PLs"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Sofia"
             }
         },
@@ -288,7 +289,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/DFw32Sf_yWB3QY5bIWa2SyiCU35svwHlR98lwTiJ8FlUM4z5RgSnCNhYRIHIwFlLorD1deH3KqfsupcmlramwhPb1Fe__Fv0gP_t"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dresden"
             }
         },
@@ -310,7 +311,7 @@
                     "https:\/\/lh3.googleusercontent.com\/proxy\/HJM4qZS7lGWDhNbnfjZdXec7Gbkpdvxag5n-bYtWXKVkj2DaKZgzxo6r3z97EK0TiwOdl8Hmgg0NItOzcqOjtAeV1WyFIlt364QLULI8Xhj3W5C_Xzl5TSJrc-_qa6ppjIvIMTqaj3cp2qYgcUWWWdg",
                     "https:\/\/lh5.googleusercontent.com\/proxy\/gnJ_XGSEolFvEtm55aXu2ytcMppQ1ee8trMzd0tafItjdHBFGdWB6mm8UfgmBcUO8jH9MM1gzUTmTN_c6TsqCe58c9pDcg2siu4vo033zQl2RKgN5NXKKHECXOH1Dw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dresden"
             }
         },
@@ -332,7 +333,7 @@
                     "https:\/\/lh6.googleusercontent.com\/proxy\/mPzvZSIJnzA615PaHX8R-eU2OMpiVtCtkLXKJh9K3bT0idLhpuKnHTRJ7B8adCDSVxz_OQAktZiGIz-4hUD1Tw-_qhkvWoLs2rRzOVYtKQ",
                     "https:\/\/lh6.googleusercontent.com\/proxy\/Emli4ipUWnMNpCO-ihCyDraK8CTBr_ruVe-yHSZhUMEjH0wrWOOxgMXQbSgOxcM3ItuCPVEmX2pq6-WzhiQlG9e1enfFWRVVMejcJAqWNGL3bcy25f13cGVBww81jZQbNQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dresden"
             }
         },
@@ -354,7 +355,7 @@
                     "https:\/\/lh3.googleusercontent.com\/proxy\/fSvl90uP3hp1syz_DpSnrSWfFDAM5V_V9XX0cDVFRpFUQV-UQPwZXxTCW1xpWDD1n73rEM-fYz82RKBlHftRVZAMHNSQT6xdC5mJYehrHp3a7349kQJOAWoHBrCs5fbmBMUAe1QRKN54VmMQWI0",
                     "https:\/\/lh5.googleusercontent.com\/proxy\/m4A_Z9x4wcu7qdoCNei0chUqhbWjAmPPziW1ytp7QIBWWaOZQ-NG27zg6_PsPp8CTmCU9bxWtIz69hEqT35M-EnAO2ipPOam6loeMelqPAsu0eAoUVXtzqyyWFHO8rtS_zqlu8iNFS4cA_0gFU-kl0Tqr26r"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Sofia"
             }
         },
@@ -375,7 +376,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/0LnqjlRZu8BKInr48NHJw0AM-9pAR9n4oLocl3mxK2VxfWsW1TdK9cXiLZRtIs5K44wZ0UmAcCMzp-U3uxZMGrWKnV1UmnmFhery8M0JfaplXvsPbI2p0w8H7XiwfIqi7QZxoroVkmRo"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Sofia"
             }
         },
@@ -396,7 +397,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/B2hwWihBE0W63f0c5HUP1bi6r_eNCl8TDSvpprTB6mUYROhLFkkfY1gVWwIF4bIHwU54oW-cz1WwOiSgb61p9tpzmORJumjpVtWMU9mYAr8E2Eyp8wouX2wcaldaNVlyvivt7Uy6p5sNIAIgW8PS"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Sofia"
             }
         },
@@ -418,7 +419,7 @@
                     "https:\/\/lh5.googleusercontent.com\/proxy\/jGddXccB9TF62Pwsa8KtAG3dl5tc7oYCWkBPlTCfided3KrC5PbxEA52s3o7B7-lbkXZJGY7FxoigwFf3YfyzMI_uikC8hrixM3A0lrYUW1r3a63BauYeG37G8g",
                     "https:\/\/lh5.googleusercontent.com\/proxy\/r6jNW7u17_yTDW-A6Nhdpl6PlZ9KOaKkilJg_43MrLtm6KhawNjNXzIsX0Jad3eJQZmXvqHgFhmmoOe8kbwi8N6-KLIQ_r1yFmnwefISUrm5G-SM0CAWwsbNK_w"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Sofia"
             }
         },
@@ -439,7 +440,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/ArO0yl8dfMjcsQHZqlwDkCmGvtgFq8Sln1cOFzydP9-Od9vNqP_Ad-fCTH3wfl8P3BJxuur4pxaqjMNZQK9xulnEvT03Ks2Ka2VExsXclDvtCA"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -460,7 +461,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/McV5IYU1u7s1MH1dw4TaH2017zhu9A3XJIHT3ExzaTdNmO_apxlt50aBh88GFvNp__0ehuBdT8fzwAJytgIFXMXPvnKl7AqMECw5fxXutt5GngIj7XgKMFgf0R0r"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Zandvoort"
             }
         },
@@ -481,7 +482,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/JYBENt5fZYf-ApMJkELJcRtC-_fRiSUpdxyuh1zYOpFNmE3mrWRkp0ck7g-g8gHCuTRhlRV_S0st592NBdeQAjl4iCxiAMg4eVE8FfGjjXUdnXCB09LsOL0n1AuB2R6CeW_xkOEyFUPItwlOXlU_dhzmW4kyu1dvdWYpMq9InW5W6HVIpB7S4J4w"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Veere"
             }
         },
@@ -502,7 +503,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/IqItXnp3ABnW1mJ6kL1xS4d6T76lkQGpqrYywpx3skZ8zHNeBNGx_N3JBETYx7dVx-uyftcZ0q0CGNEZuNA61QTMk-HfjA"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Saint-Gervais-les-Bains"
             }
         },
@@ -524,7 +525,7 @@
                     "https:\/\/lh6.googleusercontent.com\/proxy\/NYzt2zvnI5SnliksV7VHxzSrQoTWPNW-jX687QyTRT_To-mKXo1GMh1YbyxAd5MQwhJrB9h0-XAOXhk9AXu0tui_YOhw4X9HjWN48Yg8ksFUYomShlT_RHFyXiPn",
                     "https:\/\/lh6.googleusercontent.com\/proxy\/fCZGI4G_5HVT-6heJRM9c7LWSLbYYdA7rilmdilSIpvVElr7juIpL7BYfyW07V3XDWJpce950l7BlXjp5wIoym0dhFXGO63PHTxe-P0HtJAFKo97AVB-Jg-nq2VQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Chamonix-Mont-Blanc"
             }
         },
@@ -545,7 +546,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/d01isQhDBdDT8zVnGseku7BLfWhDcOB3tSiUC4dBKWtNU1N_SCWLU313fvbTskc3v4LJf-vpzxrtE1jlSyTHuGaJ7FtDMLkjzKKYmHE3qm9JYd_ajRDYaQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn",
                 "date": "04-10-2026 20:40:38"
             }
@@ -567,7 +568,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/_qUwGn1xNjXAgogE85ipTh2w4z8Gr0lFSbnmdutPmiQ8mK5UgTGLpb2VxfWqgcgl1T7zwfnmMhTFFZgIsPcabkuFnfSjd94oXj_P4vIY-f_fZlPkzRJ8S5Sf"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -588,7 +589,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/BrN_4fhaeN0I28JozlJMtHw40_xviR2S-Pjnnu7XS5DOpMlwiYMnxApDrzAmdvM8ktFrYlrPCWMU1ZAL8rkV1edlsp8VTws"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Edam"
             }
         },
@@ -609,7 +610,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/c38_M8SvoUhh8GphwlSJFxVo5YXGdFlXF0oDltpQpVj7wdr2c6XRyGvYruvGDB-1bvtxdivP7f_F5X43AErNrCOP7BANTceKmyvJ0Tyb4kzdkK6Vw64dck-vZVcxY5YS8CZ8V4uQkSHM4w5nH9Y3UZt1gMQ4m1O3m_s-pmFVz1s6v--NoSUN3uLYK1GI-wwoHJ5SjtJ_mfPPeXQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Gouda"
             }
         },
@@ -630,7 +631,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/EADSWq1o62Rh5M9Qucq01qtGuYwPEmJIlmgOzdVNd4Uay1LH1p7BmgeIEblyghuVhhfYeaKSC545cSMFbd5t8cx7xwqaN7g2wxk87-sfUTR-tlYllVvh5VPJ6y8_6Ep2LmfHUyRNUjiTX6Fe6GH-bRBvwG1_QO4"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -651,7 +652,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/LO_Sqx_snLNVzaFLzVlhUP4Iy3gkiRK4sQ_XxSOXEx-z9L3gbA8sjHS03l0ukP3xiYdZePIIGFrdsGBsHEnny_4CSqAmKG-NfO550O3PE_nmGUhcstXOGA"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -672,7 +673,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/wLU32LOy2RjHMBvzRd5v4_cn0OYf9IyVJLo_-he480hfc1lFz5kCCYh08atxgFLK6ovF_TdXngQDPnTiDakWqROtjlI7sFRviX9UEz1QwgIXFPt0bDe8SRdGCAoF9u76vUsmx3aLD3PmMyw7r9K3pFqGr2SXAAzWLf04sprsgt-VszE6vcBjZr8jx3s38xo"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Kleef"
             }
         },
@@ -693,7 +694,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/eX4ij2sl5lpDuSvLhjcaTVLKOisCMjInOFO6zGsQPzlTkoMQHfFl3Mg08Ol-QY78m65vJgpuw--FTj8sScH4nFr46PhbXJLR4sI1FY_Fby_hbDaIxgy4-ldK4FvW6yrA0xTk-Q"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Bergen"
             }
         },
@@ -712,7 +713,7 @@
                 "description": "Goesting Goesting....wat zal ik er over zeggen. Stond bekend als 1 van de beste restaurants van Utrecht maar, en het zal velen teleurstellen, ik ga het afraden. Geensnor kreeg gerookte zwaan (ja zwaan...",
                 "fullDescription": "Goesting Goesting....wat zal ik er over zeggen. Stond bekend als 1 van de beste restaurants van Utrecht maar, en het zal velen teleurstellen, ik ga het afraden. Geensnor kreeg gerookte zwaan (ja zwaan), maar gerookte zwaan is helemaal niet lekker. En riso Venere (zwarte liefdesrijst) was helemaal niet lekker samen met zeeduivel. Allemaal hele mooie gerechten maar uiteindelijk geen lekkere smaken bij elkaar. Dus, doe maar niet, zeker voor dat geld.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -733,7 +734,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/_L3Cw44FViAETgx_9T69RaWCf77O8jtXaJ5yFp8dwBhVpIr2Xh8AoPTRepfAqeUHd9rcI7vc25pvSmd08dEIznXEgsxQg828XA2uQcKWBMc4Lmh5"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -752,7 +753,7 @@
                 "description": "Het restaurant is prima verder, maar daar gaat de tip niet over. Mocht je smiddags in de buurt zijn, haal dan aan de zijkant aan de balie een frietje stoofvlees. Dat is lekker!",
                 "fullDescription": "Het restaurant is prima verder, maar daar gaat de tip niet over. Mocht je smiddags in de buurt zijn, haal dan aan de zijkant aan de balie een frietje stoofvlees. Dat is lekker!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Bunnik"
             }
         },
@@ -771,7 +772,7 @@
                 "description": "Een afrader, en dat komt mede door de enorme chaotische bediening. Vrij veel personeel rent vrij veel door elkaar heen, tegen elkaar op en zomaar wat rond. Op volledige willekeurige momenten mag serve...",
                 "fullDescription": "Een afrader, en dat komt mede door de enorme chaotische bediening. Vrij veel personeel rent vrij veel door elkaar heen, tegen elkaar op en zomaar wat rond. Op volledige willekeurige momenten mag serveerste A op moment X je wel een kaart geven, en het andere moment moet een andere collega worden geroepen om je de kaart te geven. Hele vage logistiek waar wij in ieder geval niks van snapten.Het eten was ook niet al te best. Wij hadden gnochi, maar die was niet lekker, en de tuinbonen waren niet gaar.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Wijchen"
             }
         },
@@ -790,7 +791,7 @@
                 "description": "Veel duitser dan dit restaurant wordt het niet. Het interieur is al enkele decennia precies hetzelfde. Voor de bediening en het menu geldt dit waarschijnlijk ook. Toch is het eten best prima en kost h...",
                 "fullDescription": "Veel duitser dan dit restaurant wordt het niet. Het interieur is al enkele decennia precies hetzelfde. Voor de bediening en het menu geldt dit waarschijnlijk ook. Toch is het eten best prima en kost het helemaal niets. Allemaal super degelijk.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Daun"
             }
         },
@@ -809,7 +810,7 @@
                 "description": "Dit is waarschijnlijk de hipste bar van (de stad) Luxemburg. Luxemburg is niet zo hip, dus verwacht niet teveel. Het vleespasteitje is erg lekker en je kan er nog ander eten krijgen. Het terras is erg...",
                 "fullDescription": "Dit is waarschijnlijk de hipste bar van (de stad) Luxemburg. Luxemburg is niet zo hip, dus verwacht niet teveel. Het vleespasteitje is erg lekker en je kan er nog ander eten krijgen. Het terras is erg klein en heeft geen zon.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Luxemburg"
             }
         },
@@ -828,7 +829,7 @@
                 "description": "Kies maar een van de andere restaurants op het rijtje. Deze is niet goed. Alles wat ze op moeten warmen verbrandt of is te koud. De koffie is goor en de bediening wil zo snel mogelijk naar huis.",
                 "fullDescription": "Kies maar een van de andere restaurants op het rijtje. Deze is niet goed. Alles wat ze op moeten warmen verbrandt of is te koud. De koffie is goor en de bediening wil zo snel mogelijk naar huis.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Larochette"
             }
         },
@@ -847,7 +848,7 @@
                 "description": "Jazzbar met vintage kledingwinkel. Op het terras (midden op straat) hebben ze een hele woonkamer nagebouwd. Bediening heeft het razend druk met 6 gasten maar probeert het goed.",
                 "fullDescription": "Jazzbar met vintage kledingwinkel. Op het terras (midden op straat) hebben ze een hele woonkamer nagebouwd. Bediening heeft het razend druk met 6 gasten maar probeert het goed.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Luxemburg"
             }
         },
@@ -866,7 +867,7 @@
                 "description": "Zo duits zo duits. Schnitzel met käse und schinken en damit gebakken aardappels met nog meer spekjes!",
                 "fullDescription": "Zo duits zo duits. Schnitzel met käse und schinken en damit gebakken aardappels met nog meer spekjes!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Bollendorf"
             }
         },
@@ -885,7 +886,7 @@
                 "description": "Redelijke appartementen, wel lekker billig en daarom een tip voor de regio.",
                 "fullDescription": "Redelijke appartementen, wel lekker billig en daarom een tip voor de regio.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Bollendorf"
             }
         },
@@ -906,7 +907,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/qDI16d0lv3qMA9bVCKbagMqRjrk072E9LTXvUEeFjvqRaymSCsDsxqyqP6eZfv43OhIVMGXSnWbUKB7sl1iymgKrsd0Qq-o7H5k"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -925,7 +926,7 @@
                 "description": "Lekkere koffie met uitzicht op de bouwput van utrecht. Tip is het brood want dat kun je kopen en is erg lekker.",
                 "fullDescription": "Lekkere koffie met uitzicht op de bouwput van utrecht. Tip is het brood want dat kun je kopen en is erg lekker.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -944,7 +945,7 @@
                 "description": "Onbeperkt sushi eten. Onbeperkt is altijd een waarschuwing en in dit geval klopt dat ook. Geen fijne sushi hier.",
                 "fullDescription": "Onbeperkt sushi eten. Onbeperkt is altijd een waarschuwing en in dit geval klopt dat ook. Geen fijne sushi hier.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -963,7 +964,7 @@
                 "description": "Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals\/buurtbewoners.",
                 "fullDescription": "Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals\/buurtbewoners.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -984,7 +985,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/9zodn_m9zGpyM5eOJ9r2HeGYiGk6F0JRx_l3c4SrnyjhCVMqUwAuTL4qx4cBwLFfkN7W-RTQHRdrtWttfaXnMKCkqC0gGiyLNrOcLCFmBYR8vHyg9QYioDlMUGIejyi7OqnFD-nYK2_tQX4RB2YnKAGqRSrw3LoHUbJ3"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1003,7 +1004,7 @@
                 "description": "Goh....oude gracht en toch ok. Dat is op zichzelf al een tip waardig. Je eet hier burgers en beers.",
                 "fullDescription": "Goh....oude gracht en toch ok. Dat is op zichzelf al een tip waardig. Je eet hier burgers en beers.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1022,7 +1023,7 @@
                 "description": "Stukje minder toeristisch dan de rest. Fijn terrasje, beetje hip met lekkere wijn. Vriendelijke goed engels sprekende jongeman serveert je lokale wijn.",
                 "fullDescription": "Stukje minder toeristisch dan de rest. Fijn terrasje, beetje hip met lekkere wijn. Vriendelijke goed engels sprekende jongeman serveert je lokale wijn.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Tavira"
             }
         },
@@ -1041,7 +1042,7 @@
                 "description": "Mooi vakantiehuisje in de Algarve geschikt voor 4 tot 6 personen. Prive zwembad en mooie sinaasappel boomgaard. Mooi groot terras en fijne keuken. Ook bijzonder geschikt voor kinderen.",
                 "fullDescription": "Mooi vakantiehuisje in de Algarve geschikt voor 4 tot 6 personen. Prive zwembad en mooie sinaasappel boomgaard. Mooi groot terras en fijne keuken. Ook bijzonder geschikt voor kinderen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Tavira"
             }
         },
@@ -1060,7 +1061,7 @@
                 "description": "Mooi groot fort, dat wel natuurlijk, maar er is verder niks aan te zien. Kale warme berg stenen op een berg. Het zal wel zijn publiek hebben maar ik ben het niet.",
                 "fullDescription": "Mooi groot fort, dat wel natuurlijk, maar er is verder niks aan te zien. Kale warme berg stenen op een berg. Het zal wel zijn publiek hebben maar ik ben het niet.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Castro Marim"
             }
         },
@@ -1081,7 +1082,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/ctqV1IGIoTbOR7OE-hOjkME4jKjCrIGneo9pLw1sB9s135mAKdczHJvqoslm6KRgpEF_nbRb-ov8hF5djZUw319VMWB9ALzY_De3jNVYCf6frg"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Lissabon"
             }
         },
@@ -1102,7 +1103,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/8i31s6XCkXMOK2CL8yCQr0FkKPioaHwltHmGD0-KZMVegGjruRdg6WxGyY19jdjgj2vVTLyUe1UJltThu01hGpe3niikJzPRsQYY8ZWqnQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Lissabon"
             }
         },
@@ -1121,7 +1122,7 @@
                 "description": "Ach het eten was wel ok, en het zal wel tiepisch portugees zijn allemaal. Maar de Portugezen kunnen nou eenmaal niet zo lekker koken. En omdat dit restaurant overal wordt aangeraden (ook door het hote...",
                 "fullDescription": "Ach het eten was wel ok, en het zal wel tiepisch portugees zijn allemaal. Maar de Portugezen kunnen nou eenmaal niet zo lekker koken. En omdat dit restaurant overal wordt aangeraden (ook door het hotel) zet ik er een doodshoofd neer, omdat het ondanks alle aanbevelingen wat mij betreft echt niet de moeite waard is.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Lissabon"
             }
         },
@@ -1140,7 +1141,7 @@
                 "description": "De Oersoep brouwerij heeft ook een eigen kroeg\/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze ...",
                 "fullDescription": "De Oersoep brouwerij heeft ook een eigen kroeg\/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze kroeg heeft zich (niet onverdienstelijk) op de hamburgerrage gestort.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -1161,7 +1162,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/uHW6Pxq7hX12nqbFcUY1QtKuPlqpqcf6TxPI0XkCqWL-HCBA1At8gCYGXcT9AlA_2G6erF6QByNOeHlj13vDX_ka4Vbc74bi1X2H5Y7mj4Y"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Malmedy"
             }
         },
@@ -1182,7 +1183,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/HWkfXTn4204hoq_OASn1ZHTLxYOgUQ_UN2LqS-JfbGKIzEsdQbFv4mE0il8A5JI2f2ljiHu7XwUkkxlu9U1k3givSLlRStvgpeR2uc5d4piKEcBISYNzCVa8_Amvwu-4i8-wfQG_AZPuBiV7TlgwKcY"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Stavelot"
             }
         },
@@ -1201,7 +1202,7 @@
                 "description": "Het was niet extreem slecht maar toch een doodshoofdje. Octopus was gewoon gebakken octopus en mijn vlees wat eigenlijk helemaal niet lekker afgetopt met geitenkaas. Het smaakt gewoon niet zo lekker h...",
                 "fullDescription": "Het was niet extreem slecht maar toch een doodshoofdje. Octopus was gewoon gebakken octopus en mijn vlees wat eigenlijk helemaal niet lekker afgetopt met geitenkaas. Het smaakt gewoon niet zo lekker hier, ondanks dat het wel redelijk is klaargemaakt.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Lissabon"
             }
         },
@@ -1220,7 +1221,7 @@
                 "description": "Leuke gezellige kroeg. Er wordt wel gerookt",
                 "fullDescription": "Leuke gezellige kroeg. Er wordt wel gerookt",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Porto"
             }
         },
@@ -1241,7 +1242,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/dC2f-W2J9ANDZctDgCMsAc7LFZ1hNLKiHb8bTg2d1uWXdqWF8jUyXKs1V9eYjYJqH18Ge1JtlD3E6yVuJK_cU2m8WSB2n1zQWPW5ue4NJcRxy19nLlUvriBUjNhM5oo9sIc9N_y8hhW8uZbIno0XcQr59x_K_Q"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Porto"
             }
         },
@@ -1262,7 +1263,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/6x-mZmqjzNQn5ccw4DLUDQy0zPWeLZ1bIFmEfsdhCoiGwlj1NekcFzhtwx6e0zmxAhEL0jAcApfuswHUc3ybF5vd1ypFB5x5yIsILlKVVrwryfdpurarZQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Porto"
             }
         },
@@ -1283,7 +1284,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/3VUZuq5ieu9g243hsvxueo88UW2mUf8-oj-s2_YJAEkN8Ggh30Deq-59MRo4TMwmBLMoxhAyZTMEKiU9jy2KZ8IOxh_wOwfTT04hZnxpeRRoWVauVvOC40PHaam_h_TjDcmqVykO6Qa0iZzU2K-j8QjTpGPmEfRN7A"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Porto"
             }
         },
@@ -1302,7 +1303,7 @@
                 "description": "Prima restaurant op een niet zo'n mooie plek. We hadden een simpele maar hele smakelijke maaltijd, en dat is geluk hebben in Portugal. De desserts verdienen extra aandacht.",
                 "fullDescription": "Prima restaurant op een niet zo'n mooie plek. We hadden een simpele maar hele smakelijke maaltijd, en dat is geluk hebben in Portugal. De desserts verdienen extra aandacht.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Cinfães"
             }
         },
@@ -1323,7 +1324,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/8bwDJhne2j-q2NlJ1m9BXllW6BNHXPsqrqWp7rC75zqsknMj-i-iC1n169SU9TvFz6jT71_77LONVzAtnrShnQS0"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dodewaard"
             }
         },
@@ -1342,7 +1343,7 @@
                 "description": "Itliaan, voor lunch. Ik had lekker huisgemaakte ravioli met taleggio en een glaasje rode wijn.Tikkie sjiek maar boven gemiddelde kwaliteit \/ aandacht voor het eten.",
                 "fullDescription": "Itliaan, voor lunch. Ik had lekker huisgemaakte ravioli met taleggio en een glaasje rode wijn.Tikkie sjiek maar boven gemiddelde kwaliteit \/ aandacht voor het eten.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -1363,7 +1364,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/1jXe4xMpIDoIKGpoBIC7wtVSCk2f0l9sPTQVZlQyQePvCfCF2smFD-sgFb7VSetfYe5b_Dl9K28qjGDjUGQtW6pW-E4Cg92vCydo06sQ5XufcfnuYhhH0-7WzzKhreUH2Q"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -1384,7 +1385,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/6cADeJDK1RfrAQgiKfT5wVbmYgjidIdNyfu-aTe4XdUFKGuoaBPpsag1HgJsqHBwYtSobQ62Jr4enuAvzPjhqqcvjb29DpWtcCz0Pe97"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1403,7 +1404,7 @@
                 "description": "Of je bak lust! Vega\/vegan broodjes. Alles vers en bio. Wel heel lekker :)",
                 "fullDescription": "Of je bak lust! Vega\/vegan broodjes. Alles vers en bio. Wel heel lekker :)",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Den Haag"
             }
         },
@@ -1422,7 +1423,7 @@
                 "description": "Hele goede (maar dure) italiaan",
                 "fullDescription": "Hele goede (maar dure) italiaan",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1443,7 +1444,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/GfdTD12u23Yd8wlMhfEkqc9BJdMD0TaITSL3S-I8I1W_gmpOW_w17_NncH59druM7BF-GjaYRgy1BkAlWkyJOmuIRbtz-F-qvYFTGnYLGl36Dnn2A9jHZAzDdFErrh425_0OaID4ADOHBlpVQ8LU"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1462,7 +1463,7 @@
                 "description": "Een Griep die Delphi heet. Klassiek! Qua Griek is de Griek prima. Lekkere giros en prima souflaki. Wij hadden een of andere verzamelschotel (zoals dat gaat met Grieken)",
                 "fullDescription": "Een Griep die Delphi heet. Klassiek! Qua Griek is de Griek prima. Lekkere giros en prima souflaki. Wij hadden een of andere verzamelschotel (zoals dat gaat met Grieken)",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Bergen op Zoom"
             }
         },
@@ -1481,7 +1482,7 @@
                 "description": "Lekkere vis bij Baarssen. Ik had kibbelingen, die waren prima.",
                 "fullDescription": "Lekkere vis bij Baarssen. Ik had kibbelingen, die waren prima.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -1500,7 +1501,7 @@
                 "description": "Niks bijzonders maar toch noemenswaardig omdat ze open zijn op nieuwjaarsdag. Dus, zoek je iets te eten op nieuwjaarsdag, dan moet je hier naar toe.",
                 "fullDescription": "Niks bijzonders maar toch noemenswaardig omdat ze open zijn op nieuwjaarsdag. Dus, zoek je iets te eten op nieuwjaarsdag, dan moet je hier naar toe.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Ooltgensplaat"
             }
         },
@@ -1521,7 +1522,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/l3M2o6tK6VCdzjrM3UBN-rXkrFADeKbHvDOz-hUPWbl7aYPHjtSUEblThK29Biryq0KO40LlZV_fPHJGbnw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -1540,7 +1541,7 @@
                 "description": "Lekkere pizza's op een erg handige plaats (midden tussen 3 liften). Kom iets voor of na lunchtijd want anders kan het wel eens druk zijn. Soms houden ze ook een eetfestival (ofzoiets) en staat het hel...",
                 "fullDescription": "Lekkere pizza's op een erg handige plaats (midden tussen 3 liften). Kom iets voor of na lunchtijd want anders kan het wel eens druk zijn. Soms houden ze ook een eetfestival (ofzoiets) en staat het hele terras vol barbeque's enzo.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Badia - Abtei"
             }
         },
@@ -1559,7 +1560,7 @@
                 "description": "Camping met alleen maar vaste plaatsen en grind op de grond. Niet cool. Ligt wel erg dicht bij de Sloveense grens. Aan dat laatste heb je alleen niet zoveel. Even doorrijden en iets anders zoeken aldu...",
                 "fullDescription": "Camping met alleen maar vaste plaatsen en grind op de grond. Niet cool. Ligt wel erg dicht bij de Sloveense grens. Aan dat laatste heb je alleen niet zoveel. Even doorrijden en iets anders zoeken aldus Geensnor.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Muggia"
             }
         },
@@ -1578,7 +1579,7 @@
                 "description": "Prima tent om 's middags wat te eten. Neem de Almtoast. Dat is geroosterd stokbrood met biefstuk, varkenshaas, gebakken ei, afgetopt met gebakken spek. Dat klinkt vet en machtig en dat is het ook. Maa...",
                 "fullDescription": "Prima tent om 's middags wat te eten. Neem de Almtoast. Dat is geroosterd stokbrood met biefstuk, varkenshaas, gebakken ei, afgetopt met gebakken spek. Dat klinkt vet en machtig en dat is het ook. Maar wel erg lekker. Niet de goedkoopste plek om wat te eten, maar je bent (hoogstwaarschijnlijk) toch op vakantie.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Serfaus"
             }
         },
@@ -1599,7 +1600,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/mp0Uyp0Pb-3I6Wcg2bxDuodRNI911cbQLlh9AAyRTku6aZhvPjMudaMHV-jEmqFTOYvwv2G7PdQXI-Tr-zhzLP3JOEWmRJsMKJKvaOb2iOroGqVIroIB5JosFlDgLVuBwKnc"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1618,7 +1619,7 @@
                 "description": "Leuke (hippe) plek voor een biertje en\/of een simpele (vega) hap. Denk hipsters, tijdelijk, amsterdam, moeilijk",
                 "fullDescription": "Leuke (hippe) plek voor een biertje en\/of een simpele (vega) hap. Denk hipsters, tijdelijk, amsterdam, moeilijk",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1637,7 +1638,7 @@
                 "description": "Beste tosties in de wereld. In een kringloop achtige bedoeling serveren ze heerlijke koffie en fantastische tosti's. De bietensap is ook een aanrader.",
                 "fullDescription": "Beste tosties in de wereld. In een kringloop achtige bedoeling serveren ze heerlijke koffie en fantastische tosti's. De bietensap is ook een aanrader.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1656,7 +1657,7 @@
                 "description": "Beste snackbar van het land. punt",
                 "fullDescription": "Beste snackbar van het land. punt",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Wijchen"
             }
         },
@@ -1675,7 +1676,7 @@
                 "description": "Nou, dat beviel niet zo goed. Bediening loopt niet. Eten wordt niet gelijk geserveerd. Kwaliteit van het eten is op z'n best een krappe voldoende. Probeer de pizzeria aan de overkant van het water. Di...",
                 "fullDescription": "Nou, dat beviel niet zo goed. Bediening loopt niet. Eten wordt niet gelijk geserveerd. Kwaliteit van het eten is op z'n best een krappe voldoende. Probeer de pizzeria aan de overkant van het water. Die is wellicht beter.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Schruns"
             }
         },
@@ -1694,7 +1695,7 @@
                 "description": "De keuze is niet reuze. Verder dan friet met worst komen ze niet. Als je dan vervolgens aan het einde van de dag aan het bier wilt, krijg je het verkeerde bier en duurt het bestellen kei lang. Volgens...",
                 "fullDescription": "De keuze is niet reuze. Verder dan friet met worst komen ze niet. Als je dan vervolgens aan het einde van de dag aan het bier wilt, krijg je het verkeerde bier en duurt het bestellen kei lang. Volgens een vriendelijke tipgever kun je beter bij het restaurant aan de overkant gaan zitten.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "St. Gallenkirch"
             }
         },
@@ -1713,7 +1714,7 @@
                 "description": "",
                 "fullDescription": "",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Schruns"
             }
         },
@@ -1732,7 +1733,7 @@
                 "description": "Vis, prima vis!",
                 "fullDescription": "Vis, prima vis!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1751,7 +1752,7 @@
                 "description": "Als je in Amsterdam bent (centrum) en eigenlijk geen poeha wilt. Prima burgers, niet te duur. Wel drukkig vaak",
                 "fullDescription": "Als je in Amsterdam bent (centrum) en eigenlijk geen poeha wilt. Prima burgers, niet te duur. Wel drukkig vaak",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1770,7 +1771,7 @@
                 "description": "Erg lekker, wel sfeerloos",
                 "fullDescription": "Erg lekker, wel sfeerloos",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Zeist"
             }
         },
@@ -1789,7 +1790,7 @@
                 "description": "Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders\/familie. Mooi terras. Neem de pont!",
                 "fullDescription": "Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders\/familie. Mooi terras. Neem de pont!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1808,7 +1809,7 @@
                 "description": "De Keftaburger is prima te nassen. Slechts enkelen gaan in de uren erna over hun nek.",
                 "fullDescription": "De Keftaburger is prima te nassen. Slechts enkelen gaan in de uren erna over hun nek.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1827,7 +1828,7 @@
                 "description": "Zoals alle bazars in Nederland. Goed eten (couscous ole ole) voor niet veel geld",
                 "fullDescription": "Zoals alle bazars in Nederland. Goed eten (couscous ole ole) voor niet veel geld",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1846,7 +1847,7 @@
                 "description": "Gezellig cafe met hipsters. Probeer de Omer!",
                 "fullDescription": "Gezellig cafe met hipsters. Probeer de Omer!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1865,7 +1866,7 @@
                 "description": "Cafe derat is bruin, gezellig en heeft vooral heel veel lekkere biertjes. Vraag vooral barman Erik (eigenaar) om advies. Dat vind hij leuk (en kan hij ook goed)",
                 "fullDescription": "Cafe derat is bruin, gezellig en heeft vooral heel veel lekkere biertjes. Vraag vooral barman Erik (eigenaar) om advies. Dat vind hij leuk (en kan hij ook goed)",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1884,7 +1885,7 @@
                 "description": "Misschien was het pech maar het was niet goed. Niet smakelijk eten, dramatische bediening. Gewoon heel erg nee",
                 "fullDescription": "Misschien was het pech maar het was niet goed. Niet smakelijk eten, dramatische bediening. Gewoon heel erg nee",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -1903,7 +1904,7 @@
                 "description": "Tip voor erg goed eten! Goede (goede!) pizza's. Houtoven en al. Wel reserveren want het heeft volgens mij in de viva gestaan.",
                 "fullDescription": "Tip voor erg goed eten! Goede (goede!) pizza's. Houtoven en al. Wel reserveren want het heeft volgens mij in de viva gestaan.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1922,7 +1923,7 @@
                 "description": "Beste chinees in de wijde omtrek. Je neemt de 150 met mihoen.",
                 "fullDescription": "Beste chinees in de wijde omtrek. Je neemt de 150 met mihoen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Wijchen"
             }
         },
@@ -1941,7 +1942,7 @@
                 "description": "Stadsbrouwerij van Nijmegen. Geensnor adviseert de Helse Engel of Serafijn. Je kan er ook eten maar dat hebben we nog nooit gedaan",
                 "fullDescription": "Stadsbrouwerij van Nijmegen. Geensnor adviseert de Helse Engel of Serafijn. Je kan er ook eten maar dat hebben we nog nooit gedaan",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -1960,7 +1961,7 @@
                 "description": "Prima trailerhelling in Amsterdam Noord. Gratis, dichtbij de openbare weg, gratis parkeren in de buurt en niet te steil.",
                 "fullDescription": "Prima trailerhelling in Amsterdam Noord. Gratis, dichtbij de openbare weg, gratis parkeren in de buurt en niet te steil.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1979,7 +1980,7 @@
                 "description": "Stadstrand, hipsters, vuurkorf, berlijns (wat dat ook is), krakerig, feestjes, beats, muziek, biertjes",
                 "fullDescription": "Stadstrand, hipsters, vuurkorf, berlijns (wat dat ook is), krakerig, feestjes, beats, muziek, biertjes",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -1998,7 +1999,7 @@
                 "description": "Zoals alle bazars in Nederland. Goed eten (couscous ole ole) voor niet veel geld",
                 "fullDescription": "Zoals alle bazars in Nederland. Goed eten (couscous ole ole) voor niet veel geld",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Rotterdam"
             }
         },
@@ -2017,7 +2018,7 @@
                 "description": "Meesterschenkerij die meerdere malen is uitgeroepen tot beste cafe van Nederland. 964 bieren op de tap, 278193 op de fles.",
                 "fullDescription": "Meesterschenkerij die meerdere malen is uitgeroepen tot beste cafe van Nederland. 964 bieren op de tap, 278193 op de fles.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2036,7 +2037,7 @@
                 "description": "Giganische dranksupermarkt met duitse prijzen voor drank!",
                 "fullDescription": "Giganische dranksupermarkt met duitse prijzen voor drank!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Kleef"
             }
         },
@@ -2055,7 +2056,7 @@
                 "description": "Beste italiaan van Nijmegen. Niet goedkoop",
                 "fullDescription": "Beste italiaan van Nijmegen. Niet goedkoop",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2074,7 +2075,7 @@
                 "description": "Prima italiaan. Neem de grote pasta arabiata en eet net iets teveel",
                 "fullDescription": "Prima italiaan. Neem de grote pasta arabiata en eet net iets teveel",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2093,7 +2094,7 @@
                 "description": "Lachen om arnhemse hipsters met hun moeilijke bier, haardracht en attitude. U drinkt Russisch bier met enorm handige dopjes.",
                 "fullDescription": "Lachen om arnhemse hipsters met hun moeilijke bier, haardracht en attitude. U drinkt Russisch bier met enorm handige dopjes.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -2112,7 +2113,7 @@
                 "description": "Prima kroeg met veel lekker bier. Niet overdreven groot en terras heeft nooit zon. Je kan er ook best lekker eten. Eten stijgt zeker boven de kroeghap uit.",
                 "fullDescription": "Prima kroeg met veel lekker bier. Niet overdreven groot en terras heeft nooit zon. Je kan er ook best lekker eten. Eten stijgt zeker boven de kroeghap uit.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2131,7 +2132,7 @@
                 "description": "Prima afhaalpizza's (bezorgen kan ook). Geensnor adviseert de Diavola.",
                 "fullDescription": "Prima afhaalpizza's (bezorgen kan ook). Geensnor adviseert de Diavola.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2150,7 +2151,7 @@
                 "description": "Prima pasta voor weinig. De serveerster mag er ook zijn.",
                 "fullDescription": "Prima pasta voor weinig. De serveerster mag er ook zijn.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Riga"
             }
         },
@@ -2169,7 +2170,7 @@
                 "description": "Niet heengaan! Slechtste bediening van heel Belgie en ranzige zooi",
                 "fullDescription": "Niet heengaan! Slechtste bediening van heel Belgie en ranzige zooi",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Leuven"
             }
         },
@@ -2188,7 +2189,7 @@
                 "description": "Niet doen. Kutbedden, geen internet en kapot sanitair. Ook niet voor 1 nacht.",
                 "fullDescription": "Niet doen. Kutbedden, geen internet en kapot sanitair. Ook niet voor 1 nacht.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Valence"
             }
         },
@@ -2207,7 +2208,7 @@
                 "description": "Pannenkoeken 2.0. Erg lekker. Je moet niet bang zijn voor gezinnen met kinderen.",
                 "fullDescription": "Pannenkoeken 2.0. Erg lekker. Je moet niet bang zijn voor gezinnen met kinderen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Velp"
             }
         },
@@ -2226,7 +2227,7 @@
                 "description": "Eten uit India. Eigenlijk vaste prik als we in Berlijn zijn. Goed eten voor een nette prijs. Absoluut niks mis mee. Wel gebrek aan hipheid",
                 "fullDescription": "Eten uit India. Eigenlijk vaste prik als we in Berlijn zijn. Goed eten voor een nette prijs. Absoluut niks mis mee. Wel gebrek aan hipheid",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -2245,7 +2246,7 @@
                 "description": "Leuke kroeg in Berlijn. Snel internet (100mbit) en lekkere biertjes. Vol hipsters en kringloop meubilair. Neem niet de radler, wel de koffie. Goed ontbijt ook. Werp een blik op de kraan aan het plafon...",
                 "fullDescription": "Leuke kroeg in Berlijn. Snel internet (100mbit) en lekkere biertjes. Vol hipsters en kringloop meubilair. Neem niet de radler, wel de koffie. Goed ontbijt ook. Werp een blik op de kraan aan het plafond..die wil ik ook.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -2264,7 +2265,7 @@
                 "description": "Kamer zonder raam...ik herhaal...kamer zonder raam. Niet doen dus want dat suckt volkomen",
                 "fullDescription": "Kamer zonder raam...ik herhaal...kamer zonder raam. Niet doen dus want dat suckt volkomen",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Stockholm"
             }
         },
@@ -2283,7 +2284,7 @@
                 "description": "Moeilijk te vinden maar toch leuk. Club onder snelweg. Hipsters, eten, dj's en kunst. Doe maar ja",
                 "fullDescription": "Moeilijk te vinden maar toch leuk. Club onder snelweg. Hipsters, eten, dj's en kunst. Doe maar ja",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Stockholm"
             }
         },
@@ -2302,7 +2303,7 @@
                 "description": "Beste friet en gehakstaven van 030",
                 "fullDescription": "Beste friet en gehakstaven van 030",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2321,7 +2322,7 @@
                 "description": "Club. Om te dansen. In een grote oude ww2 bunker (bovengronds). Industrieel. Ook mooi uitzicht!",
                 "fullDescription": "Club. Om te dansen. In een grote oude ww2 bunker (bovengronds). Industrieel. Ook mooi uitzicht!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Hamburg"
             }
         },
@@ -2340,7 +2341,7 @@
                 "description": "Noors eten. Dat betekent natuurlijk biefstuk van de eland. Wel op chique!",
                 "fullDescription": "Noors eten. Dat betekent natuurlijk biefstuk van de eland. Wel op chique!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -2359,7 +2360,7 @@
                 "description": "Zonder meer de beste burgers van de stad. Wel groot en druk, maar dat is niet gek met zulke burgers :)",
                 "fullDescription": "Zonder meer de beste burgers van de stad. Wel groot en druk, maar dat is niet gek met zulke burgers :)",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -2378,7 +2379,7 @@
                 "description": "Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops\/tablet zijn verboten!",
                 "fullDescription": "Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops\/tablet zijn verboten!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -2397,7 +2398,7 @@
                 "description": "Pretentieus. Eten (o.a. sprinkhanen) is opzich lekker maar bediening is ondermaats. Niet goedkoop.",
                 "fullDescription": "Pretentieus. Eten (o.a. sprinkhanen) is opzich lekker maar bediening is ondermaats. Niet goedkoop.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2416,7 +2417,7 @@
                 "description": "Goed, het kost waarschijnlijk veel te veel moeite, want de weg hier naar toe is moeilijk en slecht te vinden. Smalle bospaadjes, vage bordjes maar uiteindelijk bovenop de berg een meer dan prima resta...",
                 "fullDescription": "Goed, het kost waarschijnlijk veel te veel moeite, want de weg hier naar toe is moeilijk en slecht te vinden. Smalle bospaadjes, vage bordjes maar uiteindelijk bovenop de berg een meer dan prima restaurant. Probeer de tuinkerssoep! De tunnel alleen gebruiken bij weinig regen! En check vooral de rest van El Cedro (natuurgebied). Geensnor tipt: De helling is te stijl om omhoog te klimmen. http:\/\/camping-lavista.jimdo.com\/",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Hermigua"
             }
         },
@@ -2435,7 +2436,7 @@
                 "description": "Hondenrennen is best tof. Check even de prestaties van de hond (in het boekje) voordat je je hele pensioen inzet.",
                 "fullDescription": "Hondenrennen is best tof. Check even de prestaties van de hond (in het boekje) voordat je je hele pensioen inzet.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dublin"
             }
         },
@@ -2454,7 +2455,7 @@
                 "description": "Prima appartement in een heel mooi skigebied. 5 minuten lopen van piste aan de Sella Ronda. Niet schreeuwend duur.",
                 "fullDescription": "Prima appartement in een heel mooi skigebied. 5 minuten lopen van piste aan de Sella Ronda. Niet schreeuwend duur.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Corvara in Badia - Corvara"
             }
         },
@@ -2473,7 +2474,7 @@
                 "description": "Geinig budget hotel. Schoon, niet te duur. Fijne locatie tegen chinatown aan. Ik denk een 1 of 2 sterhotel",
                 "fullDescription": "Geinig budget hotel. Schoon, niet te duur. Fijne locatie tegen chinatown aan. Ik denk een 1 of 2 sterhotel",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "San Francisco"
             }
         },
@@ -2492,8 +2493,9 @@
                 "description": "Prima chinees. Midden in chinatown, dus dat treft.",
                 "fullDescription": "Prima chinees. Midden in chinatown, dus dat treft.",
                 "images": [],
-                "category": "poi",
-                "placeName": "San Francisco"
+                "category": "cafe-bar",
+                "placeName": "San Francisco",
+                "date": "04-10-2026 22:10:11"
             }
         },
         {
@@ -2511,7 +2513,7 @@
                 "description": "Thema egypte hotel. Prima hotel, wel erg erg erg erg groot. 3 starbucksen in het hotel zelf. Toptip (sowieso in Vegas). Check coupon sites. Dat scheelt minimaal 40%. Mooi zwembad ook.",
                 "fullDescription": "Thema egypte hotel. Prima hotel, wel erg erg erg erg groot. 3 starbucksen in het hotel zelf. Toptip (sowieso in Vegas). Check coupon sites. Dat scheelt minimaal 40%. Mooi zwembad ook.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Clark County"
             }
         },
@@ -2530,7 +2532,7 @@
                 "description": "Het uitzicht is prima, maar qua hotel is het wel een beetje karig vergeleken met de rest op de strip. Ook wel een roteind weg van alles eigenlijk. Bedden waren wel heel goed.",
                 "fullDescription": "Het uitzicht is prima, maar qua hotel is het wel een beetje karig vergeleken met de rest op de strip. Ook wel een roteind weg van alles eigenlijk. Bedden waren wel heel goed.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Las Vegas"
             }
         },
@@ -2549,7 +2551,7 @@
                 "description": "Ze hebben mijn eten volkomen verkloot door een of andere rare kaastopping op de schnitzel",
                 "fullDescription": "Ze hebben mijn eten volkomen verkloot door een of andere rare kaastopping op de schnitzel",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2568,7 +2570,7 @@
                 "description": "Altijd precies hetzelfde. De bediening wordt 100% uitgekozen vanwege het uiterlijk en de pizza scarpara blijft de beste pizza op de kaart.",
                 "fullDescription": "Altijd precies hetzelfde. De bediening wordt 100% uitgekozen vanwege het uiterlijk en de pizza scarpara blijft de beste pizza op de kaart.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2587,7 +2589,7 @@
                 "description": "Tegenwoordig in de blauwe planeet (roltrap omlaag bij de kijkshop). Het ziet er allemaal niet uit maar is meer dan prima. Indonesisch zoals dat bedoeld is. Er zijn wat tafeltjes maar beter is om een m...",
                 "fullDescription": "Tegenwoordig in de blauwe planeet (roltrap omlaag bij de kijkshop). Het ziet er allemaal niet uit maar is meer dan prima. Indonesisch zoals dat bedoeld is. Er zijn wat tafeltjes maar beter is om een maaltijd mee te nemen en thuis ff op te piepen in de magnetron.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2606,7 +2608,7 @@
                 "description": "Hier nooit gaan eten.",
                 "fullDescription": "Hier nooit gaan eten.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2625,7 +2627,7 @@
                 "description": "Absoluut goed eten. Reserveren waarschijnlijk handig maar u kunt het altijd proberen. Vermijd een bezoek bij de buren om de hoek (arnhems proeflokaal). Dat is niet wat je zoek.",
                 "fullDescription": "Absoluut goed eten. Reserveren waarschijnlijk handig maar u kunt het altijd proberen. Vermijd een bezoek bij de buren om de hoek (arnhems proeflokaal). Dat is niet wat je zoek.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -2644,7 +2646,7 @@
                 "description": "Om te lunchen. Lekkere koffie. Broodjes vanaf 11:00 ofzoiets. Notenbrood met geitenkaas is het beste.",
                 "fullDescription": "Om te lunchen. Lekkere koffie. Broodjes vanaf 11:00 ofzoiets. Notenbrood met geitenkaas is het beste.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2663,7 +2665,7 @@
                 "description": "Voorheen het licht. Tegenwoordig Bram. Whatever. Burgers zijn goed, alhoewel Licht beter was. Beetje rare broodjes. Bijbetalen voor friet is ook wel beetje jammer.",
                 "fullDescription": "Voorheen het licht. Tegenwoordig Bram. Whatever. Burgers zijn goed, alhoewel Licht beter was. Beetje rare broodjes. Bijbetalen voor friet is ook wel beetje jammer.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2682,7 +2684,7 @@
                 "description": "Afhaalchinees. Er is werkelijk helemaal niks mis met deze afhaalchinees.",
                 "fullDescription": "Afhaalchinees. Er is werkelijk helemaal niks mis met deze afhaalchinees.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2701,7 +2703,7 @@
                 "description": "Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen",
                 "fullDescription": "Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -2720,7 +2722,7 @@
                 "description": "Oosters eten in Amersfoort. Lekker! Denk aan bijv. couscous zaken. Grote zaak trouwens.",
                 "fullDescription": "Oosters eten in Amersfoort. Lekker! Denk aan bijv. couscous zaken. Grote zaak trouwens.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amersfoort"
             }
         },
@@ -2739,7 +2741,7 @@
                 "description": "Ik weet alleen iets over de boterham met kroket. Die is lekker. Ook mooie locatie trouwens!",
                 "fullDescription": "Ik weet alleen iets over de boterham met kroket. Die is lekker. Ook mooie locatie trouwens!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Rotterdam"
             }
         },
@@ -2758,7 +2760,7 @@
                 "description": "Prima appartementen dichtbij de piste. Niet te duur en met zwembad",
                 "fullDescription": "Prima appartementen dichtbij de piste. Niet te duur en met zwembad",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "La Plagne-Tarentaise"
             }
         },
@@ -2777,7 +2779,7 @@
                 "description": "Vijf persoons appartementen die voor vieren nog veel te klein zijn. Oud, kapot en niet super goedkoop. Wel goede ligging. Geensnor zegt: Tignes Ja, dit appartement Nee.",
                 "fullDescription": "Vijf persoons appartementen die voor vieren nog veel te klein zijn. Oud, kapot en niet super goedkoop. Wel goede ligging. Geensnor zegt: Tignes Ja, dit appartement Nee.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Tignes"
             }
         },
@@ -2796,7 +2798,7 @@
                 "description": "Oudste kroeg in Dublin (zegt men). Erg Iers allemaal. Je kan er ook eten. Geensnor was tevreden over een of andere stew met guiness",
                 "fullDescription": "Oudste kroeg in Dublin (zegt men). Erg Iers allemaal. Je kan er ook eten. Geensnor was tevreden over een of andere stew met guiness",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dublin"
             }
         },
@@ -2815,7 +2817,7 @@
                 "description": "Beste restaurant in Nijmegen waar ik heb gegeten. Goede bediening. Niet goedkoop.",
                 "fullDescription": "Beste restaurant in Nijmegen waar ik heb gegeten. Goede bediening. Niet goedkoop.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2834,7 +2836,7 @@
                 "description": "Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht\/zonsondergang",
                 "fullDescription": "Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht\/zonsondergang",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Hollum"
             }
         },
@@ -2853,7 +2855,7 @@
                 "description": "Prima tapas gegeten. Tapas opzich moet je alleen wel liggen.",
                 "fullDescription": "Prima tapas gegeten. Tapas opzich moet je alleen wel liggen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -2872,7 +2874,7 @@
                 "description": "Koude-oorlog-heimwee-kroeg. Na 23:00 is iedereen dronken. Heel veel vies bier op de kaart dus bestel conservatief. Geensnor tip: laat die twee laatste whiskey om 3:30 staan en loop de volgende dag rel...",
                 "fullDescription": "Koude-oorlog-heimwee-kroeg. Na 23:00 is iedereen dronken. Heel veel vies bier op de kaart dus bestel conservatief. Geensnor tip: laat die twee laatste whiskey om 3:30 staan en loop de volgende dag relatief fris door Riga.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Riga"
             }
         },
@@ -2891,7 +2893,7 @@
                 "description": "Cafe onder de Tower Bridge met uitzicht op de onderkant van de Tower Bridge en de Thames. Nice.",
                 "fullDescription": "Cafe onder de Tower Bridge met uitzicht op de onderkant van de Tower Bridge en de Thames. Nice.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Groot-Londen"
             }
         },
@@ -2910,7 +2912,7 @@
                 "description": "Thai's. Prima prijs, prima eten. +1 voor de bediening",
                 "fullDescription": "Thai's. Prima prijs, prima eten. +1 voor de bediening",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Groningen"
             }
         },
@@ -2929,7 +2931,7 @@
                 "description": "Zo Duits zo Duits Zo Duits! Anyhoe...goed eten en goed drinken in deze duitse vreetschuur",
                 "fullDescription": "Zo Duits zo Duits Zo Duits! Anyhoe...goed eten en goed drinken in deze duitse vreetschuur",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "München"
             }
         },
@@ -2948,7 +2950,7 @@
                 "description": "Biologische slager met heerlijke lamspiesjes. Nadeel is dat hij bijna nooit open is.",
                 "fullDescription": "Biologische slager met heerlijke lamspiesjes. Nadeel is dat hij bijna nooit open is.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -2967,7 +2969,7 @@
                 "description": "Rustige kleine camping. Zowel in de winter als in de zomer open. Camping heeft een eigen restaurant waar je lekkere forellen kunt eten. Die vangen ze trouwens in hun eigen vijver. Door de ligging is d...",
                 "fullDescription": "Rustige kleine camping. Zowel in de winter als in de zomer open. Camping heeft een eigen restaurant waar je lekkere forellen kunt eten. Die vangen ze trouwens in hun eigen vijver. Door de ligging is de zon vrij vroeg verdwenen en kan het verrassend koud worden.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Jerzens"
             }
         },
@@ -2986,7 +2988,7 @@
                 "description": "Default kroeg in Nijmegen. Ook prima hamburgers.",
                 "fullDescription": "Default kroeg in Nijmegen. Ook prima hamburgers.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -3005,7 +3007,7 @@
                 "description": "Restaurant met (waarschijnlijk) redelijk traditioneel Hongaars eten. Niet vies, maar ook niet mega lekker. De bediening waarschuwt je vriendelijk als je varkensmaag aan het bestellen bent.",
                 "fullDescription": "Restaurant met (waarschijnlijk) redelijk traditioneel Hongaars eten. Niet vies, maar ook niet mega lekker. De bediening waarschuwt je vriendelijk als je varkensmaag aan het bestellen bent.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boedapest"
             }
         },
@@ -3024,7 +3026,7 @@
                 "description": "Hongaarse \"beer garden\" met (nou vooruit dan maar) berlijnse kraak looks. S avonds best gezellig. Je kan er eten, maar de door geensnor bestelde hamburger was onder de maat.",
                 "fullDescription": "Hongaarse \"beer garden\" met (nou vooruit dan maar) berlijnse kraak looks. S avonds best gezellig. Je kan er eten, maar de door geensnor bestelde hamburger was onder de maat.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boedapest"
             }
         },
@@ -3043,7 +3045,7 @@
                 "description": "Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk\/gebied met tig plaatsen die geschikt zijn om bier te drinken.",
                 "fullDescription": "Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk\/gebied met tig plaatsen die geschikt zijn om bier te drinken.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boedapest"
             }
         },
@@ -3062,7 +3064,7 @@
                 "description": "In het weekend te druk, door de week prima. Veel soorten bier. Tip! Probeer het eten! Dat is boven verwachting goed",
                 "fullDescription": "In het weekend te druk, door de week prima. Veel soorten bier. Tip! Probeer het eten! Dat is boven verwachting goed",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -3081,7 +3083,7 @@
                 "description": "Groot restaurant waar het de bedoeling is dat je meerdere gerechten bestelt. Ze mijden het woord \"tapas\" en dat is goed. Het eten is lekker. Wel vaak druk. De trein rijdt bijna over het terras",
                 "fullDescription": "Groot restaurant waar het de bedoeling is dat je meerdere gerechten bestelt. Ze mijden het woord \"tapas\" en dat is goed. Het eten is lekker. Wel vaak druk. De trein rijdt bijna over het terras",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -3102,7 +3104,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/y0I8PPpxZ5UmMAca6iKTVw18X-bqR2VY2KYsf8R0AXYu9iknczPGtO8_7zKy6fMCr9TTMyC4NjdWf8nJE8ia_g5B1rSJDXADUw1uQg6FbDiIQqlwEm6o48o_W_U8TkISyCs"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -3121,7 +3123,7 @@
                 "description": "Eetcafe. Lekkere biologische hamburgers in Vreeland. De frietsate schijnt ook niet mis te zijn. Kok komt uit de keuken om te vertellen dat hij gekookt heeft. Dat is opzich niet nodig bij hamburgers en...",
                 "fullDescription": "Eetcafe. Lekkere biologische hamburgers in Vreeland. De frietsate schijnt ook niet mis te zijn. Kok komt uit de keuken om te vertellen dat hij gekookt heeft. Dat is opzich niet nodig bij hamburgers en frietsate.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Vreeland"
             }
         },
@@ -3140,7 +3142,7 @@
                 "description": "De locatie kenmerkt zich door een strenge doch rechtvaardige bediening enerzijds en een erg onervaren schattige anderzijds.  Het eten is echt heel goed en smakelijk. Lamsrack is een aanrader. Parkeren...",
                 "fullDescription": "De locatie kenmerkt zich door een strenge doch rechtvaardige bediening enerzijds en een erg onervaren schattige anderzijds.  Het eten is echt heel goed en smakelijk. Lamsrack is een aanrader. Parkeren kan goed  bij de buren.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Loenen aan de Vecht"
             }
         },
@@ -3159,7 +3161,7 @@
                 "description": "Goede trailerhelling met parkeerplaats. Aan de prijs (zomer 2013: 18 euro). Prima plaats om de plassen op te gaan. Voor de vecht moet je nog door een (soms druk) sluisje.",
                 "fullDescription": "Goede trailerhelling met parkeerplaats. Aan de prijs (zomer 2013: 18 euro). Prima plaats om de plassen op te gaan. Voor de vecht moet je nog door een (soms druk) sluisje.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Loosdrecht"
             }
         },
@@ -3178,7 +3180,7 @@
                 "description": "Drankjes drinken aan het kanaal. Zaak vol hipsters maar an sich een mooi terras. het bier is volgens eigen zeggen Duits geprijsd. De werkelijkheid ligt helaas iets hoger maar nog steeds goedkoop. Erna...",
                 "fullDescription": "Drankjes drinken aan het kanaal. Zaak vol hipsters maar an sich een mooi terras. het bier is volgens eigen zeggen Duits geprijsd. De werkelijkheid ligt helaas iets hoger maar nog steeds goedkoop. Ernaast een grasveld. Bij de slijterbuurman kun je een picknick setje kopen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -3197,7 +3199,7 @@
                 "description": "Trailerhelling bij jachthaven Hoogeerd. Beton en niet te steil. Het hek van de haven zit meestal op slot, maar je kan de havenmeester bellen (nummer op het bord). Helling is niet gratis, parkeren wel....",
                 "fullDescription": "Trailerhelling bij jachthaven Hoogeerd. Beton en niet te steil. Het hek van de haven zit meestal op slot, maar je kan de havenmeester bellen (nummer op het bord). Helling is niet gratis, parkeren wel. De jachthaven ernaast (De Batavier) heeft een hele slechte, steile helling.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Niftrik"
             }
         },
@@ -3216,7 +3218,7 @@
                 "description": "Erg goede hamburgers voor 9.50. Voor een daalder erbij heb je frieten. De zelfgemaakte ketchup is goddelijk. Ook fijn terras en bier",
                 "fullDescription": "Erg goede hamburgers voor 9.50. Voor een daalder erbij heb je frieten. De zelfgemaakte ketchup is goddelijk. Ook fijn terras en bier",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Rotterdam"
             }
         },
@@ -3235,7 +3237,7 @@
                 "description": "Goede hamburgers...punt",
                 "fullDescription": "Goede hamburgers...punt",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -3254,7 +3256,7 @@
                 "description": "Aardige plek voor iets drinken en lekkere lunch. Niet duur. Handig als je met de boot bent.",
                 "fullDescription": "Aardige plek voor iets drinken en lekkere lunch. Niet duur. Handig als je met de boot bent.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Amsterdam"
             }
         },
@@ -3273,7 +3275,7 @@
                 "description": "Lange Piet, we weten het niet. Er hangen borden waarop eten staat wat je niet kan krijgen en de snoekbaars filet was niet echt hoe je hem wilt hebben. Het was echter ook weer geen absolute NEEN volgen...",
                 "fullDescription": "Lange Piet, we weten het niet. Er hangen borden waarop eten staat wat je niet kan krijgen en de snoekbaars filet was niet echt hoe je hem wilt hebben. Het was echter ook weer geen absolute NEEN volgens geensnor.nl.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Lemmer"
             }
         },
@@ -3292,7 +3294,7 @@
                 "description": "9\/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.",
                 "fullDescription": "9\/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3311,7 +3313,7 @@
                 "description": "(Bruin-)cafe voor bierdrinkers. Ze hebben er enorm veel verschillende soorten bier. Beetje de Cafe Jos van New York. Schenken principieel geen Budweiser (en daar kan ik me iets bij voorstellen). Je ka...",
                 "fullDescription": "(Bruin-)cafe voor bierdrinkers. Ze hebben er enorm veel verschillende soorten bier. Beetje de Cafe Jos van New York. Schenken principieel geen Budweiser (en daar kan ik me iets bij voorstellen). Je kan er ook prima eten.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3330,7 +3332,7 @@
                 "description": "Erg lekkere pizzeria. Veel verse ingrediënten enzo. Bediening loopt als een zonnetje. Cash only maar er staat een geldautomaat in de zaak.",
                 "fullDescription": "Erg lekkere pizzeria. Veel verse ingrediënten enzo. Bediening loopt als een zonnetje. Cash only maar er staat een geldautomaat in de zaak.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3349,7 +3351,7 @@
                 "description": "Goede plaats voor een ontbijt of lunch. Lekkere broodjes maar geen grote keuze. Dichtbij metrostation en park. Service zonder glimlach.",
                 "fullDescription": "Goede plaats voor een ontbijt of lunch. Lekkere broodjes maar geen grote keuze. Dichtbij metrostation en park. Service zonder glimlach.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3368,7 +3370,7 @@
                 "description": "Eetcafe met vooral veel vette zooi. Gigantische porties. Kun je overslaan. Misschien is het 's avonds gezellig, maar dat weten we niet.",
                 "fullDescription": "Eetcafe met vooral veel vette zooi. Gigantische porties. Kun je overslaan. Misschien is het 's avonds gezellig, maar dat weten we niet.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3387,7 +3389,7 @@
                 "description": "Goed Thai's eten voor weinig. Bediening loopt een beetje stroefjes maar dat is geen ramp. Je moet eerst kloppen voordat je de toilet binnen mag, maar hij heeft ook gewoon een slot.",
                 "fullDescription": "Goed Thai's eten voor weinig. Bediening loopt een beetje stroefjes maar dat is geen ramp. Je moet eerst kloppen voordat je de toilet binnen mag, maar hij heeft ook gewoon een slot.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3406,7 +3408,7 @@
                 "description": "Hip eten in een hippe wijk. Misschien wel de lekkerste hamburgers die ik ooit heb gegeten. Tikje duurder dan normaal. Ligt naast metrostation. Berg personeel en wellicht daardoor goeie service. Brookl...",
                 "fullDescription": "Hip eten in een hippe wijk. Misschien wel de lekkerste hamburgers die ik ooit heb gegeten. Tikje duurder dan normaal. Ligt naast metrostation. Berg personeel en wellicht daardoor goeie service. Brooklyn Pilsner is overigens wel lekker Amerikaans bier.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3425,7 +3427,7 @@
                 "description": "Kun je overslaan zonder iets te missen. Beetje rare, donkere kroeg. Vergeleken bij deze toilet is de toilet van de Wendel strak gewit. Wel gewoon bier en dat soort dingen.",
                 "fullDescription": "Kun je overslaan zonder iets te missen. Beetje rare, donkere kroeg. Vergeleken bij deze toilet is de toilet van de Wendel strak gewit. Wel gewoon bier en dat soort dingen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3444,7 +3446,7 @@
                 "description": "Stuk wandelen over oude spoorlijn boven de stad. Leuk en gratis. Verwacht niet dat je leven erna helemaal anders is.",
                 "fullDescription": "Stuk wandelen over oude spoorlijn boven de stad. Leuk en gratis. Verwacht niet dat je leven erna helemaal anders is.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3463,7 +3465,7 @@
                 "description": "Deftige mexicaan. Goed bedacht. Lekker eten. Nogal een yuppen tent. Obers zijn gladde verkopers. Als je \"ja\" zegt tegen de nacho's en guacamole in het begin, krijg je ongeveer een doopvont vol. Dat is...",
                 "fullDescription": "Deftige mexicaan. Goed bedacht. Lekker eten. Nogal een yuppen tent. Obers zijn gladde verkopers. Als je \"ja\" zegt tegen de nacho's en guacamole in het begin, krijg je ongeveer een doopvont vol. Dat is opzich niet zo'n ramp want want het hoofdgerecht is on-amerikaans weinig. Bovendien is de guacamole echt heel lekker.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3482,7 +3484,7 @@
                 "description": "Lekker ontbijt\/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.",
                 "fullDescription": "Lekker ontbijt\/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3501,7 +3503,7 @@
                 "description": "Soort snackbar. Beetje afgeragde bende. Niet doen. Pizza's zijn gigantisch vet en niet lekker.",
                 "fullDescription": "Soort snackbar. Beetje afgeragde bende. Niet doen. Pizza's zijn gigantisch vet en niet lekker.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Newport"
             }
         },
@@ -3520,7 +3522,7 @@
                 "description": "Kleine gezellige pizzaria achter het wilhelminapark. Ze hebben een echt houtoven. Alleen dat al is op zich de moeite waard. De pizza's zijn top, de inrichting fijn en de bediening vriendelijk, mits je...",
                 "fullDescription": "Kleine gezellige pizzaria achter het wilhelminapark. Ze hebben een echt houtoven. Alleen dat al is op zich de moeite waard. De pizza's zijn top, de inrichting fijn en de bediening vriendelijk, mits je bediend wordt. Enigzins gezocht concept waarbij je zelf je drank en glazen e.d moet pakken. Probeer de toetjes, ondanks het plastic wel zelf gemaakt en lekker. Kleine tip. Neem een pizza als dessert, de porties vallen wat tegen.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -3539,7 +3541,7 @@
                 "description": "Bruin buurt cafe. Biercafe, met veel bier soorten. De IPA is prima. Geen pretenties, fijn terras met zon. De wc ruikt naar vroeger,",
                 "fullDescription": "Bruin buurt cafe. Biercafe, met veel bier soorten. De IPA is prima. Geen pretenties, fijn terras met zon. De wc ruikt naar vroeger,",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -3558,7 +3560,7 @@
                 "description": "Heel goed fijn hotel, niet goedkoop, wel dicht bij het strand en fijne bedden.",
                 "fullDescription": "Heel goed fijn hotel, niet goedkoop, wel dicht bij het strand en fijne bedden.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Wimereux"
             }
         },
@@ -3579,7 +3581,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/Y3thyzB_z-t8IA58wnLl1CNLGC7I1f0E9zCDos73iHstGrrd_K4bMTCBaauPH5TbNIVFuA6vT8vzZ6Tos1AZdaxr4KOnlWRNne9xOgDQ-szs"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Wimereux"
             }
         },
@@ -3598,7 +3600,7 @@
                 "description": "Top vis. Soort mega snackbar\/bistro met verse heerlijke vis. Vis vis vis",
                 "fullDescription": "Top vis. Soort mega snackbar\/bistro met verse heerlijke vis. Vis vis vis",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Yerseke"
             }
         },
@@ -3617,7 +3619,7 @@
                 "description": "Midden in het centrum. Tijdens winkeltijden moeilijk bij de voordeur komen door de drukte Wel goede kamers en geen last van geluid binnen",
                 "fullDescription": "Midden in het centrum. Tijdens winkeltijden moeilijk bij de voordeur komen door de drukte Wel goede kamers en geen last van geluid binnen",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Madrid"
             }
         },
@@ -3636,7 +3638,7 @@
                 "description": "Goed eten. Gewoon heel smakelijk eten. Glaasje huiswijn erbij en helemaal niks meer aan doen. Let wel even op de achterlijke spaanse eettijden.",
                 "fullDescription": "Goed eten. Gewoon heel smakelijk eten. Glaasje huiswijn erbij en helemaal niks meer aan doen. Let wel even op de achterlijke spaanse eettijden.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Bilbao"
             }
         },
@@ -3655,7 +3657,7 @@
                 "description": "Nederlandse fietsen huren in Brooklyn. Batavus en Gazelle's enzo. Prima fietsen. Een fietsverhuurder vinden in Brooklyn valt trouwens niet mee (als je niet van die Citi Bikes wilt), veel fietsenzaken ...",
                 "fullDescription": "Nederlandse fietsen huren in Brooklyn. Batavus en Gazelle's enzo. Prima fietsen. Een fietsverhuurder vinden in Brooklyn valt trouwens niet mee (als je niet van die Citi Bikes wilt), veel fietsenzaken verhuren niet.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3674,7 +3676,7 @@
                 "description": "Overdekte markt waar je allemaal dingetjes en futsels kunt kopen. Wel mooi gemaakt allemaal. Meer iets voor vrouwen. Ik heb er een pen gekocht maar die ben ik kwijt geraakt.",
                 "fullDescription": "Overdekte markt waar je allemaal dingetjes en futsels kunt kopen. Wel mooi gemaakt allemaal. Meer iets voor vrouwen. Ik heb er een pen gekocht maar die ben ik kwijt geraakt.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3693,7 +3695,7 @@
                 "description": "Beste indier in Boston volgens iemand. Degene zou ook best eens gelijk kunnen hebben. Betaalbaar in verder prijzige buurt.  Zelfgemaakte naan. Medium pittig is pittig genoeg.",
                 "fullDescription": "Beste indier in Boston volgens iemand. Degene zou ook best eens gelijk kunnen hebben. Betaalbaar in verder prijzige buurt.  Zelfgemaakte naan. Medium pittig is pittig genoeg.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3712,7 +3714,7 @@
                 "description": "Obscure Elvis kroeg met 60's muziek. Kroeg ligt gewoon op de bagane grond, maar heeft toch geen ramen. Sfeer, locals en bruin. Een kroeg zoals wij van Geensnor ze graag zien.",
                 "fullDescription": "Obscure Elvis kroeg met 60's muziek. Kroeg ligt gewoon op de bagane grond, maar heeft toch geen ramen. Sfeer, locals en bruin. Een kroeg zoals wij van Geensnor ze graag zien.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3731,7 +3733,7 @@
                 "description": "Ierse pub met kroeghap. Vriendelijk personeel en lekker bier maar matig eten. Eten smaakt flauw en de frieten zijn te rauw.",
                 "fullDescription": "Ierse pub met kroeghap. Vriendelijk personeel en lekker bier maar matig eten. Eten smaakt flauw en de frieten zijn te rauw.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3750,7 +3752,7 @@
                 "description": "Lunch\/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.",
                 "fullDescription": "Lunch\/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3769,7 +3771,7 @@
                 "description": "Ethiopiër. En dat betekent eten met je handen op rare krukjes. Wel lekker eten overigens. Personeel is een beetje terughoudend.",
                 "fullDescription": "Ethiopiër. En dat betekent eten met je handen op rare krukjes. Wel lekker eten overigens. Personeel is een beetje terughoudend.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3788,7 +3790,7 @@
                 "description": "Lunch\/ontbijt zaak. Gelukkig niet echt \"Taste of the Town\". Niet lekker. Afgeragde tent.",
                 "fullDescription": "Lunch\/ontbijt zaak. Gelukkig niet echt \"Taste of the Town\". Niet lekker. Afgeragde tent.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3807,7 +3809,7 @@
                 "description": "Italiaan zonder pizza's. Personeel lijkt één familie en heeft een authentiek klinkend maffia accent. Heel erg (echt heel erg) lekker eten. Op vrijdag en zaterdag druk (rijen voor de ingang enzo).",
                 "fullDescription": "Italiaan zonder pizza's. Personeel lijkt één familie en heeft een authentiek klinkend maffia accent. Heel erg (echt heel erg) lekker eten. Op vrijdag en zaterdag druk (rijen voor de ingang enzo).",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3826,7 +3828,7 @@
                 "description": "No nonsens Ierse pub. Niet groot. Precies genoeg afgeragd.",
                 "fullDescription": "No nonsens Ierse pub. Niet groot. Precies genoeg afgeragd.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3845,7 +3847,7 @@
                 "description": "Aangezien hotels in Boston tering duur zijn, kom je al snel bij een hostel uit. Dit hostel is vrij nieuw en schoon. Alles is goed geregeld. Twee grote nadelen zijn dat het tweepersoonsbed klein is en ...",
                 "fullDescription": "Aangezien hotels in Boston tering duur zijn, kom je al snel bij een hostel uit. Dit hostel is vrij nieuw en schoon. Alles is goed geregeld. Twee grote nadelen zijn dat het tweepersoonsbed klein is en dat het nogal gehorig is. Ligt wel mooi centraal.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3864,7 +3866,7 @@
                 "description": "Ik heb niet zo heel veel Maleisisch gegeten, maar dit was prima. Zacht voor de portemonnee bovendien. Personeel legt vriendelijke de kaart uit, maar is niet handig qua timing. Het hoofdgerecht voor tw...",
                 "fullDescription": "Ik heb niet zo heel veel Maleisisch gegeten, maar dit was prima. Zacht voor de portemonnee bovendien. Personeel legt vriendelijke de kaart uit, maar is niet handig qua timing. Het hoofdgerecht voor twee mensen tegelijk opdienen blijkt lastig.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Boston"
             }
         },
@@ -3883,7 +3885,7 @@
                 "description": "In het appartementen complex op 1661 11th Ave, Brooklyn, kun je prima appartementen huren. Goedkoper dan een hotel en ruim. Als je op het adres googled vind je wel wat contactinformatie. Beheerder is ...",
                 "fullDescription": "In het appartementen complex op 1661 11th Ave, Brooklyn, kun je prima appartementen huren. Goedkoper dan een hotel en ruim. Als je op het adres googled vind je wel wat contactinformatie. Beheerder is erg vriendelijk en geeft tips over interessante dingen in de buurt.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "New York"
             }
         },
@@ -3902,7 +3904,7 @@
                 "description": "Simpel maar prima restaurant. Ergens tussen eetcafe en restaurant in. Ik had waterkerssoep, die was lekker. 20 euro voor 3 gangen, en een aangename sfeer. Simpel goed eten zonder een uitgesproken sfee...",
                 "fullDescription": "Simpel maar prima restaurant. Ergens tussen eetcafe en restaurant in. Ik had waterkerssoep, die was lekker. 20 euro voor 3 gangen, en een aangename sfeer. Simpel goed eten zonder een uitgesproken sfeer.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -3921,7 +3923,7 @@
                 "description": "Eetcafe naast Goed. Origineel interieur en prima sfeer. Het eten is lekker maar niet echt bijzonder. Stevig aan de prijs voor wat je krijgt.",
                 "fullDescription": "Eetcafe naast Goed. Origineel interieur en prima sfeer. Het eten is lekker maar niet echt bijzonder. Stevig aan de prijs voor wat je krijgt.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -3940,7 +3942,7 @@
                 "description": "De lamskoteletjes waren heerlijk en mals. Het probleem van dit restaurant zit hem in de bediening. Die is zo slecht dat we zelfs niet meer wilde wachten op het gratis biertje.",
                 "fullDescription": "De lamskoteletjes waren heerlijk en mals. Het probleem van dit restaurant zit hem in de bediening. Die is zo slecht dat we zelfs niet meer wilde wachten op het gratis biertje.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -3962,7 +3964,7 @@
                     "https:\/\/lh5.googleusercontent.com\/proxy\/7kGfSxm1wM8YkZlclz2VDKoNgU4MsvJ0A5rwYYtIz6av6mVQqjVvMxo09nq2xDSUkCDpid7htnr9j1wBSBDqOkvDlELvhgdAvIB-mRG8hgZt1dUmx2p2rK8G2TBq2bp9fcOzV9ooZi3VA35sN4VV_P5BABDwmDo5V-7d2dOB0OE",
                     "https:\/\/lh6.googleusercontent.com\/proxy\/FZSCr7Bisnb94i_1f7M1GWry9LKfVCBEvbs4blh_yNz6slnkAgz50UssxosScIGvruU9qiNMzeMZgIbQDgzS1Ghecl_VY542jI0sCrHakm5KX5BTgNueEfJUiNcoYQ5yGGit2yZpjnwnyAJ-wSXySnYV50mypY7Mb5ZiR0ZdP_8"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Parijs"
             }
         },
@@ -3981,7 +3983,7 @@
                 "description": "Hoewel het testpanel van Geensnor in deze niet unaniem was, kunnen wel stellen dat je hier waarschijnlijk de beste hamburgers van heel Marken kan krijgen. De bediening is vriendelijk maar weinig asser...",
                 "fullDescription": "Hoewel het testpanel van Geensnor in deze niet unaniem was, kunnen wel stellen dat je hier waarschijnlijk de beste hamburgers van heel Marken kan krijgen. De bediening is vriendelijk maar weinig assertief.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Marken"
             }
         },
@@ -4002,7 +4004,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/1_o0xQ6IffGGz8zAiVxoNNV9pGHWP54GqlC7Z5mJnVzCI5z24kORJw12C-VgEjUiZb1JDxy7utZQz1QwgkEaxArGi4U8dh-RKNNZ_rkcugImSXEM_ILokVRDbayxinVj6IqXIqU327U5P0YaNF-iHA"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -4021,7 +4023,7 @@
                 "description": "De burgers zijn wat smaakloos. De volkorensmaak van het broodje overheerst. Geen wereldburgers. Rare dunne frietjes in vreemd emmertje. Wijn was lekker. Het geheel is wat \"bedacht\" op een overdreven m...",
                 "fullDescription": "De burgers zijn wat smaakloos. De volkorensmaak van het broodje overheerst. Geen wereldburgers. Rare dunne frietjes in vreemd emmertje. Wijn was lekker. Het geheel is wat \"bedacht\" op een overdreven manier.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -4040,7 +4042,7 @@
                 "description": "Misschien wel de beste burgers van Trois Vallee. Niet goedkoop, maar verder prima. Neem wel het uitgebreide hamburger gerecht anders krijg je alleen het vlees een geen broodje.",
                 "fullDescription": "Misschien wel de beste burgers van Trois Vallee. Niet goedkoop, maar verder prima. Neem wel het uitgebreide hamburger gerecht anders krijg je alleen het vlees een geen broodje.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Les Belleville"
             }
         },
@@ -4059,7 +4061,7 @@
                 "description": "Laat je niet afschrikken door de ligging (midden in een gaar winkelcentrum) of de grote (heel klein). Hier kun je echt wel lekker eten. De toilet is een soort houten hutje midden in de zaak en biedt g...",
                 "fullDescription": "Laat je niet afschrikken door de ligging (midden in een gaar winkelcentrum) of de grote (heel klein). Hier kun je echt wel lekker eten. De toilet is een soort houten hutje midden in de zaak en biedt geen enkele vorm van privacy.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Les Belleville"
             }
         },
@@ -4078,7 +4080,7 @@
                 "description": "Hipste koffietent van Nijmegen. Lekkere broodjes en gratis WiFi.",
                 "fullDescription": "Hipste koffietent van Nijmegen. Lekkere broodjes en gratis WiFi.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -4097,7 +4099,7 @@
                 "description": "Driegangen diner voor 20 euro. Het eten is erg lekker alleen niet zo veel. Nu hoeft het van ons niet zo heel erg veel te zijn, maar dit is eigenlijk gewoon te weinig. Verder loopt er een gigantische p...",
                 "fullDescription": "Driegangen diner voor 20 euro. Het eten is erg lekker alleen niet zo veel. Nu hoeft het van ons niet zo heel erg veel te zijn, maar dit is eigenlijk gewoon te weinig. Verder loopt er een gigantische partij personeel rond. Dat werkt wel goed.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Arnhem"
             }
         },
@@ -4118,7 +4120,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/8esk5jk6jWkaMRLDmRQqdAQjTN3RIgQ1G-XmUOsmEhHzdfLvrarcQwJuFgHdW8_5b4Om_OJS3V0rTtoienP7vYYshS3L5UZymSriV5T-22zzQ6aqjeSRT71tpxv1_UyWVxtEYQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -4137,7 +4139,7 @@
                 "description": "Erg lekker eten en daarom vaak druk.",
                 "fullDescription": "Erg lekker eten en daarom vaak druk.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -4158,7 +4160,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/6FIZoBZ3esqRnHyTYK-u1rVZcByAj2wFDPViATYHjHZuUPT_od0RSZnSvr5qIDC0qLBgHRxbXbT7swohBXE7Xbm93naV"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Zierikzee"
             }
         },
@@ -4177,7 +4179,7 @@
                 "description": "Veel praat...toch middelmaat. Het was niet heel vies maar de kaart deed veel meer smaak vermoeden. Pretenties tot aan het plafond maar het was gewoon onder aan de streep niet zo heel goed of lekker. M...",
                 "fullDescription": "Veel praat...toch middelmaat. Het was niet heel vies maar de kaart deed veel meer smaak vermoeden. Pretenties tot aan het plafond maar het was gewoon onder aan de streep niet zo heel goed of lekker. Maar wat wil je dan ook....er was neon",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Zierikzee"
             }
         },
@@ -4196,7 +4198,7 @@
                 "description": "Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria\/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die z...",
                 "fullDescription": "Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria\/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die zijn top. (of de vispizza)",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Stellendam"
             }
         },
@@ -4215,7 +4217,7 @@
                 "description": "Jumanji binnen. Achterin een giraf. Ondanks deze gekkigheid hele fatsoenlijke burgers. Tikkeltje aan de prijzige kant. Wij hadden de lebowski burger voor 14 euro.",
                 "fullDescription": "Jumanji binnen. Achterin een giraf. Ondanks deze gekkigheid hele fatsoenlijke burgers. Tikkeltje aan de prijzige kant. Wij hadden de lebowski burger voor 14 euro.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Utrecht"
             }
         },
@@ -4236,7 +4238,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/NCZBvbPYloWdhd8-RniCnzevhpQ-72J8wmSpdNsGZhU_6bpytfHCR4qYCjCRU6rMPlraoXiYXbc2D7WCgcuHYNdwlGGyayB7h7umA_YPeISTz2UA0Ii8iAk0Fk9eJodWlLIM46-fpMaiANAfUdoaWLMiCIrK4_4sjB5vPt-QguqQoltnDP4hkTw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Zierikzee"
             }
         },
@@ -4257,7 +4259,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/GZYXNF0NjM8tOkfBZLv_ZkfkYWSz8w4Zw_bZ2Yc4i1QC384y3vUBoYWpPH8_prb_qsRr1XimyUedRV-rU24zkignR1t42kvv1CI-HSuoXBRncm0QUCE5UlAg1cg8Jap4xpjIwGBTeOxaFzA6lRQS"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Burgh-Haamstede"
             }
         },
@@ -4276,7 +4278,7 @@
                 "description": "Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs\/kwaliteit verhouding is prima!",
                 "fullDescription": "Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs\/kwaliteit verhouding is prima!",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -4297,7 +4299,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/njqZcrgORJ2ttBRN1TcsSJNH58mf6zD_qLfo2FWkERDR0HnyHSmIsOzPgA9mP3JcMRGezp2qMM5UXWZtk-dkFUZezgiFx6-jvDkzCBQA-PCiCHFfWiJ4ByRRkoAVkWqACZhO9n9MAQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Rotterdam"
             }
         },
@@ -4318,7 +4320,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/b-oFs4uU_2ivJsa-acbknWUuwMd76AjecnzwSGYdwVouSlBb8aUBwejndTFrDB35uxQ2EztlG-q9_wTZUtLHrt-R8M3s4gBFZwOLGasK_E5UKQcd-TWloXtV2PMApJlDz-VKX-yl2FwS9uhyMMc"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -4339,7 +4341,7 @@
                 "images": [
                     "https:\/\/lh5.googleusercontent.com\/proxy\/b4Bgxb9-8JaEV6_dkCWlbUn4vigAb5rQdpjxzyXIbaLmwGqKnLL7CXvTx8kdVVWucfKrvtK_ezcYdEJKU9RlMkecFCufByGhDLOaR7WiMPcohANsHsop_wKbKEmzl3QJnzRKdw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -4360,7 +4362,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/o3e0oTa5GDdeZyqF4FJntP34vOyj23hU3hIZtXu__gj14ATg4ceFp_uU3XFjl1pGnA3flnBRaRmrqylUuqRsJeNN3WhBHHUf-yByKMUjhCpViy4Kbn5_e4cOWfh9TO0wBstCqoCLLR6L2hX6tE-WpuGs9w"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Berlijn"
             }
         },
@@ -4379,7 +4381,7 @@
                 "description": "De enige normale plek in dessau. Biertjes drinken in een kroeg\/bioscoop. Neem de augustiner.",
                 "fullDescription": "De enige normale plek in dessau. Biertjes drinken in een kroeg\/bioscoop. Neem de augustiner.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dessau-Roßlau"
             }
         },
@@ -4398,7 +4400,7 @@
                 "description": "Klassiek duitse kaart. Schnitzel met asperges is lekker",
                 "fullDescription": "Klassiek duitse kaart. Schnitzel met asperges is lekker",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Dessau-Roßlau"
             }
         },
@@ -4419,7 +4421,7 @@
                 "images": [
                     "https:\/\/lh4.googleusercontent.com\/proxy\/qn1hoX_iUTHCcl3fKnwcaoznGUFlL7gQLhknHUzR4Q0Zhi5G1lOZ6G9eyHaHTMMWkIhTJLW2lrW2b6gen-M-nTZEjjbJMfX40ihBrAAZ6Wpsowwl9wpduYpNcmBx0PfNDXQvR1l2GsdA09902xmi6mPPwajhPZhMCQ"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -4440,7 +4442,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/dkM7hyEBL0m6gY6ToUBnnU9sIO4ZeHe3b3e9t5KYACjZWK6mB1lWAEokxaL3Nu0UZ3oAwBPh1OjscrKuS1gHcGD0xXLlyPJ91ePlOGl_48mZX1I0i-hR"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Andijk"
             }
         },
@@ -4461,7 +4463,7 @@
                 "images": [
                     "https:\/\/lh3.googleusercontent.com\/proxy\/-SOSPyt_Eh7v_jMsw8ZV9cwNRP_5hazQH8O5nRaWXVkRge8wNgvQm9_0vs2akD0pZfzEtjdndnE6F2pQODnOFcNoMkm_fFmh8Be8s72-mbE8VOPJ7vEbU9423eJIcYEy6UeJ3Ndxdg"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Parijs"
             }
         },
@@ -4482,7 +4484,7 @@
                 "images": [
                     "https:\/\/lh6.googleusercontent.com\/proxy\/pFKCtw3laaFYVODpIGvAuU2e0kW__MN9vjiKnKAcrANPfj9cdNIqfLTZB5feBOl6sscbmKAzBOrfoW-xNO-8C0I9-s0tODuR6ONLGcPhSdriL4b4xjhOwdEXtl6YRUHCreDRoy3-BLzI9UnR-Ozqn8xRcwhYOZhND8xXJw"
                 ],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Parijs"
             }
         },
@@ -4501,7 +4503,7 @@
                 "description": "Cafe met terras. Veel verschillende soorten bier. Je kan hier tapas eten maar verwacht geen hoogstandjes.",
                 "fullDescription": "Cafe met terras. Veel verschillende soorten bier. Je kan hier tapas eten maar verwacht geen hoogstandjes.",
                 "images": [],
-                "category": "poi",
+                "category": "overig",
                 "placeName": "Nijmegen"
             }
         },
@@ -4520,7 +4522,7 @@
                 "description": "",
                 "fullDescription": "",
                 "images": [],
-                "category": "custom",
+                "category": "overig",
                 "date": "8-5-2026, 20:35:41",
                 "placeName": "Utrecht"
             }

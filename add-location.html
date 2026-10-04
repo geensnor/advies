@@ -98,6 +98,7 @@
         .input-group input[type="text"],
         .input-group input[type="number"],
         .input-group input[type="password"],
+        .input-group select,
         .input-group textarea {
             padding: 10px;
             border: 1px solid #d0d0d0;
@@ -110,6 +111,7 @@
         .input-group input[type="text"]:focus,
         .input-group input[type="number"]:focus,
         .input-group input[type="password"]:focus,
+        .input-group select:focus,
         .input-group textarea:focus {
             outline: none;
             border-color: #4a90e2;
@@ -348,6 +350,10 @@
                         >
                     </div>
                     <div class="input-group notes-section">
+                        <label for="locationCategory">Categorie</label>
+                        <select id="locationCategory" required></select>
+                    </div>
+                    <div class="input-group notes-section">
                         <label for="placeName">Plaatsnaam</label>
                         <input type="text" id="placeName" placeholder="Wordt automatisch ingevuld; pas aan indien nodig" required>
                     </div>
@@ -375,6 +381,7 @@
         let currentLng = 13.405;
         let adminPassword = null;
         let placeLookupSequence = 0;
+        let categories = [];
         const locationId = new URLSearchParams(window.location.search).get('id');
 
         async function authorizeEditor(passwordOverride = null) {
@@ -400,6 +407,7 @@
                 passwordInput.value = '';
                 document.getElementById('authorizationGate').hidden = true;
                 document.getElementById('editorContent').hidden = false;
+                await loadCategoryOptions();
                 initMap();
                 if (locationId) {
                     try {
@@ -434,14 +442,8 @@
                 map.removeLayer(currentMarker);
             }
 
-            const pinHtml = '<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path fill="#c85e43" stroke="white" stroke-width="1.5" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle fill="#f5f2e9" cx="18" cy="17" r="9"/><path fill="#25343b" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/></svg>';
             currentMarker = L.marker([lat, lng], {
-                icon: L.divIcon({
-                    className: 'location-pin',
-                    html: pinHtml,
-                    iconSize: [36, 44],
-                    iconAnchor: [18, 43],
-                })
+                icon: createEditorPinIcon()
             }).addTo(map);
 
             document.getElementById('latitude').value = lat.toFixed(6);
@@ -452,6 +454,29 @@
                 document.getElementById('placeName').value = '';
                 lookupPlaceName(lat, lng);
             }
+        }
+
+        function createEditorPinIcon() {
+            const selectedCategory = categories.find(category => category.id === document.getElementById('locationCategory').value);
+            const color = selectedCategory?.color || '#3c6660';
+            const html = `<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path fill="${color}" stroke="white" stroke-width="1.5" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle fill="#f5f2e9" cx="18" cy="17" r="9"/><path fill="#25343b" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/></svg>`;
+            return L.divIcon({ className: 'location-pin', html, iconSize: [36, 44], iconAnchor: [18, 43] });
+        }
+
+        async function loadCategoryOptions(selectedId = 'overig') {
+            const response = await fetch('api/locations.php?resource=categories');
+            if (!response.ok) throw new Error('Categorieën konden niet worden geladen.');
+            categories = await response.json();
+            const select = document.getElementById('locationCategory');
+            select.replaceChildren();
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.label;
+                option.dataset.color = category.color;
+                select.appendChild(option);
+            });
+            select.value = categories.some(category => category.id === selectedId) ? selectedId : 'overig';
         }
 
         function extractPlaceName(address = {}) {
@@ -488,6 +513,7 @@
             document.getElementById('pageTitle').textContent = 'Locatie wijzigen';
             document.getElementById('locationName').value = properties.name || '';
             document.getElementById('placeName').value = properties.placeName || '';
+            document.getElementById('locationCategory').value = properties.category || 'overig';
             document.getElementById('notes').value = properties.fullDescription || properties.description || '';
             setMarker(lat, lng, properties.placeName || '');
             map.setView([lat, lng], 15);
@@ -586,7 +612,7 @@
                 notes: notes,
                 description: notes.substring(0, 200),
                 images: [],
-                category: 'custom',
+                category: document.getElementById('locationCategory').value,
                 date: new Date().toLocaleString('nl-NL')
             };
 
@@ -620,6 +646,10 @@
 
         document.getElementById('editPassword').addEventListener('keydown', event => {
             if (event.key === 'Enter') authorizeEditor();
+        });
+
+        document.getElementById('locationCategory').addEventListener('change', () => {
+            if (currentMarker) currentMarker.setIcon(createEditorPinIcon());
         });
 
         window.addEventListener('load', () => {

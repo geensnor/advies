@@ -43,6 +43,7 @@ if ($method === 'POST' || $method === 'PUT' || $method === 'DELETE') {
 }
 
 $dataFile = __DIR__ . '/../data/locations.geojson';
+$categoriesFile = __DIR__ . '/../data/categories.json';
 
 // Check if file exists, if not return empty collection
 if (!file_exists($dataFile)) {
@@ -69,7 +70,32 @@ function saveLocations($geojson) {
     file_put_contents($dataFile, $json);
 }
 
+function getCategories() {
+    global $categoriesFile;
+    $json = is_file($categoriesFile) ? file_get_contents($categoriesFile) : false;
+    $categories = $json === false ? null : json_decode($json, true);
+    return is_array($categories) ? $categories : [];
+}
+
+function saveCategories($categories) {
+    global $categoriesFile;
+    $json = json_encode(array_values($categories), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    return file_put_contents($categoriesFile, $json, LOCK_EX) !== false;
+}
+
+function categoryExists($categoryId) {
+    foreach (getCategories() as $category) {
+        if (($category['id'] ?? null) === $categoryId) return true;
+    }
+    return false;
+}
+
 if ($method === 'GET') {
+    if (($_GET['resource'] ?? '') === 'categories') {
+        echo json_encode(getCategories());
+        exit();
+    }
+
     // Retrieve all locations
     $data = getLocations();
     echo json_encode($data);
@@ -82,11 +108,89 @@ if ($method === 'GET') {
         exit();
     }
 
+    if (isset($input['action']) && $input['action'] === 'addCategory') {
+        $name = trim((string)($input['name'] ?? ''));
+        $color = (string)($input['color'] ?? '');
+        if ($name === '' || strlen($name) > 40 || !preg_match('/^#[0-9a-fA-F]{6}$/', $color)) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Geef een categorienaam (max. 40 tekens) en geldige kleur op.']);
+            exit();
+        }
+
+        $categories = getCategories();
+        foreach ($categories as $category) {
+            if (mb_strtolower($category['label'] ?? '') === mb_strtolower($name)) {
+                http_response_code(409);
+                echo json_encode(['error' => 'Deze categorie bestaat al.']);
+                exit();
+            }
+        }
+
+        $slug = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $name));
+        $slug = trim(preg_replace('/[^a-z0-9]+/', '-', $slug), '-');
+        if ($slug === '') $slug = 'categorie';
+        $baseSlug = $slug;
+        $suffix = 2;
+        while (categoryExists($slug)) $slug = $baseSlug . '-' . $suffix++;
+
+        $newCategory = ['id' => $slug, 'label' => $name, 'color' => strtolower($color)];
+        $categories[] = $newCategory;
+        if (!saveCategories($categories)) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Categorie kon niet worden opgeslagen.']);
+            exit();
+        }
+        echo json_encode($newCategory);
+        exit();
+    }
+
+    if (isset($input['action']) && $input['action'] === 'deleteCategory') {
+        $categoryId = (string)($input['id'] ?? '');
+        $categories = getCategories();
+        $categoryIndex = null;
+        foreach ($categories as $index => $category) {
+            if (($category['id'] ?? null) === $categoryId) $categoryIndex = $index;
+        }
+        if ($categoryIndex === null) {
+            http_response_code(404);
+            echo json_encode(['error' => 'Categorie niet gevonden.']);
+            exit();
+        }
+        if (count($categories) <= 1) {
+            http_response_code(409);
+            echo json_encode(['error' => 'De laatste categorie kan niet worden verwijderd.']);
+            exit();
+        }
+
+        foreach (getLocations()['features'] ?? [] as $feature) {
+            if (($feature['properties']['category'] ?? '') === $categoryId) {
+                http_response_code(409);
+                echo json_encode(['error' => 'Deze categorie is nog in gebruik. Wijs de locaties eerst een andere categorie toe.']);
+                exit();
+            }
+        }
+
+        array_splice($categories, $categoryIndex, 1);
+        if (!saveCategories($categories)) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Categorie kon niet worden verwijderd.']);
+            exit();
+        }
+        echo json_encode(['success' => true]);
+        exit();
+    }
+
     // Add a new location
     
-    if (!isset($input['name']) || !isset($input['placeName']) || !isset($input['latitude']) || !isset($input['longitude'])) {
+    if (!isset($input['name']) || !isset($input['placeName']) || !isset($input['latitude']) || !isset($input['longitude']) || !isset($input['category'])) {
         http_response_code(400);
-        echo json_encode(['error' => 'Missing required fields: name, placeName, latitude, longitude']);
+        echo json_encode(['error' => 'Missing required fields: name, placeName, latitude, longitude, category']);
+        exit();
+    }
+
+    if (!categoryExists((string)$input['category'])) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Unknown category']);
         exit();
     }
     
@@ -106,7 +210,7 @@ if ($method === 'GET') {
             "description" => $input['description'] ?? substr($input['notes'] ?? '', 0, 200),
             "fullDescription" => $input['notes'] ?? '',
             "images" => $input['images'] ?? [],
-            "category" => $input['category'] ?? 'custom',
+            "category" => $input['category'],
             "date" => $input['date'] ?? date('d-m-Y H:i:s')
         ]
     ];
@@ -120,9 +224,15 @@ if ($method === 'GET') {
 } elseif ($method === 'PUT') {
     $input = json_decode(file_get_contents('php://input'), true);
 
-    if (!isset($input['id']) || !isset($input['name']) || !isset($input['placeName']) || !isset($input['latitude']) || !isset($input['longitude'])) {
+    if (!isset($input['id']) || !isset($input['name']) || !isset($input['placeName']) || !isset($input['latitude']) || !isset($input['longitude']) || !isset($input['category'])) {
         http_response_code(400);
-        echo json_encode(['error' => 'Missing required fields: id, name, placeName, latitude, longitude']);
+        echo json_encode(['error' => 'Missing required fields: id, name, placeName, latitude, longitude, category']);
+        exit();
+    }
+
+    if (!categoryExists((string)$input['category'])) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Unknown category']);
         exit();
     }
 
@@ -140,6 +250,7 @@ if ($method === 'GET') {
         $feature['properties'] = array_merge($feature['properties'] ?? [], [
             'name' => $input['name'],
             'placeName' => $input['placeName'],
+            'category' => $input['category'],
             'description' => $input['description'] ?? substr($input['notes'] ?? '', 0, 200),
             'fullDescription' => $input['notes'] ?? '',
             'date' => date('d-m-Y H:i:s')

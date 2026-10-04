@@ -10,6 +10,7 @@ advies/
 ├── add-location.html         # Pagina om nieuwe locatie toe te voegen
 ├── data/
 │   └── locations.geojson     # GeoJSON bestand met alle locaties
+│   └── categories.json       # Categorieën met label en markerkleur
 ├── api/
 │   └── locations.php         # PHP API voor CRUD operaties
 ├── doc.kml                   # Origineel KML bestand (voor referentie)
@@ -24,7 +25,7 @@ advies/
 - **Sync functie**: Klik op tabel-item → kaart centreert op locatie
 - **Marker klikken** → tabel markeert corresponderende rij
 - **Zoeken** - Zoekt alleen in opgeslagen locatiegegevens en beschrijvingen
-- **Beheer ontgrendelen** - Na servercontrole van het wachtwoord verschijnen toevoegen en verwijderen
+- **Beheer ontgrendelen** - Na servercontrole verschijnen toevoegen, wijzigen, verwijderen en categoriebeheer
 - **Download GeoJSON** - Haalt direct het volledige opgeslagen GeoJSON-bestand op
 - **Wijzigen** - Beheerders kunnen naam, plaatsnaam, beschrijving en coördinaten aanpassen
 - Zoeken doorzoekt ook `properties.placeName`
@@ -58,7 +59,7 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
         "description": "Korte beschrijving",
         "fullDescription": "Volledige beschrijving",
         "images": ["url1", "url2"],
-        "category": "poi",
+        "category": "restaurant",
         "date": "08-05-2026 12:00:00"
       }
     }
@@ -91,7 +92,7 @@ X-Edit-Password: <wachtwoord>
   "longitude": 13.405,
   "notes": "Beschrijving",
   "images": [],
-  "category": "custom"
+  "category": "restaurant"
 }
 ```
 
@@ -107,7 +108,8 @@ X-Edit-Password: <wachtwoord>
   "placeName": "Utrecht",
   "latitude": 52.52,
   "longitude": 5.405,
-  "notes": "Beschrijving"
+  "notes": "Beschrijving",
+  "category": "restaurant"
 }
 ```
 
@@ -146,6 +148,8 @@ De schrijfmodus bewaart eerst `data/locations.geojson.before-place-name-backfill
 - **Custom** - Handmatig toegevoegde locaties
 
 Elke categorie heeft een ander marker-kleur op de kaart.
+
+De vaste startlijst staat in `data/categories.json`. Vanuit de ontgrendelde index kan een beheerder categorieën met een eigen kleur toevoegen. Verwijderen is alleen mogelijk als geen opgeslagen locatie die categorie gebruikt. De oude technische waarden `poi` en `custom` zijn eenmalig naar `overig` gemigreerd; de vorige GeoJSON staat in een door Git genegeerde back-up.
 
 ## 🌍 Kaarten
 

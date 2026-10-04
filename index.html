@@ -238,7 +238,7 @@
         }
 
         .location-pin .pin-body {
-            fill: #385d64;
+            fill: var(--pin-color, #385d64);
             stroke: white;
             stroke-width: 1.5;
         }
@@ -249,10 +249,6 @@
 
         .location-pin .pin-moustache {
             fill: #25343b;
-        }
-
-        .location-pin--custom .pin-body {
-            fill: #c85e43;
         }
 
         #map {
@@ -342,14 +338,53 @@
             font-weight: 500;
         }
 
-        .category-poi {
-            background: #e3f2fd;
-            color: #1976d2;
+        .category-badge {
+            background: color-mix(in srgb, var(--category-color) 16%, white);
+            color: var(--category-color);
         }
 
-        .category-custom {
-            background: #f3e5f5;
-            color: #7b1fa2;
+        .category-management {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: -4px 0 18px;
+            padding: 12px;
+            border: 1px solid #dfe5e7;
+            background: #f8faf9;
+        }
+
+        .category-management input[type="text"],
+        .category-management select {
+            min-width: 150px;
+            padding: 8px;
+            border: 1px solid #cbd2d6;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        .category-management input[type="color"] {
+            width: 40px;
+            height: 36px;
+            padding: 2px;
+            border: 1px solid #cbd2d6;
+            border-radius: 4px;
+            background: white;
+        }
+
+        .category-management button {
+            padding: 8px 10px;
+            border: 1px solid #385d64;
+            border-radius: 4px;
+            background: white;
+            color: #385d64;
+            cursor: pointer;
+        }
+
+        .category-management-status {
+            flex-basis: 100%;
+            color: #555;
+            font-size: 0.9em;
         }
 
         @media (max-width: 1024px) {
@@ -411,6 +446,14 @@
                         </div>
                         <div id="searchResults" class="search-results" role="listbox"></div>
                     </div>
+                    <div id="categoryManagement" class="category-management" hidden>
+                        <input id="newCategoryName" type="text" maxlength="40" placeholder="Nieuwe categorienaam" aria-label="Nieuwe categorienaam">
+                        <input id="newCategoryColor" type="color" value="#c84d3a" aria-label="Kleur nieuwe categorie">
+                        <button type="button" onclick="addCategory()">Categorie toevoegen</button>
+                        <select id="removeCategorySelect" aria-label="Te verwijderen categorie"></select>
+                        <button type="button" onclick="removeCategory()">Categorie verwijderen</button>
+                        <span id="categoryManagementStatus" class="category-management-status" role="status" aria-live="polite"></span>
+                    </div>
                     <table id="locationsTable">
                         <thead>
                             <tr>
@@ -437,12 +480,13 @@
         let currentHighlightedRow = null;
         let allFeatures = [];
         let adminPassword = null;
+        let categories = [];
 
-        function createPinIcon(isCustom = false) {
+        function createPinIcon(color = '#385d64') {
             const pinHtml = '<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path class="pin-body" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle class="pin-face" cx="18" cy="17" r="9"/><path class="pin-moustache" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/></svg>';
             return L.divIcon({
-                className: `location-pin${isCustom ? ' location-pin--custom' : ''}`,
-                html: pinHtml,
+            className: 'location-pin',
+            html: `<span style="--pin-color:${color}">${pinHtml}</span>`,
                 iconSize: [36, 44],
                 iconAnchor: [18, 43],
             });
@@ -456,7 +500,42 @@
                 maxZoom: 19,
             }).addTo(map);
 
-            loadLocations();
+            loadCategories().then(loadLocations);
+        }
+
+        async function loadCategories() {
+            const response = await fetch('api/locations.php?resource=categories');
+            if (!response.ok) throw new Error('Categorieën konden niet worden geladen.');
+            categories = await response.json();
+            renderCategoryManagement();
+        }
+
+        function getCategory(categoryId) {
+            return categories.find(category => category.id === categoryId) ||
+                categories.find(category => category.id === 'overig') ||
+                { id: categoryId, label: categoryId || 'Overig', color: '#385d64' };
+        }
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            })[character]);
+        }
+
+        function renderCategoryManagement() {
+            const select = document.getElementById('removeCategorySelect');
+            if (!select) return;
+            select.replaceChildren();
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.label;
+                select.appendChild(option);
+            });
         }
 
         function loadLocations() {
@@ -488,9 +567,10 @@
                     const coords = feature.geometry.coordinates;
                     const props = feature.properties;
                     const id = props.id;
+                    const category = getCategory(props.category);
 
                     const marker = L.marker([coords[1], coords[0]], {
-                        icon: createPinIcon(props.category === 'custom')
+                        icon: createPinIcon(category.color)
                     }).bindPopup(`<strong>${props.name}</strong><br/>${props.description || 'Geen beschrijving'}`).addTo(map);
 
                     marker.on('click', () => highlightRow(id));
@@ -511,13 +591,12 @@
             tbody.innerHTML = features.map(feature => {
                 const props = feature.properties;
                 const id = props.id;
-                const category = props.category || 'poi';
-                const categoryLabel = category === 'custom' ? 'Aangepast' : 'POI';
+                const category = getCategory(props.category);
 
                 return `
                     <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
-                        <td><strong>${props.name}</strong></td>
-                        <td><span class="category-badge category-${category}">${categoryLabel}</span></td>
+                        <td><strong>${escapeHtml(props.name)}</strong></td>
+                        <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
                         ${adminPassword ? `<td onclick="event.stopPropagation()"><button class="btn-edit" onclick="editLocation(${id})">Wijzigen</button><button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button></td>` : ''}
                     </tr>
                 `;
@@ -636,6 +715,7 @@
                 document.getElementById('addLocationLink').hidden = false;
                 document.getElementById('adminLock').hidden = false;
                 document.getElementById('actionHeading').hidden = false;
+                document.getElementById('categoryManagement').hidden = false;
                 displayTable(visibleFeatures());
             } catch (error) {
                 message.textContent = error.message;
@@ -649,7 +729,53 @@
             document.getElementById('adminLock').hidden = true;
             document.getElementById('adminToggle').hidden = false;
             document.getElementById('actionHeading').hidden = true;
+            document.getElementById('categoryManagement').hidden = true;
             displayTable(visibleFeatures());
+        }
+
+        async function addCategory() {
+            const nameInput = document.getElementById('newCategoryName');
+            const status = document.getElementById('categoryManagementStatus');
+            if (!adminPassword) return;
+            try {
+                const response = await fetch('api/locations.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': adminPassword },
+                    body: JSON.stringify({
+                        action: 'addCategory',
+                        name: nameInput.value.trim(),
+                        color: document.getElementById('newCategoryColor').value
+                    })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Categorie toevoegen mislukt.');
+                nameInput.value = '';
+                status.textContent = `Categorie ${data.label} toegevoegd.`;
+                await loadCategories();
+                displayLocations(visibleFeatures());
+                displayTable(visibleFeatures());
+            } catch (error) {
+                status.textContent = error.message;
+            }
+        }
+
+        async function removeCategory() {
+            const categoryId = document.getElementById('removeCategorySelect').value;
+            const status = document.getElementById('categoryManagementStatus');
+            if (!adminPassword || !categoryId) return;
+            try {
+                const response = await fetch('api/locations.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': adminPassword },
+                    body: JSON.stringify({ action: 'deleteCategory', id: categoryId })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Categorie verwijderen mislukt.');
+                status.textContent = 'Categorie verwijderd.';
+                await loadCategories();
+            } catch (error) {
+                status.textContent = error.message;
+            }
         }
 
         function highlightRow(id) {
@@ -707,6 +833,7 @@
                 document.getElementById('addLocationLink').hidden = false;
                 document.getElementById('adminLock').hidden = false;
                 document.getElementById('actionHeading').hidden = false;
+                document.getElementById('categoryManagement').hidden = false;
                 document.getElementById('adminToggle').hidden = true;
                 displayTable(visibleFeatures());
             } catch (error) {

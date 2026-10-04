@@ -1,0 +1,32 @@
+[
+    {
+        "id": "cafe-bar",
+        "label": "Café \/ bar",
+        "color": "#357f8c"
+    },
+    {
+        "id": "overnachten",
+        "label": "Overnachten",
+        "color": "#9a6844"
+    },
+    {
+        "id": "natuur",
+        "label": "Natuur",
+        "color": "#789b3e"
+    },
+    {
+        "id": "activiteit",
+        "label": "Activiteit",
+        "color": "#d39124"
+    },
+    {
+        "id": "overig",
+        "label": "Overig",
+        "color": "#3c6660"
+    },
+    {
+        "id": "trailerhelling",
+        "label": "Trailerhelling",
+        "color": "#700ac0"
+    }
+]

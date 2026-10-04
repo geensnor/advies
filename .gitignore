@@ -1,2 +1,3 @@
 config.local.php
 data/locations.geojson.before-place-name-backfill
+data/locations.geojson.before-category-migration
