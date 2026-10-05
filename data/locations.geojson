@@ -13,11 +13,12 @@
             },
             "properties": {
                 "name": "Lunch Cafe Marley & Me 1",
-                "oneliner": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
+                "category": "restaurant",
                 "description": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
-                "category": "overig",
                 "avoid": false,
-                "placeName": "Ljubljana"
+                "placeName": "Ljubljana",
+                "updatedAt": "2026-10-05T07:52:26+00:00",
+                "oneliner": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht."
             }
         },
         {
