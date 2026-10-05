@@ -1466,17 +1466,18 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    5.728519000000006,
+                    5.728519,
                     51.810834
                 ]
             },
             "properties": {
                 "name": "Rob's Place Culitaria",
-                "oneliner": "Beste snackbar van het land. punt",
+                "category": "snackbar",
                 "description": "Beste snackbar van het land. punt",
-                "category": "overig",
                 "avoid": false,
-                "placeName": "Wijchen"
+                "placeName": "Wijchen",
+                "updatedAt": "2026-10-05T07:53:42+00:00",
+                "oneliner": "Beste snackbar van het land. punt"
             }
         },
         {
@@ -1718,17 +1719,18 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    5.723834000000011,
-                    51.807334000000004
+                    5.723834,
+                    51.807334
                 ]
             },
             "properties": {
                 "name": "Restaurant Asia Wijchen BV",
-                "oneliner": "Beste chinees in de wijde omtrek. Je neemt de 150 met mihoen.",
+                "category": "restaurant",
                 "description": "Beste chinees in de wijde omtrek. Je neemt de 150 met mihoen.",
-                "category": "overig",
                 "avoid": false,
-                "placeName": "Wijchen"
+                "placeName": "Wijchen",
+                "updatedAt": "2026-10-05T07:54:01+00:00",
+                "oneliner": "Beste chinees in de wijde omtrek. Je neemt de 150 met mihoen."
             }
         },
         {
@@ -3329,7 +3331,7 @@
                 "oneliner": "Midden in het centrum. Tijdens winkeltijden moeilijk bij de voordeur komen door de drukte Wel goede kamers en geen last van geluid binnen",
                 "description": "Midden in het centrum. Tijdens winkeltijden moeilijk bij de voordeur komen door de drukte Wel goede kamers en geen last van geluid binnen",
                 "category": "overig",
-                "avoid": false,
+                "avoid": true,
                 "placeName": "Madrid"
             }
         },

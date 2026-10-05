@@ -243,12 +243,31 @@
             stroke-width: 1.5;
         }
 
+        .location-pin.is-avoid .pin-body {
+            fill: #c62828;
+        }
+
         .location-pin .pin-face {
             fill: #f5f2e9;
         }
 
         .location-pin .pin-moustache {
             fill: #25343b;
+        }
+
+        .location-pin .pin-skull {
+            fill: #fff;
+        }
+
+        .location-pin .pin-skull-cutout {
+            fill: #8f1717;
+        }
+
+        .location-pin .pin-skull-teeth {
+            fill: none;
+            stroke: #8f1717;
+            stroke-width: 1.4;
+            stroke-linecap: round;
         }
 
         #map {
@@ -341,6 +360,23 @@
         .category-badge {
             background: color-mix(in srgb, var(--category-color) 16%, white);
             color: var(--category-color);
+        }
+
+        .avoid-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 8px;
+            padding: 3px 7px;
+            border: 1px solid #c62828;
+            border-radius: 3px;
+            background: #fff1f0;
+            color: #a31616;
+            font-size: 0.72em;
+            font-weight: 800;
+            line-height: 1.2;
+            vertical-align: 2px;
+            white-space: nowrap;
         }
 
         .category-management {
@@ -474,10 +510,13 @@
         let adminPassword = null;
         let categories = [];
 
-        function createPinIcon(color = '#385d64') {
-            const pinHtml = '<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path class="pin-body" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle class="pin-face" cx="18" cy="17" r="9"/><path class="pin-moustache" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/></svg>';
+        function createPinIcon(color = '#385d64', avoid = false) {
+            const face = avoid
+                ? '<path class="pin-skull" d="M18 8.7c-5.2 0-8.1 3.9-8.1 8.1 0 2.1.8 3.5 2.2 4.6v2.1c0 .6.5 1.1 1.1 1.1h9.6c.6 0 1.1-.5 1.1-1.1v-2.1c1.4-1.1 2.2-2.5 2.2-4.6 0-4.2-2.9-8.1-8.1-8.1Z"/><ellipse class="pin-skull-cutout" cx="14.8" cy="16.2" rx="1.8" ry="2.2"/><ellipse class="pin-skull-cutout" cx="21.2" cy="16.2" rx="1.8" ry="2.2"/><path class="pin-skull-cutout" d="m18 17.4-1.5 2.3h3Z"/><path class="pin-skull-teeth" d="M14 21.4v2m2-2v2m2-2v2m2-2v2"/>'
+                : '<path class="pin-moustache" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/>';
+            const pinHtml = `<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path class="pin-body" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle class="pin-face" cx="18" cy="17" r="9"/>${face}</svg>`;
             return L.divIcon({
-            className: 'location-pin',
+            className: avoid ? 'location-pin is-avoid' : 'location-pin',
             html: `<span style="--pin-color:${color}">${pinHtml}</span>`,
                 iconSize: [36, 44],
                 iconAnchor: [18, 43],
@@ -549,7 +588,7 @@
                     const category = getCategory(props.category);
 
                     const marker = L.marker([coords[1], coords[0]], {
-                        icon: createPinIcon(category.color)
+                        icon: createPinIcon(category.color, props.avoid === true)
                     }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.oneliner || props.description || 'Geen beschrijving')}`).addTo(map);
 
                     marker.on('click', () => highlightRow(id));
@@ -574,7 +613,7 @@
 
                 return `
                     <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
-                        <td><strong>${escapeHtml(props.name)}</strong></td>
+                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}</td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
                         ${adminPassword ? `<td onclick="event.stopPropagation()"><button class="btn-edit" onclick="editLocation(${id})">Wijzigen</button><button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button></td>` : ''}
                     </tr>
