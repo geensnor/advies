@@ -157,7 +157,7 @@ Labels en kleuren staan in `data/categories.json`.
 ## 🌍 Kaarten
 
 - Kaart gebruikt **Leaflet** library
-- Tile layer: **OpenStreetMap**
+- Kaarttegels: **Esri World Street Map** (geen API-key nodig)
 - Plaatsselectie voor nieuwe locaties: **Nominatim** (OpenStreetMap)
 
 ## 📋 Vereisten

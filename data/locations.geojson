@@ -1846,17 +1846,18 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    5.862552999999934,
-                    51.842907000000004
+                    5.862553,
+                    51.842907
                 ]
             },
             "properties": {
                 "name": "Pasta E Fagioli",
-                "oneliner": "Beste italiaan van Nijmegen. Niet goedkoop",
-                "description": "Beste italiaan van Nijmegen. Niet goedkoop",
                 "category": "overig",
-                "avoid": false,
-                "placeName": "Nijmegen"
+                "description": "Beste italiaan van Nijmegen. Niet goedkoop",
+                "avoid": true,
+                "placeName": "Nijmegen",
+                "updatedAt": "2026-10-05T11:33:11+00:00",
+                "oneliner": "Beste italiaan van Nijmegen. Niet goedkoop"
             }
         },
         {

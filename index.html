@@ -42,6 +42,16 @@
             min-width: 0;
         }
 
+        .header-brand-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .header-brand-link:focus-visible {
+            outline: 2px solid #385d64;
+            outline-offset: 4px;
+        }
+
         .header-logo {
             flex: 0 0 auto;
             width: 48px;
@@ -507,13 +517,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-brand">
-                <img class="header-logo" src="gsadviseertlogo128.jpg" alt="Plaatsen van Belang Logo">
+            <a class="header-brand header-brand-link" href="index.html" aria-label="Naar de index: alle locaties" onclick="event.preventDefault(); showAllLocations();">
+                <img class="header-logo" src="gsadviseertlogo128.jpg" alt="">
                 <div>
                     <h1>Plaatsen van Belang....pieuw pieuw</h1>
                     <p>Interactieve kaart met alle geregistreerde locaties</p>
                 </div>
-            </div>
+            </a>
             <div class="search-tools header-search">
                 <div class="search-row">
                     <input id="locationSearch" type="search" aria-label="Zoek in opgeslagen locaties" placeholder="Naam of tekst uit een opgeslagen locatie">
@@ -586,14 +596,15 @@
             html: `<span style="--pin-color:${color}">${pinHtml}</span>`,
                 iconSize: [36, 44],
                 iconAnchor: [18, 43],
+                popupAnchor: [0, -30],
             });
         }
 
         function initMap() {
             map = L.map('map').setView([52.52, 13.405], 4);
             
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors',
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri &mdash; Sources: Esri, TomTom, Garmin, FAO, NOAA, USGS, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, and the GIS User Community',
                 maxZoom: 19,
             }).addTo(map);
 
@@ -657,7 +668,7 @@
                         icon: createPinIcon(category.color, props.avoid === true)
                     }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.oneliner || props.description || 'Geen beschrijving')}`).addTo(map);
 
-                    marker.on('click', () => highlightRow(id));
+                    marker.on('click', () => selectLocation(id));
                     markers[id] = marker;
                 }
             });
@@ -693,7 +704,7 @@
             if (!feature) return;
 
             const coords = feature.geometry.coordinates;
-            map.setView([coords[1], coords[0]], 15);
+            map.setView([coords[1], coords[0]], Math.max(map.getZoom(), 15));
             if (markers[id]) markers[id].openPopup();
         }
 
@@ -826,7 +837,14 @@
             if (row) {
                 row.classList.add('highlighted');
                 currentHighlightedRow = row;
-                row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                const tableSection = document.querySelector('.table-section');
+                const rowBounds = row.getBoundingClientRect();
+                const sectionBounds = tableSection.getBoundingClientRect();
+                const headerBounds = document.querySelector('#locationsTable thead').getBoundingClientRect();
+                const visibleTop = sectionBounds.top + headerBounds.height;
+                const visibleCenter = (visibleTop + sectionBounds.bottom) / 2;
+                const rowCenter = (rowBounds.top + rowBounds.bottom) / 2;
+                tableSection.scrollTop += rowCenter - visibleCenter;
             }
         }
 
