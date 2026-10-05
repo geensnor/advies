@@ -341,6 +341,22 @@
             stroke-linecap: round;
         }
 
+        .leaflet-popup-content {
+            overflow-wrap: anywhere;
+        }
+
+        .leaflet-popup-content-wrapper {
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 600px) {
+            .leaflet-popup-content {
+                max-width: calc(100vw - 88px) !important;
+                min-width: 0 !important;
+            }
+        }
+
         #map {
             width: 100%;
             height: 100%;
@@ -682,7 +698,11 @@
 
                     const marker = L.marker([coords[1], coords[0]], {
                         icon: createPinIcon(category.color, props.avoid === true)
-                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.oneliner || props.description || 'Geen beschrijving')}${popupDate}`).addTo(map);
+                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || props.oneliner || 'Geen beschrijving')}${popupDate}`, {
+                        maxWidth: 560,
+                        minWidth: 220,
+                        autoPanPadding: [24, 24]
+                    }).addTo(map);
 
                     marker.on('click', () => selectLocation(id));
                     markers[id] = marker;
@@ -704,10 +724,13 @@
                 const id = allFeatures.indexOf(feature);
                 const category = getCategory(props.category);
                 const date = formatLocationDate(props.createdAt);
+                const placeName = typeof props.placeName === 'string' && props.placeName.trim()
+                    ? props.placeName.trim()
+                    : 'plaats onbekend';
 
                 return `
                     <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
-                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Datum: ${date || 'onbekend'}</span></td>
+                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Datum: ${date || 'onbekend'} &middot; ${escapeHtml(placeName)}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
                         ${adminPassword ? `<td onclick="event.stopPropagation()"><button class="btn-edit" onclick="editLocation(${id})">Wijzigen</button><button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button></td>` : ''}
                     </tr>

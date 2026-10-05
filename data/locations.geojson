@@ -387,17 +387,19 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    4.53167499999995,
+                    4.531675,
                     52.374405
                 ]
             },
             "properties": {
                 "name": "oud zandvoortsch vischrest De Meerpaal",
-                "oneliner": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer\/eigenaar wees ons naar een reeds gereserveerd tafeltje, wan...",
-                "description": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer\/eigenaar wees ons naar een reeds gereserveerd tafeltje, want hij bepaalde wie waar zat, want hij was de baas. Erg smakelijk klassiek visrestaurant met ouderwets interieur. Wij hadden tarbot en ouderwetse  aal. Beide erg lekker. Laat de gastheer je adviseren in de wijnkeuze, dat kan hij ook goed.",
                 "category": "overig",
-                "avoid": false,
-                "placeName": "Zandvoort"
+                "description": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer\/eigenaar wees ons naar een reeds gereserveerd tafeltje, want hij bepaalde wie waar zat, want hij was de baas. Erg smakelijk klassiek visrestaurant met ouderwets interieur. Wij hadden tarbot en ouderwetse  aal. Beide erg lekker. Laat de gastheer je adviseren in de wijnkeuze, dat kan hij ook goed.",
+                "avoid": true,
+                "placeName": "Zandvoort",
+                "updatedAt": "2026-10-05T15:07:51+00:00",
+                "createdAt": "2026-10-04T00:00:00+00:00",
+                "oneliner": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer\/eigenaar wees ons naar een reeds gereserveerd tafeltje, wan..."
             }
         },
         {
