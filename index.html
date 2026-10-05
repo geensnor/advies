@@ -27,11 +27,26 @@
         .header {
             background: white;
             color: #333;
-            padding: 25px 20px;
+            padding: 16px 20px;
             border-bottom: 1px solid #e0e0e0;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: minmax(0, calc(50% - 20px)) minmax(260px, 1fr) max-content;
+            gap: 20px;
             align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .header-logo {
+            flex: 0 0 auto;
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
         }
 
         .header h1 {
@@ -113,6 +128,14 @@
             margin-bottom: 18px;
         }
 
+        .header-search {
+            width: 100%;
+            max-width: 440px;
+            min-width: 0;
+            margin: 0;
+            justify-self: start;
+        }
+
         .search-tools label {
             display: block;
             margin-bottom: 6px;
@@ -183,6 +206,44 @@
             align-items: center;
             gap: 8px;
             flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .table-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .table-heading .section-title {
+            margin: 0;
+        }
+
+        .table-admin-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media (max-width: 1100px) {
+            .header {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .header-search {
+                max-width: none;
+            }
         }
 
         .admin-toggle,
@@ -446,21 +507,21 @@
 <body>
     <div class="container">
         <div class="header">
-            <div>
-                <img src="gsadviseertlogo128.jpg" alt="Plaatsen van Belang Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">    
-                <h1>Plaatsen van Belang....pieuw pieuw</h1>
-                <p>Interactieve kaart met alle geregistreerde locaties</p>
+            <div class="header-brand">
+                <img class="header-logo" src="gsadviseertlogo128.jpg" alt="Plaatsen van Belang Logo">
+                <div>
+                    <h1>Plaatsen van Belang....pieuw pieuw</h1>
+                    <p>Interactieve kaart met alle geregistreerde locaties</p>
+                </div>
+            </div>
+            <div class="search-tools header-search">
+                <div class="search-row">
+                    <input id="locationSearch" type="search" aria-label="Zoek in opgeslagen locaties" placeholder="Naam of tekst uit een opgeslagen locatie">
+                    <button type="button" onclick="searchLocations()">Zoek</button>
+                </div>
+                <div id="searchResults" class="search-results" role="listbox"></div>
             </div>
             <div class="header-actions">
-                <button id="adminToggle" class="admin-toggle" type="button" onclick="showAdminLogin()">Beheer</button>
-                <div id="adminLogin" class="admin-login" hidden>
-                    <input id="adminPasswordInput" type="password" autocomplete="current-password" aria-label="Beheerderswachtwoord" placeholder="Beheerderswachtwoord">
-                    <button type="button" onclick="unlockAdminMode()">Ontgrendelen</button>
-                    <button type="button" onclick="cancelAdminLogin()">Annuleren</button>
-                    <span id="adminMessage" class="admin-message" role="status" aria-live="polite"></span>
-                </div>
-                <a id="addLocationLink" href="add-location.html" class="btn-add" hidden>+ Locatie toevoegen</a>
-                <button id="adminLock" class="admin-lock" type="button" onclick="lockAdminMode()" hidden>Beheer vergrendelen</button>
                 <a class="btn-download" href="data/locations.geojson" download="locations.geojson">Download GeoJSON</a>
             </div>
         </div>
@@ -473,14 +534,19 @@
 
             <div class="table-section">
                 <div class="table-wrapper">
-                    <h2 class="section-title">Alle locaties</h2>
-                    <div class="search-tools">
-                        <label for="locationSearch">Zoek in opgeslagen locaties</label>
-                        <div class="search-row">
-                            <input id="locationSearch" type="search" placeholder="Naam of tekst uit een opgeslagen locatie">
-                            <button type="button" onclick="searchLocations()">Zoek</button>
+                    <div class="table-heading">
+                        <h2 class="section-title">Alle locaties</h2>
+                        <div class="table-admin-actions">
+                            <button id="adminToggle" class="admin-toggle" type="button" onclick="showAdminLogin()">Beheer</button>
+                            <div id="adminLogin" class="admin-login" hidden>
+                                <input id="adminPasswordInput" type="password" autocomplete="current-password" aria-label="Beheerderswachtwoord" placeholder="Beheerderswachtwoord">
+                                <button type="button" onclick="unlockAdminMode()">Ontgrendelen</button>
+                                <button type="button" onclick="cancelAdminLogin()">Annuleren</button>
+                                <span id="adminMessage" class="admin-message" role="status" aria-live="polite"></span>
+                            </div>
+                            <a id="addLocationLink" href="add-location.html" class="btn-add" hidden>+ Locatie toevoegen</a>
+                            <button id="adminLock" class="admin-lock" type="button" onclick="lockAdminMode()" hidden>Beheer vergrendelen</button>
                         </div>
-                        <div id="searchResults" class="search-results" role="listbox"></div>
                     </div>
                     <table id="locationsTable">
                         <thead>
