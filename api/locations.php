@@ -86,6 +86,12 @@ function categoryExists($categoryId) {
     return false;
 }
 
+function isValidDateOnly($date) {
+    if (!is_string($date) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) return false;
+    [$year, $month, $day] = array_map('intval', explode('-', $date));
+    return checkdate($month, $day, $year);
+}
+
 if ($method === 'GET') {
     if (($_GET['resource'] ?? '') === 'categories') {
         echo json_encode(getCategories());
@@ -116,17 +122,23 @@ if ($method === 'GET') {
         echo json_encode(['error' => 'Unknown category']);
         exit();
     }
+
+    $locationDate = $input['date'] ?? gmdate('Y-m-d');
+    if (!isValidDateOnly($locationDate)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Date must use YYYY-MM-DD format']);
+        exit();
+    }
     
     $geojson = getLocations();
     
-    $now = gmdate('c');
     $properties = [
         'name' => trim((string)$input['name']),
         'category' => $input['category'],
         'description' => (string)($input['description'] ?? $input['notes'] ?? ''),
         'avoid' => filter_var($input['avoid'] ?? false, FILTER_VALIDATE_BOOLEAN),
         'placeName' => trim((string)$input['placeName']),
-        'createdAt' => $now
+        'createdAt' => $locationDate . 'T00:00:00+00:00'
     ];
     if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
 
@@ -173,6 +185,13 @@ if ($method === 'GET') {
     }
 
     $previousProperties = $geojson['features'][$featureIndex]['properties'] ?? [];
+    $locationDate = isset($input['date']) && $input['date'] !== '' ? $input['date'] : null;
+    if ($locationDate !== null && !isValidDateOnly($locationDate)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Date must use YYYY-MM-DD format']);
+        exit();
+    }
+
     $properties = [
         'name' => trim((string)$input['name']),
         'category' => $input['category'],
@@ -181,7 +200,8 @@ if ($method === 'GET') {
         'placeName' => trim((string)$input['placeName']),
         'updatedAt' => gmdate('c')
     ];
-    if (isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
+    if ($locationDate !== null) $properties['createdAt'] = $locationDate . 'T00:00:00+00:00';
+    elseif (isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
     if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
     elseif (isset($previousProperties['oneliner'])) $properties['oneliner'] = $previousProperties['oneliner'];
 

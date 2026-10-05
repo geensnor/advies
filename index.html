@@ -450,6 +450,15 @@
             white-space: nowrap;
         }
 
+        .location-date,
+        .popup-date {
+            display: block;
+            margin-top: 3px;
+            color: #68757a;
+            font-size: 0.78em;
+            font-weight: 400;
+        }
+
         .category-management {
             display: flex;
             align-items: center;
@@ -633,6 +642,11 @@
             })[character]);
         }
 
+        function formatLocationDate(value) {
+            const match = typeof value === 'string' && value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+            return match ? `${match[3]}-${match[2]}-${match[1]}` : '';
+        }
+
         function loadLocations() {
             fetch('api/locations.php')
                 .then(response => {
@@ -663,10 +677,12 @@
                     const props = feature.properties;
                     const id = allFeatures.indexOf(feature);
                     const category = getCategory(props.category);
+                    const date = formatLocationDate(props.createdAt);
+                    const popupDate = `<br><small class="popup-date">Datum: ${date || 'onbekend'}</small>`;
 
                     const marker = L.marker([coords[1], coords[0]], {
                         icon: createPinIcon(category.color, props.avoid === true)
-                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.oneliner || props.description || 'Geen beschrijving')}`).addTo(map);
+                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.oneliner || props.description || 'Geen beschrijving')}${popupDate}`).addTo(map);
 
                     marker.on('click', () => selectLocation(id));
                     markers[id] = marker;
@@ -687,10 +703,11 @@
                 const props = feature.properties;
                 const id = allFeatures.indexOf(feature);
                 const category = getCategory(props.category);
+                const date = formatLocationDate(props.createdAt);
 
                 return `
                     <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
-                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}</td>
+                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Datum: ${date || 'onbekend'}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
                         ${adminPassword ? `<td onclick="event.stopPropagation()"><button class="btn-edit" onclick="editLocation(${id})">Wijzigen</button><button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button></td>` : ''}
                     </tr>

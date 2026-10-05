@@ -111,6 +111,7 @@
 
         .input-group input[type="text"],
         .input-group input[type="number"],
+        .input-group input[type="date"],
         .input-group input[type="password"],
         .input-group select,
         .input-group textarea {
@@ -124,6 +125,7 @@
 
         .input-group input[type="text"]:focus,
         .input-group input[type="number"]:focus,
+        .input-group input[type="date"]:focus,
         .input-group input[type="password"]:focus,
         .input-group select:focus,
         .input-group textarea:focus {
@@ -372,6 +374,10 @@
                         <input type="text" id="placeName" placeholder="Wordt automatisch ingevuld; pas aan indien nodig" required>
                     </div>
                     <div class="input-group notes-section">
+                        <label for="locationDate">Datum</label>
+                        <input type="date" id="locationDate">
+                    </div>
+                    <div class="input-group notes-section">
                         <label for="oneliner">Korte omschrijving</label>
                         <input type="text" id="oneliner" maxlength="200" placeholder="Korte samenvatting (optioneel)">
                     </div>
@@ -409,6 +415,14 @@
         let currentAvoid = false;
         const locationId = new URLSearchParams(window.location.search).get('id');
 
+        function getTodayDateValue() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
         async function authorizeEditor(passwordOverride = null) {
             const passwordInput = document.getElementById('editPassword');
             const password = passwordOverride || passwordInput.value || sessionStorage.getItem('locationEditPassword');
@@ -432,6 +446,7 @@
                 passwordInput.value = '';
                 document.getElementById('authorizationGate').hidden = true;
                 document.getElementById('editorContent').hidden = false;
+                document.getElementById('locationDate').value = getTodayDateValue();
                 await loadCategoryOptions();
                 initMap();
                 if (locationId !== null) {
@@ -542,6 +557,7 @@
             document.getElementById('locationName').value = properties.name || '';
             document.getElementById('oneliner').value = properties.oneliner || '';
             document.getElementById('placeName').value = properties.placeName || '';
+            document.getElementById('locationDate').value = properties.createdAt?.slice(0, 10) || '';
             document.getElementById('locationCategory').value = properties.category || 'overig';
             document.getElementById('notes').value = properties.description || '';
             currentAvoid = properties.avoid === true;
@@ -618,6 +634,7 @@
             const name = document.getElementById('locationName').value.trim();
             const oneliner = document.getElementById('oneliner').value.trim();
             const placeName = document.getElementById('placeName').value.trim();
+            const date = document.getElementById('locationDate').value;
             const notes = document.getElementById('notes').value.trim();
 
             if (!lat || !lng) {
@@ -635,8 +652,14 @@
                 return;
             }
 
+            if (!date && locationId === null) {
+                showMessage('error', 'Kies een datum voor deze locatie.');
+                return;
+            }
+
             const locationData = {
                 ...(locationId !== null ? { featureIndex: Number(locationId) } : {}),
+                ...(date ? { date: date } : {}),
                 name: name,
                 oneliner: oneliner,
                 placeName: placeName,

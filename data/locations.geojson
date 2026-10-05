@@ -17,7 +17,8 @@
                 "description": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
                 "avoid": false,
                 "placeName": "Ljubljana",
-                "updatedAt": "2026-10-05T07:52:26+00:00",
+                "updatedAt": "2026-10-05T14:48:29+00:00",
+                "createdAt": "2026-10-05T00:00:00+00:00",
                 "oneliner": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht."
             }
         },
@@ -2459,17 +2460,18 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    5.12322800000004,
+                    5.123228,
                     52.08337
                 ]
             },
             "properties": {
                 "name": "Sector 3",
-                "oneliner": "Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen",
-                "description": "Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen",
-                "category": "overig",
+                "category": "restaurant",
+                "description": "Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen!",
                 "avoid": false,
-                "placeName": "Utrecht"
+                "placeName": "Utrecht",
+                "updatedAt": "2026-10-05T13:57:09+00:00",
+                "oneliner": "Ontbijt. Omdat ontbijt op zondag in Utrecht nogal iets lastigs is...komt deze toch op de lijst. Broodje oude kaas en koffie is wat je moet nemen"
             }
         },
         {

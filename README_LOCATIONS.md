@@ -68,6 +68,8 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
 
 `placeName` wordt automatisch voorgesteld bij het prikken of zoeken van een locatie en kan handmatig worden aangepast. De index doorzoekt deze property samen met de overige opgeslagen locatiegegevens.
 
+De kalenderdatum in het formulier wordt als `YYYY-MM-DD` verstuurd en opgeslagen als `properties.createdAt` (ISO date-time volgens het schema). Op bestaande locaties zonder datum toont de lijst `Datum: onbekend`; die waarde wordt niet automatisch verzonnen bij het bewerken.
+
 De structuur wordt gevalideerd volgens [geensnor-hotspots-schema-v2.json](geensnor-hotspots-schema-v2.json). De GeoJSON bevat geen eigen `id`; beheeracties adresseren een feature via zijn positie in `features`. Categorieën zijn beperkt tot de enum in het schema en kunnen niet vanuit de app worden toegevoegd of verwijderd. De vorige dataset is lokaal bewaard in `data/locations.geojson.before-schema-v2`.
 
 ## 🔌 PHP API (api/locations.php)
@@ -90,6 +92,7 @@ X-Edit-Password: <wachtwoord>
   "name": "Plaatsnaam",
   "oneliner": "Korte samenvatting",
   "placeName": "Utrecht",
+  "date": "2026-10-05",
   "latitude": 52.52,
   "longitude": 13.405,
   "description": "Volledige beschrijving",
@@ -109,6 +112,7 @@ X-Edit-Password: <wachtwoord>
   "name": "Plaatsnaam",
   "oneliner": "Korte samenvatting",
   "placeName": "Utrecht",
+  "date": "2026-10-05",
   "latitude": 52.52,
   "longitude": 5.405,
   "description": "Volledige beschrijving",
