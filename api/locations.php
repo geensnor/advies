@@ -67,7 +67,7 @@ function getLocations() {
 function saveLocations($geojson) {
     global $dataFile;
     $json = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    file_put_contents($dataFile, $json);
+    return $json !== false && file_put_contents($dataFile, $json, LOCK_EX) !== false;
 }
 
 function getCategories() {
@@ -77,13 +77,9 @@ function getCategories() {
     return is_array($categories) ? $categories : [];
 }
 
-function saveCategories($categories) {
-    global $categoriesFile;
-    $json = json_encode(array_values($categories), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    return file_put_contents($categoriesFile, $json, LOCK_EX) !== false;
-}
-
 function categoryExists($categoryId) {
+    $schemaCategories = ['bar', 'restaurant', 'trailerhelling', 'overig', 'overnachten', 'koffie', 'muziek', 'strand', 'snackbar'];
+    if (!in_array($categoryId, $schemaCategories, true)) return false;
     foreach (getCategories() as $category) {
         if (($category['id'] ?? null) === $categoryId) return true;
     }
@@ -108,80 +104,7 @@ if ($method === 'GET') {
         exit();
     }
 
-    if (isset($input['action']) && $input['action'] === 'addCategory') {
-        $name = trim((string)($input['name'] ?? ''));
-        $color = (string)($input['color'] ?? '');
-        if ($name === '' || strlen($name) > 40 || !preg_match('/^#[0-9a-fA-F]{6}$/', $color)) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Geef een categorienaam (max. 40 tekens) en geldige kleur op.']);
-            exit();
-        }
-
-        $categories = getCategories();
-        foreach ($categories as $category) {
-            if (mb_strtolower($category['label'] ?? '') === mb_strtolower($name)) {
-                http_response_code(409);
-                echo json_encode(['error' => 'Deze categorie bestaat al.']);
-                exit();
-            }
-        }
-
-        $slug = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $name));
-        $slug = trim(preg_replace('/[^a-z0-9]+/', '-', $slug), '-');
-        if ($slug === '') $slug = 'categorie';
-        $baseSlug = $slug;
-        $suffix = 2;
-        while (categoryExists($slug)) $slug = $baseSlug . '-' . $suffix++;
-
-        $newCategory = ['id' => $slug, 'label' => $name, 'color' => strtolower($color)];
-        $categories[] = $newCategory;
-        if (!saveCategories($categories)) {
-            http_response_code(500);
-            echo json_encode(['error' => 'Categorie kon niet worden opgeslagen.']);
-            exit();
-        }
-        echo json_encode($newCategory);
-        exit();
-    }
-
-    if (isset($input['action']) && $input['action'] === 'deleteCategory') {
-        $categoryId = (string)($input['id'] ?? '');
-        $categories = getCategories();
-        $categoryIndex = null;
-        foreach ($categories as $index => $category) {
-            if (($category['id'] ?? null) === $categoryId) $categoryIndex = $index;
-        }
-        if ($categoryIndex === null) {
-            http_response_code(404);
-            echo json_encode(['error' => 'Categorie niet gevonden.']);
-            exit();
-        }
-        if (count($categories) <= 1) {
-            http_response_code(409);
-            echo json_encode(['error' => 'De laatste categorie kan niet worden verwijderd.']);
-            exit();
-        }
-
-        foreach (getLocations()['features'] ?? [] as $feature) {
-            if (($feature['properties']['category'] ?? '') === $categoryId) {
-                http_response_code(409);
-                echo json_encode(['error' => 'Deze categorie is nog in gebruik. Wijs de locaties eerst een andere categorie toe.']);
-                exit();
-            }
-        }
-
-        array_splice($categories, $categoryIndex, 1);
-        if (!saveCategories($categories)) {
-            http_response_code(500);
-            echo json_encode(['error' => 'Categorie kon niet worden verwijderd.']);
-            exit();
-        }
-        echo json_encode(['success' => true]);
-        exit();
-    }
-
     // Add a new location
-    
     if (!isset($input['name']) || !isset($input['placeName']) || !isset($input['latitude']) || !isset($input['longitude']) || !isset($input['category'])) {
         http_response_code(400);
         echo json_encode(['error' => 'Missing required fields: name, placeName, latitude, longitude, category']);
@@ -196,37 +119,42 @@ if ($method === 'GET') {
     
     $geojson = getLocations();
     
-    // Create new feature
+    $now = gmdate('c');
+    $properties = [
+        'name' => trim((string)$input['name']),
+        'category' => $input['category'],
+        'description' => (string)($input['description'] ?? $input['notes'] ?? ''),
+        'avoid' => filter_var($input['avoid'] ?? false, FILTER_VALIDATE_BOOLEAN),
+        'placeName' => trim((string)$input['placeName']),
+        'createdAt' => $now
+    ];
+    if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
+
     $feature = [
         "type" => "Feature",
         "geometry" => [
             "type" => "Point",
             "coordinates" => [floatval($input['longitude']), floatval($input['latitude'])]
         ],
-        "properties" => [
-            "id" => isset($input['id']) ? $input['id'] : (int)(microtime(true) * 1000),
-            "name" => $input['name'],
-            "placeName" => $input['placeName'],
-            "description" => $input['description'] ?? substr($input['notes'] ?? '', 0, 200),
-            "fullDescription" => $input['notes'] ?? '',
-            "images" => $input['images'] ?? [],
-            "category" => $input['category'],
-            "date" => $input['date'] ?? date('d-m-Y H:i:s')
-        ]
+        "properties" => $properties
     ];
     
     // Add to features array
     $geojson['features'][] = $feature;
     
-    saveLocations($geojson);
+    if (!saveLocations($geojson)) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Location could not be saved']);
+        exit();
+    }
     echo json_encode($feature);
 
 } elseif ($method === 'PUT') {
     $input = json_decode(file_get_contents('php://input'), true);
 
-    if (!isset($input['id']) || !isset($input['name']) || !isset($input['placeName']) || !isset($input['latitude']) || !isset($input['longitude']) || !isset($input['category'])) {
+    if (!isset($input['featureIndex'], $input['name'], $input['placeName'], $input['latitude'], $input['longitude'], $input['category'])) {
         http_response_code(400);
-        echo json_encode(['error' => 'Missing required fields: id, name, placeName, latitude, longitude, category']);
+        echo json_encode(['error' => 'Missing required fields: featureIndex, name, placeName, latitude, longitude, category']);
         exit();
     }
 
@@ -237,55 +165,67 @@ if ($method === 'GET') {
     }
 
     $geojson = getLocations();
-    $updatedFeature = null;
-    foreach ($geojson['features'] as &$feature) {
-        if ((string)($feature['properties']['id'] ?? '') !== (string)$input['id']) {
-            continue;
-        }
-
-        $feature['geometry'] = [
-            'type' => 'Point',
-            'coordinates' => [floatval($input['longitude']), floatval($input['latitude'])]
-        ];
-        $feature['properties'] = array_merge($feature['properties'] ?? [], [
-            'name' => $input['name'],
-            'placeName' => $input['placeName'],
-            'category' => $input['category'],
-            'description' => $input['description'] ?? substr($input['notes'] ?? '', 0, 200),
-            'fullDescription' => $input['notes'] ?? '',
-            'date' => date('d-m-Y H:i:s')
-        ]);
-        $updatedFeature = $feature;
-        break;
-    }
-    unset($feature);
-
-    if ($updatedFeature === null) {
+    $featureIndex = filter_var($input['featureIndex'], FILTER_VALIDATE_INT);
+    if ($featureIndex === false || $featureIndex < 0 || $featureIndex >= count($geojson['features'])) {
         http_response_code(404);
         echo json_encode(['error' => 'Location not found']);
         exit();
     }
 
-    saveLocations($geojson);
+    $previousProperties = $geojson['features'][$featureIndex]['properties'] ?? [];
+    $properties = [
+        'name' => trim((string)$input['name']),
+        'category' => $input['category'],
+        'description' => (string)($input['description'] ?? $input['notes'] ?? ''),
+        'avoid' => filter_var($input['avoid'] ?? ($previousProperties['avoid'] ?? false), FILTER_VALIDATE_BOOLEAN),
+        'placeName' => trim((string)$input['placeName']),
+        'updatedAt' => gmdate('c')
+    ];
+    if (isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
+    if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
+    elseif (isset($previousProperties['oneliner'])) $properties['oneliner'] = $previousProperties['oneliner'];
+
+    $updatedFeature = [
+        'type' => 'Feature',
+        'geometry' => [
+            'type' => 'Point',
+            'coordinates' => [floatval($input['longitude']), floatval($input['latitude'])]
+        ],
+        'properties' => $properties
+    ];
+    $geojson['features'][$featureIndex] = $updatedFeature;
+
+    if (!saveLocations($geojson)) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Location could not be saved']);
+        exit();
+    }
     echo json_encode($updatedFeature);
     
 } elseif ($method === 'DELETE') {
     // Delete a location
     $input = json_decode(file_get_contents('php://input'), true);
     
-    if (!isset($input['id'])) {
+    if (!isset($input['featureIndex'])) {
         http_response_code(400);
-        echo json_encode(['error' => 'Missing location id']);
+        echo json_encode(['error' => 'Missing feature index']);
         exit();
     }
-    
+
     $geojson = getLocations();
-    $geojson['features'] = array_filter($geojson['features'], function($feature) use ($input) {
-        return $feature['properties']['id'] != $input['id'];
-    });
-    $geojson['features'] = array_values($geojson['features']);
-    
-    saveLocations($geojson);
+    $featureIndex = filter_var($input['featureIndex'], FILTER_VALIDATE_INT);
+    if ($featureIndex === false || $featureIndex < 0 || $featureIndex >= count($geojson['features'])) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Location not found']);
+        exit();
+    }
+    array_splice($geojson['features'], $featureIndex, 1);
+
+    if (!saveLocations($geojson)) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Location could not be saved']);
+        exit();
+    }
     echo json_encode(['success' => true]);
 }
 ?>

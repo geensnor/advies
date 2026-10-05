@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://geensnor.nl/schemas/geensnor-hotspots-schema-v2.json",
+  "title": "Geensnor Hotspots",
+  "type": "object",
+  "required": ["type", "name", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "name": { "type": "string" },
+    "features": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/geensnorFeature" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "geensnorFeature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": { "const": "Feature" },
+        "geometry": {
+          "type": "object",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": { "const": "Point" },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 3,
+              "items": { "type": "number" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "properties": {
+          "type": "object",
+          "required": ["name", "category", "description", "avoid", "placeName"],
+          "properties": {
+            "name": { "type": "string" },
+            "oneliner": {
+              "type": "string",
+              "description": "Korte omschrijving. Pakkende knaller!"
+            },
+            "description": {
+              "type": "string",
+              "description": "Uitgebreide omschrijving"
+            },
+            "createdAt": { "type": "string", "format": "date-time" },
+            "updatedAt": { "type": "string", "format": "date-time" },
+            "category": {
+              "enum": [
+                "bar",
+                "restaurant",
+                "trailerhelling",
+                "overig",
+                "overnachten",
+                "koffie",
+                "muziek",
+                "strand",
+                "snackbar"
+              ]
+            },
+            "avoid": { "type": "boolean" },
+            "placeName": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

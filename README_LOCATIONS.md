@@ -25,7 +25,7 @@ advies/
 - **Sync functie**: Klik op tabel-item → kaart centreert op locatie
 - **Marker klikken** → tabel markeert corresponderende rij
 - **Zoeken** - Zoekt alleen in opgeslagen locatiegegevens en beschrijvingen
-- **Beheer ontgrendelen** - Na servercontrole verschijnen toevoegen, wijzigen, verwijderen en categoriebeheer
+- **Beheer ontgrendelen** - Na servercontrole verschijnen toevoegen, wijzigen en verwijderen
 - **Download GeoJSON** - Haalt direct het volledige opgeslagen GeoJSON-bestand op
 - **Wijzigen** - Beheerders kunnen naam, plaatsnaam, beschrijving en coördinaten aanpassen
 - Zoeken doorzoekt ook `properties.placeName`
@@ -53,14 +53,13 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
         "coordinates": [5.565301, 51.957834]
       },
       "properties": {
-        "id": 1,
         "name": "Plaatsnaam",
+        "oneliner": "Korte samenvatting",
         "placeName": "Utrecht",
-        "description": "Korte beschrijving",
-        "fullDescription": "Volledige beschrijving",
-        "images": ["url1", "url2"],
-        "category": "restaurant",
-        "date": "08-05-2026 12:00:00"
+        "description": "Volledige beschrijving",
+        "category": "bar",
+        "avoid": false,
+        "createdAt": "2026-10-05T12:00:00+00:00"
       }
     }
   ]
@@ -68,6 +67,8 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
 ```
 
 `placeName` wordt automatisch voorgesteld bij het prikken of zoeken van een locatie en kan handmatig worden aangepast. De index doorzoekt deze property samen met de overige opgeslagen locatiegegevens.
+
+De structuur wordt gevalideerd volgens [geensnor-hotspots-schema-v2.json](geensnor-hotspots-schema-v2.json). De GeoJSON bevat geen eigen `id`; beheeracties adresseren een feature via zijn positie in `features`. Categorieën zijn beperkt tot de enum in het schema en kunnen niet vanuit de app worden toegevoegd of verwijderd. De vorige dataset is lokaal bewaard in `data/locations.geojson.before-schema-v2`.
 
 ## 🔌 PHP API (api/locations.php)
 
@@ -87,11 +88,12 @@ X-Edit-Password: <wachtwoord>
 
 {
   "name": "Plaatsnaam",
+  "oneliner": "Korte samenvatting",
   "placeName": "Utrecht",
   "latitude": 52.52,
   "longitude": 13.405,
-  "notes": "Beschrijving",
-  "images": [],
+  "description": "Volledige beschrijving",
+  "avoid": false,
   "category": "restaurant"
 }
 ```
@@ -103,12 +105,14 @@ Content-Type: application/json
 X-Edit-Password: <wachtwoord>
 
 {
-  "id": 123,
+  "featureIndex": 0,
   "name": "Plaatsnaam",
+  "oneliner": "Korte samenvatting",
   "placeName": "Utrecht",
   "latitude": 52.52,
   "longitude": 5.405,
-  "notes": "Beschrijving",
+  "description": "Volledige beschrijving",
+  "avoid": false,
   "category": "restaurant"
 }
 ```
@@ -120,7 +124,7 @@ Content-Type: application/json
 X-Edit-Password: <wachtwoord>
 
 {
-  "id": 1234567890
+  "featureIndex": 0
 }
 ```
 
@@ -128,7 +132,7 @@ X-Edit-Password: <wachtwoord>
 
 Het originele KML bestand (doc.kml) is geconverteerd naar GeoJSON met Python script:
 - **232** placemarks geconverteerd
-- Inclusief: naam, beschrijving, coördinaten, afbeeldingen, categorieën
+- Inclusief: naam, beschrijving, coördinaten en categorieën
 - Opgeslagen in `data/locations.geojson`
 
 ## Plaatsnamen aanvullen
@@ -144,12 +148,11 @@ De schrijfmodus bewaart eerst `data/locations.geojson.before-place-name-backfill
 
 ## 🎨 Categorieën
 
-- **POI** (Point of Interest) - Originele locaties uit KML
-- **Custom** - Handmatig toegevoegde locaties
+- `bar`, `restaurant`, `trailerhelling`, `overig`, `overnachten`, `koffie`, `muziek`, `strand`, `snackbar`
 
-Elke categorie heeft een ander marker-kleur op de kaart.
+Elke categorie heeft een eigen markerkleur. De schema-enum is leidend; categorieën kunnen niet los van een schemawijziging worden toegevoegd of verwijderd.
 
-De vaste startlijst staat in `data/categories.json`. Vanuit de ontgrendelde index kan een beheerder categorieën met een eigen kleur toevoegen. Verwijderen is alleen mogelijk als geen opgeslagen locatie die categorie gebruikt. De oude technische waarden `poi` en `custom` zijn eenmalig naar `overig` gemigreerd; de vorige GeoJSON staat in een door Git genegeerde back-up.
+Labels en kleuren staan in `data/categories.json`.
 
 ## 🌍 Kaarten
 

@@ -358,6 +358,10 @@
                         <input type="text" id="placeName" placeholder="Wordt automatisch ingevuld; pas aan indien nodig" required>
                     </div>
                     <div class="input-group notes-section">
+                        <label for="oneliner">Korte omschrijving</label>
+                        <input type="text" id="oneliner" maxlength="200" placeholder="Korte samenvatting (optioneel)">
+                    </div>
+                    <div class="input-group notes-section">
                         <label for="notes">Notities/Beschrijving</label>
                         <textarea 
                             id="notes" 
@@ -382,6 +386,7 @@
         let adminPassword = null;
         let placeLookupSequence = 0;
         let categories = [];
+        let currentAvoid = false;
         const locationId = new URLSearchParams(window.location.search).get('id');
 
         async function authorizeEditor(passwordOverride = null) {
@@ -505,16 +510,18 @@
             const response = await fetch('api/locations.php');
             if (!response.ok) throw new Error('Locatie kon niet worden geladen.');
             const data = await response.json();
-            const feature = data.features.find(item => String(item.properties.id) === String(locationId));
+            const feature = data.features[Number(locationId)];
             if (!feature) throw new Error('Locatie niet gevonden.');
 
             const properties = feature.properties;
             const [lng, lat] = feature.geometry.coordinates;
             document.getElementById('pageTitle').textContent = 'Locatie wijzigen';
             document.getElementById('locationName').value = properties.name || '';
+            document.getElementById('oneliner').value = properties.oneliner || '';
             document.getElementById('placeName').value = properties.placeName || '';
             document.getElementById('locationCategory').value = properties.category || 'overig';
-            document.getElementById('notes').value = properties.fullDescription || properties.description || '';
+            document.getElementById('notes').value = properties.description || '';
+            currentAvoid = properties.avoid === true;
             setMarker(lat, lng, properties.placeName || '');
             map.setView([lat, lng], 15);
         }
@@ -585,6 +592,7 @@
             const lat = document.getElementById('latitude').value;
             const lng = document.getElementById('longitude').value;
             const name = document.getElementById('locationName').value.trim();
+            const oneliner = document.getElementById('oneliner').value.trim();
             const placeName = document.getElementById('placeName').value.trim();
             const notes = document.getElementById('notes').value.trim();
 
@@ -604,16 +612,15 @@
             }
 
             const locationData = {
-                ...(locationId ? { id: locationId } : { id: Date.now() }),
+                ...(locationId !== null ? { featureIndex: Number(locationId) } : {}),
                 name: name,
+                oneliner: oneliner,
                 placeName: placeName,
                 latitude: parseFloat(lat),
                 longitude: parseFloat(lng),
-                notes: notes,
-                description: notes.substring(0, 200),
-                images: [],
+                description: notes,
+                avoid: currentAvoid,
                 category: document.getElementById('locationCategory').value,
-                date: new Date().toLocaleString('nl-NL')
             };
 
             fetch('api/locations.php', {

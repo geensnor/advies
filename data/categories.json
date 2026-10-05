@@ -5,19 +5,14 @@
         "color": "#357f8c"
     },
     {
-        "id": "overnachten",
-        "label": "Overnachten",
-        "color": "#9a6844"
+        "id": "restaurant",
+        "label": "Restaurant",
+        "color": "#b4563d"
     },
     {
-        "id": "natuur",
-        "label": "Natuur",
-        "color": "#789b3e"
-    },
-    {
-        "id": "activiteit",
-        "label": "Activiteit",
-        "color": "#d39124"
+        "id": "trailerhelling",
+        "label": "Trailerhelling",
+        "color": "#700ac0"
     },
     {
         "id": "overig",
@@ -25,8 +20,28 @@
         "color": "#3c6660"
     },
     {
-        "id": "trailerhelling",
-        "label": "Trailerhelling",
-        "color": "#700ac0"
+        "id": "overnachten",
+        "label": "Overnachten",
+        "color": "#9a6844"
+    },
+    {
+        "id": "koffie",
+        "label": "Koffie",
+        "color": "#789b3e"
+    },
+    {
+        "id": "muziek",
+        "label": "Muziek",
+        "color": "#d39124"
+    },
+    {
+        "id": "strand",
+        "label": "Strand",
+        "color": "#527a96"
+    },
+    {
+        "id": "snackbar",
+        "label": "Snackbar",
+        "color": "#c27a32"
     }
 ]
