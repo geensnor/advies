@@ -369,6 +369,10 @@
             display: block;
         }
 
+        .location-pin.is-linked svg {
+            filter: drop-shadow(0 0 3px white) drop-shadow(0 0 4px #25343b);
+        }
+
         .location-pin .pin-body {
             fill: var(--pin-color, #385d64);
             stroke: white;
@@ -489,6 +493,11 @@
 
         tr.highlighted {
             background: #e8f5e9;
+        }
+
+        .location-row:hover td:first-child,
+        .location-row.highlighted td:first-child {
+            box-shadow: inset 3px 0 var(--category-color, #385d64);
         }
 
         .btn-delete {
@@ -789,6 +798,7 @@
         let map;
         let markers = {};
         let currentHighlightedRow = null;
+        let currentHighlightedLocationKey = null;
         let allFeatures = [];
         let archivedFeatures = [];
         let locationView = 'active';
@@ -853,7 +863,11 @@
         }
 
         function downloadActiveGpx() {
-            const waypoints = allFeatures
+            downloadGpx(allFeatures, 'geensnor-actieve-locaties.gpx', 'Geensnor actieve locaties');
+        }
+
+        function downloadGpx(features, filename, exportName) {
+            const waypoints = features
                 .filter(feature => feature.geometry?.type === 'Point' && Array.isArray(feature.geometry.coordinates))
                 .map(feature => {
                     const [longitude, latitude] = feature.geometry.coordinates;
@@ -885,7 +899,7 @@
                 '<?xml version="1.0" encoding="UTF-8"?>',
                 '<gpx version="1.1" creator="Geensnor Places" xmlns="http://www.topografix.com/GPX/1/1">',
                 '  <metadata>',
-                '    <name>Geensnor actieve locaties</name>',
+                `    <name>${escapeXml(exportName)}</name>`,
                 '  </metadata>',
                 ...waypoints,
                 '</gpx>',
@@ -894,7 +908,7 @@
             const blobUrl = URL.createObjectURL(new Blob([gpx], { type: 'application/gpx+xml;charset=utf-8' }));
             const downloadLink = document.createElement('a');
             downloadLink.href = blobUrl;
-            downloadLink.download = 'geensnor-actieve-locaties.gpx';
+            downloadLink.download = filename;
             document.body.appendChild(downloadLink);
             downloadLink.click();
             downloadLink.remove();
@@ -945,6 +959,12 @@
                 return null;
             }
 
+            function getFeatureByReference(key) {
+                const [collection, indexText] = String(key).split('-');
+                const index = Number(indexText);
+                return collection === 'archived' ? archivedFeatures[index] : allFeatures[index];
+            }
+
             function featuresForCurrentView() {
                 if (locationView === 'archived') return archivedFeatures;
                 if (locationView === 'all') return [...allFeatures, ...archivedFeatures];
@@ -964,7 +984,7 @@
                     if (!reference) return;
                     const category = getCategory(props.category);
                     const date = formatLocationDate(props.createdAt);
-                    const popupDate = `<br><small class="popup-date">Datum: ${date || 'onbekend'}</small>`;
+                    const popupDate = `<br><small class="popup-date">Bezocht op: ${date || 'onbekend'}</small>`;
                     const imageUrl = safeWebUrl(props.image);
                     const websiteUrl = safeWebUrl(props.website);
                     const popupImage = imageUrl ? `<img class="popup-image" src="${escapeHtml(imageUrl)}" alt="Afbeelding van ${escapeHtml(props.name)}" loading="lazy" onerror="this.hidden=true">` : '';
@@ -1005,8 +1025,8 @@
                     : 'plaats onbekend';
 
                 return `
-                    <tr class="location-row" data-id="${reference.key}" onclick="selectLocation('${reference.key}')">
-                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Datum: ${date || 'onbekend'} &middot; ${escapeHtml(placeName)}</span></td>
+                    <tr class="location-row" data-id="${reference.key}" style="--category-color:${category.color}" onclick="selectLocation('${reference.key}')" onmouseenter="setMarkerHover('${reference.key}', true)" onmouseleave="setMarkerHover('${reference.key}', false)">
+                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Bezocht op: ${date || 'onbekend'} &middot; ${escapeHtml(placeName)}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
                         ${adminPassword ? `<td onclick="event.stopPropagation()">${reference.collection === 'active' ? `<div class="row-actions"><button class="btn-edit" title="Locatie wijzigen" onclick="editLocation(${reference.index})">Wijzig</button><button class="btn-archive" title="Locatie archiveren" onclick="archiveLocation(${reference.index})">Archiveer</button><button class="btn-delete" title="Locatie verwijderen" onclick="deleteLocation(${reference.index})">Verwijder</button></div>` : '<span class="archive-state">Archief</span>'}</td>` : ''}
                     </tr>
@@ -1161,12 +1181,17 @@
             if (currentHighlightedRow) {
                 currentHighlightedRow.classList.remove('highlighted');
             }
+            if (currentHighlightedLocationKey && currentHighlightedLocationKey !== String(id)) {
+                setMarkerLinked(currentHighlightedLocationKey, false);
+            }
 
             // Add new highlight
             const row = document.querySelector(`tr[data-id="${id}"]`);
             if (row) {
                 row.classList.add('highlighted');
                 currentHighlightedRow = row;
+                currentHighlightedLocationKey = String(id);
+                setMarkerLinked(currentHighlightedLocationKey, true);
                 const tableSection = document.querySelector('.table-section');
                 const rowBounds = row.getBoundingClientRect();
                 const sectionBounds = tableSection.getBoundingClientRect();
@@ -1175,6 +1200,17 @@
                 const visibleCenter = (visibleTop + sectionBounds.bottom) / 2;
                 const rowCenter = (rowBounds.top + rowBounds.bottom) / 2;
                 tableSection.scrollTop += rowCenter - visibleCenter;
+            }
+        }
+
+        function setMarkerLinked(id, linked) {
+            const markerElement = markers[id]?.getElement();
+            if (markerElement) markerElement.classList.toggle('is-linked', linked);
+        }
+
+        function setMarkerHover(id, hovering) {
+            if (String(id) !== currentHighlightedLocationKey) {
+                setMarkerLinked(id, hovering);
             }
         }
 
