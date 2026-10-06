@@ -43,6 +43,7 @@ if ($method === 'POST' || $method === 'PUT' || $method === 'DELETE') {
 }
 
 $dataFile = __DIR__ . '/../data/locations.geojson';
+$archiveFile = __DIR__ . '/../data/archived-locations.geojson';
 $categoriesFile = __DIR__ . '/../data/categories.json';
 
 // Check if file exists, if not return empty collection
@@ -98,6 +99,15 @@ if ($method === 'GET') {
         exit();
     }
 
+    if (($_GET['resource'] ?? '') === 'archived') {
+        $archive = is_file($archiveFile) ? json_decode(file_get_contents($archiveFile), true) : null;
+        if (!is_array($archive) || ($archive['type'] ?? null) !== 'FeatureCollection' || !is_array($archive['features'] ?? null)) {
+            $archive = ['type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
+        }
+        echo json_encode($archive);
+        exit();
+    }
+
     // Retrieve all locations
     $data = getLocations();
     echo json_encode($data);
@@ -106,6 +116,63 @@ if ($method === 'GET') {
     $input = json_decode(file_get_contents('php://input'), true);
 
     if (isset($input['action']) && $input['action'] === 'authorize') {
+        echo json_encode(['success' => true]);
+        exit();
+    }
+
+    if (isset($input['action']) && $input['action'] === 'archiveLocation') {
+        global $archiveFile;
+        if (!isset($input['featureIndex'])) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Missing feature index']);
+            exit();
+        }
+
+        $geojson = getLocations();
+        $featureIndex = filter_var($input['featureIndex'], FILTER_VALIDATE_INT);
+        if ($featureIndex === false || $featureIndex < 0 || $featureIndex >= count($geojson['features'] ?? [])) {
+            http_response_code(404);
+            echo json_encode(['error' => 'Location not found']);
+            exit();
+        }
+
+        $archiveExisted = is_file($archiveFile);
+        $previousArchive = $archiveExisted ? file_get_contents($archiveFile) : false;
+        if ($archiveExisted && $previousArchive === false) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Archive data could not be read']);
+            exit();
+        }
+        $archive = $archiveExisted
+            ? json_decode($previousArchive, true)
+            : ['type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
+        if (!is_array($archive) || ($archive['type'] ?? null) !== 'FeatureCollection' || !is_array($archive['features'] ?? null)) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Archive data is invalid']);
+            exit();
+        }
+
+        $archivedFeature = $geojson['features'][$featureIndex];
+        $archive['features'][] = $archivedFeature;
+        $archiveJson = json_encode($archive, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        if ($archiveJson === false || file_put_contents($archiveFile, $archiveJson, LOCK_EX) === false) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Location could not be archived']);
+            exit();
+        }
+
+        array_splice($geojson['features'], $featureIndex, 1);
+        if (!saveLocations($geojson)) {
+            if ($archiveExisted && $previousArchive !== false) {
+                file_put_contents($archiveFile, $previousArchive, LOCK_EX);
+            } else {
+                unlink($archiveFile);
+            }
+            http_response_code(500);
+            echo json_encode(['error' => 'Active locations could not be saved']);
+            exit();
+        }
+
         echo json_encode(['success' => true]);
         exit();
     }

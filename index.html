@@ -98,14 +98,15 @@
         }
 
         .btn-edit {
-            margin-right: 5px;
+            margin: 2px;
             background: white;
             color: #385d64;
             border: 1px solid #385d64;
-            padding: 4px 8px;
-            font-size: 0.8em;
+            padding: 4px 6px;
+            font-size: 0.74em;
             border-radius: 4px;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .content {
@@ -131,6 +132,13 @@
             background: white;
             color: #25343b;
             cursor: pointer;
+        }
+
+        .map-view-filter {
+            position: absolute;
+            z-index: 1001;
+            top: 10px;
+            right: 10px;
         }
 
         .search-tools {
@@ -417,13 +425,62 @@
         }
 
         .btn-delete {
+            margin: 2px;
             background: white;
             color: #d9534f;
             border: 1px solid #d9534f;
-            padding: 4px 8px;
-            font-size: 0.8em;
+            padding: 4px 6px;
+            font-size: 0.74em;
             border-radius: 4px;
             cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-archive {
+            margin: 2px;
+            background: white;
+            color: #385d64;
+            border: 1px solid #385d64;
+            padding: 4px 6px;
+            font-size: 0.74em;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .row-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .row-actions button {
+            margin: 0;
+            padding: 4px 5px;
+            font-size: 0.72em;
+        }
+
+        .archive-state {
+            display: inline-block;
+            padding: 3px 6px;
+            border-radius: 3px;
+            background: #edf1f2;
+            color: #52656b;
+            font-size: 0.74em;
+            white-space: nowrap;
+        }
+
+        .location-view-select {
+            max-width: 190px;
+            min-width: 130px;
+            padding: 8px 28px 8px 9px;
+            border: 1px solid #b8c5cc;
+            border-radius: 4px;
+            background: white;
+            color: #25343b;
+            font: inherit;
+            font-size: 0.88em;
         }
 
         .btn-delete:hover {
@@ -537,6 +594,53 @@
                 min-height: 400px;
             }
         }
+
+        @media (max-width: 600px) {
+            .table-wrapper {
+                padding: 12px;
+            }
+
+            #locationsTable {
+                table-layout: fixed;
+            }
+
+            #locationsTable:not(.is-admin) th:nth-child(1),
+            #locationsTable:not(.is-admin) td:nth-child(1) {
+                width: 68%;
+            }
+
+            #locationsTable:not(.is-admin) th:nth-child(2),
+            #locationsTable:not(.is-admin) td:nth-child(2) {
+                width: 32%;
+            }
+
+            #locationsTable.is-admin th:nth-child(1),
+            #locationsTable.is-admin td:nth-child(1) {
+                width: 42%;
+            }
+
+            #locationsTable.is-admin th:nth-child(2),
+            #locationsTable.is-admin td:nth-child(2) {
+                width: 23%;
+            }
+
+            #locationsTable.is-admin th:nth-child(3),
+            #locationsTable.is-admin td:nth-child(3) {
+                width: 35%;
+            }
+
+            .row-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .row-actions button {
+                width: 100%;
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+        }
     </style>
 </head>
 <body>
@@ -564,7 +668,12 @@
         <div class="content">
             <div class="map-section">
                 <div id="map"></div>
-                <button class="map-fit" type="button" onclick="showAllLocations()">Alle locaties</button>
+                <button class="map-fit" type="button" onclick="showAllLocations()">Toon alles</button>
+                <select id="locationView" class="location-view-select map-view-filter" aria-label="Welke locaties tonen" onchange="setLocationView(this.value)">
+                    <option value="active" selected>Actieve locaties</option>
+                    <option value="archived">Gearchiveerde locaties</option>
+                    <option value="all">Actief en gearchiveerd</option>
+                </select>
             </div>
 
             <div class="table-section">
@@ -608,6 +717,8 @@
         let markers = {};
         let currentHighlightedRow = null;
         let allFeatures = [];
+        let archivedFeatures = [];
+        let locationView = 'active';
         let adminPassword = null;
         let categories = [];
 
@@ -664,15 +775,17 @@
         }
 
         function loadLocations() {
-            fetch('api/locations.php')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+            Promise.all([
+                fetch('api/locations.php'),
+                fetch('api/locations.php?resource=archived')
+            ])
+                .then(async ([activeResponse, archivedResponse]) => {
+                    if (!activeResponse.ok || !archivedResponse.ok) {
+                        throw new Error(`HTTP error! status: ${!activeResponse.ok ? activeResponse.status : archivedResponse.status}`);
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    allFeatures = data.features || [];
+                    const [activeData, archivedData] = await Promise.all([activeResponse.json(), archivedResponse.json()]);
+                    allFeatures = activeData.features || [];
+                    archivedFeatures = archivedData.features || [];
                     showAllLocations();
                 })
                 .catch(error => {
@@ -681,6 +794,20 @@
                     tbody.innerHTML = `<tr><td colspan="3" class="empty-message">Fout bij laden van locaties:<br>${error.message}</td></tr>`;
                 });
         }
+
+            function getFeatureReference(feature) {
+                const activeIndex = allFeatures.indexOf(feature);
+                if (activeIndex !== -1) return { collection: 'active', index: activeIndex, key: `active-${activeIndex}` };
+                const archivedIndex = archivedFeatures.indexOf(feature);
+                if (archivedIndex !== -1) return { collection: 'archived', index: archivedIndex, key: `archived-${archivedIndex}` };
+                return null;
+            }
+
+            function featuresForCurrentView() {
+                if (locationView === 'archived') return archivedFeatures;
+                if (locationView === 'all') return [...allFeatures, ...archivedFeatures];
+                return allFeatures;
+            }
 
         function displayLocations(features) {
             // Clear existing markers
@@ -691,7 +818,8 @@
                 if (feature.geometry.type === 'Point') {
                     const coords = feature.geometry.coordinates;
                     const props = feature.properties;
-                    const id = allFeatures.indexOf(feature);
+                    const reference = getFeatureReference(feature);
+                    if (!reference) return;
                     const category = getCategory(props.category);
                     const date = formatLocationDate(props.createdAt);
                     const popupDate = `<br><small class="popup-date">Datum: ${date || 'onbekend'}</small>`;
@@ -704,8 +832,8 @@
                         autoPanPadding: [24, 24]
                     }).addTo(map);
 
-                    marker.on('click', () => selectLocation(id));
-                    markers[id] = marker;
+                    marker.on('click', () => selectLocation(reference.key));
+                    markers[reference.key] = marker;
                 }
             });
         }
@@ -713,6 +841,7 @@
         function displayTable(features) {
             const tbody = document.getElementById('locationsBody');
             const columnCount = adminPassword ? 3 : 2;
+            document.getElementById('locationsTable').classList.toggle('is-admin', Boolean(adminPassword));
 
             if (features.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="${columnCount}" class="empty-message">Geen opgeslagen locaties gevonden</td></tr>`;
@@ -721,7 +850,8 @@
 
             tbody.innerHTML = features.map(feature => {
                 const props = feature.properties;
-                const id = allFeatures.indexOf(feature);
+                const reference = getFeatureReference(feature);
+                if (!reference) return '';
                 const category = getCategory(props.category);
                 const date = formatLocationDate(props.createdAt);
                 const placeName = typeof props.placeName === 'string' && props.placeName.trim()
@@ -729,10 +859,10 @@
                     : 'plaats onbekend';
 
                 return `
-                    <tr class="location-row" data-id="${id}" onclick="selectLocation(${id})">
+                    <tr class="location-row" data-id="${reference.key}" onclick="selectLocation('${reference.key}')">
                         <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Datum: ${date || 'onbekend'} &middot; ${escapeHtml(placeName)}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
-                        ${adminPassword ? `<td onclick="event.stopPropagation()"><button class="btn-edit" onclick="editLocation(${id})">Wijzigen</button><button class="btn-delete" onclick="deleteLocation(${id})">Verwijderen</button></td>` : ''}
+                        ${adminPassword ? `<td onclick="event.stopPropagation()">${reference.collection === 'active' ? `<div class="row-actions"><button class="btn-edit" title="Locatie wijzigen" onclick="editLocation(${reference.index})">Wijzig</button><button class="btn-archive" title="Locatie archiveren" onclick="archiveLocation(${reference.index})">Archiveer</button><button class="btn-delete" title="Locatie verwijderen" onclick="deleteLocation(${reference.index})">Verwijder</button></div>` : '<span class="archive-state">Archief</span>'}</td>` : ''}
                     </tr>
                 `;
             }).join('');
@@ -740,7 +870,9 @@
 
         function selectLocation(id) {
             highlightRow(id);
-            const feature = allFeatures[Number(id)];
+            const [collection, indexText] = String(id).split('-');
+            const index = Number(indexText);
+            const feature = collection === 'archived' ? archivedFeatures[index] : allFeatures[index];
             if (!feature) return;
 
             const coords = feature.geometry.coordinates;
@@ -754,7 +886,7 @@
 
         function matchingLocations(query) {
             const terms = normalizeSearchText(query).split(/\s+/).filter(Boolean);
-            return allFeatures.filter(feature => {
+            return featuresForCurrentView().filter(feature => {
                 const searchableText = normalizeSearchText(searchablePropertyValues(feature.properties || {}).join(' '));
                 return terms.every(term => searchableText.includes(term));
             });
@@ -762,7 +894,7 @@
 
         function visibleFeatures() {
             const query = document.getElementById('locationSearch').value.trim();
-            return query ? matchingLocations(query) : allFeatures;
+            return query ? matchingLocations(query) : featuresForCurrentView();
         }
 
         function searchablePropertyValues(value) {
@@ -786,9 +918,20 @@
         function showAllLocations() {
             document.getElementById('locationSearch').value = '';
             document.getElementById('searchResults').classList.remove('show');
-            displayLocations(allFeatures);
-            displayTable(allFeatures);
-            fitFeatures(allFeatures);
+            const heading = locationView === 'archived' ? 'Gearchiveerde locaties' : locationView === 'all' ? 'Alle locaties' : 'Actieve locaties';
+            document.querySelector('.table-heading .section-title').textContent = heading;
+            const features = featuresForCurrentView();
+            displayLocations(features);
+            displayTable(features);
+            fitFeatures(features);
+        }
+
+        function setLocationView(view) {
+            if (!['active', 'all', 'archived'].includes(view)) return;
+            locationView = view;
+            document.getElementById('locationSearch').value = '';
+            document.getElementById('searchResults').classList.remove('show');
+            showAllLocations();
         }
 
         function searchLocations() {
@@ -797,8 +940,9 @@
             results.replaceChildren();
             results.classList.remove('show');
             if (!query) {
-                displayLocations(allFeatures);
-                displayTable(allFeatures);
+                const features = featuresForCurrentView();
+                displayLocations(features);
+                displayTable(features);
             } else {
                 const matches = matchingLocations(query);
                 displayLocations(matches);
@@ -904,6 +1048,23 @@
             .then(() => {
                 loadLocations();
             })
+            .catch(error => alert(error.message));
+        }
+
+        function archiveLocation(id) {
+            if (!confirm('Deze locatie verplaatsen naar het archief?')) return;
+            if (!adminPassword) return;
+
+            fetch('api/locations.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-Edit-Password': adminPassword },
+                body: JSON.stringify({ action: 'archiveLocation', featureIndex: Number(id) })
+            })
+            .then(response => response.json().then(data => {
+                if (!response.ok) throw new Error(data.error || 'Archiveren mislukt.');
+                return data;
+            }))
+            .then(() => loadLocations())
             .catch(error => alert(error.message));
         }
 

@@ -22,10 +22,12 @@ advies/
 ### Index pagina (index.html)
 - **Interactieve kaart** met alle GeoJSON punten
 - **Tabel** met alle locaties
+- Filter voor **Actieve locaties**, **Alles** en **Gearchiveerde locaties** (standaard actief)
 - **Sync functie**: Klik op tabel-item → kaart centreert op locatie
 - **Marker klikken** → tabel markeert corresponderende rij
 - **Zoeken** - Zoekt alleen in opgeslagen locatiegegevens en beschrijvingen
 - **Beheer ontgrendelen** - Na servercontrole verschijnen toevoegen, wijzigen en verwijderen
+- **Archiveren** - Verplaatst een locatie uit `locations.geojson` naar `data/archived-locations.geojson`
 - **Download GeoJSON** - Haalt direct het volledige opgeslagen GeoJSON-bestand op
 - **Wijzigen** - Beheerders kunnen naam, plaatsnaam, beschrijving en coördinaten aanpassen
 - Zoeken doorzoekt ook `properties.placeName`
@@ -81,6 +83,8 @@ GET /api/locations.php
 Retourneert het volledige GeoJSON FeatureCollection.
 
 De knop **Download GeoJSON** op de index downloadt rechtstreeks `data/locations.geojson`.
+
+Archiveren is een beheeractie naast verwijderen. Het archiefbestand `data/archived-locations.geojson` wordt bij de eerste archivering aangemaakt als GeoJSON FeatureCollection met dezelfde schema-conforme features. Archiveren verwijdert de locatie uit de actieve lijst; verwijderen wist deze definitief uit de actieve collectie. Via de lijstfilter kun je actieve locaties, het totaal of alleen het archief bekijken; gearchiveerde locaties zijn vanuit de lijst alleen-lezen.
 
 ### POST - Nieuwe locatie toevoegen
 ```bash

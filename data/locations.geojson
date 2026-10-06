@@ -27,24 +27,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    16.381591999999955,
-                    48.211798
-                ]
-            },
-            "properties": {
-                "name": "Badeschiff",
-                "oneliner": "Boot in de Donau waarin een zwembad, restaurant en dansschool zitten. Alles in de bekende \"afgeragd chique\" stijl. Aangezien Wenen niet zo hip is, is dit wel een aardige uitzondering. Kaart is erg gev...",
-                "description": "Boot in de Donau waarin een zwembad, restaurant en dansschool zitten. Alles in de bekende \"afgeragd chique\" stijl. Aangezien Wenen niet zo hip is, is dit wel een aardige uitzondering. Kaart is erg gevarieerd en het eten (in elk geval de Risotto) is erg lekker.",
-                "category": "overig",
-                "avoid": false,
-                "placeName": "Wenen"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     14.415627999999971,
                     50.068312
                 ]
