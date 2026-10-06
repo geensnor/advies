@@ -30,7 +30,7 @@
             padding: 16px 20px;
             border-bottom: 1px solid #e0e0e0;
             display: grid;
-            grid-template-columns: minmax(0, calc(50% - 20px)) minmax(260px, 1fr) max-content;
+            grid-template-columns: minmax(0, 1fr) max-content;
             gap: 20px;
             align-items: center;
         }
@@ -187,24 +187,11 @@
             cursor: pointer;
         }
 
-        .map-view-filter {
-            position: absolute;
-            z-index: 1001;
-            top: 10px;
-            right: 10px;
-        }
-
         .search-tools {
             position: relative;
-            margin-bottom: 18px;
-        }
-
-        .header-search {
-            width: 100%;
-            max-width: 440px;
             min-width: 0;
             margin: 0;
-            justify-self: start;
+            flex: 1 1 auto;
         }
 
         .search-tools label {
@@ -447,6 +434,19 @@
             max-height: 600px;
         }
 
+        .location-list-tools {
+            position: sticky;
+            top: 0;
+            z-index: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 60px;
+            padding: 8px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            background: white;
+        }
+
         .table-wrapper {
             padding: 20px;
         }
@@ -468,7 +468,7 @@
         thead {
             background: #f9f9f9;
             position: sticky;
-            top: 0;
+            top: 60px;
         }
 
         th {
@@ -548,8 +548,10 @@
         }
 
         .location-view-select {
-            max-width: 190px;
-            min-width: 130px;
+            width: 30%;
+            max-width: 185px;
+            min-width: 125px;
+            flex: 0 1 185px;
             padding: 8px 28px 8px 9px;
             border: 1px solid #b8c5cc;
             border-radius: 4px;
@@ -672,6 +674,27 @@
         }
 
         @media (max-width: 600px) {
+            .location-list-tools {
+                gap: 6px;
+                padding-right: 12px;
+                padding-left: 12px;
+            }
+
+            .location-view-select {
+                width: 36%;
+                min-width: 116px;
+                padding-right: 20px;
+            }
+
+            .search-row {
+                gap: 5px;
+            }
+
+            .search-row input,
+            .search-row button {
+                padding: 8px;
+            }
+
             .table-wrapper {
                 padding: 12px;
             }
@@ -729,13 +752,6 @@
                     <p>Interactieve kaart met alle geregistreerde locaties</p>
                 </div>
             </a>
-            <div class="search-tools header-search">
-                <div class="search-row">
-                    <input id="locationSearch" type="search" aria-label="Zoek in opgeslagen locaties" placeholder="Naam of tekst uit een opgeslagen locatie">
-                    <button type="button" onclick="searchLocations()">Zoek</button>
-                </div>
-                <div id="searchResults" class="search-results" role="listbox"></div>
-            </div>
             <div class="header-actions">
                 <details class="export-menu">
                     <summary>Exporteren</summary>
@@ -751,14 +767,23 @@
             <div class="map-section">
                 <div id="map"></div>
                 <button class="map-fit" type="button" onclick="showAllLocations()">Toon alles</button>
-                <select id="locationView" class="location-view-select map-view-filter" aria-label="Welke locaties tonen" onchange="setLocationView(this.value)">
-                    <option value="active" selected>Actieve locaties</option>
-                    <option value="archived">Gearchiveerde locaties</option>
-                    <option value="all">Actief en gearchiveerd</option>
-                </select>
             </div>
 
             <div class="table-section">
+                <div class="location-list-tools">
+                    <div class="search-tools">
+                        <div class="search-row">
+                            <input id="locationSearch" type="search" aria-label="Zoek in opgeslagen locaties" placeholder="Zoek locaties">
+                            <button type="button" onclick="searchLocations()">Zoek</button>
+                        </div>
+                        <div id="searchResults" class="search-results" role="listbox"></div>
+                    </div>
+                    <select id="locationView" class="location-view-select" aria-label="Welke locaties tonen" onchange="setLocationView(this.value)">
+                        <option value="active" selected>Actieve locaties</option>
+                        <option value="archived">Gearchiveerde locaties</option>
+                        <option value="all">Actief en gearchiveerd</option>
+                    </select>
+                </div>
                 <div class="table-wrapper">
                     <div class="table-heading">
                         <h2 class="section-title">Alle locaties</h2>
