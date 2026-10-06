@@ -2,4 +2,5 @@ config.local.php
 data/locations.geojson.before-place-name-backfill
 data/locations.geojson.before-category-migration
 data/locations.geojson.before-schema-v2
+data/locations.geojson.before-schema-2026-10
 .DS_Store

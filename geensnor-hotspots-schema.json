@@ -1,10 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://geensnor.nl/schemas/geensnor-hotspots-schema-v2.json",
+  "$id": "https://geensnor.nl/schemas/geensnor-hotspots-schema.json",
   "title": "Geensnor Hotspots",
+  "allOf": [
+    {
+      "$ref": "https://geojson.org/schema/FeatureCollection.json"
+    }
+  ],
   "type": "object",
   "required": ["type", "name", "features"],
   "properties": {
+    "$schema": { "type": "string" },
     "type": { "const": "FeatureCollection" },
     "name": { "type": "string" },
     "features": {
@@ -12,30 +18,22 @@
       "items": { "$ref": "#/$defs/geensnorFeature" }
     }
   },
-  "additionalProperties": false,
+  "unevaluatedProperties": false,
   "$defs": {
     "geensnorFeature": {
+      "allOf": [
+        {
+          "$ref": "https://geojson.org/schema/Feature.json"
+        }
+      ],
       "type": "object",
       "required": ["type", "geometry", "properties"],
       "properties": {
         "type": { "const": "Feature" },
-        "geometry": {
-          "type": "object",
-          "required": ["type", "coordinates"],
-          "properties": {
-            "type": { "const": "Point" },
-            "coordinates": {
-              "type": "array",
-              "minItems": 2,
-              "maxItems": 3,
-              "items": { "type": "number" }
-            }
-          },
-          "additionalProperties": false
-        },
+        "geometry": { "$ref": "https://geojson.org/schema/Point.json" },
         "properties": {
           "type": "object",
-          "required": ["name", "category", "description", "avoid", "placeName"],
+          "required": ["name", "category", "description", "placeName"],
           "properties": {
             "name": { "type": "string" },
             "oneliner": {
@@ -58,16 +56,31 @@
                 "koffie",
                 "muziek",
                 "strand",
-                "snackbar"
+                "snackbar",
+                "lunch"
               ]
             },
-            "avoid": { "type": "boolean" },
-            "placeName": { "type": "string" }
+            "avoid": {
+              "type": "boolean",
+              "description": "true bij doodshoofd! Plaats om ver weg van te blijven!"
+            },
+            "placeName": {
+              "type": "string",
+              "description": "Handig bij het zoeken"
+            },
+            "image": {
+              "type": "string",
+              "description": "URL naar een afbeelding"
+            },
+            "website": {
+              "type": "string",
+              "description": "URL van de website"
+            }
           },
           "additionalProperties": false
         }
       },
-      "additionalProperties": false
+      "unevaluatedProperties": false
     }
   }
 }

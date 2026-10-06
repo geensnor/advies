@@ -43,5 +43,10 @@
         "id": "snackbar",
         "label": "Snackbar",
         "color": "#c27a32"
+    },
+    {
+        "id": "lunch",
+        "label": "Lunch",
+        "color": "#a04f73"
     }
 ]

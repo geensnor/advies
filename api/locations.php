@@ -57,16 +57,17 @@ if (!file_exists($dataFile)) {
 function getLocations() {
     global $dataFile;
     if (!file_exists($dataFile)) {
-        return ["type" => "FeatureCollection", "features" => []];
+        return ['$schema' => 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json', 'type' => 'FeatureCollection', 'name' => 'Places of Interest', 'features' => []];
     }
     $json = file_get_contents($dataFile);
     $data = json_decode($json, true);
-    return is_array($data) ? $data : ["type" => "FeatureCollection", "features" => []];
+    return is_array($data) ? $data : ['$schema' => 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json', 'type' => 'FeatureCollection', 'name' => 'Places of Interest', 'features' => []];
 }
 
 // Helper function to save GeoJSON
 function saveLocations($geojson) {
     global $dataFile;
+    $geojson['$schema'] = 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json';
     $json = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     return $json !== false && file_put_contents($dataFile, $json, LOCK_EX) !== false;
 }
@@ -79,7 +80,7 @@ function getCategories() {
 }
 
 function categoryExists($categoryId) {
-    $schemaCategories = ['bar', 'restaurant', 'trailerhelling', 'overig', 'overnachten', 'koffie', 'muziek', 'strand', 'snackbar'];
+    $schemaCategories = ['bar', 'restaurant', 'trailerhelling', 'overig', 'overnachten', 'koffie', 'muziek', 'strand', 'snackbar', 'lunch'];
     if (!in_array($categoryId, $schemaCategories, true)) return false;
     foreach (getCategories() as $category) {
         if (($category['id'] ?? null) === $categoryId) return true;
@@ -93,6 +94,12 @@ function isValidDateOnly($date) {
     return checkdate($month, $day, $year);
 }
 
+function isValidWebUrl($url) {
+    if (!is_string($url) || filter_var($url, FILTER_VALIDATE_URL) === false) return false;
+    $scheme = strtolower((string)parse_url($url, PHP_URL_SCHEME));
+    return $scheme === 'http' || $scheme === 'https';
+}
+
 if ($method === 'GET') {
     if (($_GET['resource'] ?? '') === 'categories') {
         echo json_encode(getCategories());
@@ -102,8 +109,9 @@ if ($method === 'GET') {
     if (($_GET['resource'] ?? '') === 'archived') {
         $archive = is_file($archiveFile) ? json_decode(file_get_contents($archiveFile), true) : null;
         if (!is_array($archive) || ($archive['type'] ?? null) !== 'FeatureCollection' || !is_array($archive['features'] ?? null)) {
-            $archive = ['type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
+            $archive = ['$schema' => 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json', 'type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
         }
+        $archive['$schema'] = 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json';
         echo json_encode($archive);
         exit();
     }
@@ -145,12 +153,13 @@ if ($method === 'GET') {
         }
         $archive = $archiveExisted
             ? json_decode($previousArchive, true)
-            : ['type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
+            : ['$schema' => 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json', 'type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
         if (!is_array($archive) || ($archive['type'] ?? null) !== 'FeatureCollection' || !is_array($archive['features'] ?? null)) {
             http_response_code(500);
             echo json_encode(['error' => 'Archive data is invalid']);
             exit();
         }
+        $archive['$schema'] = 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json';
 
         $archivedFeature = $geojson['features'][$featureIndex];
         $archive['features'][] = $archivedFeature;
@@ -196,6 +205,13 @@ if ($method === 'GET') {
         echo json_encode(['error' => 'Date must use YYYY-MM-DD format']);
         exit();
     }
+    foreach (['image', 'website'] as $urlField) {
+        if (!empty($input[$urlField]) && !isValidWebUrl($input[$urlField])) {
+            http_response_code(400);
+            echo json_encode(['error' => ucfirst($urlField) . ' must be an http or https URL']);
+            exit();
+        }
+    }
     
     $geojson = getLocations();
     
@@ -208,6 +224,9 @@ if ($method === 'GET') {
         'createdAt' => $locationDate . 'T00:00:00+00:00'
     ];
     if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
+    foreach (['image', 'website'] as $urlField) {
+        if (!empty($input[$urlField])) $properties[$urlField] = trim((string)$input[$urlField]);
+    }
 
     $feature = [
         "type" => "Feature",
@@ -258,6 +277,13 @@ if ($method === 'GET') {
         echo json_encode(['error' => 'Date must use YYYY-MM-DD format']);
         exit();
     }
+    foreach (['image', 'website'] as $urlField) {
+        if (isset($input[$urlField]) && $input[$urlField] !== '' && !isValidWebUrl($input[$urlField])) {
+            http_response_code(400);
+            echo json_encode(['error' => ucfirst($urlField) . ' must be an http or https URL']);
+            exit();
+        }
+    }
 
     $properties = [
         'name' => trim((string)$input['name']),
@@ -271,6 +297,13 @@ if ($method === 'GET') {
     elseif (isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
     if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
     elseif (isset($previousProperties['oneliner'])) $properties['oneliner'] = $previousProperties['oneliner'];
+    foreach (['image', 'website'] as $urlField) {
+        if (!isset($input[$urlField]) && isset($previousProperties[$urlField])) {
+            $properties[$urlField] = $previousProperties[$urlField];
+        } elseif (isset($input[$urlField]) && $input[$urlField] !== '') {
+            $properties[$urlField] = trim((string)$input[$urlField]);
+        }
+    }
 
     $updatedFeature = [
         'type' => 'Feature',

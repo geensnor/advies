@@ -7,44 +7,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    14.506334,
-                    46.047562
-                ]
-            },
-            "properties": {
-                "name": "Lunch Cafe Marley & Me 1",
-                "category": "restaurant",
-                "description": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
-                "avoid": false,
-                "placeName": "Ljubljana",
-                "updatedAt": "2026-10-05T14:48:29+00:00",
-                "createdAt": "2026-10-05T00:00:00+00:00",
-                "oneliner": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    14.415627999999971,
-                    50.068312
-                ]
-            },
-            "properties": {
-                "name": "Cafeterapie",
-                "oneliner": "Tsjechen hebben volgens mij niet echt een ontbijtcultuur en in Praag is nergens een broodje te krijgen. Dit cafe is daar een uitzondering op. Je kan hier prima ontbijten en de espresso is heerlijk. Li...",
-                "description": "Tsjechen hebben volgens mij niet echt een ontbijtcultuur en in Praag is nergens een broodje te krijgen. Dit cafe is daar een uitzondering op. Je kan hier prima ontbijten en de espresso is heerlijk. Ligt een beetje buiten het door toeristen platgelopen centrum. Kost (zoals alles in Praag) helemaal niets.",
-                "category": "overig",
-                "avoid": false,
-                "placeName": "Praag"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     14.420024000000012,
                     50.064415
                 ]
@@ -4150,5 +4112,6 @@
                 "placeName": "Utrecht"
             }
         }
-    ]
+    ],
+    "$schema": "https:\/\/geensnor.nl\/schemas\/geensnor-hotspots-schema.json"
 }

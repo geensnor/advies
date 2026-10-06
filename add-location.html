@@ -112,6 +112,7 @@
         .input-group input[type="text"],
         .input-group input[type="number"],
         .input-group input[type="date"],
+        .input-group input[type="url"],
         .input-group input[type="password"],
         .input-group select,
         .input-group textarea {
@@ -126,6 +127,7 @@
         .input-group input[type="text"]:focus,
         .input-group input[type="number"]:focus,
         .input-group input[type="date"]:focus,
+        .input-group input[type="url"]:focus,
         .input-group input[type="password"]:focus,
         .input-group select:focus,
         .input-group textarea:focus {
@@ -378,6 +380,14 @@
                         <input type="date" id="locationDate">
                     </div>
                     <div class="input-group notes-section">
+                        <label for="imageUrl">Afbeelding (URL)</label>
+                        <input type="url" id="imageUrl" placeholder="https://voorbeeld.nl/afbeelding.jpg">
+                    </div>
+                    <div class="input-group notes-section">
+                        <label for="websiteUrl">Website</label>
+                        <input type="url" id="websiteUrl" placeholder="https://voorbeeld.nl">
+                    </div>
+                    <div class="input-group notes-section">
                         <label for="oneliner">Korte omschrijving</label>
                         <input type="text" id="oneliner" maxlength="200" placeholder="Korte samenvatting (optioneel)">
                     </div>
@@ -558,6 +568,8 @@
             document.getElementById('oneliner').value = properties.oneliner || '';
             document.getElementById('placeName').value = properties.placeName || '';
             document.getElementById('locationDate').value = properties.createdAt?.slice(0, 10) || '';
+            document.getElementById('imageUrl').value = properties.image || '';
+            document.getElementById('websiteUrl').value = properties.website || '';
             document.getElementById('locationCategory').value = properties.category || 'overig';
             document.getElementById('notes').value = properties.description || '';
             currentAvoid = properties.avoid === true;
@@ -635,6 +647,8 @@
             const oneliner = document.getElementById('oneliner').value.trim();
             const placeName = document.getElementById('placeName').value.trim();
             const date = document.getElementById('locationDate').value;
+            const image = document.getElementById('imageUrl').value.trim();
+            const website = document.getElementById('websiteUrl').value.trim();
             const notes = document.getElementById('notes').value.trim();
 
             if (!lat || !lng) {
@@ -660,6 +674,8 @@
             const locationData = {
                 ...(locationId !== null ? { featureIndex: Number(locationId) } : {}),
                 ...(date ? { date: date } : {}),
+                image: image,
+                website: website,
                 name: name,
                 oneliner: oneliner,
                 placeName: placeName,

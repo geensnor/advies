@@ -88,13 +88,66 @@
             border-color: #357abd;
         }
 
-        .btn-download {
-            padding: 10px 14px;
+        .export-menu {
+            position: relative;
+        }
+
+        .export-menu summary {
+            display: inline-flex;
+            align-items: center;
+            min-height: 41px;
+            padding: 9px 14px;
             border: 1px solid #b8c5cc;
             border-radius: 4px;
             background: white;
             color: #25343b;
+            cursor: pointer;
+            font: inherit;
+            list-style: none;
+            white-space: nowrap;
+        }
+
+        .export-menu summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .export-menu summary::after {
+            content: "▾";
+            margin-left: 10px;
+            color: #52656b;
+        }
+
+        .export-options {
+            position: absolute;
+            z-index: 1200;
+            top: calc(100% + 4px);
+            right: 0;
+            min-width: 190px;
+            padding: 4px;
+            border: 1px solid #cbd2d6;
+            border-radius: 4px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+        }
+
+        .export-options a,
+        .export-options button {
+            display: block;
+            width: 100%;
+            padding: 9px 10px;
+            border: 0;
+            border-radius: 3px;
+            background: white;
+            color: #25343b;
+            font: inherit;
+            text-align: left;
             text-decoration: none;
+            cursor: pointer;
+        }
+
+        .export-options a:hover,
+        .export-options button:hover {
+            background: #f1f5f6;
         }
 
         .btn-edit {
@@ -356,6 +409,20 @@
         .leaflet-popup-content-wrapper {
             max-height: 85vh;
             overflow-y: auto;
+        }
+
+        .popup-image {
+            display: block;
+            width: 100%;
+            max-height: 220px;
+            margin-top: 8px;
+            object-fit: cover;
+        }
+
+        .popup-website {
+            display: inline-block;
+            margin-top: 8px;
+            overflow-wrap: anywhere;
         }
 
         @media (max-width: 600px) {
@@ -661,7 +728,13 @@
                 <div id="searchResults" class="search-results" role="listbox"></div>
             </div>
             <div class="header-actions">
-                <a class="btn-download" href="data/locations.geojson" download="locations.geojson">Download GeoJSON</a>
+                <details class="export-menu">
+                    <summary>Exporteren</summary>
+                    <div class="export-options">
+                        <a href="data/locations.geojson" download="locations.geojson" onclick="this.closest('details').open = false">GeoJSON downloaden</a>
+                        <button type="button" onclick="downloadActiveGpx(); this.closest('details').open = false">GPX downloaden</button>
+                    </div>
+                </details>
             </div>
         </div>
 
@@ -769,9 +842,78 @@
             })[character]);
         }
 
+        function escapeXml(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&apos;'
+            })[character]);
+        }
+
+        function downloadActiveGpx() {
+            const waypoints = allFeatures
+                .filter(feature => feature.geometry?.type === 'Point' && Array.isArray(feature.geometry.coordinates))
+                .map(feature => {
+                    const [longitude, latitude] = feature.geometry.coordinates;
+                    if (!Number.isFinite(longitude) || !Number.isFinite(latitude)) return '';
+
+                    const properties = feature.properties || {};
+                    const name = String(properties.name || 'Onbekende locatie');
+                    const details = [
+                        properties.description || properties.oneliner,
+                        properties.placeName ? `Plaats: ${properties.placeName}` : '',
+                        properties.category ? `Categorie: ${properties.category}` : '',
+                        properties.avoid === true ? 'Afrader' : ''
+                    ].filter(Boolean).join('\n');
+                    const time = typeof properties.createdAt === 'string' && !Number.isNaN(Date.parse(properties.createdAt))
+                        ? `<time>${escapeXml(new Date(properties.createdAt).toISOString())}</time>`
+                        : '';
+                    const links = [
+                        ['Afbeelding', safeWebUrl(properties.image)],
+                        ['Website', safeWebUrl(properties.website)]
+                    ].filter(([, url]) => url)
+                        .map(([label, url]) => `    <link href="${escapeXml(url)}"><text>${escapeXml(label)}</text></link>`)
+                        .join('\n');
+
+                    return `  <wpt lat="${latitude}" lon="${longitude}">\n${time ? `    ${time}\n` : ''}    <name>${escapeXml(name)}</name>\n${details ? `    <desc>${escapeXml(details)}</desc>\n` : ''}${links ? `${links}\n` : ''}  </wpt>`;
+                })
+                .filter(Boolean);
+
+            const gpx = [
+                '<?xml version="1.0" encoding="UTF-8"?>',
+                '<gpx version="1.1" creator="Geensnor Places" xmlns="http://www.topografix.com/GPX/1/1">',
+                '  <metadata>',
+                '    <name>Geensnor actieve locaties</name>',
+                '  </metadata>',
+                ...waypoints,
+                '</gpx>',
+                ''
+            ].join('\n');
+            const blobUrl = URL.createObjectURL(new Blob([gpx], { type: 'application/gpx+xml;charset=utf-8' }));
+            const downloadLink = document.createElement('a');
+            downloadLink.href = blobUrl;
+            downloadLink.download = 'geensnor-actieve-locaties.gpx';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            downloadLink.remove();
+            window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+        }
+
         function formatLocationDate(value) {
             const match = typeof value === 'string' && value.match(/^(\d{4})-(\d{2})-(\d{2})/);
             return match ? `${match[3]}-${match[2]}-${match[1]}` : '';
+        }
+
+        function safeWebUrl(value) {
+            if (typeof value !== 'string' || !value.trim()) return '';
+            try {
+                const url = new URL(value.trim());
+                return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+            } catch {
+                return '';
+            }
         }
 
         function loadLocations() {
@@ -823,10 +965,14 @@
                     const category = getCategory(props.category);
                     const date = formatLocationDate(props.createdAt);
                     const popupDate = `<br><small class="popup-date">Datum: ${date || 'onbekend'}</small>`;
+                    const imageUrl = safeWebUrl(props.image);
+                    const websiteUrl = safeWebUrl(props.website);
+                    const popupImage = imageUrl ? `<img class="popup-image" src="${escapeHtml(imageUrl)}" alt="Afbeelding van ${escapeHtml(props.name)}" loading="lazy" onerror="this.hidden=true">` : '';
+                    const popupWebsite = websiteUrl ? `<br><a class="popup-website" href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer">Website</a>` : '';
 
                     const marker = L.marker([coords[1], coords[0]], {
                         icon: createPinIcon(category.color, props.avoid === true)
-                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || props.oneliner || 'Geen beschrijving')}${popupDate}`, {
+                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || props.oneliner || 'Geen beschrijving')}${popupDate}${popupImage}${popupWebsite}`, {
                         maxWidth: 560,
                         minWidth: 220,
                         autoPanPadding: [24, 24]

@@ -28,7 +28,7 @@ advies/
 - **Zoeken** - Zoekt alleen in opgeslagen locatiegegevens en beschrijvingen
 - **Beheer ontgrendelen** - Na servercontrole verschijnen toevoegen, wijzigen en verwijderen
 - **Archiveren** - Verplaatst een locatie uit `locations.geojson` naar `data/archived-locations.geojson`
-- **Download GeoJSON** - Haalt direct het volledige opgeslagen GeoJSON-bestand op
+- **Exporteren** - Downloadt de actieve locaties als GeoJSON of GPX 1.1-waypoints met naam, beschrijving, plaats, categorie en eventuele datum/website
 - **Wijzigen** - Beheerders kunnen naam, plaatsnaam, beschrijving en coördinaten aanpassen
 - Zoeken doorzoekt ook `properties.placeName`
 
@@ -46,6 +46,7 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
 
 ```json
 {
+  "$schema": "https://geensnor.nl/schemas/geensnor-hotspots-schema.json",
   "type": "FeatureCollection",
   "features": [
     {
@@ -61,7 +62,9 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
         "description": "Volledige beschrijving",
         "category": "bar",
         "avoid": false,
-        "createdAt": "2026-10-05T12:00:00+00:00"
+        "createdAt": "2026-10-05T12:00:00+00:00",
+        "image": "https://voorbeeld.nl/afbeelding.jpg",
+        "website": "https://voorbeeld.nl"
       }
     }
   ]
@@ -72,7 +75,7 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
 
 De kalenderdatum in het formulier wordt als `YYYY-MM-DD` verstuurd en opgeslagen als `properties.createdAt` (ISO date-time volgens het schema). Op bestaande locaties zonder datum toont de lijst `Datum: onbekend`; die waarde wordt niet automatisch verzonnen bij het bewerken.
 
-De structuur wordt gevalideerd volgens [geensnor-hotspots-schema-v2.json](geensnor-hotspots-schema-v2.json). De GeoJSON bevat geen eigen `id`; beheeracties adresseren een feature via zijn positie in `features`. Categorieën zijn beperkt tot de enum in het schema en kunnen niet vanuit de app worden toegevoegd of verwijderd. De vorige dataset is lokaal bewaard in `data/locations.geojson.before-schema-v2`.
+De structuur wordt gevalideerd volgens [geensnor-hotspots-schema.json](geensnor-hotspots-schema.json). `image` en `website` zijn optionele HTTP(S)-URL's; `avoid` is optioneel. Categorieën zijn beperkt tot de enum in het schema en kunnen niet vanuit de app worden toegevoegd of verwijderd. De vorige dataset is lokaal bewaard in `data/locations.geojson.before-schema-v2`.
 
 ## 🔌 PHP API (api/locations.php)
 
@@ -82,7 +85,7 @@ GET /api/locations.php
 ```
 Retourneert het volledige GeoJSON FeatureCollection.
 
-De knop **Download GeoJSON** op de index downloadt rechtstreeks `data/locations.geojson`.
+Het menu **Exporteren** biedt GeoJSON en GPX. GeoJSON downloadt rechtstreeks `data/locations.geojson`; GPX genereert GPX 1.1-waypoints voor alle actieve locaties, onafhankelijk van de huidige zoek- of archieffilter.
 
 Archiveren is een beheeractie naast verwijderen. Het archiefbestand `data/archived-locations.geojson` wordt bij de eerste archivering aangemaakt als GeoJSON FeatureCollection met dezelfde schema-conforme features. Archiveren verwijdert de locatie uit de actieve lijst; verwijderen wist deze definitief uit de actieve collectie. Via de lijstfilter kun je actieve locaties, het totaal of alleen het archief bekijken; gearchiveerde locaties zijn vanuit de lijst alleen-lezen.
 
@@ -101,7 +104,9 @@ X-Edit-Password: <wachtwoord>
   "longitude": 13.405,
   "description": "Volledige beschrijving",
   "avoid": false,
-  "category": "restaurant"
+  "category": "lunch",
+  "image": "https://voorbeeld.nl/afbeelding.jpg",
+  "website": "https://voorbeeld.nl"
 }
 ```
 
@@ -121,7 +126,9 @@ X-Edit-Password: <wachtwoord>
   "longitude": 5.405,
   "description": "Volledige beschrijving",
   "avoid": false,
-  "category": "restaurant"
+  "category": "lunch",
+  "image": "https://voorbeeld.nl/afbeelding.jpg",
+  "website": "https://voorbeeld.nl"
 }
 ```
 
@@ -156,7 +163,7 @@ De schrijfmodus bewaart eerst `data/locations.geojson.before-place-name-backfill
 
 ## 🎨 Categorieën
 
-- `bar`, `restaurant`, `trailerhelling`, `overig`, `overnachten`, `koffie`, `muziek`, `strand`, `snackbar`
+- `bar`, `restaurant`, `trailerhelling`, `overig`, `overnachten`, `koffie`, `muziek`, `strand`, `snackbar`, `lunch`
 
 Elke categorie heeft een eigen markerkleur. De schema-enum is leidend; categorieën kunnen niet los van een schemawijziging worden toegevoegd of verwijderd.
 
@@ -192,6 +199,8 @@ Zet in `config.local.php` een lang, uniek wachtwoord in `location_edit_password`
 return [
   'location_edit_password' => 'vul-hier-een-lang-uniek-wachtwoord-in',
 ];
+?>
+```
 ```
 
 Bij een nieuwe checkout maak je dit bestand met `cp config.example.php config.local.php` en vul je daarna het wachtwoord in. Zolang de config ontbreekt of de waarde leeg is, weigert de API toevoegen en verwijderen. Locaties uitlezen blijft wel mogelijk. Commit `config.local.php` nooit.
