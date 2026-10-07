@@ -495,8 +495,13 @@
             background: #e8f5e9;
         }
 
+        tr.pin-hovered {
+            background: #fff3d6;
+        }
+
         .location-row:hover td:first-child,
-        .location-row.highlighted td:first-child {
+        .location-row.highlighted td:first-child,
+        .location-row.pin-hovered td:first-child {
             box-shadow: inset 3px 0 var(--category-color, #385d64);
         }
 
@@ -1024,6 +1029,8 @@
                     }).addTo(map);
 
                     marker.on('click', () => selectLocation(reference.key));
+                    marker.on('mouseover', () => setRowHover(reference.key, true));
+                    marker.on('mouseout', () => setRowHover(reference.key, false));
                     markers[reference.key] = marker;
                 }
             });
@@ -1237,6 +1244,11 @@
             if (String(id) !== currentHighlightedLocationKey) {
                 setMarkerLinked(id, hovering);
             }
+        }
+
+        function setRowHover(id, hovering) {
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            if (row) row.classList.toggle('pin-hovered', hovering);
         }
 
         function deleteLocation(id) {
