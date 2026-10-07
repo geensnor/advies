@@ -112,13 +112,13 @@ if ($method === 'GET') {
             $archive = ['$schema' => 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json', 'type' => 'FeatureCollection', 'name' => 'Archived Places of Interest', 'features' => []];
         }
         $archive['$schema'] = 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json';
-        echo json_encode($archive);
+        echo json_encode($archive, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         exit();
     }
 
     // Retrieve all locations
     $data = getLocations();
-    echo json_encode($data);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     
 } elseif ($method === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
@@ -199,8 +199,8 @@ if ($method === 'GET') {
         exit();
     }
 
-    $locationDate = $input['date'] ?? gmdate('Y-m-d');
-    if (!isValidDateOnly($locationDate)) {
+    $locationDate = $input['date'] ?? '';
+    if ($locationDate !== '' && !isValidDateOnly($locationDate)) {
         http_response_code(400);
         echo json_encode(['error' => 'Date must use YYYY-MM-DD format']);
         exit();
@@ -220,9 +220,9 @@ if ($method === 'GET') {
         'category' => $input['category'],
         'description' => (string)($input['description'] ?? $input['notes'] ?? ''),
         'avoid' => filter_var($input['avoid'] ?? false, FILTER_VALIDATE_BOOLEAN),
-        'placeName' => trim((string)$input['placeName']),
-        'createdAt' => $locationDate . 'T00:00:00+00:00'
+        'placeName' => trim((string)$input['placeName'])
     ];
+    if ($locationDate !== '') $properties['createdAt'] = $locationDate . 'T00:00:00+00:00';
     if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
     foreach (['image', 'website'] as $urlField) {
         if (!empty($input[$urlField])) $properties[$urlField] = trim((string)$input[$urlField]);
@@ -271,7 +271,8 @@ if ($method === 'GET') {
     }
 
     $previousProperties = $geojson['features'][$featureIndex]['properties'] ?? [];
-    $locationDate = isset($input['date']) && $input['date'] !== '' ? $input['date'] : null;
+    $hasLocationDate = array_key_exists('date', $input);
+    $locationDate = $hasLocationDate && $input['date'] !== '' ? $input['date'] : null;
     if ($locationDate !== null && !isValidDateOnly($locationDate)) {
         http_response_code(400);
         echo json_encode(['error' => 'Date must use YYYY-MM-DD format']);
@@ -294,7 +295,7 @@ if ($method === 'GET') {
         'updatedAt' => gmdate('c')
     ];
     if ($locationDate !== null) $properties['createdAt'] = $locationDate . 'T00:00:00+00:00';
-    elseif (isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
+    elseif (!$hasLocationDate && isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
     if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
     elseif (isset($previousProperties['oneliner'])) $properties['oneliner'] = $previousProperties['oneliner'];
     foreach (['image', 'website'] as $urlField) {

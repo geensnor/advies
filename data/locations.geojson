@@ -4132,6 +4132,25 @@
                 "image": "https://tweakers.net/i/DhCrXHpMrK08C0nFME95EQAQhmQ=/fit-in/4000x4000/filters:no_upscale():strip_exif()/f/image/1Sq6oh6yPHahKCeTq6BPGL5a.png?f=user_large",
                 "website": "https://www.jumbo.com/recepten/bakken/pannenkoeken/hartige-pannenkoeken"
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.380798,
+                    50.84237
+                ]
+            },
+            "properties": {
+                "name": "Dit is de naam van deze locatie",
+                "category": "overig",
+                "description": "",
+                "avoid": false,
+                "placeName": "Brussel",
+                "createdAt": "2026-10-07T00:00:00+00:00",
+                "oneliner": ""
+            }
         }
     ],
     "$schema": "https://geensnor.nl/schemas/geensnor-hotspots-schema.json"

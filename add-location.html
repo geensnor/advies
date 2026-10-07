@@ -95,6 +95,17 @@
             font-size: 0.9em;
         }
 
+        .field-requirement {
+            margin-left: 5px;
+            color: #68757a;
+            font-size: 0.78em;
+            font-weight: 400;
+        }
+
+        .field-requirement.required {
+            color: #9b3d2d;
+        }
+
         .avoid-toggle {
             display: flex;
             align-items: center;
@@ -121,7 +132,31 @@
             border-radius: 4px;
             font-family: inherit;
             font-size: 0.95em;
+            background-color: #fff;
+            color: #25343b;
             transition: border-color 0.2s;
+        }
+
+        .input-group select {
+            width: 100%;
+            min-height: 42px;
+            cursor: pointer;
+        }
+
+        .input-group .field-error {
+            min-height: 0;
+            margin-top: 5px;
+            color: #a31616;
+            font-size: 0.82em;
+        }
+
+        .input-group .field-error:empty {
+            display: none;
+        }
+
+        .input-group [aria-invalid="true"] {
+            border-color: #c62828;
+            background-color: #fff8f7;
         }
 
         .input-group input[type="text"]:focus,
@@ -340,69 +375,78 @@
                 <h2 class="section-title">Locatiedetails</h2>
                 <div class="controls coordinates-section">
                     <div class="input-group">
-                        <label for="latitude">Breedtegraad</label>
+                        <label for="latitude">Breedtegraad <span class="field-requirement required">verplicht</span></label>
                         <input 
                             type="number" 
                             id="latitude" 
                             placeholder="Klik op kaart of zoek om in te vullen"
                             step="0.000001"
                             readonly
+                            aria-describedby="latitudeError"
                         >
+                        <span class="field-error" id="latitudeError" aria-live="polite"></span>
                     </div>
                     <div class="input-group">
-                        <label for="longitude">Lengtegraad</label>
+                        <label for="longitude">Lengtegraad <span class="field-requirement required">verplicht</span></label>
                         <input 
                             type="number" 
                             id="longitude" 
                             placeholder="Klik op kaart of zoek om in te vullen"
                             step="0.000001"
                             readonly
+                            aria-describedby="longitudeError"
                         >
+                        <span class="field-error" id="longitudeError" aria-live="polite"></span>
                     </div>
                     <div class="input-group notes-section">
-                        <label for="locationName">Naam van de locatie</label>
+                        <label for="locationName">Naam van de locatie <span class="field-requirement required">verplicht</span></label>
                         <input 
                             type="text" 
                             id="locationName" 
                             placeholder="Voer een naam in voor deze locatie"
+                            required
+                            aria-describedby="locationNameError"
                         >
+                        <span class="field-error" id="locationNameError" aria-live="polite"></span>
                     </div>
                     <div class="input-group notes-section">
-                        <label for="locationCategory">Categorie</label>
-                        <select id="locationCategory" required></select>
+                        <label for="locationCategory">Categorie <span class="field-requirement required">verplicht</span></label>
+                        <select id="locationCategory" required aria-describedby="locationCategoryError"></select>
+                        <span class="field-error" id="locationCategoryError" aria-live="polite"></span>
                     </div>
                     <div class="input-group notes-section">
-                        <label for="placeName">Plaatsnaam</label>
-                        <input type="text" id="placeName" placeholder="Wordt automatisch ingevuld; pas aan indien nodig" required>
+                        <label for="placeName">Plaatsnaam <span class="field-requirement required">verplicht</span></label>
+                        <input type="text" id="placeName" placeholder="Wordt automatisch ingevuld; pas aan indien nodig" required aria-describedby="placeNameError">
+                        <span class="field-error" id="placeNameError" aria-live="polite"></span>
                     </div>
                     <div class="input-group notes-section">
-                        <label for="locationDate">Bezocht op</label>
+                        <label for="locationDate">Bezocht op <span class="field-requirement">optioneel</span></label>
                         <input type="date" id="locationDate">
                     </div>
                     <div class="input-group notes-section">
-                        <label for="imageUrl">Afbeelding (URL)</label>
-                        <input type="url" id="imageUrl" placeholder="https://voorbeeld.nl/afbeelding.jpg">
+                        <label for="imageUrl">Afbeelding (URL) <span class="field-requirement">optioneel</span></label>
+                        <input type="url" id="imageUrl" placeholder="https://voorbeeld.nl/afbeelding.jpg" aria-describedby="imageUrlError">
+                        <span class="field-error" id="imageUrlError" aria-live="polite"></span>
                     </div>
                     <div class="input-group notes-section">
-                        <label for="websiteUrl">Website</label>
-                        <input type="url" id="websiteUrl" placeholder="https://voorbeeld.nl">
-                    </div>
-                    <div class="input-group notes-section">
-                        <label for="oneliner">Korte omschrijving</label>
-                        <input type="text" id="oneliner" maxlength="200" placeholder="Korte samenvatting (optioneel)">
+                        <label for="websiteUrl">Website <span class="field-requirement">optioneel</span></label>
+                        <input type="url" id="websiteUrl" placeholder="https://voorbeeld.nl" aria-describedby="websiteUrlError">
+                        <span class="field-error" id="websiteUrlError" aria-live="polite"></span>
                     </div>
                     <div class="input-group notes-section">
                         <label class="avoid-toggle" for="avoidFlag">
                             <input type="checkbox" id="avoidFlag">
-                            <span>Doodshoofd (afrader)</span>
+                            <span>Doodshoofd (afrader) <span class="field-requirement">optioneel</span></span>
                         </label>
                     </div>
                     <div class="input-group notes-section">
-                        <label for="notes">Notities/Beschrijving</label>
+                        <label for="notes">Notities/Beschrijving <span class="field-requirement">optioneel</span></label>
                         <textarea 
                             id="notes" 
                             placeholder="Voeg notities of beschrijving toe over deze locatie..."
+                            aria-describedby="notesError"
                         ></textarea>
+                        <span class="field-error" id="notesError" aria-live="polite"></span>
                     </div>
                     <div class="button-group">
                         <button class="btn-submit" onclick="saveLocation()">Opslaan</button>
@@ -424,14 +468,6 @@
         let categories = [];
         let currentAvoid = false;
         const locationId = new URLSearchParams(window.location.search).get('id');
-
-        function getTodayDateValue() {
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const day = String(today.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
 
         async function authorizeEditor(passwordOverride = null) {
             const passwordInput = document.getElementById('editPassword');
@@ -456,7 +492,7 @@
                 passwordInput.value = '';
                 document.getElementById('authorizationGate').hidden = true;
                 document.getElementById('editorContent').hidden = false;
-                document.getElementById('locationDate').value = getTodayDateValue();
+                document.getElementById('locationDate').value = '';
                 await loadCategoryOptions();
                 initMap();
                 if (locationId !== null) {
@@ -474,8 +510,8 @@
         function initMap() {
             map = L.map('map').setView([currentLat, currentLng], 13);
             
-            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles &copy; Esri &mdash; Sources: Esri, TomTom, Garmin, FAO, NOAA, USGS, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, and the GIS User Community',
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
                 maxZoom: 19,
             }).addTo(map);
 
@@ -498,8 +534,11 @@
 
             document.getElementById('latitude').value = lat.toFixed(6);
             document.getElementById('longitude').value = lng.toFixed(6);
+            setFieldError('latitude', '');
+            setFieldError('longitude', '');
             if (placeName) {
                 document.getElementById('placeName').value = placeName;
+                setFieldError('placeName', '');
             } else {
                 document.getElementById('placeName').value = '';
                 lookupPlaceName(lat, lng);
@@ -542,12 +581,13 @@
             const field = document.getElementById('placeName');
             const lookupSequence = ++placeLookupSequence;
             try {
-                const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=10&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lng)}`;
+                const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&accept-language=nl&zoom=10&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lng)}`;
                 const response = await fetch(url);
                 if (!response.ok) return;
                 const data = await response.json();
                 if (lookupSequence === placeLookupSequence && data.address) {
                     field.value = extractPlaceName(data.address);
+                    if (field.value) setFieldError('placeName', '');
                 }
             } catch (error) {
                 console.warn('Place name lookup failed:', error);
@@ -565,7 +605,6 @@
             const [lng, lat] = feature.geometry.coordinates;
             document.getElementById('pageTitle').textContent = 'Locatie wijzigen';
             document.getElementById('locationName').value = properties.name || '';
-            document.getElementById('oneliner').value = properties.oneliner || '';
             document.getElementById('placeName').value = properties.placeName || '';
             document.getElementById('locationDate').value = properties.createdAt?.slice(0, 10) || '';
             document.getElementById('imageUrl').value = properties.image || '';
@@ -586,7 +625,7 @@
             resultsDiv.innerHTML = '<div style="padding: 10px; color: #666;">Bezig met zoeken...</div>';
             resultsDiv.classList.add('show');
 
-            fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&q=${encodeURIComponent(query)}&limit=10`)
+            fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&accept-language=nl&q=${encodeURIComponent(query)}&limit=10`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.length === 0) {
@@ -640,44 +679,70 @@
             }
         }
 
+        function setFieldError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(`${fieldId}Error`);
+            field.setAttribute('aria-invalid', message ? 'true' : 'false');
+            error.textContent = message;
+        }
+
+        function validateLocationForm() {
+            const errors = {};
+            const latitude = document.getElementById('latitude').value;
+            const longitude = document.getElementById('longitude').value;
+            const name = document.getElementById('locationName').value.trim();
+            const category = document.getElementById('locationCategory').value;
+            const placeName = document.getElementById('placeName').value.trim();
+            const date = document.getElementById('locationDate').value;
+
+            if (!latitude) errors.latitude = 'Plaats de pin op de kaart of zoek een locatie.';
+            if (!longitude) errors.longitude = 'De lengtegraad wordt ingevuld zodra je een locatie kiest.';
+            if (!name) errors.locationName = 'Vul de naam van de locatie in.';
+            if (!category) errors.locationCategory = 'Kies een categorie.';
+            if (!placeName) errors.placeName = 'Vul de plaatsnaam in of kies een locatie op de kaart.';
+            for (const [fieldId, label] of [['imageUrl', 'Afbeeldings-URL'], ['websiteUrl', 'Website']]) {
+                const value = document.getElementById(fieldId).value.trim();
+                if (!value) continue;
+                try {
+                    const url = new URL(value);
+                    if (!['http:', 'https:'].includes(url.protocol)) throw new Error('invalid protocol');
+                } catch {
+                    errors[fieldId] = `${label} moet beginnen met http:// of https://.`;
+                }
+            }
+
+            for (const fieldId of ['latitude', 'longitude', 'locationName', 'locationCategory', 'placeName', 'imageUrl', 'websiteUrl']) {
+                setFieldError(fieldId, errors[fieldId] || '');
+            }
+
+            const firstInvalidField = Object.keys(errors)[0];
+            if (firstInvalidField) {
+                const field = document.getElementById(firstInvalidField);
+                field.focus();
+                field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+            return true;
+        }
+
         function saveLocation() {
             const lat = document.getElementById('latitude').value;
             const lng = document.getElementById('longitude').value;
             const name = document.getElementById('locationName').value.trim();
-            const oneliner = document.getElementById('oneliner').value.trim();
             const placeName = document.getElementById('placeName').value.trim();
             const date = document.getElementById('locationDate').value;
             const image = document.getElementById('imageUrl').value.trim();
             const website = document.getElementById('websiteUrl').value.trim();
             const notes = document.getElementById('notes').value.trim();
 
-            if (!lat || !lng) {
-                showMessage('error', 'Selecteer eerst een locatie op de kaart of zoek naar een plaats.');
-                return;
-            }
-
-            if (!name) {
-                showMessage('error', 'Voer alstublieft een naam in voor deze locatie.');
-                return;
-            }
-
-            if (!placeName) {
-                showMessage('error', 'Vul een plaatsnaam in. Klik op de kaart of zoek de locatie om deze automatisch op te halen.');
-                return;
-            }
-
-            if (!date && locationId === null) {
-                showMessage('error', 'Kies een datum voor deze locatie.');
-                return;
-            }
+            if (!validateLocationForm()) return;
 
             const locationData = {
                 ...(locationId !== null ? { featureIndex: Number(locationId) } : {}),
-                ...(date ? { date: date } : {}),
+                date: date,
                 image: image,
                 website: website,
                 name: name,
-                oneliner: oneliner,
                 placeName: placeName,
                 latitude: parseFloat(lat),
                 longitude: parseFloat(lng),
@@ -719,8 +784,27 @@
         });
 
         document.getElementById('locationCategory').addEventListener('change', () => {
+            setFieldError('locationCategory', '');
             if (currentMarker) currentMarker.setIcon(createEditorPinIcon());
         });
+
+        for (const fieldId of ['locationName', 'placeName', 'imageUrl', 'websiteUrl']) {
+            document.getElementById(fieldId).addEventListener('input', event => {
+                const field = event.currentTarget;
+                const error = document.getElementById(`${fieldId}Error`);
+                if (!error.textContent) return;
+                if (fieldId === 'imageUrl' || fieldId === 'websiteUrl') {
+                    const value = field.value.trim();
+                    if (!value) return setFieldError(fieldId, '');
+                    try {
+                        const url = new URL(value);
+                        if (['http:', 'https:'].includes(url.protocol)) setFieldError(fieldId, '');
+                    } catch {}
+                    return;
+                }
+                if (field.value.trim()) setFieldError(fieldId, '');
+            });
+        }
 
         document.getElementById('avoidFlag').addEventListener('change', event => {
             currentAvoid = event.target.checked;
