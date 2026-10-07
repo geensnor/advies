@@ -68,7 +68,7 @@ function getLocations() {
 function saveLocations($geojson) {
     global $dataFile;
     $geojson['$schema'] = 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json';
-    $json = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    $json = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     return $json !== false && file_put_contents($dataFile, $json, LOCK_EX) !== false;
 }
 
@@ -163,7 +163,7 @@ if ($method === 'GET') {
 
         $archivedFeature = $geojson['features'][$featureIndex];
         $archive['features'][] = $archivedFeature;
-        $archiveJson = json_encode($archive, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        $archiveJson = json_encode($archive, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         if ($archiveJson === false || file_put_contents($archiveFile, $archiveJson, LOCK_EX) === false) {
             http_response_code(500);
             echo json_encode(['error' => 'Location could not be archived']);

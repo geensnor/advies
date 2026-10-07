@@ -14,7 +14,7 @@
             "properties": {
                 "name": "Vyšehrad",
                 "oneliner": "De \"Praagse burcht\" ligt noordelijker en is enorm toeristisch en vol. Deze burcht is kleiner, mooier en veel minder druk. Over de muren kun je prima wandelen en je hebt vrijwel constant een mooi uitzi...",
-                "description": "De \"Praagse burcht\" ligt noordelijker en is enorm toeristisch en vol. Deze burcht is kleiner, mooier en veel minder druk. Over de muren kun je prima wandelen en je hebt vrijwel constant een mooi uitzicht over Praag. Als je honger of dorst krijg, zijn er bovendien een paar worst\/bier tentjes binnen de burcht.",
+                "description": "De \"Praagse burcht\" ligt noordelijker en is enorm toeristisch en vol. Deze burcht is kleiner, mooier en veel minder druk. Over de muren kun je prima wandelen en je hebt vrijwel constant een mooi uitzicht over Praag. Als je honger of dorst krijg, zijn er bovendien een paar worst/bier tentjes binnen de burcht.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Praag"
@@ -49,8 +49,8 @@
             },
             "properties": {
                 "name": "Containall",
-                "oneliner": "Verstopte biergarten waar Segwaygidsen na hun werk komen blowen. Mooi aan het water en alles wat je van een prima biergarten verwacht. Is tevens gallerie\/kunstdingetje.",
-                "description": "Verstopte biergarten waar Segwaygidsen na hun werk komen blowen. Mooi aan het water en alles wat je van een prima biergarten verwacht. Is tevens gallerie\/kunstdingetje.",
+                "oneliner": "Verstopte biergarten waar Segwaygidsen na hun werk komen blowen. Mooi aan het water en alles wat je van een prima biergarten verwacht. Is tevens gallerie/kunstdingetje.",
+                "description": "Verstopte biergarten waar Segwaygidsen na hun werk komen blowen. Mooi aan het water en alles wat je van een prima biergarten verwacht. Is tevens gallerie/kunstdingetje.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Praag"
@@ -120,7 +120,7 @@
                 ]
             },
             "properties": {
-                "name": "L'Avenue restaurant\/hotel",
+                "name": "L'Avenue restaurant/hotel",
                 "oneliner": "Al krijg je er een miljoen voor, hier nooit gaan eten. Ongeloof ranzig eten maar dat is niet het ergste. Het eten was gewoon (zichtbaar) bedorven. Dus tenzij je als ons er ziek van wilt worden of alle...",
                 "description": "Al krijg je er een miljoen voor, hier nooit gaan eten. Ongeloof ranzig eten maar dat is niet het ergste. Het eten was gewoon (zichtbaar) bedorven. Dus tenzij je als ons er ziek van wilt worden of alles terug wilt sturen naar de keuken, hier gewoon nooit gaan eten.",
                 "category": "overig",
@@ -247,8 +247,8 @@
             },
             "properties": {
                 "name": "Apartamenta",
-                "oneliner": "Apartamenta, The Apartment, A:part:mental of gewoon Апартамента. Niemand weet precies hoe het heet, maar het is alleraardigst. De kroeg\/club bestaat uit verschillende kamers waardoor een soort huisfee...",
-                "description": "Apartamenta, The Apartment, A:part:mental of gewoon Апартамента. Niemand weet precies hoe het heet, maar het is alleraardigst. De kroeg\/club bestaat uit verschillende kamers waardoor een soort huisfeestvibe ontstaat. Bier moet zelf gehaald worden in de keuken. Ondanks de losse uitstraling is het personeel opmerkelijk precies. Elk kussentje wordt zorgvuldig recht gelegd. Vervolgens is er regelmatig controle of het kussentje nog wel echt recht ligt.",
+                "oneliner": "Apartamenta, The Apartment, A:part:mental of gewoon Апартамента. Niemand weet precies hoe het heet, maar het is alleraardigst. De kroeg/club bestaat uit verschillende kamers waardoor een soort huisfee...",
+                "description": "Apartamenta, The Apartment, A:part:mental of gewoon Апартамента. Niemand weet precies hoe het heet, maar het is alleraardigst. De kroeg/club bestaat uit verschillende kamers waardoor een soort huisfeestvibe ontstaat. Bier moet zelf gehaald worden in de keuken. Ondanks de losse uitstraling is het personeel opmerkelijk precies. Elk kussentje wordt zorgvuldig recht gelegd. Vervolgens is er regelmatig controle of het kussentje nog wel echt recht ligt.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Sofia"
@@ -338,12 +338,12 @@
             "properties": {
                 "name": "oud zandvoortsch vischrest De Meerpaal",
                 "category": "overig",
-                "description": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer\/eigenaar wees ons naar een reeds gereserveerd tafeltje, want hij bepaalde wie waar zat, want hij was de baas. Erg smakelijk klassiek visrestaurant met ouderwets interieur. Wij hadden tarbot en ouderwetse  aal. Beide erg lekker. Laat de gastheer je adviseren in de wijnkeuze, dat kan hij ook goed.",
+                "description": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer/eigenaar wees ons naar een reeds gereserveerd tafeltje, want hij bepaalde wie waar zat, want hij was de baas. Erg smakelijk klassiek visrestaurant met ouderwets interieur. Wij hadden tarbot en ouderwetse  aal. Beide erg lekker. Laat de gastheer je adviseren in de wijnkeuze, dat kan hij ook goed.",
                 "avoid": true,
                 "placeName": "Zandvoort",
                 "updatedAt": "2026-10-05T15:07:51+00:00",
                 "createdAt": "2026-10-04T00:00:00+00:00",
-                "oneliner": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer\/eigenaar wees ons naar een reeds gereserveerd tafeltje, wan..."
+                "oneliner": "Een ouderwets restaurant vraagt om een ouderwets advies. En dat is dit restaurantje absoluut waard! Een noemenswaardig vriendelijke gastheer/eigenaar wees ons naar een reeds gereserveerd tafeltje, wan..."
             }
         },
         {
@@ -376,7 +376,7 @@
             "properties": {
                 "name": "Hôtel-Refuge du Prarion",
                 "oneliner": "Tja, waar moeten we beginnen. Het eten is goor, koud en niet goedkoop. Het personeel is niet vriendelijk en doet moeilijk als je zegt dat het happy hour is begonnen. Er is al zeker 30 jaar niets meer ...",
-                "description": "Tja, waar moeten we beginnen. Het eten is goor, koud en niet goedkoop. Het personeel is niet vriendelijk en doet moeilijk als je zegt dat het happy hour is begonnen. Er is al zeker 30 jaar niets meer aan het interieur gedaan en de toiletten stinken naar pis. Helaas het enige restaurant in de buurt van de lift. Als je wat verder het gebied in board\/skied zijn er waarschijnlijk betere plekken.",
+                "description": "Tja, waar moeten we beginnen. Het eten is goor, koud en niet goedkoop. Het personeel is niet vriendelijk en doet moeilijk als je zegt dat het happy hour is begonnen. Er is al zeker 30 jaar niets meer aan het interieur gedaan en de toiletten stinken naar pis. Helaas het enige restaurant in de buurt van de lift. Als je wat verder het gebied in board/skied zijn er waarschijnlijk betere plekken.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Saint-Gervais-les-Bains"
@@ -789,8 +789,8 @@
             },
             "properties": {
                 "name": "Cafe Averechts",
-                "oneliner": "Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals\/buurtbewoners.",
-                "description": "Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals\/buurtbewoners.",
+                "oneliner": "Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals/buurtbewoners.",
+                "description": "Vrijwilligerscafe. Leuke sfeer, lekker bier. Wel erg voor de locals/buurtbewoners.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Utrecht"
@@ -951,8 +951,8 @@
             },
             "properties": {
                 "name": "STOOM beer&food",
-                "oneliner": "De Oersoep brouwerij heeft ook een eigen kroeg\/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze ...",
-                "description": "De Oersoep brouwerij heeft ook een eigen kroeg\/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze kroeg heeft zich (niet onverdienstelijk) op de hamburgerrage gestort.",
+                "oneliner": "De Oersoep brouwerij heeft ook een eigen kroeg/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze ...",
+                "description": "De Oersoep brouwerij heeft ook een eigen kroeg/restaurant waar je heel goed bier kan drinken. Een gewoon pilsje is er niet te krijgen maar obscuur bier van mede microbrouwerijen des te meer. Ook deze kroeg heeft zich (niet onverdienstelijk) op de hamburgerrage gestort.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Nijmegen"
@@ -1058,7 +1058,7 @@
                 ]
             },
             "properties": {
-                "name": "Aduela taberna\/bar",
+                "name": "Aduela taberna/bar",
                 "oneliner": "Heel gezellige kroeg op de hoek! De fino (klein biertje) is slechts 1 euro 50 dus dat is door drinken hier. Een tikkie hippig",
                 "description": "Heel gezellige kroeg op de hoek! De fino (klein biertje) is slechts 1 euro 50 dus dat is door drinken hier. Een tikkie hippig",
                 "category": "overig",
@@ -1131,8 +1131,8 @@
             },
             "properties": {
                 "name": "Muret la Barba",
-                "oneliner": "Itliaan, voor lunch. Ik had lekker huisgemaakte ravioli met taleggio en een glaasje rode wijn.Tikkie sjiek maar boven gemiddelde kwaliteit \/ aandacht voor het eten.",
-                "description": "Itliaan, voor lunch. Ik had lekker huisgemaakte ravioli met taleggio en een glaasje rode wijn.Tikkie sjiek maar boven gemiddelde kwaliteit \/ aandacht voor het eten.",
+                "oneliner": "Itliaan, voor lunch. Ik had lekker huisgemaakte ravioli met taleggio en een glaasje rode wijn.Tikkie sjiek maar boven gemiddelde kwaliteit / aandacht voor het eten.",
+                "description": "Itliaan, voor lunch. Ik had lekker huisgemaakte ravioli met taleggio en een glaasje rode wijn.Tikkie sjiek maar boven gemiddelde kwaliteit / aandacht voor het eten.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Berlijn"
@@ -1185,8 +1185,8 @@
             },
             "properties": {
                 "name": "Baklust",
-                "oneliner": "Of je bak lust! Vega\/vegan broodjes. Alles vers en bio. Wel heel lekker :)",
-                "description": "Of je bak lust! Vega\/vegan broodjes. Alles vers en bio. Wel heel lekker :)",
+                "oneliner": "Of je bak lust! Vega/vegan broodjes. Alles vers en bio. Wel heel lekker :)",
+                "description": "Of je bak lust! Vega/vegan broodjes. Alles vers en bio. Wel heel lekker :)",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Den Haag"
@@ -1202,7 +1202,7 @@
                 ]
             },
             "properties": {
-                "name": "Casa di David a\/d Werf",
+                "name": "Casa di David a/d Werf",
                 "oneliner": "Hele goede (maar dure) italiaan",
                 "description": "Hele goede (maar dure) italiaan",
                 "category": "overig",
@@ -1383,8 +1383,8 @@
             },
             "properties": {
                 "name": "Pussy Galore",
-                "oneliner": "Leuke (hippe) plek voor een biertje en\/of een simpele (vega) hap. Denk hipsters, tijdelijk, amsterdam, moeilijk",
-                "description": "Leuke (hippe) plek voor een biertje en\/of een simpele (vega) hap. Denk hipsters, tijdelijk, amsterdam, moeilijk",
+                "oneliner": "Leuke (hippe) plek voor een biertje en/of een simpele (vega) hap. Denk hipsters, tijdelijk, amsterdam, moeilijk",
+                "description": "Leuke (hippe) plek voor een biertje en/of een simpele (vega) hap. Denk hipsters, tijdelijk, amsterdam, moeilijk",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Amsterdam"
@@ -1546,8 +1546,8 @@
             },
             "properties": {
                 "name": "WILHELMINA-DOK RESTAURANT",
-                "oneliner": "Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders\/familie. Mooi terras. Neem de pont!",
-                "description": "Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders\/familie. Mooi terras. Neem de pont!",
+                "oneliner": "Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders/familie. Mooi terras. Neem de pont!",
+                "description": "Uit de drukte van de stad, prima lunch. Heel leuke plek vooral. Geschikt voor date of ouders/familie. Mooi terras. Neem de pont!",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Amsterdam"
@@ -2106,8 +2106,8 @@
             },
             "properties": {
                 "name": "The Barn",
-                "oneliner": "Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops\/tablet zijn verboten!",
-                "description": "Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops\/tablet zijn verboten!",
+                "oneliner": "Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops/tablet zijn verboten!",
+                "description": "Koffie. Koffie. Koffie. De beste wetenschappelijk gezette koffie van Berlijn. Geen toegang voor kinderwagens en laptops/tablet zijn verboten!",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Berlijn"
@@ -2143,7 +2143,7 @@
             "properties": {
                 "name": "El Cedro",
                 "oneliner": "Goed, het kost waarschijnlijk veel te veel moeite, want de weg hier naar toe is moeilijk en slecht te vinden. Smalle bospaadjes, vage bordjes maar uiteindelijk bovenop de berg een meer dan prima resta...",
-                "description": "Goed, het kost waarschijnlijk veel te veel moeite, want de weg hier naar toe is moeilijk en slecht te vinden. Smalle bospaadjes, vage bordjes maar uiteindelijk bovenop de berg een meer dan prima restaurant. Probeer de tuinkerssoep! De tunnel alleen gebruiken bij weinig regen! En check vooral de rest van El Cedro (natuurgebied). Geensnor tipt: De helling is te stijl om omhoog te klimmen. http:\/\/camping-lavista.jimdo.com\/",
+                "description": "Goed, het kost waarschijnlijk veel te veel moeite, want de weg hier naar toe is moeilijk en slecht te vinden. Smalle bospaadjes, vage bordjes maar uiteindelijk bovenop de berg een meer dan prima restaurant. Probeer de tuinkerssoep! De tunnel alleen gebruiken bij weinig regen! En check vooral de rest van El Cedro (natuurgebied). Geensnor tipt: De helling is te stijl om omhoog te klimmen. http://camping-lavista.jimdo.com/",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Hermigua"
@@ -2539,8 +2539,8 @@
             },
             "properties": {
                 "name": "The Sunset Restaurant & Bar",
-                "oneliner": "Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht\/zonsondergang",
-                "description": "Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht\/zonsondergang",
+                "oneliner": "Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht/zonsondergang",
+                "description": "Duur maar lekker. Goede Tarbot! Onbetaalbaar uitzicht/zonsondergang",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Hollum"
@@ -2737,8 +2737,8 @@
             },
             "properties": {
                 "name": "Csináltam neked",
-                "oneliner": "Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk\/gebied met tig plaatsen die geschikt zijn om bier te drinken.",
-                "description": "Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk\/gebied met tig plaatsen die geschikt zijn om bier te drinken.",
+                "oneliner": "Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk/gebied met tig plaatsen die geschikt zijn om bier te drinken.",
+                "description": "Mooi restaurant. Prima goulash (stoofpot versie) gegeten. Vriendelijke prijzen en bediening. Ligt in een wijk/gebied met tig plaatsen die geschikt zijn om bier te drinken.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Boedapest"
@@ -2970,9 +2970,9 @@
                 ]
             },
             "properties": {
-                "name": "9\/11 Memorial",
-                "oneliner": "9\/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.",
-                "description": "9\/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.",
+                "name": "9/11 Memorial",
+                "oneliner": "9/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.",
+                "description": "9/11 memorial kun je overslaan. De veiligheidsmaatregelen zijn erger dan op een vliegveld en het is druk. Vervolgens sta je te kijken naar een omgekeerde waterval tussen de Amerikaanse tokkies.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "New York"
@@ -3151,8 +3151,8 @@
             },
             "properties": {
                 "name": "Bar Toto",
-                "oneliner": "Lekker ontbijt\/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.",
-                "description": "Lekker ontbijt\/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.",
+                "oneliner": "Lekker ontbijt/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.",
+                "description": "Lekker ontbijt/lunch op z'n Italiaans.  Slechte koffie. Goede bediening.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "New York"
@@ -3259,8 +3259,8 @@
             },
             "properties": {
                 "name": "Viskeete",
-                "oneliner": "Top vis. Soort mega snackbar\/bistro met verse heerlijke vis. Vis vis vis",
-                "description": "Top vis. Soort mega snackbar\/bistro met verse heerlijke vis. Vis vis vis",
+                "oneliner": "Top vis. Soort mega snackbar/bistro met verse heerlijke vis. Vis vis vis",
+                "description": "Top vis. Soort mega snackbar/bistro met verse heerlijke vis. Vis vis vis",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Yerseke"
@@ -3403,8 +3403,8 @@
             },
             "properties": {
                 "name": "Cosi",
-                "oneliner": "Lunch\/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.",
-                "description": "Lunch\/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.",
+                "oneliner": "Lunch/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.",
+                "description": "Lunch/ontbijt ding. Keten. Bakken eigen brood in de zaak. Lekkere broodjes. Personeel bedoelt het goed, maar is eigenlijk vooral elkaar tegen aan het werken.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Boston"
@@ -3439,8 +3439,8 @@
             },
             "properties": {
                 "name": "Taste of the Town",
-                "oneliner": "Lunch\/ontbijt zaak. Gelukkig niet echt \"Taste of the Town\". Niet lekker. Afgeragde tent.",
-                "description": "Lunch\/ontbijt zaak. Gelukkig niet echt \"Taste of the Town\". Niet lekker. Afgeragde tent.",
+                "oneliner": "Lunch/ontbijt zaak. Gelukkig niet echt \"Taste of the Town\". Niet lekker. Afgeragde tent.",
+                "description": "Lunch/ontbijt zaak. Gelukkig niet echt \"Taste of the Town\". Niet lekker. Afgeragde tent.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Boston"
@@ -3817,8 +3817,8 @@
             },
             "properties": {
                 "name": "De molen (vis)",
-                "oneliner": "Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria\/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die z...",
-                "description": "Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria\/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die zijn top. (of de vispizza)",
+                "oneliner": "Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die z...",
+                "description": "Ok. Een pareltje en absolute tip. Net onder de grote weg de visafslag op vind je de molen. Een soort cafetaria/vis tent waar de vis direct vanaf de boot de pan inspringt. Probeer de kibbelingen..die zijn top. (of de vispizza)",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Stellendam"
@@ -3889,8 +3889,8 @@
             },
             "properties": {
                 "name": "Lodewijk Nijmegen BV",
-                "oneliner": "Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs\/kwaliteit verhouding is prima!",
-                "description": "Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs\/kwaliteit verhouding is prima!",
+                "oneliner": "Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs/kwaliteit verhouding is prima!",
+                "description": "Bijzonder lekker eten en daarom vaak druk. De drukte en het de kleine oppervlakte zorgen ervoor dat je erg dicht op elkaar zit. Prijs/kwaliteit verhouding is prima!",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Nijmegen"
@@ -3979,8 +3979,8 @@
             },
             "properties": {
                 "name": "K.i.e.z.e.v.",
-                "oneliner": "De enige normale plek in dessau. Biertjes drinken in een kroeg\/bioscoop. Neem de augustiner.",
-                "description": "De enige normale plek in dessau. Biertjes drinken in een kroeg\/bioscoop. Neem de augustiner.",
+                "oneliner": "De enige normale plek in dessau. Biertjes drinken in een kroeg/bioscoop. Neem de augustiner.",
+                "description": "De enige normale plek in dessau. Biertjes drinken in een kroeg/bioscoop. Neem de augustiner.",
                 "category": "overig",
                 "avoid": false,
                 "placeName": "Dessau-Roßlau"
@@ -4111,7 +4111,28 @@
                 "avoid": false,
                 "placeName": "Utrecht"
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.42083,
+                    52.529172
+                ]
+            },
+            "properties": {
+                "name": "BIER!",
+                "category": "bar",
+                "description": "Wat voor notities dan?",
+                "avoid": true,
+                "placeName": "Berlin",
+                "createdAt": "2026-10-07T00:00:00+00:00",
+                "oneliner": "Korte omschrijving?",
+                "image": "https://tweakers.net/i/DhCrXHpMrK08C0nFME95EQAQhmQ=/fit-in/4000x4000/filters:no_upscale():strip_exif()/f/image/1Sq6oh6yPHahKCeTq6BPGL5a.png?f=user_large",
+                "website": "https://www.jumbo.com/recepten/bakken/pannenkoeken/hartige-pannenkoeken"
+            }
         }
     ],
-    "$schema": "https:\/\/geensnor.nl\/schemas\/geensnor-hotspots-schema.json"
+    "$schema": "https://geensnor.nl/schemas/geensnor-hotspots-schema.json"
 }
