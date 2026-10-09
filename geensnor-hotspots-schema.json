@@ -36,15 +36,15 @@
           "required": ["name", "category", "description", "placeName"],
           "properties": {
             "name": { "type": "string" },
-            "oneliner": {
-              "type": "string",
-              "description": "Korte omschrijving. Pakkende knaller!"
-            },
             "description": {
               "type": "string",
               "description": "Uitgebreide omschrijving"
             },
-            "createdAt": { "type": "string", "format": "date-time" },
+            "visitedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Datum en tijd van het bezoek van Geensnor aan de plaats."
+            },
             "updatedAt": { "type": "string", "format": "date-time" },
             "category": {
               "enum": [

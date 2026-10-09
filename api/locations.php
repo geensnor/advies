@@ -222,8 +222,7 @@ if ($method === 'GET') {
         'avoid' => filter_var($input['avoid'] ?? false, FILTER_VALIDATE_BOOLEAN),
         'placeName' => trim((string)$input['placeName'])
     ];
-    if ($locationDate !== '') $properties['createdAt'] = $locationDate . 'T00:00:00+00:00';
-    if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
+    if ($locationDate !== '') $properties['visitedAt'] = $locationDate . 'T00:00:00+00:00';
     foreach (['image', 'website'] as $urlField) {
         if (!empty($input[$urlField])) $properties[$urlField] = trim((string)$input[$urlField]);
     }
@@ -294,10 +293,8 @@ if ($method === 'GET') {
         'placeName' => trim((string)$input['placeName']),
         'updatedAt' => gmdate('c')
     ];
-    if ($locationDate !== null) $properties['createdAt'] = $locationDate . 'T00:00:00+00:00';
-    elseif (!$hasLocationDate && isset($previousProperties['createdAt'])) $properties['createdAt'] = $previousProperties['createdAt'];
-    if (isset($input['oneliner'])) $properties['oneliner'] = (string)$input['oneliner'];
-    elseif (isset($previousProperties['oneliner'])) $properties['oneliner'] = $previousProperties['oneliner'];
+    if ($locationDate !== null) $properties['visitedAt'] = $locationDate . 'T00:00:00+00:00';
+    elseif (!$hasLocationDate && isset($previousProperties['visitedAt'])) $properties['visitedAt'] = $previousProperties['visitedAt'];
     foreach (['image', 'website'] as $urlField) {
         if (!isset($input[$urlField]) && isset($previousProperties[$urlField])) {
             $properties[$urlField] = $previousProperties[$urlField];

@@ -906,13 +906,13 @@
                     const properties = feature.properties || {};
                     const name = String(properties.name || 'Onbekende locatie');
                     const details = [
-                        properties.description || properties.oneliner,
+                        properties.description,
                         properties.placeName ? `Plaats: ${properties.placeName}` : '',
                         properties.category ? `Categorie: ${properties.category}` : '',
                         properties.avoid === true ? 'Afrader' : ''
                     ].filter(Boolean).join('\n');
-                    const time = typeof properties.createdAt === 'string' && !Number.isNaN(Date.parse(properties.createdAt))
-                        ? `<time>${escapeXml(new Date(properties.createdAt).toISOString())}</time>`
+                    const time = typeof properties.visitedAt === 'string' && !Number.isNaN(Date.parse(properties.visitedAt))
+                        ? `<time>${escapeXml(new Date(properties.visitedAt).toISOString())}</time>`
                         : '';
                     const links = [
                         ['Afbeelding', safeWebUrl(properties.image)],
@@ -1013,7 +1013,7 @@
                     const reference = getFeatureReference(feature);
                     if (!reference) return;
                     const category = getCategory(props.category);
-                    const date = formatLocationDate(props.createdAt);
+                    const date = formatLocationDate(props.visitedAt);
                     const popupDate = `<br><small class="popup-date">Bezocht op: ${date || 'onbekend'}</small>`;
                     const imageUrl = safeWebUrl(props.image);
                     const websiteUrl = safeWebUrl(props.website);
@@ -1022,7 +1022,7 @@
 
                     const marker = L.marker([coords[1], coords[0]], {
                         icon: createPinIcon(category.color, props.avoid === true)
-                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || props.oneliner || 'Geen beschrijving')}${popupDate}${popupImage}${popupWebsite}`, {
+                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || 'Geen beschrijving')}${popupDate}${popupImage}${popupWebsite}`, {
                         maxWidth: 560,
                         minWidth: 220,
                         autoPanPadding: [24, 24]
@@ -1051,7 +1051,7 @@
                 const reference = getFeatureReference(feature);
                 if (!reference) return '';
                 const category = getCategory(props.category);
-                const date = formatLocationDate(props.createdAt);
+                const date = formatLocationDate(props.visitedAt);
                 const placeName = typeof props.placeName === 'string' && props.placeName.trim()
                     ? props.placeName.trim()
                     : 'plaats onbekend';

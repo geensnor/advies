@@ -4,7 +4,7 @@ Een interactieve webapplicatie voor het beheren van plaatsen van belang met GeoJ
 
 ## 📁 Projectstructuur
 
-```
+```text
 advies/
 ├── index.html                # Hoofdpagina - Kaart + Tabel met alle locaties
 ├── add-location.html         # Pagina om nieuwe locatie toe te voegen
@@ -20,6 +20,7 @@ advies/
 ## 🚀 Functionaliteit
 
 ### Index pagina (index.html)
+
 - **Interactieve kaart** met alle GeoJSON punten
 - **Tabel** met alle locaties
 - Filter voor **Actieve locaties**, **Alles** en **Gearchiveerde locaties** (standaard actief)
@@ -33,6 +34,7 @@ advies/
 - Zoeken doorzoekt ook `properties.placeName`
 
 ### Add Location pagina (add-location.html)
+
 - **Kaart** om een locatie te selecteren (klik op kaart)
 - **Plaatsen zoeken** via Nominatim API (OpenStreetMap) om een nieuw kaartpunt te kiezen
 - **Coördinaten** worden automatisch ingevuld
@@ -57,12 +59,11 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
       },
       "properties": {
         "name": "Plaatsnaam",
-        "oneliner": "Korte samenvatting",
         "placeName": "Utrecht",
         "description": "Volledige beschrijving",
         "category": "bar",
         "avoid": false,
-        "createdAt": "2026-10-05T12:00:00+00:00",
+        "visitedAt": "2026-10-05T12:00:00+00:00",
         "image": "https://voorbeeld.nl/afbeelding.jpg",
         "website": "https://voorbeeld.nl"
       }
@@ -73,16 +74,18 @@ Alle locaties worden opgeslagen in **data/locations.geojson** in GeoJSON format:
 
 `placeName` wordt automatisch voorgesteld bij het prikken of zoeken van een locatie en kan handmatig worden aangepast. De index doorzoekt deze property samen met de overige opgeslagen locatiegegevens.
 
-De bezoekdatum in het formulier wordt als `YYYY-MM-DD` verstuurd en opgeslagen als `properties.createdAt` (ISO date-time volgens het schema). Op bestaande locaties zonder datum toont de lijst `Bezocht op: onbekend`; die waarde wordt niet automatisch verzonnen bij het bewerken.
+De bezoekdatum in het formulier wordt als `YYYY-MM-DD` verstuurd en opgeslagen als `properties.visitedAt` (ISO date-time volgens het schema). Op bestaande locaties zonder datum toont de lijst `Bezocht op: onbekend`; die waarde wordt niet automatisch verzonnen bij het bewerken.
 
 De structuur wordt gevalideerd volgens [geensnor-hotspots-schema.json](geensnor-hotspots-schema.json). `image` en `website` zijn optionele HTTP(S)-URL's; `avoid` is optioneel. Categorieën zijn beperkt tot de enum in het schema en kunnen niet vanuit de app worden toegevoegd of verwijderd. De vorige dataset is lokaal bewaard in `data/locations.geojson.before-schema-v2`.
 
 ## 🔌 PHP API (api/locations.php)
 
 ### GET - Alle locaties ophalen
+
 ```bash
 GET /api/locations.php
 ```
+
 Retourneert het volledige GeoJSON FeatureCollection.
 
 Het menu **Exporteren** biedt GeoJSON en GPX. GeoJSON downloadt rechtstreeks `data/locations.geojson`; GPX genereert GPX 1.1-waypoints voor alle actieve locaties, onafhankelijk van de huidige zoek- of archieffilter.
@@ -90,6 +93,7 @@ Het menu **Exporteren** biedt GeoJSON en GPX. GeoJSON downloadt rechtstreeks `da
 Archiveren is een beheeractie naast verwijderen. Het archiefbestand `data/archived-locations.geojson` wordt bij de eerste archivering aangemaakt als GeoJSON FeatureCollection met dezelfde schema-conforme features. Archiveren verwijdert de locatie uit de actieve lijst; verwijderen wist deze definitief uit de actieve collectie. Via de lijstfilter kun je actieve locaties, het totaal of alleen het archief bekijken; gearchiveerde locaties zijn vanuit de lijst alleen-lezen.
 
 ### POST - Nieuwe locatie toevoegen
+
 ```bash
 POST /api/locations.php
 Content-Type: application/json
@@ -97,7 +101,6 @@ X-Edit-Password: <wachtwoord>
 
 {
   "name": "Plaatsnaam",
-  "oneliner": "Korte samenvatting",
   "placeName": "Utrecht",
   "date": "2026-10-05",
   "latitude": 52.52,
@@ -111,6 +114,7 @@ X-Edit-Password: <wachtwoord>
 ```
 
 ### PUT - Bestaande locatie wijzigen
+
 ```bash
 PUT /api/locations.php
 Content-Type: application/json
@@ -119,7 +123,6 @@ X-Edit-Password: <wachtwoord>
 {
   "featureIndex": 0,
   "name": "Plaatsnaam",
-  "oneliner": "Korte samenvatting",
   "placeName": "Utrecht",
   "date": "2026-10-05",
   "latitude": 52.52,
@@ -133,6 +136,7 @@ X-Edit-Password: <wachtwoord>
 ```
 
 ### DELETE - Locatie verwijderen
+
 ```bash
 DELETE /api/locations.php
 Content-Type: application/json
@@ -146,6 +150,7 @@ X-Edit-Password: <wachtwoord>
 ## 🔄 Conversie KML → GeoJSON
 
 Het originele KML bestand (doc.kml) is geconverteerd naar GeoJSON met Python script:
+
 - **232** placemarks geconverteerd
 - Inclusief: naam, beschrijving, coördinaten en categorieën
 - Opgeslagen in `data/locations.geojson`
@@ -172,7 +177,7 @@ Labels en kleuren staan in `data/categories.json`.
 ## 🌍 Kaarten
 
 - Kaart gebruikt **Leaflet** library
-- Kaarttegels: **Esri World Street Map** (geen API-key nodig)
+- Kaarttegels: **OpenStreetMap** (geen API-key nodig)
 - Plaatsselectie voor nieuwe locaties: **Nominatim** (OpenStreetMap)
 
 ## 📋 Vereisten
@@ -200,7 +205,6 @@ return [
   'location_edit_password' => 'vul-hier-een-lang-uniek-wachtwoord-in',
 ];
 ?>
-```
 ```
 
 Bij een nieuwe checkout maak je dit bestand met `cp config.example.php config.local.php` en vul je daarna het wachtwoord in. Zolang de config ontbreekt of de waarde leeg is, weigert de API toevoegen en verwijderen. Locaties uitlezen blijft wel mogelijk. Commit `config.local.php` nooit.

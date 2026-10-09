@@ -1,3 +1,6 @@
-# README #
+# Advies.geensnor.nl
 
-Stukje hobbycode waar je ver vandaan moet blijven. Ga naar http://advies.geensnor.nl voor tips!
+Een interactieve kaart en lijst met locaties en tips.
+
+- [Open de website](https://advies.geensnor.nl)
+- [Bekijk de projectdocumentatie](README_LOCATIONS.md)
