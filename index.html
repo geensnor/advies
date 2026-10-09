@@ -1,1333 +1,1534 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>advies.geensnor.nl</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #fafafa;
-            min-height: 100vh;
-        }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: #fafafa;
+        min-height: 100vh;
+      }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-        }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+      }
 
+      .header {
+        background: white;
+        color: #333;
+        padding: 16px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .header-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .header-brand-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .header-brand-link:focus-visible {
+        outline: 2px solid #385d64;
+        outline-offset: 4px;
+      }
+
+      .header-logo {
+        flex: 0 0 auto;
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+
+      .header h1 {
+        font-size: 1.8em;
+        font-weight: 600;
+      }
+
+      .header p {
+        font-size: 0.95em;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .btn-add {
+        background: #4a90e2;
+        color: white;
+        border: 1px solid #4a90e2;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-add:hover {
+        background: #357abd;
+        border-color: #357abd;
+      }
+
+      .export-menu {
+        position: relative;
+      }
+
+      .export-menu summary {
+        display: inline-flex;
+        align-items: center;
+        min-height: 41px;
+        padding: 9px 14px;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        cursor: pointer;
+        font: inherit;
+        list-style: none;
+        white-space: nowrap;
+      }
+
+      .export-menu summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .export-menu summary::after {
+        content: "▾";
+        margin-left: 10px;
+        color: #52656b;
+      }
+
+      .export-options {
+        position: absolute;
+        z-index: 1200;
+        top: calc(100% + 4px);
+        right: 0;
+        min-width: 190px;
+        padding: 4px;
+        border: 1px solid #cbd2d6;
+        border-radius: 4px;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+      }
+
+      .export-options a,
+      .export-options button {
+        display: block;
+        width: 100%;
+        padding: 9px 10px;
+        border: 0;
+        border-radius: 3px;
+        background: white;
+        color: #25343b;
+        font: inherit;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .export-options a:hover,
+      .export-options button:hover {
+        background: #f1f5f6;
+      }
+
+      .btn-edit {
+        margin: 2px;
+        background: white;
+        color: #385d64;
+        border: 1px solid #385d64;
+        padding: 4px 6px;
+        font-size: 0.74em;
+        border-radius: 4px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .map-section {
+        min-height: 600px;
+        border-right: 1px solid #e0e0e0;
+        position: relative;
+      }
+
+      .map-fit {
+        position: absolute;
+        z-index: 1001;
+        top: 78px;
+        left: 10px;
+        padding: 9px 12px;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        cursor: pointer;
+      }
+
+      .search-tools {
+        position: relative;
+        min-width: 0;
+        margin: 0;
+        flex: 1 1 auto;
+      }
+
+      .search-tools label {
+        display: block;
+        margin-bottom: 6px;
+        color: #555;
+        font-size: 0.9em;
+      }
+
+      .search-row {
+        display: flex;
+        gap: 8px;
+      }
+
+      .search-row input {
+        flex: 1;
+        min-width: 0;
+        padding: 10px;
+        border: 1px solid #cbd2d6;
+        border-radius: 4px;
+        font: inherit;
+      }
+
+      .search-row button,
+      .search-result {
+        padding: 9px 12px;
+        border: 1px solid #385d64;
+        border-radius: 4px;
+        background: #385d64;
+        color: white;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .search-results {
+        display: none;
+        position: absolute;
+        z-index: 600;
+        top: 100%;
+        right: 0;
+        left: 0;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #cbd2d6;
+        background: white;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
+      }
+
+      .search-results.show {
+        display: block;
+      }
+
+      .search-result {
+        display: block;
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #e6eaec;
+        border-radius: 0;
+        background: white;
+        color: #25343b;
+        text-align: left;
+      }
+
+      .search-result:hover {
+        background: #f1f5f6;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .table-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .table-heading .section-title {
+        margin: 0;
+      }
+
+      .table-admin-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      @media (max-width: 1100px) {
         .header {
-            background: white;
-            color: #333;
-            padding: 16px 20px;
-            border-bottom: 1px solid #e0e0e0;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) max-content;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 0;
-        }
-
-        .header-brand-link {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .header-brand-link:focus-visible {
-            outline: 2px solid #385d64;
-            outline-offset: 4px;
-        }
-
-        .header-logo {
-            flex: 0 0 auto;
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
-
-        .header h1 {
-            font-size: 1.8em;
-            font-weight: 600;
-        }
-
-        .header p {
-            font-size: 0.95em;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .btn-add {
-            background: #4a90e2;
-            color: white;
-            border: 1px solid #4a90e2;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-add:hover {
-            background: #357abd;
-            border-color: #357abd;
-        }
-
-        .export-menu {
-            position: relative;
-        }
-
-        .export-menu summary {
-            display: inline-flex;
-            align-items: center;
-            min-height: 41px;
-            padding: 9px 14px;
-            border: 1px solid #b8c5cc;
-            border-radius: 4px;
-            background: white;
-            color: #25343b;
-            cursor: pointer;
-            font: inherit;
-            list-style: none;
-            white-space: nowrap;
-        }
-
-        .export-menu summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .export-menu summary::after {
-            content: "▾";
-            margin-left: 10px;
-            color: #52656b;
-        }
-
-        .export-options {
-            position: absolute;
-            z-index: 1200;
-            top: calc(100% + 4px);
-            right: 0;
-            min-width: 190px;
-            padding: 4px;
-            border: 1px solid #cbd2d6;
-            border-radius: 4px;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
-        }
-
-        .export-options a,
-        .export-options button {
-            display: block;
-            width: 100%;
-            padding: 9px 10px;
-            border: 0;
-            border-radius: 3px;
-            background: white;
-            color: #25343b;
-            font: inherit;
-            text-align: left;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .export-options a:hover,
-        .export-options button:hover {
-            background: #f1f5f6;
-        }
-
-        .btn-edit {
-            margin: 2px;
-            background: white;
-            color: #385d64;
-            border: 1px solid #385d64;
-            padding: 4px 6px;
-            font-size: 0.74em;
-            border-radius: 4px;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-
-        .map-section {
-            min-height: 600px;
-            border-right: 1px solid #e0e0e0;
-            position: relative;
-        }
-
-        .map-fit {
-            position: absolute;
-            z-index: 1001;
-            top: 78px;
-            left: 10px;
-            padding: 9px 12px;
-            border: 1px solid #b8c5cc;
-            border-radius: 4px;
-            background: white;
-            color: #25343b;
-            cursor: pointer;
-        }
-
-        .search-tools {
-            position: relative;
-            min-width: 0;
-            margin: 0;
-            flex: 1 1 auto;
-        }
-
-        .search-tools label {
-            display: block;
-            margin-bottom: 6px;
-            color: #555;
-            font-size: 0.9em;
-        }
-
-        .search-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .search-row input {
-            flex: 1;
-            min-width: 0;
-            padding: 10px;
-            border: 1px solid #cbd2d6;
-            border-radius: 4px;
-            font: inherit;
-        }
-
-        .search-row button,
-        .search-result {
-            padding: 9px 12px;
-            border: 1px solid #385d64;
-            border-radius: 4px;
-            background: #385d64;
-            color: white;
-            cursor: pointer;
-            font: inherit;
-        }
-
-        .search-results {
-            display: none;
-            position: absolute;
-            z-index: 600;
-            top: 100%;
-            right: 0;
-            left: 0;
-            max-height: 240px;
-            overflow-y: auto;
-            border: 1px solid #cbd2d6;
-            background: white;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
-        }
-
-        .search-results.show {
-            display: block;
-        }
-
-        .search-result {
-            display: block;
-            width: 100%;
-            border: 0;
-            border-bottom: 1px solid #e6eaec;
-            border-radius: 0;
-            background: white;
-            color: #25343b;
-            text-align: left;
-        }
-
-        .search-result:hover {
-            background: #f1f5f6;
+          grid-template-columns: minmax(0, 1fr);
+          gap: 12px;
         }
 
         .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
+          width: 100%;
+          justify-content: flex-start;
         }
 
-        .table-heading {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 16px;
+        .header-search {
+          max-width: none;
         }
+      }
 
-        .table-heading .section-title {
-            margin: 0;
-        }
+      .admin-toggle,
+      .admin-login button,
+      .admin-lock {
+        padding: 10px 14px;
+        border: 1px solid #385d64;
+        border-radius: 4px;
+        background: white;
+        color: #385d64;
+        cursor: pointer;
+        font: inherit;
+      }
 
-        .table-admin-actions {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+      .admin-login {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
 
-        @media (max-width: 1100px) {
-            .header {
-                grid-template-columns: minmax(0, 1fr);
-                gap: 12px;
-            }
+      .admin-login input {
+        width: 180px;
+        min-width: 0;
+        padding: 10px;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        font: inherit;
+      }
 
-            .header-actions {
-                width: 100%;
-                justify-content: flex-start;
-            }
+      .admin-message {
+        flex-basis: 100%;
+        color: #a33d2c;
+        font-size: 0.85em;
+      }
 
-            .header-search {
-                max-width: none;
-            }
-        }
+      [hidden] {
+        display: none !important;
+      }
 
-        .admin-toggle,
-        .admin-login button,
-        .admin-lock {
-            padding: 10px 14px;
-            border: 1px solid #385d64;
-            border-radius: 4px;
-            background: white;
-            color: #385d64;
-            cursor: pointer;
-            font: inherit;
-        }
+      .search-status {
+        padding: 10px 12px;
+        color: #555;
+      }
 
-        .admin-login {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
+      .location-pin {
+        border: 0;
+        background: transparent;
+      }
 
-        .admin-login input {
-            width: 180px;
-            min-width: 0;
-            padding: 10px;
-            border: 1px solid #b8c5cc;
-            border-radius: 4px;
-            font: inherit;
-        }
+      .location-pin svg {
+        display: block;
+      }
 
-        .admin-message {
-            flex-basis: 100%;
-            color: #a33d2c;
-            font-size: 0.85em;
-        }
+      .location-pin.is-linked svg {
+        filter: drop-shadow(0 0 3px white) drop-shadow(0 0 4px #25343b);
+      }
 
-        [hidden] {
-            display: none !important;
-        }
+      .location-pin .pin-body {
+        fill: var(--pin-color, #385d64);
+        stroke: white;
+        stroke-width: 1.5;
+      }
 
-        .search-status {
-            padding: 10px 12px;
-            color: #555;
-        }
+      .location-pin.is-avoid .pin-body {
+        fill: #c62828;
+      }
 
-        .location-pin {
-            border: 0;
-            background: transparent;
-        }
+      .location-pin .pin-face {
+        fill: #f5f2e9;
+      }
 
-        .location-pin svg {
-            display: block;
-        }
+      .location-pin .pin-moustache {
+        fill: #25343b;
+      }
 
-        .location-pin.is-linked svg {
-            filter: drop-shadow(0 0 3px white) drop-shadow(0 0 4px #25343b);
-        }
+      .location-pin .pin-skull {
+        fill: #fff;
+      }
 
-        .location-pin .pin-body {
-            fill: var(--pin-color, #385d64);
-            stroke: white;
-            stroke-width: 1.5;
-        }
+      .location-pin .pin-skull-cutout {
+        fill: #8f1717;
+      }
 
-        .location-pin.is-avoid .pin-body {
-            fill: #c62828;
-        }
+      .location-pin .pin-skull-teeth {
+        fill: none;
+        stroke: #8f1717;
+        stroke-width: 1.4;
+        stroke-linecap: round;
+      }
 
-        .location-pin .pin-face {
-            fill: #f5f2e9;
-        }
+      .leaflet-popup-content {
+        overflow-wrap: anywhere;
+      }
 
-        .location-pin .pin-moustache {
-            fill: #25343b;
-        }
+      .leaflet-popup-content-wrapper {
+        max-height: 85vh;
+        overflow-y: auto;
+      }
 
-        .location-pin .pin-skull {
-            fill: #fff;
-        }
+      .popup-image {
+        display: block;
+        width: 100%;
+        max-height: 220px;
+        margin-top: 8px;
+        object-fit: cover;
+      }
 
-        .location-pin .pin-skull-cutout {
-            fill: #8f1717;
-        }
+      .popup-website {
+        display: inline-block;
+        margin-top: 8px;
+        overflow-wrap: anywhere;
+      }
 
-        .location-pin .pin-skull-teeth {
-            fill: none;
-            stroke: #8f1717;
-            stroke-width: 1.4;
-            stroke-linecap: round;
-        }
-
+      @media (max-width: 600px) {
         .leaflet-popup-content {
-            overflow-wrap: anywhere;
+          max-width: calc(100vw - 88px) !important;
+          min-width: 0 !important;
+        }
+      }
+
+      #map {
+        width: 100%;
+        height: 100%;
+        min-height: 600px;
+      }
+
+      .table-section {
+        overflow-y: auto;
+        max-height: 600px;
+      }
+
+      .location-list-tools {
+        position: sticky;
+        top: 0;
+        z-index: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 60px;
+        padding: 8px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        background: white;
+      }
+
+      .table-wrapper {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 1.1em;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 600;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        background: #f9f9f9;
+        position: sticky;
+        top: 60px;
+      }
+
+      th {
+        padding: 10px;
+        text-align: left;
+        font-weight: 500;
+        color: #333;
+        border-bottom: 1px solid #d0d0d0;
+        font-size: 0.9em;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.95em;
+        cursor: pointer;
+      }
+
+      tr:hover {
+        background: #f5f5f5;
+      }
+
+      tr.highlighted {
+        background: #e8f5e9;
+      }
+
+      tr.pin-hovered {
+        background: #fff3d6;
+      }
+
+      .location-row:hover td:first-child,
+      .location-row.highlighted td:first-child,
+      .location-row.pin-hovered td:first-child {
+        box-shadow: inset 3px 0 var(--category-color, #385d64);
+      }
+
+      .btn-delete {
+        margin: 2px;
+        background: white;
+        color: #d9534f;
+        border: 1px solid #d9534f;
+        padding: 4px 6px;
+        font-size: 0.74em;
+        border-radius: 4px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .btn-archive {
+        margin: 2px;
+        background: white;
+        color: #385d64;
+        border: 1px solid #385d64;
+        padding: 4px 6px;
+        font-size: 0.74em;
+        border-radius: 4px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .row-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+
+      .row-actions button {
+        margin: 0;
+        padding: 4px 5px;
+        font-size: 0.72em;
+      }
+
+      .archive-state {
+        display: inline-block;
+        padding: 3px 6px;
+        border-radius: 3px;
+        background: #edf1f2;
+        color: #52656b;
+        font-size: 0.74em;
+        white-space: nowrap;
+      }
+
+      .location-view-select {
+        width: 30%;
+        max-width: 185px;
+        min-width: 125px;
+        flex: 0 1 185px;
+        padding: 8px 28px 8px 9px;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        font: inherit;
+        font-size: 0.88em;
+      }
+
+      .btn-delete:hover {
+        background: #f5f5f5;
+      }
+
+      .empty-message {
+        text-align: center;
+        padding: 30px;
+        color: #999;
+      }
+
+      .category-badge {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        font-weight: 500;
+      }
+
+      .category-badge {
+        background: color-mix(in srgb, var(--category-color) 16%, white);
+        color: var(--category-color);
+      }
+
+      .avoid-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 8px;
+        padding: 3px 7px;
+        border: 1px solid #c62828;
+        border-radius: 3px;
+        background: #fff1f0;
+        color: #a31616;
+        font-size: 0.72em;
+        font-weight: 800;
+        line-height: 1.2;
+        vertical-align: 2px;
+        white-space: nowrap;
+      }
+
+      .location-date,
+      .popup-date {
+        display: block;
+        margin-top: 3px;
+        color: #68757a;
+        font-size: 0.78em;
+        font-weight: 400;
+      }
+
+      .category-management {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: -4px 0 18px;
+        padding: 12px;
+        border: 1px solid #dfe5e7;
+        background: #f8faf9;
+      }
+
+      .category-management input[type="text"],
+      .category-management select {
+        min-width: 150px;
+        padding: 8px;
+        border: 1px solid #cbd2d6;
+        border-radius: 4px;
+        font: inherit;
+      }
+
+      .category-management input[type="color"] {
+        width: 40px;
+        height: 36px;
+        padding: 2px;
+        border: 1px solid #cbd2d6;
+        border-radius: 4px;
+        background: white;
+      }
+
+      .category-management button {
+        padding: 8px 10px;
+        border: 1px solid #385d64;
+        border-radius: 4px;
+        background: white;
+        color: #385d64;
+        cursor: pointer;
+      }
+
+      .category-management-status {
+        flex-basis: 100%;
+        color: #555;
+        font-size: 0.9em;
+      }
+
+      @media (max-width: 1024px) {
+        .content {
+          grid-template-columns: 1fr;
         }
 
-        .leaflet-popup-content-wrapper {
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-
-        .popup-image {
-            display: block;
-            width: 100%;
-            max-height: 220px;
-            margin-top: 8px;
-            object-fit: cover;
-        }
-
-        .popup-website {
-            display: inline-block;
-            margin-top: 8px;
-            overflow-wrap: anywhere;
-        }
-
-        @media (max-width: 600px) {
-            .leaflet-popup-content {
-                max-width: calc(100vw - 88px) !important;
-                min-width: 0 !important;
-            }
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-            min-height: 600px;
+        .map-section {
+          border-right: none;
+          border-bottom: 1px solid #e0e0e0;
         }
 
         .table-section {
-            overflow-y: auto;
-            max-height: 600px;
+          max-height: 400px;
         }
 
+        #map {
+          min-height: 400px;
+        }
+      }
+
+      @media (max-width: 600px) {
         .location-list-tools {
-            position: sticky;
-            top: 0;
-            z-index: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            min-height: 60px;
-            padding: 8px 20px;
-            border-bottom: 1px solid #e0e0e0;
-            background: white;
-        }
-
-        .table-wrapper {
-            padding: 20px;
-        }
-
-        .section-title {
-            font-size: 1.1em;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background: #f9f9f9;
-            position: sticky;
-            top: 60px;
-        }
-
-        th {
-            padding: 10px;
-            text-align: left;
-            font-weight: 500;
-            color: #333;
-            border-bottom: 1px solid #d0d0d0;
-            font-size: 0.9em;
-        }
-
-        td {
-            padding: 10px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.95em;
-            cursor: pointer;
-        }
-
-        tr:hover {
-            background: #f5f5f5;
-        }
-
-        tr.highlighted {
-            background: #e8f5e9;
-        }
-
-        tr.pin-hovered {
-            background: #fff3d6;
-        }
-
-        .location-row:hover td:first-child,
-        .location-row.highlighted td:first-child,
-        .location-row.pin-hovered td:first-child {
-            box-shadow: inset 3px 0 var(--category-color, #385d64);
-        }
-
-        .btn-delete {
-            margin: 2px;
-            background: white;
-            color: #d9534f;
-            border: 1px solid #d9534f;
-            padding: 4px 6px;
-            font-size: 0.74em;
-            border-radius: 4px;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .btn-archive {
-            margin: 2px;
-            background: white;
-            color: #385d64;
-            border: 1px solid #385d64;
-            padding: 4px 6px;
-            font-size: 0.74em;
-            border-radius: 4px;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .row-actions {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .row-actions button {
-            margin: 0;
-            padding: 4px 5px;
-            font-size: 0.72em;
-        }
-
-        .archive-state {
-            display: inline-block;
-            padding: 3px 6px;
-            border-radius: 3px;
-            background: #edf1f2;
-            color: #52656b;
-            font-size: 0.74em;
-            white-space: nowrap;
+          gap: 6px;
+          padding-right: 12px;
+          padding-left: 12px;
         }
 
         .location-view-select {
-            width: 30%;
-            max-width: 185px;
-            min-width: 125px;
-            flex: 0 1 185px;
-            padding: 8px 28px 8px 9px;
-            border: 1px solid #b8c5cc;
-            border-radius: 4px;
-            background: white;
-            color: #25343b;
-            font: inherit;
-            font-size: 0.88em;
+          width: 36%;
+          min-width: 116px;
+          padding-right: 20px;
         }
 
-        .btn-delete:hover {
-            background: #f5f5f5;
+        .search-row {
+          gap: 5px;
         }
 
-        .empty-message {
-            text-align: center;
-            padding: 30px;
-            color: #999;
+        .search-row input,
+        .search-row button {
+          padding: 8px;
         }
 
-        .category-badge {
-            display: inline-block;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.8em;
-            font-weight: 500;
+        .table-wrapper {
+          padding: 12px;
         }
 
-        .category-badge {
-            background: color-mix(in srgb, var(--category-color) 16%, white);
-            color: var(--category-color);
+        #locationsTable {
+          table-layout: fixed;
         }
 
-        .avoid-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-left: 8px;
-            padding: 3px 7px;
-            border: 1px solid #c62828;
-            border-radius: 3px;
-            background: #fff1f0;
-            color: #a31616;
-            font-size: 0.72em;
-            font-weight: 800;
-            line-height: 1.2;
-            vertical-align: 2px;
-            white-space: nowrap;
+        #locationsTable:not(.is-admin) th:nth-child(1),
+        #locationsTable:not(.is-admin) td:nth-child(1) {
+          width: 68%;
         }
 
-        .location-date,
-        .popup-date {
-            display: block;
-            margin-top: 3px;
-            color: #68757a;
-            font-size: 0.78em;
-            font-weight: 400;
+        #locationsTable:not(.is-admin) th:nth-child(2),
+        #locationsTable:not(.is-admin) td:nth-child(2) {
+          width: 32%;
         }
 
-        .category-management {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: -4px 0 18px;
-            padding: 12px;
-            border: 1px solid #dfe5e7;
-            background: #f8faf9;
+        #locationsTable.is-admin th:nth-child(1),
+        #locationsTable.is-admin td:nth-child(1) {
+          width: 42%;
         }
 
-        .category-management input[type="text"],
-        .category-management select {
-            min-width: 150px;
-            padding: 8px;
-            border: 1px solid #cbd2d6;
-            border-radius: 4px;
-            font: inherit;
+        #locationsTable.is-admin th:nth-child(2),
+        #locationsTable.is-admin td:nth-child(2) {
+          width: 23%;
         }
 
-        .category-management input[type="color"] {
-            width: 40px;
-            height: 36px;
-            padding: 2px;
-            border: 1px solid #cbd2d6;
-            border-radius: 4px;
-            background: white;
+        #locationsTable.is-admin th:nth-child(3),
+        #locationsTable.is-admin td:nth-child(3) {
+          width: 35%;
         }
 
-        .category-management button {
-            padding: 8px 10px;
-            border: 1px solid #385d64;
-            border-radius: 4px;
-            background: white;
-            color: #385d64;
-            cursor: pointer;
+        .row-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
 
-        .category-management-status {
-            flex-basis: 100%;
-            color: #555;
-            font-size: 0.9em;
+        .row-actions button {
+          width: 100%;
+          white-space: normal;
+          overflow-wrap: anywhere;
         }
-
-        @media (max-width: 1024px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-
-            .map-section {
-                border-right: none;
-                border-bottom: 1px solid #e0e0e0;
-            }
-
-            .table-section {
-                max-height: 400px;
-            }
-
-            #map {
-                min-height: 400px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .location-list-tools {
-                gap: 6px;
-                padding-right: 12px;
-                padding-left: 12px;
-            }
-
-            .location-view-select {
-                width: 36%;
-                min-width: 116px;
-                padding-right: 20px;
-            }
-
-            .search-row {
-                gap: 5px;
-            }
-
-            .search-row input,
-            .search-row button {
-                padding: 8px;
-            }
-
-            .table-wrapper {
-                padding: 12px;
-            }
-
-            #locationsTable {
-                table-layout: fixed;
-            }
-
-            #locationsTable:not(.is-admin) th:nth-child(1),
-            #locationsTable:not(.is-admin) td:nth-child(1) {
-                width: 68%;
-            }
-
-            #locationsTable:not(.is-admin) th:nth-child(2),
-            #locationsTable:not(.is-admin) td:nth-child(2) {
-                width: 32%;
-            }
-
-            #locationsTable.is-admin th:nth-child(1),
-            #locationsTable.is-admin td:nth-child(1) {
-                width: 42%;
-            }
-
-            #locationsTable.is-admin th:nth-child(2),
-            #locationsTable.is-admin td:nth-child(2) {
-                width: 23%;
-            }
-
-            #locationsTable.is-admin th:nth-child(3),
-            #locationsTable.is-admin td:nth-child(3) {
-                width: 35%;
-            }
-
-            .row-actions {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 4px;
-            }
-
-            .row-actions button {
-                width: 100%;
-                white-space: normal;
-                overflow-wrap: anywhere;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <a class="header-brand header-brand-link" href="index.html" aria-label="Naar de index: alle locaties" onclick="event.preventDefault(); showAllLocations();">
-                <img class="header-logo" src="gsadviseertlogo128.jpg" alt="">
-                <div>
-                    <h1>Advies.geensnor.nl</h1>
-                    <p>Jaren ervaring in het geven van goed advies</p>
-                </div>
-            </a>
-            <div class="header-actions">
-                <details class="export-menu">
-                    <summary>Exporteren</summary>
-                    <div class="export-options">
-                        <a href="data/locations.geojson" download="locations.geojson" onclick="this.closest('details').open = false">GeoJSON downloaden</a>
-                        <button type="button" onclick="downloadActiveGpx(); this.closest('details').open = false">GPX downloaden</button>
-                    </div>
-                </details>
+      <div class="header">
+        <a
+          class="header-brand header-brand-link"
+          href="index.html"
+          aria-label="Naar de index: alle locaties"
+          onclick="
+            event.preventDefault();
+            showAllLocations();
+          "
+        >
+          <img class="header-logo" src="gsadviseertlogo128.jpg" alt="" />
+          <div>
+            <h1>Advies.geensnor.nl</h1>
+            <p>Jaren ervaring in het geven van goed advies</p>
+          </div>
+        </a>
+        <div class="header-actions">
+          <details class="export-menu">
+            <summary>Exporteren</summary>
+            <div class="export-options">
+              <a
+                href="data/locations.geojson"
+                download="locations.geojson"
+                onclick="this.closest('details').open = false"
+                >GeoJSON downloaden</a
+              >
+              <button
+                type="button"
+                onclick="
+                  downloadActiveGpx();
+                  this.closest('details').open = false;
+                "
+              >
+                GPX downloaden
+              </button>
             </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="map-section">
+          <div id="map"></div>
+          <button class="map-fit" type="button" onclick="showAllLocations()">
+            Toon alles
+          </button>
         </div>
 
-        <div class="content">
-            <div class="map-section">
-                <div id="map"></div>
-                <button class="map-fit" type="button" onclick="showAllLocations()">Toon alles</button>
+        <div class="table-section">
+          <div class="location-list-tools">
+            <div class="search-tools">
+              <div class="search-row">
+                <input
+                  id="locationSearch"
+                  type="search"
+                  aria-label="Zoek in opgeslagen locaties"
+                  placeholder="Zoek locaties"
+                />
+                <button type="button" onclick="searchLocations()">Zoek</button>
+              </div>
+              <div
+                id="searchResults"
+                class="search-results"
+                role="listbox"
+              ></div>
             </div>
-
-            <div class="table-section">
-                <div class="location-list-tools">
-                    <div class="search-tools">
-                        <div class="search-row">
-                            <input id="locationSearch" type="search" aria-label="Zoek in opgeslagen locaties" placeholder="Zoek locaties">
-                            <button type="button" onclick="searchLocations()">Zoek</button>
-                        </div>
-                        <div id="searchResults" class="search-results" role="listbox"></div>
-                    </div>
-                    <select id="locationView" class="location-view-select" aria-label="Welke locaties tonen" onchange="setLocationView(this.value)">
-                        <option value="active" selected>Actieve locaties</option>
-                        <option value="archived">Gearchiveerde locaties</option>
-                        <option value="all">Actief en gearchiveerd</option>
-                    </select>
+            <select
+              id="locationView"
+              class="location-view-select"
+              aria-label="Welke locaties tonen"
+              onchange="setLocationView(this.value)"
+            >
+              <option value="active" selected>Actieve locaties</option>
+              <option value="archived">Gearchiveerde locaties</option>
+              <option value="all">Actief en gearchiveerd</option>
+            </select>
+          </div>
+          <div class="table-wrapper">
+            <div class="table-heading">
+              <h2 class="section-title">Alle locaties</h2>
+              <div class="table-admin-actions">
+                <button
+                  id="adminToggle"
+                  class="admin-toggle"
+                  type="button"
+                  onclick="showAdminLogin()"
+                >
+                  Beheer
+                </button>
+                <div id="adminLogin" class="admin-login" hidden>
+                  <input
+                    id="adminPasswordInput"
+                    type="password"
+                    autocomplete="current-password"
+                    aria-label="Beheerderswachtwoord"
+                    placeholder="Beheerderswachtwoord"
+                  />
+                  <button type="button" onclick="unlockAdminMode()">
+                    Ontgrendelen
+                  </button>
+                  <button type="button" onclick="cancelAdminLogin()">
+                    Annuleren
+                  </button>
+                  <span
+                    id="adminMessage"
+                    class="admin-message"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
                 </div>
-                <div class="table-wrapper">
-                    <div class="table-heading">
-                        <h2 class="section-title">Alle locaties</h2>
-                        <div class="table-admin-actions">
-                            <button id="adminToggle" class="admin-toggle" type="button" onclick="showAdminLogin()">Beheer</button>
-                            <div id="adminLogin" class="admin-login" hidden>
-                                <input id="adminPasswordInput" type="password" autocomplete="current-password" aria-label="Beheerderswachtwoord" placeholder="Beheerderswachtwoord">
-                                <button type="button" onclick="unlockAdminMode()">Ontgrendelen</button>
-                                <button type="button" onclick="cancelAdminLogin()">Annuleren</button>
-                                <span id="adminMessage" class="admin-message" role="status" aria-live="polite"></span>
-                            </div>
-                            <a id="addLocationLink" href="add-location.html" class="btn-add" hidden>+ Locatie toevoegen</a>
-                            <button id="adminLock" class="admin-lock" type="button" onclick="lockAdminMode()" hidden>Beheer vergrendelen</button>
-                        </div>
-                    </div>
-                    <table id="locationsTable">
-                        <thead>
-                            <tr>
-                                <th>Naam</th>
-                                <th>Categorie</th>
-                                <th id="actionHeading" hidden>Beheer</th>
-                            </tr>
-                        </thead>
-                        <tbody id="locationsBody">
-                            <tr>
-                                <td colspan="3" class="empty-message">Locaties laden...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <a
+                  id="addLocationLink"
+                  href="add-location.html"
+                  class="btn-add"
+                  hidden
+                  >+ Locatie toevoegen</a
+                >
+                <button
+                  id="adminLock"
+                  class="admin-lock"
+                  type="button"
+                  onclick="lockAdminMode()"
+                  hidden
+                >
+                  Beheer vergrendelen
+                </button>
+              </div>
             </div>
+            <table id="locationsTable">
+              <thead>
+                <tr>
+                  <th>Naam</th>
+                  <th>Categorie</th>
+                  <th id="actionHeading" hidden>Beheer</th>
+                </tr>
+              </thead>
+              <tbody id="locationsBody">
+                <tr>
+                  <td colspan="3" class="empty-message">Locaties laden...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script>
-        let map;
-        let markers = {};
-        let currentHighlightedRow = null;
-        let currentHighlightedLocationKey = null;
-        let allFeatures = [];
-        let archivedFeatures = [];
-        let locationView = 'active';
-        let adminPassword = null;
-        let categories = [];
+      let map;
+      let markers = {};
+      let currentHighlightedRow = null;
+      let currentHighlightedLocationKey = null;
+      let allFeatures = [];
+      let archivedFeatures = [];
+      let locationView = "active";
+      let adminPassword = null;
+      let categories = [];
 
-        function createPinIcon(color = '#385d64', avoid = false) {
-            const face = avoid
-                ? '<path class="pin-skull" d="M18 8.7c-5.2 0-8.1 3.9-8.1 8.1 0 2.1.8 3.5 2.2 4.6v2.1c0 .6.5 1.1 1.1 1.1h9.6c.6 0 1.1-.5 1.1-1.1v-2.1c1.4-1.1 2.2-2.5 2.2-4.6 0-4.2-2.9-8.1-8.1-8.1Z"/><ellipse class="pin-skull-cutout" cx="14.8" cy="16.2" rx="1.8" ry="2.2"/><ellipse class="pin-skull-cutout" cx="21.2" cy="16.2" rx="1.8" ry="2.2"/><path class="pin-skull-cutout" d="m18 17.4-1.5 2.3h3Z"/><path class="pin-skull-teeth" d="M14 21.4v2m2-2v2m2-2v2m2-2v2"/>'
-                : '<path class="pin-moustache" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/>';
-            const pinHtml = `<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path class="pin-body" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle class="pin-face" cx="18" cy="17" r="9"/>${face}</svg>`;
-            return L.divIcon({
-            className: avoid ? 'location-pin is-avoid' : 'location-pin',
-            html: `<span style="--pin-color:${color}">${pinHtml}</span>`,
-                iconSize: [36, 44],
-                iconAnchor: [18, 43],
-                popupAnchor: [0, -30],
-            });
+      function createPinIcon(color = "#385d64", avoid = false) {
+        const face = avoid
+          ? '<path class="pin-skull" d="M18 8.7c-5.2 0-8.1 3.9-8.1 8.1 0 2.1.8 3.5 2.2 4.6v2.1c0 .6.5 1.1 1.1 1.1h9.6c.6 0 1.1-.5 1.1-1.1v-2.1c1.4-1.1 2.2-2.5 2.2-4.6 0-4.2-2.9-8.1-8.1-8.1Z"/><ellipse class="pin-skull-cutout" cx="14.8" cy="16.2" rx="1.8" ry="2.2"/><ellipse class="pin-skull-cutout" cx="21.2" cy="16.2" rx="1.8" ry="2.2"/><path class="pin-skull-cutout" d="m18 17.4-1.5 2.3h3Z"/><path class="pin-skull-teeth" d="M14 21.4v2m2-2v2m2-2v2m2-2v2"/>'
+          : '<path class="pin-moustache" d="M9 16c3.3.1 4.4-2.3 7.1-2.3.8 0 1.4.2 1.9.7.5-.5 1.1-.7 1.9-.7 2.7 0 3.8 2.4 7.1 2.3-.5 2.5-2 4-4.3 4-1.9 0-3.2-.8-4.7-2.1-1.5 1.3-2.8 2.1-4.7 2.1-2.3 0-3.8-1.5-4.3-4Z"/>';
+        const pinHtml = `<svg viewBox="0 0 36 44" width="36" height="44" aria-hidden="true"><path class="pin-body" d="M18 1C8.6 1 1 8.6 1 18c0 11.4 17 25 17 25s17-13.6 17-25C35 8.6 27.4 1 18 1Z"/><circle class="pin-face" cx="18" cy="17" r="9"/>${face}</svg>`;
+        return L.divIcon({
+          className: avoid ? "location-pin is-avoid" : "location-pin",
+          html: `<span style="--pin-color:${color}">${pinHtml}</span>`,
+          iconSize: [36, 44],
+          iconAnchor: [18, 43],
+          popupAnchor: [0, -30],
+        });
+      }
+
+      function initMap() {
+        map = L.map("map").setView([52.52, 13.405], 4);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+          maxZoom: 19,
+        }).addTo(map);
+
+        loadCategories().then(loadLocations);
+      }
+
+      async function loadCategories() {
+        const response = await fetch("api/locations.php?resource=categories");
+        if (!response.ok)
+          throw new Error("Categorieën konden niet worden geladen.");
+        categories = await response.json();
+      }
+
+      function getCategory(categoryId) {
+        return (
+          categories.find((category) => category.id === categoryId) ||
+          categories.find((category) => category.id === "overig") || {
+            id: categoryId,
+            label: categoryId || "Overig",
+            color: "#385d64",
+          }
+        );
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(
+          /[&<>"']/g,
+          (character) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[character],
+        );
+      }
+
+      function escapeXml(value) {
+        return String(value).replace(
+          /[&<>"']/g,
+          (character) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&apos;",
+            })[character],
+        );
+      }
+
+      function downloadActiveGpx() {
+        downloadGpx(
+          allFeatures,
+          "geensnor-actieve-locaties.gpx",
+          "Geensnor actieve locaties",
+        );
+      }
+
+      function downloadGpx(features, filename, exportName) {
+        const waypoints = features
+          .filter(
+            (feature) =>
+              feature.geometry?.type === "Point" &&
+              Array.isArray(feature.geometry.coordinates),
+          )
+          .map((feature) => {
+            const [longitude, latitude] = feature.geometry.coordinates;
+            if (!Number.isFinite(longitude) || !Number.isFinite(latitude))
+              return "";
+
+            const properties = feature.properties || {};
+            const name = String(properties.name || "Onbekende locatie");
+            const details = [
+              properties.description,
+              properties.placeName ? `Plaats: ${properties.placeName}` : "",
+              properties.category ? `Categorie: ${properties.category}` : "",
+              properties.avoid === true ? "Afrader" : "",
+            ]
+              .filter(Boolean)
+              .join("\n");
+            const time =
+              typeof properties.visitedAt === "string" &&
+              !Number.isNaN(Date.parse(properties.visitedAt))
+                ? `<time>${escapeXml(new Date(properties.visitedAt).toISOString())}</time>`
+                : "";
+            const links = [
+              ["Afbeelding", safeWebUrl(properties.image)],
+              ["Website", safeWebUrl(properties.website)],
+            ]
+              .filter(([, url]) => url)
+              .map(
+                ([label, url]) =>
+                  `    <link href="${escapeXml(url)}"><text>${escapeXml(label)}</text></link>`,
+              )
+              .join("\n");
+
+            return `  <wpt lat="${latitude}" lon="${longitude}">\n${time ? `    ${time}\n` : ""}    <name>${escapeXml(name)}</name>\n${details ? `    <desc>${escapeXml(details)}</desc>\n` : ""}${links ? `${links}\n` : ""}  </wpt>`;
+          })
+          .filter(Boolean);
+
+        const gpx = [
+          '<?xml version="1.0" encoding="UTF-8"?>',
+          '<gpx version="1.1" creator="Geensnor Places" xmlns="http://www.topografix.com/GPX/1/1">',
+          "  <metadata>",
+          `    <name>${escapeXml(exportName)}</name>`,
+          "  </metadata>",
+          ...waypoints,
+          "</gpx>",
+          "",
+        ].join("\n");
+        const blobUrl = URL.createObjectURL(
+          new Blob([gpx], { type: "application/gpx+xml;charset=utf-8" }),
+        );
+        const downloadLink = document.createElement("a");
+        downloadLink.href = blobUrl;
+        downloadLink.download = filename;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        downloadLink.remove();
+        window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      }
+
+      function formatLocationDate(value) {
+        const match =
+          typeof value === "string" && value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        return match ? `${match[3]}-${match[2]}-${match[1]}` : "";
+      }
+
+      function safeWebUrl(value) {
+        if (typeof value !== "string" || !value.trim()) return "";
+        try {
+          const url = new URL(value.trim());
+          return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+        } catch {
+          return "";
         }
+      }
 
-        function initMap() {
-            map = L.map('map').setView([52.52, 13.405], 4);
-            
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
-                maxZoom: 19,
-            }).addTo(map);
-
-            loadCategories().then(loadLocations);
-        }
-
-        async function loadCategories() {
-            const response = await fetch('api/locations.php?resource=categories');
-            if (!response.ok) throw new Error('Categorieën konden niet worden geladen.');
-            categories = await response.json();
-        }
-
-        function getCategory(categoryId) {
-            return categories.find(category => category.id === categoryId) ||
-                categories.find(category => category.id === 'overig') ||
-                { id: categoryId, label: categoryId || 'Overig', color: '#385d64' };
-        }
-
-        function escapeHtml(value) {
-            return String(value).replace(/[&<>"']/g, character => ({
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#39;'
-            })[character]);
-        }
-
-        function escapeXml(value) {
-            return String(value).replace(/[&<>"']/g, character => ({
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&apos;'
-            })[character]);
-        }
-
-        function downloadActiveGpx() {
-            downloadGpx(allFeatures, 'geensnor-actieve-locaties.gpx', 'Geensnor actieve locaties');
-        }
-
-        function downloadGpx(features, filename, exportName) {
-            const waypoints = features
-                .filter(feature => feature.geometry?.type === 'Point' && Array.isArray(feature.geometry.coordinates))
-                .map(feature => {
-                    const [longitude, latitude] = feature.geometry.coordinates;
-                    if (!Number.isFinite(longitude) || !Number.isFinite(latitude)) return '';
-
-                    const properties = feature.properties || {};
-                    const name = String(properties.name || 'Onbekende locatie');
-                    const details = [
-                        properties.description,
-                        properties.placeName ? `Plaats: ${properties.placeName}` : '',
-                        properties.category ? `Categorie: ${properties.category}` : '',
-                        properties.avoid === true ? 'Afrader' : ''
-                    ].filter(Boolean).join('\n');
-                    const time = typeof properties.visitedAt === 'string' && !Number.isNaN(Date.parse(properties.visitedAt))
-                        ? `<time>${escapeXml(new Date(properties.visitedAt).toISOString())}</time>`
-                        : '';
-                    const links = [
-                        ['Afbeelding', safeWebUrl(properties.image)],
-                        ['Website', safeWebUrl(properties.website)]
-                    ].filter(([, url]) => url)
-                        .map(([label, url]) => `    <link href="${escapeXml(url)}"><text>${escapeXml(label)}</text></link>`)
-                        .join('\n');
-
-                    return `  <wpt lat="${latitude}" lon="${longitude}">\n${time ? `    ${time}\n` : ''}    <name>${escapeXml(name)}</name>\n${details ? `    <desc>${escapeXml(details)}</desc>\n` : ''}${links ? `${links}\n` : ''}  </wpt>`;
-                })
-                .filter(Boolean);
-
-            const gpx = [
-                '<?xml version="1.0" encoding="UTF-8"?>',
-                '<gpx version="1.1" creator="Geensnor Places" xmlns="http://www.topografix.com/GPX/1/1">',
-                '  <metadata>',
-                `    <name>${escapeXml(exportName)}</name>`,
-                '  </metadata>',
-                ...waypoints,
-                '</gpx>',
-                ''
-            ].join('\n');
-            const blobUrl = URL.createObjectURL(new Blob([gpx], { type: 'application/gpx+xml;charset=utf-8' }));
-            const downloadLink = document.createElement('a');
-            downloadLink.href = blobUrl;
-            downloadLink.download = filename;
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            downloadLink.remove();
-            window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
-        }
-
-        function formatLocationDate(value) {
-            const match = typeof value === 'string' && value.match(/^(\d{4})-(\d{2})-(\d{2})/);
-            return match ? `${match[3]}-${match[2]}-${match[1]}` : '';
-        }
-
-        function safeWebUrl(value) {
-            if (typeof value !== 'string' || !value.trim()) return '';
-            try {
-                const url = new URL(value.trim());
-                return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
-            } catch {
-                return '';
+      function loadLocations() {
+        Promise.all([
+          fetch("api/locations.php"),
+          fetch("api/locations.php?resource=archived"),
+        ])
+          .then(async ([activeResponse, archivedResponse]) => {
+            if (!activeResponse.ok || !archivedResponse.ok) {
+              throw new Error(
+                `HTTP error! status: ${!activeResponse.ok ? activeResponse.status : archivedResponse.status}`,
+              );
             }
+            const [activeData, archivedData] = await Promise.all([
+              activeResponse.json(),
+              archivedResponse.json(),
+            ]);
+            allFeatures = activeData.features || [];
+            archivedFeatures = archivedData.features || [];
+            showAllLocations();
+          })
+          .catch((error) => {
+            console.error("Error loading locations:", error);
+            const tbody = document.getElementById("locationsBody");
+            tbody.innerHTML = `<tr><td colspan="3" class="empty-message">Fout bij laden van locaties:<br>${error.message}</td></tr>`;
+          });
+      }
+
+      function getFeatureReference(feature) {
+        const activeIndex = allFeatures.indexOf(feature);
+        if (activeIndex !== -1)
+          return {
+            collection: "active",
+            index: activeIndex,
+            key: `active-${activeIndex}`,
+          };
+        const archivedIndex = archivedFeatures.indexOf(feature);
+        if (archivedIndex !== -1)
+          return {
+            collection: "archived",
+            index: archivedIndex,
+            key: `archived-${archivedIndex}`,
+          };
+        return null;
+      }
+
+      function getFeatureByReference(key) {
+        const [collection, indexText] = String(key).split("-");
+        const index = Number(indexText);
+        return collection === "archived"
+          ? archivedFeatures[index]
+          : allFeatures[index];
+      }
+
+      function featuresForCurrentView() {
+        if (locationView === "archived") return archivedFeatures;
+        if (locationView === "all")
+          return [...allFeatures, ...archivedFeatures];
+        return allFeatures;
+      }
+
+      function displayLocations(features) {
+        // Clear existing markers
+        Object.values(markers).forEach((marker) => map.removeLayer(marker));
+        markers = {};
+
+        features.forEach((feature) => {
+          if (feature.geometry.type === "Point") {
+            const coords = feature.geometry.coordinates;
+            const props = feature.properties;
+            const reference = getFeatureReference(feature);
+            if (!reference) return;
+            const category = getCategory(props.category);
+            const date = formatLocationDate(props.visitedAt);
+            const popupDate = `<br><small class="popup-date">${date ? `bezocht op: ${date} &middot;` : ""}</small>`;
+            const imageUrl = safeWebUrl(props.image);
+            const websiteUrl = safeWebUrl(props.website);
+            const popupImage = imageUrl
+              ? `<img class="popup-image" src="${escapeHtml(imageUrl)}" alt="Afbeelding van ${escapeHtml(props.name)}" loading="lazy" onerror="this.hidden=true">`
+              : "";
+            const popupWebsite = websiteUrl
+              ? `<br><a class="popup-website" href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer">Website</a>`
+              : "";
+
+            const marker = L.marker([coords[1], coords[0]], {
+              icon: createPinIcon(category.color, props.avoid === true),
+            })
+              .bindPopup(
+                `<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || "Geen beschrijving")}${popupDate}${popupImage}${popupWebsite}`,
+                {
+                  maxWidth: 560,
+                  minWidth: 220,
+                  autoPanPadding: [24, 24],
+                },
+              )
+              .addTo(map);
+
+            marker.on("click", () => selectLocation(reference.key));
+            marker.on("mouseover", () => setRowHover(reference.key, true));
+            marker.on("mouseout", () => setRowHover(reference.key, false));
+            markers[reference.key] = marker;
+          }
+        });
+      }
+
+      function displayTable(features) {
+        const tbody = document.getElementById("locationsBody");
+        const columnCount = adminPassword ? 3 : 2;
+        document
+          .getElementById("locationsTable")
+          .classList.toggle("is-admin", Boolean(adminPassword));
+
+        if (features.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="${columnCount}" class="empty-message">Geen opgeslagen locaties gevonden</td></tr>`;
+          return;
         }
 
-        function loadLocations() {
-            Promise.all([
-                fetch('api/locations.php'),
-                fetch('api/locations.php?resource=archived')
-            ])
-                .then(async ([activeResponse, archivedResponse]) => {
-                    if (!activeResponse.ok || !archivedResponse.ok) {
-                        throw new Error(`HTTP error! status: ${!activeResponse.ok ? activeResponse.status : archivedResponse.status}`);
-                    }
-                    const [activeData, archivedData] = await Promise.all([activeResponse.json(), archivedResponse.json()]);
-                    allFeatures = activeData.features || [];
-                    archivedFeatures = archivedData.features || [];
-                    showAllLocations();
-                })
-                .catch(error => {
-                    console.error('Error loading locations:', error);
-                    const tbody = document.getElementById('locationsBody');
-                    tbody.innerHTML = `<tr><td colspan="3" class="empty-message">Fout bij laden van locaties:<br>${error.message}</td></tr>`;
-                });
-        }
+        tbody.innerHTML = features
+          .map((feature) => {
+            const props = feature.properties;
+            const reference = getFeatureReference(feature);
+            if (!reference) return "";
+            const category = getCategory(props.category);
+            const date = formatLocationDate(props.visitedAt);
+            const placeName =
+              typeof props.placeName === "string" && props.placeName.trim()
+                ? props.placeName.trim()
+                : "plaats onbekend";
 
-            function getFeatureReference(feature) {
-                const activeIndex = allFeatures.indexOf(feature);
-                if (activeIndex !== -1) return { collection: 'active', index: activeIndex, key: `active-${activeIndex}` };
-                const archivedIndex = archivedFeatures.indexOf(feature);
-                if (archivedIndex !== -1) return { collection: 'archived', index: archivedIndex, key: `archived-${archivedIndex}` };
-                return null;
-            }
-
-            function getFeatureByReference(key) {
-                const [collection, indexText] = String(key).split('-');
-                const index = Number(indexText);
-                return collection === 'archived' ? archivedFeatures[index] : allFeatures[index];
-            }
-
-            function featuresForCurrentView() {
-                if (locationView === 'archived') return archivedFeatures;
-                if (locationView === 'all') return [...allFeatures, ...archivedFeatures];
-                return allFeatures;
-            }
-
-        function displayLocations(features) {
-            // Clear existing markers
-            Object.values(markers).forEach(marker => map.removeLayer(marker));
-            markers = {};
-
-            features.forEach(feature => {
-                if (feature.geometry.type === 'Point') {
-                    const coords = feature.geometry.coordinates;
-                    const props = feature.properties;
-                    const reference = getFeatureReference(feature);
-                    if (!reference) return;
-                    const category = getCategory(props.category);
-                    const date = formatLocationDate(props.visitedAt);
-                    const popupDate = `<br><small class="popup-date">Bezocht op: ${date || 'onbekend'}</small>`;
-                    const imageUrl = safeWebUrl(props.image);
-                    const websiteUrl = safeWebUrl(props.website);
-                    const popupImage = imageUrl ? `<img class="popup-image" src="${escapeHtml(imageUrl)}" alt="Afbeelding van ${escapeHtml(props.name)}" loading="lazy" onerror="this.hidden=true">` : '';
-                    const popupWebsite = websiteUrl ? `<br><a class="popup-website" href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer">Website</a>` : '';
-
-                    const marker = L.marker([coords[1], coords[0]], {
-                        icon: createPinIcon(category.color, props.avoid === true)
-                    }).bindPopup(`<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || 'Geen beschrijving')}${popupDate}${popupImage}${popupWebsite}`, {
-                        maxWidth: 560,
-                        minWidth: 220,
-                        autoPanPadding: [24, 24]
-                    }).addTo(map);
-
-                    marker.on('click', () => selectLocation(reference.key));
-                    marker.on('mouseover', () => setRowHover(reference.key, true));
-                    marker.on('mouseout', () => setRowHover(reference.key, false));
-                    markers[reference.key] = marker;
-                }
-            });
-        }
-
-        function displayTable(features) {
-            const tbody = document.getElementById('locationsBody');
-            const columnCount = adminPassword ? 3 : 2;
-            document.getElementById('locationsTable').classList.toggle('is-admin', Boolean(adminPassword));
-
-            if (features.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="${columnCount}" class="empty-message">Geen opgeslagen locaties gevonden</td></tr>`;
-                return;
-            }
-
-            tbody.innerHTML = features.map(feature => {
-                const props = feature.properties;
-                const reference = getFeatureReference(feature);
-                if (!reference) return '';
-                const category = getCategory(props.category);
-                const date = formatLocationDate(props.visitedAt);
-                const placeName = typeof props.placeName === 'string' && props.placeName.trim()
-                    ? props.placeName.trim()
-                    : 'plaats onbekend';
-
-                return `
+            return `
                     <tr class="location-row" data-id="${reference.key}" style="--category-color:${category.color}" onclick="selectLocation('${reference.key}')" onmouseenter="setMarkerHover('${reference.key}', true)" onmouseleave="setMarkerHover('${reference.key}', false)">
-                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ''}<span class="location-date">Bezocht op: ${date || 'onbekend'} &middot; ${escapeHtml(placeName)}</span></td>
+                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ""}<span class="location-date">${date ? `bezocht op: ${date} &middot;` : ""} ${escapeHtml(placeName)}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
-                        ${adminPassword ? `<td onclick="event.stopPropagation()">${reference.collection === 'active' ? `<div class="row-actions"><button class="btn-edit" title="Locatie wijzigen" onclick="editLocation(${reference.index})">Wijzig</button><button class="btn-archive" title="Locatie archiveren" onclick="archiveLocation(${reference.index})">Archiveer</button><button class="btn-delete" title="Locatie verwijderen" onclick="deleteLocation(${reference.index})">Verwijder</button></div>` : '<span class="archive-state">Archief</span>'}</td>` : ''}
+                        ${adminPassword ? `<td onclick="event.stopPropagation()">${reference.collection === "active" ? `<div class="row-actions"><button class="btn-edit" title="Locatie wijzigen" onclick="editLocation(${reference.index})">Wijzig</button><button class="btn-archive" title="Locatie archiveren" onclick="archiveLocation(${reference.index})">Archiveer</button><button class="btn-delete" title="Locatie verwijderen" onclick="deleteLocation(${reference.index})">Verwijder</button></div>` : '<span class="archive-state">Archief</span>'}</td>` : ""}
                     </tr>
                 `;
-            }).join('');
+          })
+          .join("");
+      }
+
+      function selectLocation(id) {
+        highlightRow(id);
+        const [collection, indexText] = String(id).split("-");
+        const index = Number(indexText);
+        const feature =
+          collection === "archived"
+            ? archivedFeatures[index]
+            : allFeatures[index];
+        if (!feature) return;
+
+        const coords = feature.geometry.coordinates;
+        map.setView([coords[1], coords[0]], Math.max(map.getZoom(), 15));
+        if (markers[id]) markers[id].openPopup();
+      }
+
+      function normalizeSearchText(value) {
+        return value
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
+      }
+
+      function matchingLocations(query) {
+        const terms = normalizeSearchText(query).split(/\s+/).filter(Boolean);
+        return featuresForCurrentView().filter((feature) => {
+          const searchableText = normalizeSearchText(
+            searchablePropertyValues(feature.properties || {}).join(" "),
+          );
+          return terms.every((term) => searchableText.includes(term));
+        });
+      }
+
+      function visibleFeatures() {
+        const query = document.getElementById("locationSearch").value.trim();
+        return query ? matchingLocations(query) : featuresForCurrentView();
+      }
+
+      function searchablePropertyValues(value) {
+        if (typeof value === "string") return [value];
+        if (Array.isArray(value))
+          return value.flatMap(searchablePropertyValues);
+        if (value && typeof value === "object")
+          return Object.values(value).flatMap(searchablePropertyValues);
+        return [];
+      }
+
+      function fitFeatures(features) {
+        const points = features
+          .filter(
+            (feature) => feature.geometry && feature.geometry.type === "Point",
+          )
+          .map((feature) => [
+            feature.geometry.coordinates[1],
+            feature.geometry.coordinates[0],
+          ]);
+        if (points.length === 1) {
+          map.setView(points[0], 12);
+        } else if (points.length > 1) {
+          map.fitBounds(L.latLngBounds(points), {
+            padding: [36, 36],
+            maxZoom: 12,
+          });
+        }
+      }
+
+      function showAllLocations() {
+        document.getElementById("locationSearch").value = "";
+        document.getElementById("searchResults").classList.remove("show");
+        const heading =
+          locationView === "archived"
+            ? "Gearchiveerde locaties"
+            : locationView === "all"
+              ? "Alle locaties"
+              : "Actieve locaties";
+        document.querySelector(".table-heading .section-title").textContent =
+          heading;
+        const features = featuresForCurrentView();
+        displayLocations(features);
+        displayTable(features);
+        fitFeatures(features);
+      }
+
+      function setLocationView(view) {
+        if (!["active", "all", "archived"].includes(view)) return;
+        locationView = view;
+        document.getElementById("locationSearch").value = "";
+        document.getElementById("searchResults").classList.remove("show");
+        showAllLocations();
+      }
+
+      function searchLocations() {
+        const query = document.getElementById("locationSearch").value.trim();
+        const results = document.getElementById("searchResults");
+        results.replaceChildren();
+        results.classList.remove("show");
+        if (!query) {
+          const features = featuresForCurrentView();
+          displayLocations(features);
+          displayTable(features);
+        } else {
+          const matches = matchingLocations(query);
+          displayLocations(matches);
+          displayTable(matches);
+          if (matches.length) {
+            fitFeatures(matches);
+          } else {
+            results.textContent = "Geen opgeslagen locaties gevonden.";
+            results.classList.add("show");
+          }
+        }
+      }
+
+      function showAdminLogin() {
+        document.getElementById("adminToggle").hidden = true;
+        document.getElementById("adminLogin").hidden = false;
+        document.getElementById("adminPasswordInput").focus();
+      }
+
+      function cancelAdminLogin() {
+        document.getElementById("adminLogin").hidden = true;
+        document.getElementById("adminToggle").hidden = false;
+        document.getElementById("adminPasswordInput").value = "";
+        document.getElementById("adminMessage").textContent = "";
+      }
+
+      async function unlockAdminMode() {
+        const passwordInput = document.getElementById("adminPasswordInput");
+        const password = passwordInput.value;
+        const message = document.getElementById("adminMessage");
+        if (!password) {
+          message.textContent = "Vul het beheerderswachtwoord in.";
+          return;
         }
 
-        function selectLocation(id) {
-            highlightRow(id);
-            const [collection, indexText] = String(id).split('-');
-            const index = Number(indexText);
-            const feature = collection === 'archived' ? archivedFeatures[index] : allFeatures[index];
-            if (!feature) return;
+        try {
+          const response = await fetch("api/locations.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Edit-Password": password,
+            },
+            body: JSON.stringify({ action: "authorize" }),
+          });
+          const data = await response.json();
+          if (!response.ok)
+            throw new Error(data.error || "Beheer ontgrendelen mislukt.");
 
-            const coords = feature.geometry.coordinates;
-            map.setView([coords[1], coords[0]], Math.max(map.getZoom(), 15));
-            if (markers[id]) markers[id].openPopup();
+          adminPassword = password;
+          sessionStorage.setItem("locationEditPassword", password);
+          passwordInput.value = "";
+          document.getElementById("adminLogin").hidden = true;
+          document.getElementById("addLocationLink").hidden = false;
+          document.getElementById("adminLock").hidden = false;
+          document.getElementById("actionHeading").hidden = false;
+          displayTable(visibleFeatures());
+        } catch (error) {
+          message.textContent = error.message;
+        }
+      }
+
+      function lockAdminMode() {
+        adminPassword = null;
+        sessionStorage.removeItem("locationEditPassword");
+        document.getElementById("addLocationLink").hidden = true;
+        document.getElementById("adminLock").hidden = true;
+        document.getElementById("adminToggle").hidden = false;
+        document.getElementById("actionHeading").hidden = true;
+        displayTable(visibleFeatures());
+      }
+
+      function highlightRow(id) {
+        // Remove previous highlight
+        if (currentHighlightedRow) {
+          currentHighlightedRow.classList.remove("highlighted");
+        }
+        if (
+          currentHighlightedLocationKey &&
+          currentHighlightedLocationKey !== String(id)
+        ) {
+          setMarkerLinked(currentHighlightedLocationKey, false);
         }
 
-        function normalizeSearchText(value) {
-            return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        // Add new highlight
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        if (row) {
+          row.classList.add("highlighted");
+          currentHighlightedRow = row;
+          currentHighlightedLocationKey = String(id);
+          setMarkerLinked(currentHighlightedLocationKey, true);
+          const tableSection = document.querySelector(".table-section");
+          const rowBounds = row.getBoundingClientRect();
+          const sectionBounds = tableSection.getBoundingClientRect();
+          const headerBounds = document
+            .querySelector("#locationsTable thead")
+            .getBoundingClientRect();
+          const visibleTop = sectionBounds.top + headerBounds.height;
+          const visibleCenter = (visibleTop + sectionBounds.bottom) / 2;
+          const rowCenter = (rowBounds.top + rowBounds.bottom) / 2;
+          tableSection.scrollTop += rowCenter - visibleCenter;
         }
+      }
 
-        function matchingLocations(query) {
-            const terms = normalizeSearchText(query).split(/\s+/).filter(Boolean);
-            return featuresForCurrentView().filter(feature => {
-                const searchableText = normalizeSearchText(searchablePropertyValues(feature.properties || {}).join(' '));
-                return terms.every(term => searchableText.includes(term));
-            });
+      function setMarkerLinked(id, linked) {
+        const markerElement = markers[id]?.getElement();
+        if (markerElement) markerElement.classList.toggle("is-linked", linked);
+      }
+
+      function setMarkerHover(id, hovering) {
+        if (String(id) !== currentHighlightedLocationKey) {
+          setMarkerLinked(id, hovering);
         }
+      }
 
-        function visibleFeatures() {
-            const query = document.getElementById('locationSearch').value.trim();
-            return query ? matchingLocations(query) : featuresForCurrentView();
+      function setRowHover(id, hovering) {
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        if (row) row.classList.toggle("pin-hovered", hovering);
+      }
+
+      function deleteLocation(id) {
+        if (!confirm("Weet je zeker dat je deze locatie wilt verwijderen?"))
+          return;
+        if (!adminPassword) return;
+
+        fetch("api/locations.php", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Edit-Password": adminPassword,
+          },
+          body: JSON.stringify({ featureIndex: Number(id) }),
+        })
+          .then((response) =>
+            response.json().then((data) => {
+              if (!response.ok)
+                throw new Error(data.error || "Verwijderen mislukt.");
+              return data;
+            }),
+          )
+          .then(() => {
+            loadLocations();
+          })
+          .catch((error) => alert(error.message));
+      }
+
+      function archiveLocation(id) {
+        if (!confirm("Deze locatie verplaatsen naar het archief?")) return;
+        if (!adminPassword) return;
+
+        fetch("api/locations.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Edit-Password": adminPassword,
+          },
+          body: JSON.stringify({
+            action: "archiveLocation",
+            featureIndex: Number(id),
+          }),
+        })
+          .then((response) =>
+            response.json().then((data) => {
+              if (!response.ok)
+                throw new Error(data.error || "Archiveren mislukt.");
+              return data;
+            }),
+          )
+          .then(() => loadLocations())
+          .catch((error) => alert(error.message));
+      }
+
+      function editLocation(id) {
+        if (!adminPassword) return;
+        window.location.href = `add-location.html?id=${encodeURIComponent(id)}`;
+      }
+
+      async function restoreAdminMode() {
+        const password = sessionStorage.getItem("locationEditPassword");
+        if (!password) return;
+
+        try {
+          const response = await fetch("api/locations.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Edit-Password": password,
+            },
+            body: JSON.stringify({ action: "authorize" }),
+          });
+          if (!response.ok) throw new Error("Admin authorization expired");
+
+          adminPassword = password;
+          document.getElementById("addLocationLink").hidden = false;
+          document.getElementById("adminLock").hidden = false;
+          document.getElementById("actionHeading").hidden = false;
+          document.getElementById("adminToggle").hidden = true;
+          displayTable(visibleFeatures());
+        } catch (error) {
+          sessionStorage.removeItem("locationEditPassword");
         }
+      }
 
-        function searchablePropertyValues(value) {
-            if (typeof value === 'string') return [value];
-            if (Array.isArray(value)) return value.flatMap(searchablePropertyValues);
-            if (value && typeof value === 'object') return Object.values(value).flatMap(searchablePropertyValues);
-            return [];
-        }
-
-        function fitFeatures(features) {
-            const points = features
-                .filter(feature => feature.geometry && feature.geometry.type === 'Point')
-                .map(feature => [feature.geometry.coordinates[1], feature.geometry.coordinates[0]]);
-            if (points.length === 1) {
-                map.setView(points[0], 12);
-            } else if (points.length > 1) {
-                map.fitBounds(L.latLngBounds(points), { padding: [36, 36], maxZoom: 12 });
-            }
-        }
-
-        function showAllLocations() {
-            document.getElementById('locationSearch').value = '';
-            document.getElementById('searchResults').classList.remove('show');
-            const heading = locationView === 'archived' ? 'Gearchiveerde locaties' : locationView === 'all' ? 'Alle locaties' : 'Actieve locaties';
-            document.querySelector('.table-heading .section-title').textContent = heading;
-            const features = featuresForCurrentView();
-            displayLocations(features);
-            displayTable(features);
-            fitFeatures(features);
-        }
-
-        function setLocationView(view) {
-            if (!['active', 'all', 'archived'].includes(view)) return;
-            locationView = view;
-            document.getElementById('locationSearch').value = '';
-            document.getElementById('searchResults').classList.remove('show');
-            showAllLocations();
-        }
-
-        function searchLocations() {
-            const query = document.getElementById('locationSearch').value.trim();
-            const results = document.getElementById('searchResults');
-            results.replaceChildren();
-            results.classList.remove('show');
-            if (!query) {
-                const features = featuresForCurrentView();
-                displayLocations(features);
-                displayTable(features);
-            } else {
-                const matches = matchingLocations(query);
-                displayLocations(matches);
-                displayTable(matches);
-                if (matches.length) {
-                    fitFeatures(matches);
-                } else {
-                    results.textContent = 'Geen opgeslagen locaties gevonden.';
-                    results.classList.add('show');
-                }
-            }
-        }
-
-        function showAdminLogin() {
-            document.getElementById('adminToggle').hidden = true;
-            document.getElementById('adminLogin').hidden = false;
-            document.getElementById('adminPasswordInput').focus();
-        }
-
-        function cancelAdminLogin() {
-            document.getElementById('adminLogin').hidden = true;
-            document.getElementById('adminToggle').hidden = false;
-            document.getElementById('adminPasswordInput').value = '';
-            document.getElementById('adminMessage').textContent = '';
-        }
-
-        async function unlockAdminMode() {
-            const passwordInput = document.getElementById('adminPasswordInput');
-            const password = passwordInput.value;
-            const message = document.getElementById('adminMessage');
-            if (!password) {
-                message.textContent = 'Vul het beheerderswachtwoord in.';
-                return;
-            }
-
-            try {
-                const response = await fetch('api/locations.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': password },
-                    body: JSON.stringify({ action: 'authorize' })
-                });
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error || 'Beheer ontgrendelen mislukt.');
-
-                adminPassword = password;
-                sessionStorage.setItem('locationEditPassword', password);
-                passwordInput.value = '';
-                document.getElementById('adminLogin').hidden = true;
-                document.getElementById('addLocationLink').hidden = false;
-                document.getElementById('adminLock').hidden = false;
-                document.getElementById('actionHeading').hidden = false;
-                displayTable(visibleFeatures());
-            } catch (error) {
-                message.textContent = error.message;
-            }
-        }
-
-        function lockAdminMode() {
-            adminPassword = null;
-            sessionStorage.removeItem('locationEditPassword');
-            document.getElementById('addLocationLink').hidden = true;
-            document.getElementById('adminLock').hidden = true;
-            document.getElementById('adminToggle').hidden = false;
-            document.getElementById('actionHeading').hidden = true;
-            displayTable(visibleFeatures());
-        }
-
-        function highlightRow(id) {
-            // Remove previous highlight
-            if (currentHighlightedRow) {
-                currentHighlightedRow.classList.remove('highlighted');
-            }
-            if (currentHighlightedLocationKey && currentHighlightedLocationKey !== String(id)) {
-                setMarkerLinked(currentHighlightedLocationKey, false);
-            }
-
-            // Add new highlight
-            const row = document.querySelector(`tr[data-id="${id}"]`);
-            if (row) {
-                row.classList.add('highlighted');
-                currentHighlightedRow = row;
-                currentHighlightedLocationKey = String(id);
-                setMarkerLinked(currentHighlightedLocationKey, true);
-                const tableSection = document.querySelector('.table-section');
-                const rowBounds = row.getBoundingClientRect();
-                const sectionBounds = tableSection.getBoundingClientRect();
-                const headerBounds = document.querySelector('#locationsTable thead').getBoundingClientRect();
-                const visibleTop = sectionBounds.top + headerBounds.height;
-                const visibleCenter = (visibleTop + sectionBounds.bottom) / 2;
-                const rowCenter = (rowBounds.top + rowBounds.bottom) / 2;
-                tableSection.scrollTop += rowCenter - visibleCenter;
-            }
-        }
-
-        function setMarkerLinked(id, linked) {
-            const markerElement = markers[id]?.getElement();
-            if (markerElement) markerElement.classList.toggle('is-linked', linked);
-        }
-
-        function setMarkerHover(id, hovering) {
-            if (String(id) !== currentHighlightedLocationKey) {
-                setMarkerLinked(id, hovering);
-            }
-        }
-
-        function setRowHover(id, hovering) {
-            const row = document.querySelector(`tr[data-id="${id}"]`);
-            if (row) row.classList.toggle('pin-hovered', hovering);
-        }
-
-        function deleteLocation(id) {
-            if (!confirm('Weet je zeker dat je deze locatie wilt verwijderen?')) return;
-            if (!adminPassword) return;
-
-            fetch('api/locations.php', {
-                method: 'DELETE',
-                headers: { 'Content-Type': 'application/json', 'X-Edit-Password': adminPassword },
-                body: JSON.stringify({ featureIndex: Number(id) })
-            })
-            .then(response => response.json().then(data => {
-                if (!response.ok) throw new Error(data.error || 'Verwijderen mislukt.');
-                return data;
-            }))
-            .then(() => {
-                loadLocations();
-            })
-            .catch(error => alert(error.message));
-        }
-
-        function archiveLocation(id) {
-            if (!confirm('Deze locatie verplaatsen naar het archief?')) return;
-            if (!adminPassword) return;
-
-            fetch('api/locations.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'X-Edit-Password': adminPassword },
-                body: JSON.stringify({ action: 'archiveLocation', featureIndex: Number(id) })
-            })
-            .then(response => response.json().then(data => {
-                if (!response.ok) throw new Error(data.error || 'Archiveren mislukt.');
-                return data;
-            }))
-            .then(() => loadLocations())
-            .catch(error => alert(error.message));
-        }
-
-        function editLocation(id) {
-            if (!adminPassword) return;
-            window.location.href = `add-location.html?id=${encodeURIComponent(id)}`;
-        }
-
-        async function restoreAdminMode() {
-            const password = sessionStorage.getItem('locationEditPassword');
-            if (!password) return;
-
-            try {
-                const response = await fetch('api/locations.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'X-Edit-Password': password },
-                    body: JSON.stringify({ action: 'authorize' })
-                });
-                if (!response.ok) throw new Error('Admin authorization expired');
-
-                adminPassword = password;
-                document.getElementById('addLocationLink').hidden = false;
-                document.getElementById('adminLock').hidden = false;
-                document.getElementById('actionHeading').hidden = false;
-                document.getElementById('adminToggle').hidden = true;
-                displayTable(visibleFeatures());
-            } catch (error) {
-                sessionStorage.removeItem('locationEditPassword');
-            }
-        }
-
-        document.getElementById('locationSearch').addEventListener('keydown', event => {
-            if (event.key === 'Enter') searchLocations();
+      document
+        .getElementById("locationSearch")
+        .addEventListener("keydown", (event) => {
+          if (event.key === "Enter") searchLocations();
         });
 
-        document.getElementById('adminPasswordInput').addEventListener('keydown', event => {
-            if (event.key === 'Enter') unlockAdminMode();
+      document
+        .getElementById("adminPasswordInput")
+        .addEventListener("keydown", (event) => {
+          if (event.key === "Enter") unlockAdminMode();
         });
 
-        // Initialize on page load
-        window.addEventListener('load', function() {
-            initMap();
-            restoreAdminMode();
-        });
+      // Initialize on page load
+      window.addEventListener("load", function () {
+        initMap();
+        restoreAdminMode();
+      });
     </script>
-</body>
+  </body>
 </html>
