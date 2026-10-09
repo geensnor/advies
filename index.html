@@ -173,6 +173,10 @@
         gap: 0;
       }
 
+      .mobile-view-switch {
+        display: none;
+      }
+
       .map-section {
         min-height: 600px;
         border-right: 1px solid #e0e0e0;
@@ -684,6 +688,116 @@
       }
 
       @media (max-width: 600px) {
+        html,
+        body {
+          height: 100%;
+          overflow: hidden;
+          overscroll-behavior: none;
+        }
+
+        body {
+          min-height: 0;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          height: 100dvh;
+          min-height: 0;
+          overflow: hidden;
+        }
+
+        .header {
+          flex: 0 0 auto;
+          padding: 10px 12px;
+          gap: 8px;
+        }
+
+        .header h1 {
+          font-size: 1.25em;
+        }
+
+        .header p {
+          font-size: 0.8em;
+          margin-top: 2px;
+        }
+
+        .content {
+          display: block;
+          flex: 1 1 auto;
+          min-height: 0;
+          overflow: hidden;
+        }
+
+        .map-section,
+        .table-section {
+          display: none;
+          height: 100%;
+          min-height: 0;
+          max-height: none;
+          border: 0;
+        }
+
+        .content[data-mobile-view="map"] .map-section {
+          display: block;
+        }
+
+        .content[data-mobile-view="list"] .table-section {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }
+
+        #map {
+          height: 100%;
+          min-height: 0;
+        }
+
+        .location-list-tools {
+          position: relative;
+          top: auto;
+          flex: 0 0 auto;
+        }
+
+        .table-wrapper {
+          flex: 1 1 auto;
+          min-height: 0;
+          overflow: auto;
+          overscroll-behavior: contain;
+        }
+
+        #locationsTable thead {
+          top: 0;
+        }
+
+        .mobile-view-switch {
+          display: grid;
+          flex: 0 0 auto;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+          border-top: 1px solid #d9e0e2;
+          background: white;
+        }
+
+        .mobile-view-switch button {
+          min-height: 48px;
+          border: 1px solid #b8c5cc;
+          border-radius: 4px;
+          background: #f7f9f9;
+          color: #25343b;
+          font: inherit;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        .mobile-view-switch button[aria-pressed="true"] {
+          border-color: #385d64;
+          background: #385d64;
+          color: white;
+        }
+
         .location-list-tools {
           gap: 6px;
           padding-right: 12px;
@@ -794,15 +908,15 @@
         </div>
       </div>
 
-      <div class="content">
-        <div class="map-section">
+      <div class="content" data-mobile-view="map">
+        <div id="map-panel" class="map-section">
           <div id="map"></div>
           <button class="map-fit" type="button" onclick="showAllLocations()">
             Toon alles
           </button>
         </div>
 
-        <div class="table-section">
+        <div id="list-panel" class="table-section">
           <div class="location-list-tools">
             <div class="search-tools">
               <div class="search-row">
@@ -899,6 +1013,26 @@
           </div>
         </div>
       </div>
+      <nav class="mobile-view-switch" aria-label="Weergave kiezen">
+        <button
+          id="showMapButton"
+          type="button"
+          aria-controls="map-panel"
+          aria-pressed="true"
+          onclick="setMobileView('map')"
+        >
+          Kaart
+        </button>
+        <button
+          id="showListButton"
+          type="button"
+          aria-controls="list-panel"
+          aria-pressed="false"
+          onclick="setMobileView('list')"
+        >
+          Lijst
+        </button>
+      </nav>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -1213,6 +1347,13 @@
 
       function selectLocation(id) {
         highlightRow(id);
+        const content = document.querySelector(".content");
+        if (
+          window.matchMedia("(max-width: 600px)").matches &&
+          content.dataset.mobileView === "list"
+        ) {
+          setMobileView("map");
+        }
         const [collection, indexText] = String(id).split("-");
         const index = Number(indexText);
         const feature =
@@ -1291,6 +1432,20 @@
         displayLocations(features);
         displayTable(features);
         fitFeatures(features);
+      }
+
+      function setMobileView(view) {
+        if (!["map", "list"].includes(view)) return;
+        document.querySelector(".content").dataset.mobileView = view;
+        document
+          .getElementById("showMapButton")
+          .setAttribute("aria-pressed", String(view === "map"));
+        document
+          .getElementById("showListButton")
+          .setAttribute("aria-pressed", String(view === "list"));
+        if (view === "map" && map) {
+          window.requestAnimationFrame(() => map.invalidateSize({ pan: false }));
+        }
       }
 
       function setLocationView(view) {
@@ -1401,15 +1556,22 @@
           currentHighlightedLocationKey = String(id);
           setMarkerLinked(currentHighlightedLocationKey, true);
           const tableSection = document.querySelector(".table-section");
+          const mobileList =
+            window.matchMedia("(max-width: 600px)").matches &&
+            document.querySelector(".content").dataset.mobileView === "list";
+          const scrollContainer = mobileList
+            ? document.querySelector(".table-wrapper")
+            : tableSection;
           const rowBounds = row.getBoundingClientRect();
-          const sectionBounds = tableSection.getBoundingClientRect();
+          if (!rowBounds.height) return;
+          const sectionBounds = scrollContainer.getBoundingClientRect();
           const headerBounds = document
             .querySelector("#locationsTable thead")
             .getBoundingClientRect();
           const visibleTop = sectionBounds.top + headerBounds.height;
           const visibleCenter = (visibleTop + sectionBounds.bottom) / 2;
           const rowCenter = (rowBounds.top + rowBounds.bottom) / 2;
-          tableSection.scrollTop += rowCenter - visibleCenter;
+          scrollContainer.scrollTop += rowCenter - visibleCenter;
         }
       }
 
