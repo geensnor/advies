@@ -2,42 +2,5 @@
     "$schema": "https://geensnor.nl/schemas/geensnor-hotspots-schema.json",
     "type": "FeatureCollection",
     "name": "Archived Places of Interest",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    14.506334,
-                    46.047562
-                ]
-            },
-            "properties": {
-                "name": "Lunch Cafe Marley & Me 1",
-                "category": "restaurant",
-                "description": "Slissende hipster serveert lekkere pasta. Het heet een \"Lunch Cafe\", maar je kan er prima avondeten. Porties zijn niet gigantisch dus neem een voorgerecht.",
-                "avoid": false,
-                "placeName": "Ljubljana",
-                "updatedAt": "2026-10-05T14:48:29+00:00",
-                "visitedAt": "2026-10-05T00:00:00+00:00"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    14.415627999999971,
-                    50.068312
-                ]
-            },
-            "properties": {
-                "name": "Cafeterapie",
-                "description": "Tsjechen hebben volgens mij niet echt een ontbijtcultuur en in Praag is nergens een broodje te krijgen. Dit cafe is daar een uitzondering op. Je kan hier prima ontbijten en de espresso is heerlijk. Ligt een beetje buiten het door toeristen platgelopen centrum. Kost (zoals alles in Praag) helemaal niets.",
-                "category": "overig",
-                "avoid": false,
-                "placeName": "Praag"
-            }
-        }
-    ]
+    "features": []
 }

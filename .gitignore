@@ -3,4 +3,6 @@ data/locations.geojson.before-place-name-backfill
 data/locations.geojson.before-category-migration
 data/locations.geojson.before-schema-v2
 data/locations.geojson.before-schema-2026-10
+data/locations.geojson.before-kmz-*
+data/archived-locations.geojson.before-kmz-*
 .DS_Store

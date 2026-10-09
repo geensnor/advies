@@ -1,8 +1,16 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const dataPath = path.join(__dirname, '..', 'data', 'locations.geojson');
-const backupPath = path.join(__dirname, '..', 'data', 'locations.geojson.before-place-name-backfill');
+const fileOptionIndex = process.argv.indexOf('--file');
+const fileOptionValue = fileOptionIndex >= 0 ? process.argv[fileOptionIndex + 1] : null;
+if (fileOptionIndex >= 0 && (!fileOptionValue || fileOptionValue.startsWith('--'))) {
+    throw new Error('Usage: node scripts/backfill-place-names.js [--file <geojson>] [--write]');
+}
+
+const dataPath = fileOptionValue
+    ? path.resolve(fileOptionValue)
+    : path.join(__dirname, '..', 'data', 'locations.geojson');
+const backupPath = `${dataPath}.before-place-name-backfill`;
 const temporaryPath = `${dataPath}.tmp`;
 const writeChanges = process.argv.includes('--write');
 const minimumIntervalMs = 1100;
