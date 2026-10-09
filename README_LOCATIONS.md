@@ -149,7 +149,7 @@ X-Edit-Password: <wachtwoord>
 
 ## 🔄 Data-import
 
-De actieve collectie in `data/locations.geojson` bevat 347 locaties uit de Google My Maps-productie-export. Iconen zijn naar de lokale categorieën vertaald; doodshoofd-iconen worden als `avoid: true` opgeslagen. Alle afbeeldingen en plaatsnamen zijn behouden of op basis van coördinaten aangevuld.
+De actieve collectie in `data/locations.geojson` bevat 347 locaties uit de Google My Maps-productie-export. Iconen zijn naar de lokale categorieën vertaald; doodshoofd-iconen worden als `avoid: true` opgeslagen. De eerste afbeelding per locatie en alle plaatsnamen zijn behouden of op basis van coördinaten aangevuld.
 
 De KMZ-importer schrijft standaard `backup_google/Meer geensnor.geojson`:
 

@@ -106,9 +106,6 @@ def description_parts(placemark):
     image_urls = list(dict.fromkeys(media_urls + parser.images))
 
     description = parser.text()
-    if len(image_urls) > 1:
-        extras = "\n".join(f"Afbeelding {index}: {url}" for index, url in enumerate(image_urls[1:], 2))
-        description = f"{description}\n\n{extras}" if description else extras
 
     links = list(dict.fromkeys(
         url.rstrip(".,;:!?)]}")
@@ -200,7 +197,7 @@ def main():
 
     print(f"Wrote {len(features)} locations to {output_path}")
     print(f"Categories: {dict(sorted(category_counts.items()))}")
-    print(f"Photo URLs: {sum(1 for feature in features if 'image' in feature['properties']) + extra_image_count} across {sum('image' in feature['properties'] for feature in features)} locations; {extra_image_count} additional URLs retained in descriptions")
+    print(f"Primary photo URLs: {sum('image' in feature['properties'] for feature in features)}; additional photo URLs omitted: {extra_image_count}")
     print(f"Websites: {website_count}; place names reused: {matched_locality_count}; place names unknown: {missing_locality_count}")
     print(f"Avoid markers from death icons: {sum('crisis-death' in icon for icon in icon_counts for _ in range(icon_counts[icon]))}")
 
