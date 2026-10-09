@@ -200,6 +200,59 @@
         cursor: pointer;
       }
 
+      .map-locate {
+        position: absolute;
+        z-index: 1001;
+        top: 10px;
+        right: 10px;
+        display: grid;
+        justify-items: end;
+        gap: 6px;
+      }
+
+      .map-locate button {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .map-locate button:hover {
+        background: #f1f5f6;
+      }
+
+      .map-locate button:disabled {
+        cursor: wait;
+        opacity: 0.65;
+      }
+
+      .map-locate svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .map-locate-message {
+        display: none;
+        max-width: min(260px, calc(100vw - 40px));
+        padding: 8px 10px;
+        border: 1px solid #cbd2d6;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        font-size: 0.85em;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+      }
+
+      .map-locate-message:not(:empty) {
+        display: block;
+      }
+
       .search-tools {
         position: relative;
         min-width: 0;
@@ -941,6 +994,22 @@
       <div class="content" data-mobile-view="map">
         <div id="map-panel" class="map-section">
           <div id="map"></div>
+          <div class="map-locate">
+            <button
+              id="locateUserButton"
+              type="button"
+              title="Toon mijn locatie"
+              aria-label="Toon mijn locatie"
+              onclick="locateUser()"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                <path d="M12 2v2m0 16v2M2 12h2m16 0h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+            <div id="locateUserMessage" class="map-locate-message" role="status" aria-live="polite"></div>
+          </div>
           <button class="map-fit" type="button" onclick="showAllLocations()">
             Toon alles
           </button>
@@ -1093,6 +1162,7 @@
       let locationView = "active";
       let adminPassword = null;
       let categories = [];
+      let userLocationLayer = null;
 
       function createPinIcon(color = "#385d64", avoid = false) {
         const face = avoid
@@ -1118,6 +1188,57 @@
         }).addTo(map);
 
         loadCategories().then(loadLocations);
+      }
+
+      function locateUser() {
+        const button = document.getElementById("locateUserButton");
+        const message = document.getElementById("locateUserMessage");
+        if (!navigator.geolocation) {
+          message.textContent = "Locatie ophalen wordt niet ondersteund door deze browser.";
+          return;
+        }
+
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        message.textContent = "Locatie ophalen…";
+
+        navigator.geolocation.getCurrentPosition(
+          ({ coords }) => {
+            if (userLocationLayer) map.removeLayer(userLocationLayer);
+            const position = [coords.latitude, coords.longitude];
+            const accuracy = L.circle(position, {
+              radius: Math.max(coords.accuracy || 0, 5),
+              color: "#385d64",
+              weight: 1,
+              fillColor: "#4b8791",
+              fillOpacity: 0.18,
+              interactive: false,
+            });
+            const marker = L.circleMarker(position, {
+              radius: 7,
+              color: "white",
+              weight: 3,
+              fillColor: "#2673d9",
+              fillOpacity: 1,
+            });
+            userLocationLayer = L.featureGroup([accuracy, marker]).addTo(map);
+            map.setView(position, Math.max(map.getZoom(), 15));
+            message.textContent = `Locatie gevonden (nauwkeurigheid ongeveer ${Math.round(coords.accuracy)} m).`;
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+          },
+          (error) => {
+            const messages = {
+              1: "Locatietoegang geweigerd. Sta locatie toe in je browser.",
+              2: "Je locatie kon niet worden bepaald.",
+              3: "Locatie ophalen duurde te lang. Probeer het opnieuw.",
+            };
+            message.textContent = messages[error.code] || "Locatie ophalen is mislukt.";
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+          },
+          { enableHighAccuracy: true, maximumAge: 60000, timeout: 10000 },
+        );
       }
 
       async function loadCategories() {
