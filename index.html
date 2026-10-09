@@ -97,6 +97,10 @@
         position: relative;
       }
 
+      .mobile-export {
+        display: none;
+      }
+
       .export-menu summary {
         display: inline-flex;
         align-items: center;
@@ -688,6 +692,32 @@
       }
 
       @media (max-width: 600px) {
+        .header-actions {
+          display: none;
+        }
+
+        .table-admin-actions .mobile-export {
+          display: block;
+        }
+
+        .mobile-export summary {
+          min-height: 36px;
+          padding: 7px 9px;
+          border-color: transparent;
+          color: #385d64;
+          font-size: 0.85em;
+        }
+
+        .mobile-export summary::after {
+          margin-left: 5px;
+        }
+
+        .mobile-export .export-options {
+          right: auto;
+          left: 0;
+          min-width: min(190px, calc(100vw - 24px));
+        }
+
         html,
         body {
           height: 100%;
@@ -949,6 +979,23 @@
             <div class="table-heading">
               <h2 class="section-title">Alle locaties</h2>
               <div class="table-admin-actions">
+                <details class="export-menu mobile-export">
+                  <summary>Export</summary>
+                  <div class="export-options">
+                    <a
+                      href="data/locations.geojson"
+                      download="locations.geojson"
+                      onclick="this.closest('details').open = false"
+                      >GeoJSON downloaden</a
+                    >
+                    <button
+                      type="button"
+                      onclick="downloadActiveGpx(); this.closest('details').open = false"
+                    >
+                      GPX downloaden
+                    </button>
+                  </div>
+                </details>
                 <button
                   id="adminToggle"
                   class="admin-toggle"
