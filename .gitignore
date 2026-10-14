@@ -7,3 +7,4 @@ data/locations.geojson.before-kmz-*
 data/archived-locations.geojson.before-kmz-*
 .DS_Store
 data/locations.geojson
+vendor/
