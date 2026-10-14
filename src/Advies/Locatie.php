@@ -26,4 +26,16 @@ final readonly class Locatie
 
         return $r * 2 * atan2(sqrt($a), sqrt(1 - $a));
     }
+
+    public function richtingNaar(Locatie $andere): float
+    {
+        $lat1 = deg2rad($this->latitude);
+        $lat2 = deg2rad($andere->latitude);
+        $dLon = deg2rad($andere->longitude - $this->longitude);
+
+        $y = sin($dLon) * cos($lat2);
+        $x = cos($lat1) * sin($lat2) - sin($lat1) * cos($lat2) * cos($dLon);
+
+        return round(fmod(rad2deg(atan2($y, $x)) + 360, 360));
+    }
 }
