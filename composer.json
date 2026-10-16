@@ -1,7 +1,20 @@
 {
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "test:coverage": "vendor/bin/pest --coverage"
+  },
   "autoload": {
     "psr-4": {
-      "Geensnor\\": "src/"
+      "Geensnor\\": "src/",
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^5.3"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
     }
   }
 }
