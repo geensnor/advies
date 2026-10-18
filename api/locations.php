@@ -220,7 +220,8 @@ if ($method === 'GET') {
         'category' => $input['category'],
         'description' => (string)($input['description'] ?? $input['notes'] ?? ''),
         'avoid' => filter_var($input['avoid'] ?? false, FILTER_VALIDATE_BOOLEAN),
-        'placeName' => trim((string)$input['placeName'])
+        'placeName' => trim((string)$input['placeName']),
+        'updatedAt' => gmdate('c')
     ];
     if ($locationDate !== '') $properties['visitedAt'] = $locationDate . 'T00:00:00+00:00';
     foreach (['image', 'website'] as $urlField) {

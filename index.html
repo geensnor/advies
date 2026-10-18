@@ -1495,7 +1495,7 @@
             ]);
             allFeatures = activeData.features || [];
             archivedFeatures = archivedData.features || [];
-            showAllLocations();
+            showAllLocations(new URLSearchParams(window.location.search).has("selected"));
             restoreMapStateFromUrl();
           })
           .catch((error) => {
@@ -1639,7 +1639,7 @@
           return;
         }
 
-        tbody.innerHTML = features
+        tbody.innerHTML = sortFeaturesByLastChange(features)
           .map((feature) => {
             const props = feature.properties;
             const reference = getFeatureReference(feature);
@@ -1661,6 +1661,23 @@
           })
           .join("");
                 updateAdminActions();
+      }
+
+      function sortFeaturesByLastChange(features) {
+        return [...features].sort((first, second) => {
+          const firstTimestamp = Date.parse(first.properties?.updatedAt || "");
+          const secondTimestamp = Date.parse(second.properties?.updatedAt || "");
+          const firstHasTimestamp = Number.isFinite(firstTimestamp);
+          const secondHasTimestamp = Number.isFinite(secondTimestamp);
+
+          if (firstHasTimestamp !== secondHasTimestamp) {
+            return firstHasTimestamp ? -1 : 1;
+          }
+          if (firstHasTimestamp && firstTimestamp !== secondTimestamp) {
+            return secondTimestamp - firstTimestamp;
+          }
+          return 0;
+        });
       }
 
       function selectLocation(id) {
@@ -1735,7 +1752,7 @@
         }
       }
 
-      function showAllLocations() {
+      function showAllLocations(preserveMapState = false) {
         document.getElementById("locationSearch").value = "";
         document.getElementById("searchResults").classList.remove("show");
         const heading =
@@ -1749,7 +1766,13 @@
         const features = featuresForCurrentView();
         displayLocations(features);
         displayTable(features);
-        if (!new URLSearchParams(window.location.search).has("selected")) {
+        if (preserveMapState) {
+          return;
+        }
+        if (window.location.search) {
+          window.history.replaceState(null, "", window.location.pathname);
+        }
+        if (features.length) {
           fitFeatures(features);
         }
       }
