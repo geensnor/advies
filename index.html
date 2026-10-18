@@ -210,19 +210,6 @@
         position: relative;
       }
 
-      .map-fit {
-        position: absolute;
-        z-index: 1001;
-        top: 78px;
-        left: 10px;
-        padding: 9px 12px;
-        border: 1px solid #b8c5cc;
-        border-radius: 4px;
-        background: white;
-        color: #25343b;
-        cursor: pointer;
-      }
-
       .map-locate {
         position: absolute;
         z-index: 1001;
@@ -274,6 +261,60 @@
 
       .map-locate-message:not(:empty) {
         display: block;
+      }
+
+      .list-locate {
+        display: none;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+      }
+
+      .list-locate:hover {
+        background: #f1f5f6;
+      }
+
+      .list-locate:disabled {
+        cursor: wait;
+        opacity: 0.65;
+      }
+
+      .list-locate svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      .nearby-filter-tools {
+        align-items: center;
+        gap: 8px;
+        color: #52656b;
+        font-size: 0.85em;
+      }
+
+      .nearby-filter-tools select,
+      .nearby-filter-tools button {
+        min-height: 34px;
+        padding: 5px 8px;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        font: inherit;
+      }
+
+      .nearby-filter-tools button {
+        cursor: pointer;
+      }
+
+      .nearby-filter-tools button:hover {
+        background: #f1f5f6;
       }
 
       .search-tools {
@@ -717,6 +758,38 @@
         font-size: 0.72em;
       }
 
+      .location-detail-row > td {
+        padding: 0;
+        cursor: default;
+      }
+
+      .location-detail-card {
+        padding: 12px;
+        border-left: 3px solid var(--category-color, #385d64);
+        background: #f7f9f9;
+        color: #25343b;
+        line-height: 1.5;
+      }
+
+      .location-detail-card .popup-image {
+        max-height: 220px;
+        border-radius: 3px;
+      }
+
+      .show-on-map {
+        margin-top: 10px;
+        padding: 8px 11px;
+        border: 1px solid #385d64;
+        border-radius: 4px;
+        background: white;
+        color: #385d64;
+        cursor: pointer;
+      }
+
+      .show-on-map:hover {
+        background: #f1f5f6;
+      }
+
       .archive-state {
         display: inline-block;
         padding: 3px 6px;
@@ -966,7 +1039,8 @@
         }
 
         #locationsTable thead {
-          top: 0;
+          position: static;
+          top: auto;
         }
 
         .mobile-view-switch {
@@ -997,9 +1071,24 @@
         }
 
         .location-list-tools {
+          flex-wrap: wrap;
           gap: 6px;
           padding-right: 12px;
           padding-left: 12px;
+        }
+
+        .list-locate {
+          display: inline-flex;
+        }
+
+        .nearby-filter-tools:not([hidden]) {
+          display: flex;
+          flex: 1 0 100%;
+          flex-wrap: wrap;
+        }
+
+        .map-locate-message {
+          display: none !important;
         }
 
         .location-view-select {
@@ -1148,7 +1237,7 @@
               type="button"
               title="Toon mijn locatie"
               aria-label="Toon mijn locatie"
-              onclick="locateUser()"
+              onclick="locateUser(this)"
             >
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" />
@@ -1158,9 +1247,6 @@
             </button>
             <div id="locateUserMessage" class="map-locate-message" role="status" aria-live="polite"></div>
           </div>
-          <button class="map-fit" type="button" onclick="showAllLocations()">
-            Toon alles
-          </button>
         </div>
 
         <div id="list-panel" class="table-section">
@@ -1180,6 +1266,33 @@
                 class="search-results"
                 role="listbox"
               ></div>
+            </div>
+            <button
+              id="locateUserListButton"
+              class="list-locate"
+              type="button"
+              title="Filter locaties rond mijn huidige locatie"
+              aria-label="Filter locaties rond mijn huidige locatie"
+              onclick="locateUser(this)"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                <path d="M12 2v2m0 16v2M2 12h2m16 0h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+            <div id="nearbyFilterTools" class="nearby-filter-tools" hidden>
+              <span id="nearbyFilterStatus" role="status" aria-live="polite"></span>
+              <label for="nearbyRadius">Binnen</label>
+              <select id="nearbyRadius" aria-label="Afstand vanaf mijn locatie" onchange="setNearbyRadius(this.value)">
+                <option value="1">1 km</option>
+                <option value="2" selected>2 km</option>
+                <option value="3">3 km</option>
+                <option value="5">5 km</option>
+                <option value="10">10 km</option>
+                <option value="20">20 km</option>
+              </select>
+              <button type="button" onclick="clearNearbyFilter()">Wis filter</button>
             </div>
             <select
               id="locationView"
@@ -1266,6 +1379,8 @@
       let adminPassword = null;
       let categories = [];
       let userLocationLayer = null;
+      let nearbyCenter = null;
+      let nearbyRadiusKm = 2;
 
       function createPinIcon(color = "#385d64", avoid = false) {
         const face = avoid
@@ -1293,17 +1408,25 @@
         loadCategories().then(loadLocations);
       }
 
-      function locateUser() {
-        const button = document.getElementById("locateUserButton");
+      function locateUser(button = document.getElementById("locateUserButton")) {
         const message = document.getElementById("locateUserMessage");
         if (!navigator.geolocation) {
-          message.textContent = "Locatie ophalen wordt niet ondersteund door deze browser.";
+          const errorMessage = "Locatie ophalen wordt niet ondersteund door deze browser.";
+          if (button.id === "locateUserListButton") {
+            document.getElementById("nearbyFilterTools").hidden = false;
+            document.getElementById("nearbyFilterStatus").textContent = errorMessage;
+          } else message.textContent = errorMessage;
           return;
         }
 
         button.disabled = true;
         button.setAttribute("aria-busy", "true");
-        message.textContent = "Locatie ophalen…";
+        if (button.id === "locateUserListButton") {
+          document.getElementById("nearbyFilterTools").hidden = false;
+          document.getElementById("nearbyFilterStatus").textContent = "Locatie ophalen…";
+        } else {
+          message.textContent = "Locatie ophalen…";
+        }
 
         navigator.geolocation.getCurrentPosition(
           ({ coords }) => {
@@ -1325,8 +1448,13 @@
               fillOpacity: 1,
             });
             userLocationLayer = L.featureGroup([accuracy, marker]).addTo(map);
-            map.setView(position, Math.max(map.getZoom(), 15));
-            message.textContent = `Locatie gevonden (nauwkeurigheid ongeveer ${Math.round(coords.accuracy)} m).`;
+            if (button.id === "locateUserListButton") {
+              nearbyCenter = L.latLng(position[0], position[1]);
+              renderNearbyList();
+            } else {
+              map.setView(position, Math.max(map.getZoom(), 15));
+              message.textContent = `Locatie gevonden (nauwkeurigheid ongeveer ${Math.round(coords.accuracy)} m).`;
+            }
             button.disabled = false;
             button.removeAttribute("aria-busy");
           },
@@ -1336,7 +1464,10 @@
               2: "Je locatie kon niet worden bepaald.",
               3: "Locatie ophalen duurde te lang. Probeer het opnieuw.",
             };
-            message.textContent = messages[error.code] || "Locatie ophalen is mislukt.";
+            const errorMessage = messages[error.code] || "Locatie ophalen is mislukt.";
+            if (button.id === "locateUserListButton") {
+              document.getElementById("nearbyFilterStatus").textContent = errorMessage;
+            } else message.textContent = errorMessage;
             button.disabled = false;
             button.removeAttribute("aria-busy");
           },
@@ -1593,22 +1724,12 @@
             const reference = getFeatureReference(feature);
             if (!reference) return;
             const category = getCategory(props.category);
-            const date = formatLocationDate(props.visitedAt);
-            const popupDate = `<br><small class="popup-date">${date ? `bezocht op: ${date} &middot;` : ""}</small>`;
-            const imageUrl = safeWebUrl(props.image);
-            const websiteUrl = safeWebUrl(props.website);
-            const popupImage = imageUrl
-              ? `<img class="popup-image" src="${escapeHtml(imageUrl)}" alt="Afbeelding van ${escapeHtml(props.name)}" loading="lazy" onerror="this.hidden=true">`
-              : "";
-            const popupWebsite = websiteUrl
-              ? `<br><a class="popup-website" href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer">Website</a>`
-              : "";
 
             const marker = L.marker([coords[1], coords[0]], {
               icon: createPinIcon(category.color, props.avoid === true),
             })
               .bindPopup(
-                `<strong>${escapeHtml(props.name)}</strong><br/>${escapeHtml(props.description || "Geen beschrijving")}${popupDate}${popupImage}${popupWebsite}`,
+                buildLocationPopupContent(props),
                 {
                   maxWidth: 560,
                   minWidth: 220,
@@ -1625,6 +1746,20 @@
         });
       }
 
+      function buildLocationPopupContent(properties) {
+        const date = formatLocationDate(properties.visitedAt);
+        const popupDate = `<br><small class="popup-date">${date ? `bezocht op: ${date} &middot;` : ""}</small>`;
+        const imageUrl = safeWebUrl(properties.image);
+        const websiteUrl = safeWebUrl(properties.website);
+        const popupImage = imageUrl
+          ? `<img class="popup-image" src="${escapeHtml(imageUrl)}" alt="Afbeelding van ${escapeHtml(properties.name)}" loading="lazy" onerror="this.hidden=true">`
+          : "";
+        const popupWebsite = websiteUrl
+          ? `<br><a class="popup-website" href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer">Website</a>`
+          : "";
+        return `<strong>${escapeHtml(properties.name)}</strong><br/>${escapeHtml(properties.description || "Geen beschrijving")}${popupDate}${popupImage}${popupWebsite}`;
+      }
+
       function displayTable(features) {
         const tbody = document.getElementById("locationsBody");
         const columnCount = adminPassword ? 3 : 2;
@@ -1639,7 +1774,13 @@
           return;
         }
 
-        tbody.innerHTML = sortFeaturesByLastChange(features)
+        const sortedFeatures = nearbyCenter
+          ? [...features].sort(
+              (first, second) =>
+                distanceFromNearbyCenter(first) - distanceFromNearbyCenter(second),
+            )
+          : sortFeaturesByLastChange(features);
+        tbody.innerHTML = sortedFeatures
           .map((feature) => {
             const props = feature.properties;
             const reference = getFeatureReference(feature);
@@ -1650,13 +1791,26 @@
               typeof props.placeName === "string" && props.placeName.trim()
                 ? props.placeName.trim()
                 : "plaats onbekend";
+            const distanceLabel = nearbyCenter
+              ? `<span class="location-distance">${(distanceFromNearbyCenter(feature) / 1000).toFixed(1)} km</span>`
+              : "";
+            const details = `
+              <tr class="location-detail-row" data-details-for="${reference.key}" hidden>
+                <td colspan="${columnCount}">
+                  <div class="location-detail-card" style="--category-color:${category.color}">
+                    ${buildLocationPopupContent(props)}
+                    <br><button class="show-on-map" type="button" onclick="event.stopPropagation(); showLocationOnMap('${reference.key}')">Toon op kaart</button>
+                  </div>
+                </td>
+              </tr>`;
 
             return `
                     <tr class="location-row" data-id="${reference.key}" style="--category-color:${category.color}" onclick="selectLocation('${reference.key}')" onmouseenter="setMarkerHover('${reference.key}', true)" onmouseleave="setMarkerHover('${reference.key}', false)">
-                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ""}<span class="location-date">${date ? `bezocht op: ${date} &middot;` : ""} ${escapeHtml(placeName)}</span></td>
+                        <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ""}<span class="location-date">${date ? `bezocht op: ${date} &middot;` : ""} ${escapeHtml(placeName)} ${distanceLabel}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
                         ${adminPassword ? '<td class="location-admin-actions"></td>' : ""}
                     </tr>
+                      ${details}
                 `;
           })
           .join("");
@@ -1681,12 +1835,27 @@
       }
 
       function selectLocation(id) {
-        highlightRow(id);
         const content = document.querySelector(".content");
-        if (
+        const mobileList =
           window.matchMedia("(max-width: 600px)").matches &&
-          content.dataset.mobileView === "list"
-        ) {
+          content.dataset.mobileView === "list";
+        if (mobileList) {
+          highlightRow(id);
+          const detailsRow = document.querySelector(`[data-details-for="${id}"]`);
+          const shouldOpen = detailsRow?.hidden;
+          document.querySelectorAll(".location-detail-row").forEach((row) => {
+            row.hidden = true;
+          });
+          if (detailsRow) detailsRow.hidden = !shouldOpen;
+          return;
+        }
+
+        showLocationOnMap(id);
+      }
+
+      function showLocationOnMap(id) {
+        highlightRow(id);
+        if (window.matchMedia("(max-width: 600px)").matches) {
           setMobileView("map");
         }
         const [collection, indexText] = String(id).split("-");
@@ -1721,7 +1890,45 @@
 
       function visibleFeatures() {
         const query = document.getElementById("locationSearch").value.trim();
-        return query ? matchingLocations(query) : featuresForCurrentView();
+        const features = query ? matchingLocations(query) : featuresForCurrentView();
+        return filterFeaturesByNearbyDistance(features);
+      }
+
+      function distanceFromNearbyCenter(feature) {
+        if (!nearbyCenter || feature.geometry?.type !== "Point") return Infinity;
+        const [longitude, latitude] = feature.geometry.coordinates;
+        return nearbyCenter.distanceTo([latitude, longitude]);
+      }
+
+      function filterFeaturesByNearbyDistance(features) {
+        if (!nearbyCenter) return features;
+        const maxDistance = nearbyRadiusKm * 1000;
+        return features.filter(
+          (feature) => distanceFromNearbyCenter(feature) <= maxDistance,
+        );
+      }
+
+      function renderNearbyList() {
+        document.getElementById("nearbyFilterTools").hidden = false;
+        document.getElementById("nearbyRadius").value = String(nearbyRadiusKm);
+        const features = visibleFeatures();
+        displayTable(features);
+        document.getElementById("nearbyFilterStatus").textContent = features.length
+          ? `${features.length} ${features.length === 1 ? "locatie" : "locaties"} binnen ${nearbyRadiusKm} km`
+          : `Geen locaties binnen ${nearbyRadiusKm} km`;
+      }
+
+      function setNearbyRadius(value) {
+        const radiusKm = Number(value);
+        if (![1, 2, 3, 5, 10, 20].includes(radiusKm)) return;
+        nearbyRadiusKm = radiusKm;
+        renderNearbyList();
+      }
+
+      function clearNearbyFilter() {
+        nearbyCenter = null;
+        document.getElementById("nearbyFilterTools").hidden = true;
+        displayTable(visibleFeatures());
       }
 
       function searchablePropertyValues(value) {
@@ -1755,6 +1962,8 @@
       function showAllLocations(preserveMapState = false) {
         document.getElementById("locationSearch").value = "";
         document.getElementById("searchResults").classList.remove("show");
+        nearbyCenter = null;
+        document.getElementById("nearbyFilterTools").hidden = true;
         const heading =
           locationView === "archived"
             ? "Gearchiveerde locaties"
@@ -1805,11 +2014,11 @@
         results.replaceChildren();
         results.classList.remove("show");
         if (!query) {
-          const features = featuresForCurrentView();
+          const features = visibleFeatures();
           displayLocations(features);
           displayTable(features);
         } else {
-          const matches = matchingLocations(query);
+          const matches = filterFeaturesByNearbyDistance(matchingLocations(query));
           displayLocations(matches);
           displayTable(matches);
           if (matches.length) {
