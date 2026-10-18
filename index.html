@@ -116,6 +116,24 @@
         white-space: nowrap;
       }
 
+      .export-menu summary:hover,
+      .admin-menu summary:hover {
+        border-color: #87999f;
+        background: #f1f5f6;
+      }
+
+      .export-menu summary:focus-visible,
+      .admin-menu summary:focus-visible,
+      .export-options a:focus-visible,
+      .export-options button:focus-visible,
+      .admin-login button:focus-visible,
+      .admin-controls button:focus-visible,
+      .admin-controls .btn-add:focus-visible,
+      .row-actions button:focus-visible {
+        outline: 2px solid #385d64;
+        outline-offset: 2px;
+      }
+
       .export-menu summary::-webkit-details-marker {
         display: none;
       }
@@ -169,6 +187,11 @@
         border-radius: 4px;
         cursor: pointer;
         white-space: nowrap;
+      }
+
+      .btn-edit:hover,
+      .btn-archive:hover {
+        background: #f1f5f6;
       }
 
       .content {
@@ -331,6 +354,92 @@
         gap: 8px;
         flex-wrap: wrap;
         justify-content: flex-end;
+      }
+
+      .admin-menu {
+        position: relative;
+      }
+
+      .admin-menu summary {
+        display: inline-flex;
+        align-items: center;
+        min-height: 41px;
+        padding: 9px 14px;
+        border: 1px solid #b8c5cc;
+        border-radius: 4px;
+        background: white;
+        color: #25343b;
+        cursor: pointer;
+        font: inherit;
+        list-style: none;
+        white-space: nowrap;
+      }
+
+      .admin-menu summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .admin-menu summary::after {
+        content: "▾";
+        margin-left: 10px;
+        color: #52656b;
+      }
+
+      .admin-menu-options {
+        position: absolute;
+        z-index: 1200;
+        top: calc(100% + 4px);
+        right: 0;
+        display: grid;
+        gap: 8px;
+        width: min(260px, calc(100vw - 24px));
+        padding: 10px;
+        border: 1px solid #cbd2d6;
+        border-radius: 4px;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+      }
+
+      .admin-controls {
+        display: grid;
+        gap: 6px;
+      }
+
+      .admin-controls button,
+      .admin-controls .btn-add,
+      .admin-login button {
+        width: 100%;
+        min-height: 36px;
+        padding: 7px 9px;
+        border: 1px solid #b8c5cc;
+        border-radius: 3px;
+        background: white;
+        color: #25343b;
+        font: inherit;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .admin-controls button:disabled {
+        color: #89949a;
+        cursor: not-allowed;
+      }
+
+      .admin-controls .btn-delete {
+        color: #b6423e;
+      }
+
+      .admin-controls button:not(:disabled):hover,
+      .admin-controls .btn-add:hover,
+      .admin-login button:hover {
+        border-color: #87999f;
+        background: #f1f5f6;
+      }
+
+      .admin-selection {
+        color: #66757b;
+        font-size: 0.82em;
       }
 
       .table-heading {
@@ -746,6 +855,12 @@
 
       @media (max-width: 600px) {
         .header-actions {
+          display: flex;
+          width: auto;
+          justify-content: flex-end;
+        }
+
+        .header-actions > .export-menu {
           display: none;
         }
 
@@ -938,7 +1053,6 @@
         .row-actions {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 4px;
         }
 
         .row-actions button {
@@ -948,8 +1062,7 @@
         }
       }
     </style>
-  </head>
-  <body>
+
     <div class="container">
       <div class="header">
         <a
@@ -986,6 +1099,41 @@
               >
                 GPX downloaden
               </button>
+            </div>
+          </details>
+          <details id="adminMenu" class="admin-menu">
+            <summary>Beheer</summary>
+            <div class="admin-menu-options">
+              <div id="adminLogin" class="admin-login">
+                <input
+                  id="adminPasswordInput"
+                  type="password"
+                  autocomplete="current-password"
+                  aria-label="Beheerderswachtwoord"
+                  placeholder="Beheerderswachtwoord"
+                />
+                <button type="button" onclick="unlockAdminMode()">
+                  Ontgrendelen
+                </button>
+                <span
+                  id="adminMessage"
+                  class="admin-message"
+                  role="status"
+                  aria-live="polite"
+                ></span>
+              </div>
+              <div id="adminControls" class="admin-controls" hidden>
+                <a id="addLocationLink" href="add-location.html" class="btn-add">
+                  + Locatie toevoegen
+                </a>
+                <button
+                  id="adminLock"
+                  type="button"
+                  onclick="lockAdminMode()"
+                >
+                  Beheer vergrendelen
+                </button>
+              </div>
             </div>
           </details>
         </div>
@@ -1065,51 +1213,6 @@
                     </button>
                   </div>
                 </details>
-                <button
-                  id="adminToggle"
-                  class="admin-toggle"
-                  type="button"
-                  onclick="showAdminLogin()"
-                >
-                  Beheer
-                </button>
-                <div id="adminLogin" class="admin-login" hidden>
-                  <input
-                    id="adminPasswordInput"
-                    type="password"
-                    autocomplete="current-password"
-                    aria-label="Beheerderswachtwoord"
-                    placeholder="Beheerderswachtwoord"
-                  />
-                  <button type="button" onclick="unlockAdminMode()">
-                    Ontgrendelen
-                  </button>
-                  <button type="button" onclick="cancelAdminLogin()">
-                    Annuleren
-                  </button>
-                  <span
-                    id="adminMessage"
-                    class="admin-message"
-                    role="status"
-                    aria-live="polite"
-                  ></span>
-                </div>
-                <a
-                  id="addLocationLink"
-                  href="add-location.html"
-                  class="btn-add"
-                  hidden
-                  >+ Locatie toevoegen</a
-                >
-                <button
-                  id="adminLock"
-                  class="admin-lock"
-                  type="button"
-                  onclick="lockAdminMode()"
-                  hidden
-                >
-                  Beheer vergrendelen
-                </button>
               </div>
             </div>
             <table id="locationsTable">
@@ -1122,7 +1225,7 @@
               </thead>
               <tbody id="locationsBody">
                 <tr>
-                  <td colspan="3" class="empty-message">Locaties laden...</td>
+                  <td colspan="2" class="empty-message">Locaties laden...</td>
                 </tr>
               </tbody>
             </table>
@@ -1528,9 +1631,11 @@
         document
           .getElementById("locationsTable")
           .classList.toggle("is-admin", Boolean(adminPassword));
+        document.getElementById("actionHeading").hidden = !adminPassword;
 
         if (features.length === 0) {
           tbody.innerHTML = `<tr><td colspan="${columnCount}" class="empty-message">Geen opgeslagen locaties gevonden</td></tr>`;
+          updateAdminActions();
           return;
         }
 
@@ -1550,11 +1655,12 @@
                     <tr class="location-row" data-id="${reference.key}" style="--category-color:${category.color}" onclick="selectLocation('${reference.key}')" onmouseenter="setMarkerHover('${reference.key}', true)" onmouseleave="setMarkerHover('${reference.key}', false)">
                         <td><strong>${escapeHtml(props.name)}</strong>${props.avoid === true ? '<span class="avoid-badge" aria-label="Afrader: doodshoofd">&#9760; AFRADER</span>' : ""}<span class="location-date">${date ? `bezocht op: ${date} &middot;` : ""} ${escapeHtml(placeName)}</span></td>
                         <td><span class="category-badge" style="--category-color:${category.color}">${escapeHtml(category.label)}</span></td>
-                        ${adminPassword ? `<td onclick="event.stopPropagation()">${reference.collection === "active" ? `<div class="row-actions"><button class="btn-edit" title="Locatie wijzigen" onclick="editLocation(${reference.index})">Wijzig</button><button class="btn-archive" title="Locatie archiveren" onclick="archiveLocation(${reference.index})">Archiveer</button><button class="btn-delete" title="Locatie verwijderen" onclick="deleteLocation(${reference.index})">Verwijder</button></div>` : '<span class="archive-state">Archief</span>'}</td>` : ""}
+                        ${adminPassword ? '<td class="location-admin-actions"></td>' : ""}
                     </tr>
                 `;
           })
           .join("");
+                updateAdminActions();
       }
 
       function selectLocation(id) {
@@ -1692,19 +1798,6 @@
         }
       }
 
-      function showAdminLogin() {
-        document.getElementById("adminToggle").hidden = true;
-        document.getElementById("adminLogin").hidden = false;
-        document.getElementById("adminPasswordInput").focus();
-      }
-
-      function cancelAdminLogin() {
-        document.getElementById("adminLogin").hidden = true;
-        document.getElementById("adminToggle").hidden = false;
-        document.getElementById("adminPasswordInput").value = "";
-        document.getElementById("adminMessage").textContent = "";
-      }
-
       async function unlockAdminMode() {
         const passwordInput = document.getElementById("adminPasswordInput");
         const password = passwordInput.value;
@@ -1731,9 +1824,8 @@
           sessionStorage.setItem("locationEditPassword", password);
           passwordInput.value = "";
           document.getElementById("adminLogin").hidden = true;
-          document.getElementById("addLocationLink").hidden = false;
-          document.getElementById("adminLock").hidden = false;
-          document.getElementById("actionHeading").hidden = false;
+          document.getElementById("adminControls").hidden = false;
+          updateAdminActions();
           displayTable(visibleFeatures());
         } catch (error) {
           message.textContent = error.message;
@@ -1743,10 +1835,10 @@
       function lockAdminMode() {
         adminPassword = null;
         sessionStorage.removeItem("locationEditPassword");
-        document.getElementById("addLocationLink").hidden = true;
-        document.getElementById("adminLock").hidden = true;
-        document.getElementById("adminToggle").hidden = false;
-        document.getElementById("actionHeading").hidden = true;
+        document.getElementById("adminControls").hidden = true;
+        document.getElementById("adminLogin").hidden = false;
+        document.getElementById("adminMenu").open = false;
+        updateAdminActions();
         displayTable(visibleFeatures());
       }
 
@@ -1762,13 +1854,15 @@
           setMarkerLinked(currentHighlightedLocationKey, false);
         }
 
-        // Add new highlight
+        currentHighlightedLocationKey = String(id);
+        currentHighlightedRow = null;
+        setMarkerLinked(currentHighlightedLocationKey, true);
+        updateAdminActions();
+
         const row = document.querySelector(`tr[data-id="${id}"]`);
         if (row) {
           row.classList.add("highlighted");
           currentHighlightedRow = row;
-          currentHighlightedLocationKey = String(id);
-          setMarkerLinked(currentHighlightedLocationKey, true);
           const tableSection = document.querySelector(".table-section");
           const mobileList =
             window.matchMedia("(max-width: 600px)").matches &&
@@ -1805,6 +1899,70 @@
         if (row) row.classList.toggle("pin-hovered", hovering);
       }
 
+      function selectedActiveLocationIndex() {
+        if (!adminPassword || !currentHighlightedLocationKey) return null;
+        const [collection, indexText] = currentHighlightedLocationKey.split("-");
+        const index = Number(indexText);
+        return collection === "active" && Number.isInteger(index) && allFeatures[index]
+          ? index
+          : null;
+      }
+
+      function updateAdminActions() {
+        document
+          .querySelectorAll(".location-admin-actions")
+          .forEach((cell) => cell.replaceChildren());
+        const index = selectedActiveLocationIndex();
+        if (index === null) return;
+
+        const row = [...document.querySelectorAll(".location-row")].find(
+          (candidate) => candidate.dataset.id === `active-${index}`,
+        );
+        const cell = row?.querySelector(".location-admin-actions");
+        if (!cell) return;
+
+        const actions = document.createElement("div");
+        actions.className = "row-actions";
+        for (const [label, title, action, className] of [
+          ["Wijzig", "Locatie wijzigen", editSelectedLocation, "btn-edit"],
+          ["Archiveer", "Locatie archiveren", archiveSelectedLocation, "btn-archive"],
+          ["Verwijder", "Locatie verwijderen", deleteSelectedLocation, "btn-delete"],
+        ]) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = className;
+          button.title = title;
+          button.textContent = label;
+          button.addEventListener("click", (event) => {
+            event.stopPropagation();
+            action();
+          });
+          actions.append(button);
+        }
+        cell.append(actions);
+      }
+
+      function editSelectedLocation() {
+        const index = selectedActiveLocationIndex();
+        if (index !== null) editLocation(index);
+      }
+
+      function archiveSelectedLocation() {
+        const index = selectedActiveLocationIndex();
+        if (index !== null) archiveLocation(index);
+      }
+
+      function deleteSelectedLocation() {
+        const index = selectedActiveLocationIndex();
+        if (index !== null) deleteLocation(index);
+      }
+
+      function clearSelectedLocation() {
+        currentHighlightedRow = null;
+        currentHighlightedLocationKey = null;
+        updateAdminActions();
+      }
+
       function deleteLocation(id) {
         if (!confirm("Weet je zeker dat je deze locatie wilt verwijderen?"))
           return;
@@ -1826,6 +1984,7 @@
             }),
           )
           .then(() => {
+            clearSelectedLocation();
             loadLocations();
           })
           .catch((error) => alert(error.message));
@@ -1853,7 +2012,10 @@
               return data;
             }),
           )
-          .then(() => loadLocations())
+          .then(() => {
+            clearSelectedLocation();
+            loadLocations();
+          })
           .catch((error) => alert(error.message));
       }
 
@@ -1887,10 +2049,9 @@
           if (!response.ok) throw new Error("Admin authorization expired");
 
           adminPassword = password;
-          document.getElementById("addLocationLink").hidden = false;
-          document.getElementById("adminLock").hidden = false;
-          document.getElementById("actionHeading").hidden = false;
-          document.getElementById("adminToggle").hidden = true;
+          document.getElementById("adminLogin").hidden = true;
+          document.getElementById("adminControls").hidden = false;
+          updateAdminActions();
           displayTable(visibleFeatures());
         } catch (error) {
           sessionStorage.removeItem("locationEditPassword");
