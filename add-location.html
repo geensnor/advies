@@ -239,7 +239,7 @@
         }
 
         .search-results {
-            max-height: 200px;
+            max-height: 280px;
             overflow-y: auto;
             border: 1px solid #d0d0d0;
             border-radius: 4px;
@@ -253,10 +253,17 @@
         }
 
         .result-item {
-            padding: 10px;
-            border-bottom: 1px solid #f0f0f0;
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 0;
+            border-bottom: 1px solid #e6eaec;
+            border-radius: 0;
+            background: white;
+            color: #25343b;
             cursor: pointer;
-            transition: background 0.2s;
+            text-align: left;
+            transition: background-color 0.15s, border-color 0.15s;
         }
 
         .result-item:last-child {
@@ -264,18 +271,31 @@
         }
 
         .result-item:hover {
-            background: #f9f9f9;
+            background: #f1f5f6;
+        }
+
+        .result-item:focus-visible {
+            position: relative;
+            z-index: 1;
+            outline: 2px solid #385d64;
+            outline-offset: -2px;
         }
 
         .result-name {
-            font-weight: 500;
-            color: #333;
+            display: block;
+            color: #25343b;
+            font-size: 0.95em;
+            font-weight: 600;
         }
 
-        .result-type {
-            font-size: 0.85em;
-            color: #999;
+        .result-address {
+            display: block;
             margin-top: 4px;
+            color: #596a70;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
         }
 
         .success-message {
@@ -366,7 +386,7 @@
                         placeholder="bijv. koffiebar, museum, park..."
                     >
                     <button class="search-button" onclick="searchPlaces()">Zoeken</button>
-                    <div id="searchResults" class="search-results"></div>
+                    <div id="searchResults" class="search-results" role="list" aria-label="Zoekresultaten"></div>
                 </div>
             </div>
 
@@ -641,10 +661,10 @@
                         const name = document.createElement('span');
                         name.className = 'result-name';
                         name.textContent = place.name || place.display_name;
-                        const type = document.createElement('span');
-                        type.className = 'result-type';
-                        type.textContent = place.type || place.category || '';
-                        button.append(name, type);
+                        const address = document.createElement('span');
+                        address.className = 'result-address';
+                        address.textContent = formatSearchResultAddress(place);
+                        button.append(name, address);
                         button.addEventListener('click', () => selectPlace(
                             Number(place.lat), Number(place.lon), place.name || place.display_name,
                             extractPlaceName(place.address)
@@ -656,6 +676,15 @@
                     console.error('Search error:', error);
                     resultsDiv.innerHTML = '<div style="padding: 10px; color: #666;">Zoeken mislukt. Probeer opnieuw.</div>';
                 });
+        }
+
+        function formatSearchResultAddress(place) {
+            const displayName = String(place.display_name || '').trim();
+            const placeName = String(place.name || '').trim();
+            if (displayName && placeName && displayName.startsWith(`${placeName},`)) {
+                return displayName.slice(placeName.length + 1).trim();
+            }
+            return displayName || extractPlaceName(place.address) || 'Adres onbekend';
         }
 
         function selectPlace(lat, lng, name, placeName) {
