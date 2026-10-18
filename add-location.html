@@ -450,7 +450,7 @@
                     </div>
                     <div class="button-group">
                         <button class="btn-submit" onclick="saveLocation()">Opslaan</button>
-                        <button class="btn-back" onclick="window.location.href='index.html'">Terug</button>
+                        <button class="btn-back" onclick="returnToMap()">Terug</button>
                     </div>
                 </div>
             </div>
@@ -674,9 +674,21 @@
             if (type === 'success') {
                 setTimeout(() => {
                     msgElement.classList.remove('show');
-                    window.location.href = 'index.html';
+                    returnToMap();
                 }, 2000);
             }
+        }
+
+        function returnToMap() {
+            const searchParams = new URLSearchParams(window.location.search);
+            const params = new URLSearchParams();
+            for (const [source, target] of [['returnLat', 'lat'], ['returnLng', 'lng'], ['returnZoom', 'zoom']]) {
+                const value = searchParams.get(source);
+                if (value !== null) params.set(target, value);
+            }
+            if (locationId !== null) params.set('selected', `active-${locationId}`);
+            const query = params.toString();
+            window.location.href = `index.html${query ? `?${query}` : ''}`;
         }
 
         function setFieldError(fieldId, message) {

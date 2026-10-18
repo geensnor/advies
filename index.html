@@ -1393,6 +1393,7 @@
             allFeatures = activeData.features || [];
             archivedFeatures = archivedData.features || [];
             showAllLocations();
+            restoreMapStateFromUrl();
           })
           .catch((error) => {
             console.error("Error loading locations:", error);
@@ -1425,6 +1426,49 @@
         return collection === "archived"
           ? archivedFeatures[index]
           : allFeatures[index];
+      }
+
+      function restoreMapStateFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const selected = params.get("selected");
+        const selectedFeature = selected ? getFeatureByReference(selected) : null;
+        const hasMapState = ["lat", "lng", "zoom"].every((key) => {
+          const value = params.get(key);
+          return value !== null && value.trim() !== "";
+        });
+        let latitude;
+        let longitude;
+        let zoom;
+
+        if (hasMapState) {
+          latitude = Number(params.get("lat"));
+          longitude = Number(params.get("lng"));
+          zoom = Number(params.get("zoom"));
+          if (
+            !Number.isFinite(latitude) ||
+            latitude < -90 ||
+            latitude > 90 ||
+            !Number.isFinite(longitude) ||
+            longitude < -180 ||
+            longitude > 180 ||
+            !Number.isFinite(zoom) ||
+            zoom < 0 ||
+            zoom > 19
+          ) {
+            return;
+          }
+        } else if (selectedFeature?.geometry?.type === "Point") {
+          [longitude, latitude] = selectedFeature.geometry.coordinates;
+          zoom = 15;
+        } else {
+          return;
+        }
+
+        map.setView([latitude, longitude], zoom, { animate: false });
+        if (selectedFeature) {
+          highlightRow(selected);
+          markers[selected]?.openPopup();
+        }
       }
 
       function featuresForCurrentView() {
@@ -1599,7 +1643,9 @@
         const features = featuresForCurrentView();
         displayLocations(features);
         displayTable(features);
-        fitFeatures(features);
+        if (!new URLSearchParams(window.location.search).has("selected")) {
+          fitFeatures(features);
+        }
       }
 
       function setMobileView(view) {
@@ -1813,7 +1859,16 @@
 
       function editLocation(id) {
         if (!adminPassword) return;
-        window.location.href = `add-location.html?id=${encodeURIComponent(id)}`;
+        const feature = allFeatures[id];
+        if (!feature || feature.geometry?.type !== "Point") return;
+        const [longitude, latitude] = feature.geometry.coordinates;
+        const params = new URLSearchParams({
+          id: String(id),
+          returnLat: String(latitude),
+          returnLng: String(longitude),
+          returnZoom: String(Math.max(map.getZoom(), 15)),
+        });
+        window.location.href = `add-location.html?${params}`;
       }
 
       async function restoreAdminMode() {
