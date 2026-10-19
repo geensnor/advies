@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v7
+      - name: Generate production autoloader
+        run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
