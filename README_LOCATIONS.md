@@ -147,31 +147,6 @@ X-Edit-Password: <wachtwoord>
 }
 ```
 
-## 🔄 Data-import
-
-De actieve collectie in `data/locations.geojson` bevat 347 locaties uit de Google My Maps-productie-export. Iconen zijn naar de lokale categorieën vertaald; doodshoofd-iconen worden als `avoid: true` opgeslagen. De eerste afbeelding per locatie en alle plaatsnamen zijn behouden of op basis van coördinaten aangevuld.
-
-De KMZ-importer schrijft standaard `backup_google/Meer geensnor.geojson`:
-
-```bash
-python3 scripts/import-google-kmz.py
-```
-
-De importer vervangt de actieve collectie niet automatisch. Controleer de gegenereerde GeoJSON voordat je die activeert.
-
-## Plaatsnamen aanvullen
-
-Bestaande locaties zijn verrijkt met `properties.placeName` via Nominatim reverse geocoding. Het script werkt standaard op `data/locations.geojson`; gebruik `--file` om een andere GeoJSON te controleren of aan te vullen:
-
-```bash
-node scripts/backfill-place-names.js
-node scripts/backfill-place-names.js --write
-node scripts/backfill-place-names.js --file 'backup_google/Meer geensnor.geojson'
-node scripts/backfill-place-names.js --file 'backup_google/Meer geensnor.geojson' --write
-```
-
-De schrijfmodus bewaart eerst `data/locations.geojson.before-place-name-backfill` (genegeerd door Git), vraagt Nominatim sequentieel op met minimaal 1,1 seconde tussen verzoeken en vervangt het databestand pas als de hele run slaagt.
-
 ## 🎨 Categorieën
 
 - `bar`, `restaurant`, `trailerhelling`, `overig`, `overnachten`, `koffie`, `muziek`, `strand`, `snackbar`, `lunch`
