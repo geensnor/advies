@@ -2200,6 +2200,9 @@
       function clearSelectedLocation() {
         currentHighlightedRow = null;
         currentHighlightedLocationKey = null;
+        const url = new URL(window.location.href);
+        url.searchParams.delete("selected");
+        window.history.replaceState(null, "", url);
         updateAdminActions();
       }
 
