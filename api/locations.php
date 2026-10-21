@@ -54,7 +54,8 @@ if (!file_exists($dataFile)) {
 }
 
 // Helper function to read GeoJSON
-function getLocations() {
+function getLocations()
+{
     global $dataFile;
     if (!file_exists($dataFile)) {
         return ['$schema' => 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json', 'type' => 'FeatureCollection', 'name' => 'Places of Interest', 'features' => []];
@@ -65,21 +66,24 @@ function getLocations() {
 }
 
 // Helper function to save GeoJSON
-function saveLocations($geojson) {
+function saveLocations($geojson)
+{
     global $dataFile;
     $geojson['$schema'] = 'https://geensnor.nl/schemas/geensnor-hotspots-schema.json';
     $json = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     return $json !== false && file_put_contents($dataFile, $json, LOCK_EX) !== false;
 }
 
-function getCategories() {
+function getCategories()
+{
     global $categoriesFile;
     $json = is_file($categoriesFile) ? file_get_contents($categoriesFile) : false;
     $categories = $json === false ? null : json_decode($json, true);
     return is_array($categories) ? $categories : [];
 }
 
-function categoryExists($categoryId) {
+function categoryExists($categoryId)
+{
     $schemaCategories = ['bar', 'restaurant', 'trailerhelling', 'overig', 'overnachten', 'koffie', 'muziek', 'strand', 'snackbar', 'lunch'];
     if (!in_array($categoryId, $schemaCategories, true)) return false;
     foreach (getCategories() as $category) {
@@ -88,13 +92,15 @@ function categoryExists($categoryId) {
     return false;
 }
 
-function isValidDateOnly($date) {
+function isValidDateOnly($date)
+{
     if (!is_string($date) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) return false;
     [$year, $month, $day] = array_map('intval', explode('-', $date));
     return checkdate($month, $day, $year);
 }
 
-function isValidWebUrl($url) {
+function isValidWebUrl($url)
+{
     if (!is_string($url) || filter_var($url, FILTER_VALIDATE_URL) === false) return false;
     $scheme = strtolower((string)parse_url($url, PHP_URL_SCHEME));
     return $scheme === 'http' || $scheme === 'https';
@@ -119,7 +125,6 @@ if ($method === 'GET') {
     // Retrieve all locations
     $data = getLocations();
     echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    
 } elseif ($method === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
 
@@ -172,7 +177,7 @@ if ($method === 'GET') {
 
         array_splice($geojson['features'], $featureIndex, 1);
         if (!saveLocations($geojson)) {
-            if ($archiveExisted && $previousArchive !== false) {
+            if ($archiveExisted) {
                 file_put_contents($archiveFile, $previousArchive, LOCK_EX);
             } else {
                 unlink($archiveFile);
@@ -212,9 +217,9 @@ if ($method === 'GET') {
             exit();
         }
     }
-    
+
     $geojson = getLocations();
-    
+
     $properties = [
         'name' => trim((string)$input['name']),
         'category' => $input['category'],
@@ -236,17 +241,16 @@ if ($method === 'GET') {
         ],
         "properties" => $properties
     ];
-    
+
     // Add to features array
     $geojson['features'][] = $feature;
-    
+
     if (!saveLocations($geojson)) {
         http_response_code(500);
         echo json_encode(['error' => 'Location could not be saved']);
         exit();
     }
     echo json_encode($feature);
-
 } elseif ($method === 'PUT') {
     $input = json_decode(file_get_contents('php://input'), true);
 
@@ -320,11 +324,10 @@ if ($method === 'GET') {
         exit();
     }
     echo json_encode($updatedFeature);
-    
 } elseif ($method === 'DELETE') {
     // Delete a location
     $input = json_decode(file_get_contents('php://input'), true);
-    
+
     if (!isset($input['featureIndex'])) {
         http_response_code(400);
         echo json_encode(['error' => 'Missing feature index']);
@@ -347,4 +350,3 @@ if ($method === 'GET') {
     }
     echo json_encode(['success' => true]);
 }
-?>
