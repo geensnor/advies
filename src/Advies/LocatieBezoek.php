@@ -11,6 +11,8 @@ final readonly class LocatieBezoek
         public float $afstand,
         public float $richting,
         public Kompasrichting $kompasrichting,
+        public string $OpenStreetMapRoute
+
     ) {}
 
     public static function vanuit(
@@ -21,7 +23,8 @@ final readonly class LocatieBezoek
             $advies,
             $huidig->afstandTot($advies->locatie),
             $huidig->richtingNaar($advies->locatie),
-            Kompasrichting::vanGraden($huidig->richtingNaar($advies->locatie))
+            Kompasrichting::vanGraden($huidig->richtingNaar($advies->locatie)),
+            $huidig->OpenstreetviewRoute($advies->locatie)
         );
     }
 

@@ -38,4 +38,10 @@ final readonly class Locatie
 
         return round(fmod(rad2deg(atan2($y, $x)) + 360, 360));
     }
+
+    public function OpenstreetviewRoute(Locatie $andere): string
+    {
+        $OSMLink = "https://www.openstreetmap.org/directions?engine=graphhopper_foot&route=" . $this->latitude . "%2C" . $this->longitude . "%3B" . $andere->latitude . "%2C" . $andere->longitude;
+        return $OSMLink;
+    }
 }
