@@ -1627,7 +1627,8 @@
             allFeatures = activeData.features || [];
             archivedFeatures = archivedData.features || [];
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get("selected")?.startsWith("archived-")) {
+            const selectedFeature = getFeatureByReference(urlParams.get("selected"));
+            if (selectedFeature && archivedFeatures.includes(selectedFeature)) {
               locationView = "archived";
               document.getElementById("locationView").value = locationView;
             }
@@ -1660,11 +1661,50 @@
       }
 
       function getFeatureByReference(key) {
-        const [collection, indexText] = String(key).split("-");
-        const index = Number(indexText);
-        return collection === "archived"
-          ? archivedFeatures[index]
-          : allFeatures[index];
+        const reference = String(key || "");
+        const indexMatch = /^(active|archived)-(\d+)$/.exec(reference);
+        if (indexMatch) {
+          const index = Number(indexMatch[2]);
+          return indexMatch[1] === "archived"
+            ? archivedFeatures[index]
+            : allFeatures[index];
+        }
+
+        const slugMatch = /^(.+)-(-?\d+(?:\.\d+)?)-(-?\d+(?:\.\d+)?)$/.exec(reference);
+        if (!slugMatch) return undefined;
+        const [, slug, latitudeText, longitudeText] = slugMatch;
+        const features = [...allFeatures, ...archivedFeatures];
+        const coordinateMatches = features.filter((feature) => {
+          const coordinates = feature.geometry?.coordinates;
+          return (
+            feature.geometry?.type === "Point" &&
+            Number(coordinates?.[1]) === Number(latitudeText) &&
+            Number(coordinates?.[0]) === Number(longitudeText)
+          );
+        });
+        const matchingCoordinateAndName = coordinateMatches.find(
+          (feature) => slugifyLocationName(feature.properties?.name) === slug,
+        );
+        if (matchingCoordinateAndName) return matchingCoordinateAndName;
+        if (coordinateMatches.length === 1) return coordinateMatches[0];
+
+        const nameMatches = features.filter(
+          (feature) => slugifyLocationName(feature.properties?.name) === slug,
+        );
+        return nameMatches.length === 1 ? nameMatches[0] : undefined;
+      }
+
+      function slugifyLocationName(value) {
+        return (
+          normalizeSearchText(String(value || "poi"))
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "") || "poi"
+        );
+      }
+
+      function getShareableFeatureReference(feature) {
+        const [longitude, latitude] = feature.geometry.coordinates;
+        return `${slugifyLocationName(feature.properties?.name)}-${latitude}-${longitude}`;
       }
 
       function restoreMapStateFromUrl() {
@@ -1705,8 +1745,11 @@
 
         map.setView([latitude, longitude], zoom, { animate: false });
         if (selectedFeature) {
-          highlightRow(selected);
-          markers[selected]?.openPopup();
+          const reference = getFeatureReference(selectedFeature);
+          if (reference) {
+            highlightRow(reference.key);
+            markers[reference.key]?.openPopup();
+          }
         }
       }
 
@@ -2085,8 +2128,14 @@
           currentHighlightedRow.classList.remove("highlighted");
         }
         const url = new URL(window.location.href);
-        url.searchParams.set("selected", String(id));
-        window.history.replaceState(null, "", url);
+        const selectedFeature = getFeatureByReference(id);
+        if (selectedFeature) {
+          url.searchParams.set(
+            "selected",
+            getShareableFeatureReference(selectedFeature),
+          );
+          window.history.replaceState(null, "", url);
+        }
         if (
           currentHighlightedLocationKey &&
           currentHighlightedLocationKey !== String(id)
