@@ -8,8 +8,6 @@ namespace Geensnor\Advies;
  * Advies van Geensnor. Geladen uit een GeoJSON-bestand.
  *
  */
-
-
 final readonly class Advies
 {
     public function __construct(
