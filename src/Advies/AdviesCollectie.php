@@ -18,12 +18,12 @@ final readonly class AdviesCollectie
 
     public static function vanBestand(string $pad): self
     {
-        $inhoud = @file_get_contents($pad);
 
-        if ($inhoud === false) {
+
+        if (! is_file($pad) || ! is_readable($pad)) {
             throw new \RuntimeException("Kan bestand niet lezen: {$pad}");
         }
-
+        $inhoud = file_get_contents($pad);
         $data = json_decode($inhoud, true, flags: JSON_THROW_ON_ERROR);
 
         if (! isset($data['name'], $data['features']) || ! is_array($data['features'])) {
