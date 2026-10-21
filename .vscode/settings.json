@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^sed -n '/\\^    <script>\\$/,/\\^    <\\\\/script>\\$/p' index\\.html \\| sed '1d;\\$d' \\| node --check && sed -n '/\\^    <script>\\$/,/\\^    <\\\\/script>\\$/p' add-location\\.html \\| sed '1d;\\$d' \\| node --check && php -l api/locations\\.php$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

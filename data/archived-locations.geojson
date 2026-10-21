@@ -1,0 +1,6 @@
+{
+    "$schema": "https://geensnor.nl/schemas/geensnor-hotspots-schema.json",
+    "type": "FeatureCollection",
+    "name": "Archived Places of Interest",
+    "features": []
+}
