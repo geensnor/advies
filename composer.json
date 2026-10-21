@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "vendor/bin/pest",
-    "test:coverage": "vendor/bin/pest --coverage"
+    "test:coverage": "vendor/bin/pest --coverage",
+    "check": "phpstan analyze"
   },
   "autoload": {
     "psr-4": {
@@ -10,7 +11,8 @@
     }
   },
   "require-dev": {
-    "pestphp/pest": "^5.3"
+    "pestphp/pest": "^5.3",
+    "phpstan/phpstan": "^2.3"
   },
   "config": {
     "allow-plugins": {
