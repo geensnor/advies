@@ -1,5 +1,7 @@
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 name: Upload Advies
 jobs:
   web-deploy:
@@ -8,8 +10,14 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v7
-      - name: Generate production autoloader
-        run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4.0
+          tools: composer:v2
+          coverage: xdebug
+      - name: Install Dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -21,3 +29,4 @@ jobs:
             **/.git*/**
             **/.ddev*/**
             **/.vscode*/**
+            **/.tests*/**
