@@ -18,7 +18,17 @@ final readonly class AdviesCollectie
 
     public static function vanBestand(string $pad): self
     {
-        $data = json_decode(file_get_contents($pad), true, flags: JSON_THROW_ON_ERROR);
+        $inhoud = @file_get_contents($pad);
+
+        if ($inhoud === false) {
+            throw new \RuntimeException("Kan bestand niet lezen: {$pad}");
+        }
+
+        $data = json_decode($inhoud, true, flags: JSON_THROW_ON_ERROR);
+
+        if (! isset($data['name'], $data['features']) || ! is_array($data['features'])) {
+            throw new \InvalidArgumentException("Ongeldige structuur in {$pad}: 'name' en 'features' zijn verplicht.");
+        }
 
         return new self(
             $data['name'],
