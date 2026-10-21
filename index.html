@@ -1626,7 +1626,12 @@
             ]);
             allFeatures = activeData.features || [];
             archivedFeatures = archivedData.features || [];
-            showAllLocations(new URLSearchParams(window.location.search).has("selected"));
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get("selected")?.startsWith("archived-")) {
+              locationView = "archived";
+              document.getElementById("locationView").value = locationView;
+            }
+            showAllLocations(urlParams.has("selected"));
             restoreMapStateFromUrl();
           })
           .catch((error) => {
@@ -2079,6 +2084,9 @@
         if (currentHighlightedRow) {
           currentHighlightedRow.classList.remove("highlighted");
         }
+        const url = new URL(window.location.href);
+        url.searchParams.set("selected", String(id));
+        window.history.replaceState(null, "", url);
         if (
           currentHighlightedLocationKey &&
           currentHighlightedLocationKey !== String(id)
