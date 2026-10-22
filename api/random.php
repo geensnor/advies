@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
 
 
-$collectie = AdviesCollectie::vanBestand(__DIR__ . '../../data/locations.geojson');
+$collectie = AdviesCollectie::vanBestand(__DIR__ . '/../data/locations.geojson');
 $randomAdvies = $collectie->geefRandom();
 
 echo json_encode($randomAdvies);
