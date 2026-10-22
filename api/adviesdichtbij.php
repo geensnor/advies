@@ -38,7 +38,7 @@ try {
 }
 http_response_code(200);
 
-$collectie = AdviesCollectie::vanBestand(__DIR__ . '../../data/locations.geojson');
+$collectie = AdviesCollectie::vanBestand(__DIR__ . '/../data/locations.geojson');
 $adviesDichtbij = $collectie->dichtstbijzijnde(new Locatie($location['latitude'], $location['longitude']), $location['limit']);
 
 echo json_encode($adviesDichtbij);
