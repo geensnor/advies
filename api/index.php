@@ -1,0 +1,1 @@
+<a href="openapi.yaml" target="_blank">openapi.yaml</a>

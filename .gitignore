@@ -8,3 +8,4 @@ data/archived-locations.geojson.before-kmz-*
 .DS_Store
 data/locations.geojson
 vendor/
+openapi.yaml

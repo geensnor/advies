@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Geensnor\Advies;
 
+use OpenApi\Attributes as OA;
+
+#[OA\Schema(schema: 'Kompasrichting', description: 'Enumiratie van kompasrichting in 16 richtingen')]
 enum Kompasrichting: string
 {
     case N = 'N';

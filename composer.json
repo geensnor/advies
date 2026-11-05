@@ -2,13 +2,17 @@
   "scripts": {
     "test": "vendor/bin/pest",
     "test:coverage": "vendor/bin/pest --coverage",
-    "check": "phpstan analyze"
+    "check": "phpstan analyze",
+    "generate:openapi": "vendor/bin/openapi src --output api/openapi.yaml"
   },
   "autoload": {
     "psr-4": {
-      "Geensnor\\": "src/",
+      "Geensnor\\Advies\\": "src/",
       "Tests\\": "tests/"
     }
+  },
+  "require": {
+    "zircote/swagger-php": "^6.20"
   },
   "require-dev": {
     "pestphp/pest": "^5.3",
