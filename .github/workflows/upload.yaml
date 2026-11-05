@@ -31,4 +31,5 @@ jobs:
             **/.git*/**
             **/.ddev*/**
             **/.vscode*/**
-            **/.tests*/**
+            **/tests*/**
+            **/vendor*/** # ja, beetje raar om vendor niet te uploaden, maar we gebruiken de boel toch alleen voor dev dingen.
