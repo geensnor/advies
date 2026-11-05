@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace Geensnor\Advies;
 
+use OpenApi\Attributes as OA;
+
 /**
  * Locatie
  *
  */
+#[OA\Schema(schema: 'Locatie')]
 final readonly class Locatie
 {
     public function __construct(
+        #[OA\Property(description: 'latitude', example: '52.3676')]
         public float $latitude,
+        #[OA\Property(description: 'longtitude', example: '4.9041')]
         public float $longitude,
     ) {}
 
