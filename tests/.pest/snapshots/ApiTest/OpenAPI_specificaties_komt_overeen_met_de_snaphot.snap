@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  title: 'Geensnor Advies API'
+  description: 'Een API voor adviezen. Altijd dichtbij, altijd relevant.'
+  version: 1.0.0
+paths:
+  /api/random.php:
+    get:
+      tags:
+        - Advies
+      summary: 'Haalt een willekeurig advies op'
+      operationId: getRandomAdvies
+      responses:
+        '200':
+          description: 'Een willekeurig advies'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Advies'
+  /api/adviesDichtbij.php:
+    get:
+      tags:
+        - Advies
+      summary: 'Haal adviezen in de buurt van een locatie op'
+      operationId: getAdviesDichtbij
+      parameters:
+        -
+          name: latitude
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Latitude'
+        -
+          name: longitude
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Longitude'
+        -
+          name: limit
+          in: query
+          description: 'Maximaal aantal adviezen'
+          required: false
+          schema:
+            type: integer
+            default: 1
+            maximum: 100
+            minimum: 1
+      responses:
+        '200':
+          description: 'Adviezen in de buurt'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocatieBezoek'
+        '400':
+          description: 'Ontbrekende of ongeldige parameters'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiFout'
+components:
+  schemas:
+    Advies:
+      description: 'Advies van Geensnor. Geladen uit een GeoJSON-bestand.'
+      properties:
+        locatie:
+          $ref: '#/components/schemas/Locatie'
+        naam:
+          description: 'Naam van het advies'
+          type: string
+          example: 'Café De Brakke Emmer'
+        categorie:
+          description: 'Categorie van het advies'
+          type: string
+          example: Café
+        omschrijving:
+          description: 'Omschrijving van het advies'
+          type: string
+          example: 'Lekker bier, brakke kutbediening'
+        plaatsnaam:
+          description: Plaatsnaam
+          type: string
+          example: Diepenveen
+        vermijden:
+          description: 'Is dit een advies om juist niet heen te gaan?'
+          type: boolean
+          example: true
+        afbeelding:
+          description: 'URL van mooie afbeelding bij het advies'
+          type: string
+          example: 'https://example.com/echt-mooi-dit.jpg'
+          nullable: true
+      type: object
+    Latitude:
+      type: number
+      format: float
+      example: 52.3676
+      maximum: 90
+      minimum: -90
+    Longitude:
+      type: number
+      format: float
+      example: 4.9041
+      maximum: 180
+      minimum: -180
+    ApiFout:
+      description: 'Foutmelding bij ongeldige invoer'
+      properties:
+        error:
+          type: string
+          example: invalid_input
+        message:
+          type: string
+          example: 'Missing latitude or longitude parameters.'
+      type: object
+    Kompasrichting:
+      description: 'Enumiratie van kompasrichting in 16 richtingen'
+      type: string
+      enum:
+        - 'N'
+        - NNO
+        - 'NO'
+        - ONO
+        - O
+        - OZO
+        - ZO
+        - ZZO
+        - Z
+        - ZZW
+        - ZW
+        - WZW
+        - W
+        - WNW
+        - NW
+        - NNW
+    Locatie:
+      description: Locatie
+      properties:
+        latitude:
+          description: latitude
+          type: number
+          format: float
+          example: '52.3676'
+        longitude:
+          description: longtitude
+          type: number
+          format: float
+          example: '4.9041'
+      type: object
+    LocatieBezoek:
+      description: "Een lokatiebezoek\n\nEen locatie die kan bezoeken met een afstand enzo."
+      properties:
+        advies:
+          $ref: '#/components/schemas/Advies'
+        afstand:
+          description: 'Afstand tot het advies in kilometer met heel veel decimalen'
+          type: number
+          format: float
+          example: '12.425528619505124'
+        richting:
+          description: 'Kompasrichting tot het advies in hele graden'
+          type: number
+          format: float
+          example: '44'
+        kompasrichting:
+          $ref: '#/components/schemas/Kompasrichting'
+        OpenStreetMapRoute:
+          description: 'URL van de OpenStreetMap-route naar het advies'
+          type: string
+          example: 'https://www.openstreetmap.org/directions?from=52.3667%2C4.8945&to=52.3719%2C4.8934'
+      type: object
+tags:
+  -
+    name: Advies
+    description: 'Endpoints voor het ophalen van adviezen'
