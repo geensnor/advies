@@ -18,22 +18,20 @@ final readonly class AdviesCollectie
 
     public static function vanBestand(string $pad): self
     {
-
-
-        if (! is_file($pad) || ! is_readable($pad)) {
+        if (!is_file($pad) || !is_readable($pad)) {
             throw new \RuntimeException("Kan bestand niet lezen: {$pad}");
         }
         $inhoud = file_get_contents($pad);
+        if ($inhoud === false) {
+            throw new \RuntimeException("Kan bestand niet lezen: {$pad}");
+        }
         $data = json_decode($inhoud, true, flags: JSON_THROW_ON_ERROR);
 
-        if (! isset($data['name'], $data['features']) || ! is_array($data['features'])) {
+        if (!isset($data['name'], $data['features']) || !is_array($data['features'])) {
             throw new \InvalidArgumentException("Ongeldige structuur in {$pad}: 'name' en 'features' zijn verplicht.");
         }
 
-        return new self(
-            $data['name'],
-            array_map(Advies::vanFeature(...), $data['features']),
-        );
+        return new self($data['name'], array_values(array_map(Advies::vanFeature(...), $data['features'])));
     }
 
     /**
@@ -43,12 +41,9 @@ final readonly class AdviesCollectie
      */
     public function dichtstbijzijnde(Locatie $auidig, int $aantal = 5): array
     {
-        $bezoeken = array_map(
-            fn(Advies $a) => LocatieBezoek::vanuit($auidig, $a),
-            $this->Advies
-        );
+        $bezoeken = array_map(static fn(Advies $a) => LocatieBezoek::vanuit($auidig, $a), $this->Advies);
 
-        usort($bezoeken, fn($a, $b) => $a->afstand <=> $b->afstand);
+        usort($bezoeken, static fn($a, $b) => $a->afstand <=> $b->afstand);
 
         return array_slice($bezoeken, 0, $aantal);
     }
