@@ -32,4 +32,3 @@ jobs:
             **/.ddev*/**
             **/.vscode*/**
             **/tests/**
-            **/vendor/**
