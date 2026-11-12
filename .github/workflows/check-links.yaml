@@ -1,0 +1,17 @@
+name: Check links
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download locations.geojson
+        run: curl -sSfL https://advies.geensnor.nl/data/locations.geojson -o locations.geojson
+
+      - name: Check links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: -vvv locations.geojson
+          fail: true
