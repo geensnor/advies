@@ -1382,6 +1382,7 @@
       let userLocationLayer = null;
       let nearbyCenter = null;
       let nearbyRadiusKm = 2;
+      let nearbyRadiusFilterActive = false;
 
       function createPinIcon(color = "#385d64", avoid = false) {
         const face = avoid
@@ -1449,11 +1450,14 @@
               fillOpacity: 1,
             });
             userLocationLayer = L.featureGroup([accuracy, marker]).addTo(map);
+            nearbyCenter = L.latLng(position[0], position[1]);
             if (button.id === "locateUserListButton") {
-              nearbyCenter = L.latLng(position[0], position[1]);
+              nearbyRadiusFilterActive = true;
               renderNearbyList();
             } else {
               map.setView(position, Math.max(map.getZoom(), 15));
+              if (nearbyRadiusFilterActive) renderNearbyList();
+              else displayTable(visibleFeatures());
               message.textContent = `Locatie gevonden (nauwkeurigheid ongeveer ${Math.round(coords.accuracy)} m).`;
             }
             button.disabled = false;
@@ -1950,7 +1954,7 @@
       }
 
       function filterFeaturesByNearbyDistance(features) {
-        if (!nearbyCenter) return features;
+        if (!nearbyCenter || !nearbyRadiusFilterActive) return features;
         const maxDistance = nearbyRadiusKm * 1000;
         return features.filter(
           (feature) => distanceFromNearbyCenter(feature) <= maxDistance,
@@ -1975,6 +1979,7 @@
       }
 
       function clearNearbyFilter() {
+        nearbyRadiusFilterActive = false;
         nearbyCenter = null;
         document.getElementById("nearbyFilterTools").hidden = true;
         displayTable(visibleFeatures());
@@ -2011,6 +2016,7 @@
       function showAllLocations(preserveMapState = false) {
         document.getElementById("locationSearch").value = "";
         document.getElementById("searchResults").classList.remove("show");
+        nearbyRadiusFilterActive = false;
         nearbyCenter = null;
         document.getElementById("nearbyFilterTools").hidden = true;
         const heading =
