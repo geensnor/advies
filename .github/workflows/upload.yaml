@@ -22,6 +22,8 @@ jobs:
         run: vendor/bin/openapi src -o api/openapi.yaml
       - name: API Docs genereren
         run: npx @redocly/cli build-docs api/openapi.yaml --output api/index.html
+      - name: Test draaien
+        run: composer test
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
