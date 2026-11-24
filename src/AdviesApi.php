@@ -11,6 +11,7 @@ use OpenApi\Attributes as OA;
     version: '1.0.0',
     description: 'Een API voor adviezen. Altijd dichtbij, altijd relevant.'
 )]
+#[OA\Server(url: 'https://advies.geensnor.nl/api', description: 'Productie')]
 #[OA\Tag(name: 'Advies', description: 'Endpoints voor het ophalen van adviezen')]
 #[OA\Schema(schema: 'Latitude', type: 'number', format: 'float', minimum: -90, maximum: 90, example: 52.3676)]
 #[OA\Schema(schema: 'Longitude', type: 'number', format: 'float', minimum: -180, maximum: 180, example: 4.9041)]
@@ -28,7 +29,7 @@ class AdviesApi
     }
 
     #[OA\Get(
-        path: '/api/random.php',
+        path: '/random.php',
         operationId: 'getRandomAdvies',
         summary: 'Haalt een willekeurig advies op',
         tags: ['Advies'],
@@ -46,7 +47,7 @@ class AdviesApi
     }
 
     #[OA\Get(
-        path: '/api/adviesDichtbij.php',
+        path: '/adviesDichtbij.php',
         operationId: 'getAdviesDichtbij',
         summary: 'Haal adviezen in de buurt van een locatie op',
         tags: ['Advies'],

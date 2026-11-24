@@ -3,8 +3,12 @@ info:
   title: 'Geensnor Advies API'
   description: 'Een API voor adviezen. Altijd dichtbij, altijd relevant.'
   version: 1.0.0
+servers:
+  -
+    url: 'https://advies.geensnor.nl/api'
+    description: Productie
 paths:
-  /api/random.php:
+  /random.php:
     get:
       tags:
         - Advies
@@ -17,7 +21,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Advies'
-  /api/adviesDichtbij.php:
+  /adviesDichtbij.php:
     get:
       tags:
         - Advies
