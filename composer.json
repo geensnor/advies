@@ -3,7 +3,8 @@
     "test": "vendor/bin/pest",
     "test:coverage": "vendor/bin/pest --coverage",
     "check": "phpstan analyze",
-    "generate:openapi": "vendor/bin/openapi src --output api/openapi.yaml"
+    "generate:openapi": "vendor/bin/openapi src --output api/openapi.yaml",
+    "generate:apidocs": "npx @redocly/cli build-docs api/openapi.yaml --output api/index.html"
   },
   "autoload": {
     "psr-4": {

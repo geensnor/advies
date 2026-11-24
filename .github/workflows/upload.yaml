@@ -20,6 +20,8 @@ jobs:
         run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
       - name: OpenAPI spec genereren
         run: vendor/bin/openapi src -o api/openapi.yaml
+      - name: API Docs genereren
+        run: npx @redocly/cli build-docs api/openapi.yaml --output api/index.html
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:

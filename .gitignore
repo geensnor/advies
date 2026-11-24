@@ -9,3 +9,4 @@ data/archived-locations.geojson.before-kmz-*
 data/locations.geojson
 vendor/
 openapi.yaml
+api/index.html
