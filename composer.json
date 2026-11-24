@@ -13,10 +13,10 @@
     }
   },
   "require": {
-    "zircote/swagger-php": "^6.20"
+    "zircote/swagger-php": "^6.20",
+    "pestphp/pest": "^5.3"
   },
   "require-dev": {
-    "pestphp/pest": "^5.3",
     "phpstan/phpstan": "^2.3"
   },
   "config": {
